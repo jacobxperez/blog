@@ -1,4 +1,4 @@
-# [Jacob Perez Blog](https://jacobxperez.github.io/essentials/)
+# [Jacob Perez Blog](https://jacobxperez.github.io/blog/)
 
 ## LICENSE
 
