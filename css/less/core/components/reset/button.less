@@ -1,0 +1,21 @@
+// Button
+// ----------------------------------------------------------------------------/
+.button {
+    display: inline-block;
+    .padding(@button-padding-y; @button-padding-x);
+    .border-radius(@button-border-radius);
+    background-color: transparent;
+    color: @button-color;
+    cursor: pointer;
+
+    &:hover,
+    &:active {
+        outline: 0;
+        text-decoration: none;
+    }
+
+    &:focus {
+        outline: thin dotted;
+        outline-offset: unit((-2px / @font-size), rem);
+    }
+}

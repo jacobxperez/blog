@@ -1,0 +1,33 @@
+// Display
+// ----------------------------------------------------------------------------/
+.inline {
+    display: inline;
+}
+
+.block {
+    display: block;
+}
+
+.small-display () {
+    .@{small-prefix}none,
+    .@{medium-prefix}block,
+    .@{large-prefix}block {
+        display: none;
+    }
+}
+
+.medium-display () {
+    .@{medium-prefix}none,
+    .@{small-prefix}block,
+    .@{large-prefix}block {
+        display: none;
+    }
+}
+
+.large-display () {
+    .@{large-prefix}none,
+    .@{small-prefix}block,
+    .@{medium-prefix}block {
+        display: none;
+    }
+}

@@ -1,0 +1,41 @@
+// List Items dl, ol, ul
+// ----------------------------------------------------------------------------/
+dl,
+ol,
+ul {
+    list-style-type: none;
+}
+
+.dl,
+.ol,
+.ul {
+    &:extend(.leading);
+
+    .dl,
+    .ol,
+    .ul {
+        margin-bottom: 0;
+    }
+}
+
+.ol {
+    list-style-type: @ol-list-style-type;
+
+    > li > .ol {
+        list-style-type: @ol-list-style-type-sub;
+    }
+}
+
+.ul {
+    list-style-type: @ul-list-style-type;
+
+    > li > .ul {
+        list-style-type: @ul-list-style-type-sub;
+    }
+}
+
+.ol,
+.ul {
+    .padding-left(@line-height);
+    list-style-position: outside;
+}

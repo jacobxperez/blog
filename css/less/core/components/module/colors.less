@@ -1,0 +1,150 @@
+// Background Colors
+// ----------------------------------------------------------------------------/
+.primary {
+    background-color: @primary;
+    color: @primary-text;
+}
+
+.primary-hover {
+    &.active,
+    &:hover,
+    &:active {
+        background-color: @primary-hover;
+        color: @primary-text;
+    }
+}
+
+.secondary {
+    background-color: @secondary;
+    color: @secondary-text;
+}
+
+.secondary-hover {
+    &.active,
+    &:hover,
+    &:active {
+        background-color: @secondary-hover;
+        color: @secondary-text;
+    }
+}
+
+.light {
+    background-color: @light;
+    color: @light-text;
+}
+
+.light-hover {
+    &.active,
+    &:hover,
+    &:active {
+        background-color: @light-hover;
+        color: @light-text;
+    }
+}
+
+.dark {
+    background-color: @dark;
+    color: @dark-text;
+}
+
+.dark-hover {
+    &.active,
+    &:hover,
+    &:active {
+        background-color: @dark-hover;
+        color: @dark-text;
+    }
+}
+
+.success {
+    background-color: @success;
+    color: @success-text;
+}
+
+.success-hover {
+    &.active,
+    &:hover,
+    &:active {
+        background-color: @success-hover;
+        color: @success-text;
+    }
+}
+
+.warning {
+    background-color: @warning;
+    color: @warning-text;
+}
+
+.warning-hover {
+    &.active,
+    &:hover,
+    &:active {
+        background-color: @warning-hover;
+        color: @warning-text;
+    }
+}
+
+.danger {
+    background-color: @danger;
+    color: @danger-text;
+}
+
+.danger-hover {
+    &.active,
+    &:hover,
+    &:active {
+        background-color: @danger-hover;
+        color: @danger-text;
+    }
+}
+
+
+// Text Colors
+// ----------------------------------------------------------------------------/
+.primary-text {
+    color: @primary;
+}
+
+.secondary-text {
+    color: @secondary;
+}
+
+.light-text {
+    color: @light;
+}
+
+.dark-text {
+    color: @dark;
+}
+
+.success-text {
+    color: @success;
+}
+
+.warning-text {
+    color: @warning;
+}
+
+.danger-text {
+    color: @danger;
+}
+
+
+// Disabled
+// ----------------------------------------------------------------------------/
+.disabled {
+    background-color: @disabled;
+    color: @disabled-text;
+    cursor: not-allowed;
+
+    &:hover,
+    &:active {
+        background-color: @disabled;
+        color: @disabled-text;
+        decoration: none;
+    }
+
+    &:focus {
+        outline: 0;
+    }
+}

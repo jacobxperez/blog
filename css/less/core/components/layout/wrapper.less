@@ -1,0 +1,27 @@
+// Wrapper
+// ----------------------------------------------------------------------------/
+.wrapper {
+    display: grid;
+    .column-gap(@wrapper-gap);
+    width: 100%;
+    .min-width(@wrapper-min-width);
+    .max-width(@wrapper-max-width);
+    margin: 0 auto;
+    .padding-left(@wrapper-gap);
+    .padding-right(@wrapper-gap);
+}
+
+body > .wrapper:first-child {
+    .margin-top(@wrapper-margin-top);
+}
+
+body > .wrapper:last-child {
+    .margin-bottom(@wrapper-margin-bottom);
+}
+
+// mixin call for utilities
+.fixed-top-wrapper () {
+    + .wrapper {
+        .margin-top(@line-height * 4);
+    }
+}

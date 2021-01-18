@@ -1,0 +1,48 @@
+// Navigation
+// ----------------------------------------------------------------------------/
+.nav-link {
+    display: block;
+    .padding(@nav-link-padding-y; @nav-link-padding-x);
+    color: @nav-link-color;
+
+    &.active,
+    &:hover,
+    &:active {
+        color: @nav-link-color-hover;
+        text-decoration: none;
+    }
+}
+
+.light-link {
+    color: @light-link;
+
+    &.active,
+    &:hover,
+    &:active {
+        color: @light-link-hover;
+    }
+}
+
+// mixin call for utilities
+.fixed-top-nav () {
+    .wrapper > ul {
+        .margin-left(-@nav-link-padding-x);
+        .margin-right(-@nav-link-padding-x);
+    }
+}
+
+
+// Breadcrumb
+// ----------------------------------------------------------------------------/
+.breadcrumb {
+    li::after {
+        content: @breadcrumb-separator;
+        .margin-right(4px);
+    }
+
+    li:only-child::after,
+    li:last-child::after {
+        content: "";
+        margin-right: 0;
+    }
+}

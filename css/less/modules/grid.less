@@ -1,0 +1,48 @@
+// Grid
+// ----------------------------------------------------------------------------/
+.grid {
+    display: grid;
+    .column-gap(@wrapper-gap);
+    grid-template-columns: repeat(4, 1fr);
+
+    header,
+    footer {
+        grid-column: 1 ~"/" -1;
+    }
+
+    article,
+    section {
+        grid-column: span 3;
+    }
+}
+
+
+// Small Breakpoint
+// ----------------------------------------------------------------------------/
+.small-grid () {
+
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+
+        article,
+        section,
+        aside,
+        nav {
+            grid-column: 1 ~"/" -1;
+        }
+    }
+}
+
+
+// Medium Breakpoint
+// ----------------------------------------------------------------------------/
+.medium-grid () {
+    // Add code
+}
+
+
+// Large Breakpoint
+// ----------------------------------------------------------------------------/
+.large-grid () {
+    // Add code
+}
