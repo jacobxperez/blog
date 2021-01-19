@@ -1,5 +1,7 @@
 # [Jacob Perez](https://jacobxperez.github.io/blog/)
 
+My personal blog 
+
 ## Post
 
 [The 80/20 Principle](https://jacobxperez.github.io/blog/post/the-80-20-principle/)
