@@ -10,7 +10,7 @@ Copyright (C) 2021 [Jacob Perez](https://github.com/jacobxperez)
 
 ### Content
 
-Attribution-ShareAlike 4.0 International ([CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)) 
+Licensed under the [Attribution-ShareAlike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/) (CC BY-SA 4.0) 
 
 ### Code
 
