@@ -19,20 +19,42 @@
 
                 <li class="flex-grow"></li>
 
-                <li><a class="nav-link light-link" href="https://jacobxperez.github.io/blog/about/">About Me</a></li>
-                <li><a class="nav-link light-link" href="https://jacobxperez.github.io/blog/archive/">Archive</a></li>
+                <li class="sm-none"><a class="nav-link light-link"
+                        href="https://jacobxperez.github.io/blog/about/">About Me</a></li>
+                <li class="sm-none"><a class="nav-link light-link"
+                        href="https://jacobxperez.github.io/blog/archive/">Archive</a></li>
+
+                <!-- Dropdown Menu: show on small screens -->
+                <li class="sm-block">
+                    <a class="icon-menu nav-link light-link js-toggle js-toggle-reset"></a>
+
+                    <nav class="drop-box dark absolute left">
+                        <div class="wrapper">
+                            <ul>
+                                <li><a class="nav-link light-link"
+                                        href="https://jacobxperez.github.io/blog/about/">About Me</a></li>
+                                <li><a class="nav-link light-link"
+                                        href="https://jacobxperez.github.io/blog/archive/">Archive</a></li>
+                            </ul>
+                        </div>
+                    </nav>
+                </li>
+                <!-- end Dropdown Menu -->
+            </ul>
         </div>
     </nav>
     <!-- end Navbar -->
 
-    <header class="wrapper">
-        <h1>Jacob Perez</h1>
+    <header>
+        <div class="wrapper">
+            <h1>Jacob Perez</h1>
 
-        <hr>
+            <hr>
+        </div>
     </header>
 
-    <main class="wrapper">
-        <div class="grid">
+    <main>
+        <div class="wrapper grid">
             <aside>
 
             </aside>
@@ -49,15 +71,17 @@
         </div>
     </main>
 
-    <footer class="wrapper">
-        <hr>
+    <footer>
+        <div class="wrapper">
+            <hr>
 
-        <p><small>&copy; 2021 <a href=" https://jacobxperez.github.io/blog/" rel="author">Jacob
-                    Perez</a> content licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/"
-                    rel="license">CC
-                    BY-SA 4.0</a></small></p>
+            <p><small>&copy; 2021 <a href="https://jacobxperez.github.io/blog/" rel="author">Jacob
+                        Perez</a> content licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/"
+                        rel="license">CC
+                        BY-SA 4.0</a></small></p>
 
             <script src="js/script.js"></script>
+        </div>
     </footer>
 </body>
 

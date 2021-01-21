@@ -19,20 +19,42 @@
 
                 <li class="flex-grow"></li>
 
-                <li><a class="nav-link light-link" href="https://jacobxperez.github.io/blog/about/">About Me</a></li>
-                <li><a class="nav-link light-link" href="https://jacobxperez.github.io/blog/archive/">Archive</a></li>
+                <li class="sm-none"><a class="nav-link light-link"
+                        href="https://jacobxperez.github.io/blog/about/">About Me</a></li>
+                <li class="sm-none"><a class="nav-link light-link"
+                        href="https://jacobxperez.github.io/blog/archive/">Archive</a></li>
+
+                <!-- Dropdown Menu: show on small screens -->
+                <li class="sm-block">
+                    <a class="icon-menu nav-link light-link js-toggle js-toggle-reset"></a>
+
+                    <nav class="drop-box dark absolute left">
+                        <div class="wrapper">
+                            <ul>
+                                <li><a class="nav-link light-link"
+                                        href="https://jacobxperez.github.io/blog/about/">About Me</a></li>
+                                <li><a class="nav-link light-link"
+                                        href="https://jacobxperez.github.io/blog/archive/">Archive</a></li>
+                            </ul>
+                        </div>
+                    </nav>
+                </li>
+                <!-- end Dropdown Menu -->
+            </ul>
         </div>
     </nav>
     <!-- end Navbar -->
 
-    <header class="wrapper">
-        <h1>The 80/20 Principle</h1>
+    <header>
+        <div class="wrapper">
+            <h1>The 80/20 Principle</h1>
 
-        <hr>
+            <hr>
+        </div>
     </header>
 
-    <main class="wrapper">
-        <div class="grid">
+    <main>
+        <div class="wrapper grid">
             <aside>
                 <p>by <a href="https://jacobxperez.github.io/blog/about/">Jacob Perez</a></p>
             </aside>
@@ -150,10 +172,10 @@
                     will only cause inefficient results. Therefore, it is often best to settle for a satisfying solution
                     rather than searching for an optimal one.</p>
 
-                <footer>
-                    <h2>Reference</h2>
+                <footer class="reference">
+                    <h6 class="h5"><strong>Reference</strong></h6>
 
-                    <ul class="reference">
+                    <ul>
                         <li>
                             <p>Babauta, L. (2009). The power of less: The fine art of limiting yourself to the essential
                                 in business and life. New York: Hyperion. </p>
@@ -180,19 +202,21 @@
                         </li>
                     </ul>
                 </footer>
-            </div>
-        </main>
+            </article>
+        </div>
     </main>
 
-    <footer class="wrapper">
-        <hr>
-        
-        <p><small>&copy; 2021 <a href="https://jacobxperez.github.io/blog/" rel="author">Jacob
-                    Perez</a> content licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/"
-                    rel="license">CC
-                    BY-SA 4.0</a></small></p>
+    <footer>
+        <div class="wrapper">
+            <hr>
 
-        <script src="../../js/script.js"></script>
+            <p><small>&copy; 2021 <a href="https://jacobxperez.github.io/blog/" rel="author">Jacob
+                        Perez</a> content licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/"
+                        rel="license">CC
+                        BY-SA 4.0</a></small></p>
+
+            <script src="../../js/script.js"></script>
+        </div>
     </footer>
 </body>
 

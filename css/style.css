@@ -1500,6 +1500,14 @@ body>.wrapper:last-child {
     grid-column: span 3;
 }
 
+body>header {
+    padding-top: 6rem;
+}
+
+body>footer {
+    padding-bottom: 4.5rem;
+}
+
 .padding {
     padding: 0.5rem 0.75rem 0.5rem 0.75rem;
 }
