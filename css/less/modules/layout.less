@@ -1,0 +1,28 @@
+// Layout
+// ----------------------------------------------------------------------------/
+body {
+    > header,
+    > footer {
+        color: #eee;
+
+        .link {
+            color: #999;
+        }
+    }
+}
+
+body > header {
+    .padding-top(@line-height * 4);
+    .padding-bottom(@line-height);
+}
+
+body > footer {
+    .padding-top(@line-height);
+    .padding-bottom(@line-height * 3);
+}
+
+main {
+    .padding(@line-height, 0);
+    background-color: @font-color;
+    color: #555;
+}

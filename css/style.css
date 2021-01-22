@@ -47,8 +47,8 @@ body {
     font-weight: 400;
     line-height: 1.5;
     text-align: left;
-    color: #555;
-    background-color: #fff;
+    color: #eee;
+    background-color: #333;
 }
 
 h1,
@@ -292,7 +292,7 @@ select,
     display: inline-block;
     padding: 0.5rem 0.75rem 0.5rem 0.75rem;
     background-color: transparent;
-    color: #555;
+    color: #eee;
     cursor: pointer;
 }
 
@@ -377,7 +377,7 @@ body>.wrapper:last-child {
 .nav-link.active,
 .nav-link:hover,
 .nav-link:active {
-    color: #555;
+    color: #eee;
     text-decoration: none;
 }
 
@@ -408,7 +408,7 @@ body>.wrapper:last-child {
     width: 100%;
     min-width: 10rem;
     background-color: transparent;
-    color: #555;
+    color: #eee;
     z-index: 100;
 }
 
@@ -443,14 +443,14 @@ body>.wrapper:last-child {
 
 .light {
     background-color: #fff;
-    color: #555;
+    color: #eee;
 }
 
 .light-hover.active,
 .light-hover:hover,
 .light-hover:active {
     background-color: #f2f2f2;
-    color: #555;
+    color: #eee;
 }
 
 .dark {
@@ -1500,16 +1500,30 @@ body>.wrapper:last-child {
     grid-column: span 3;
 }
 
+body>header,
+body>footer {
+    color: #eee;
+}
+
+body>header .link,
+body>footer .link {
+    color: #999;
+}
+
 body>header {
-    margin-bottom: 1.5rem;
     padding-top: 6rem;
     padding-bottom: 1.5rem;
-    background-color: #333;
-    color: #fff;
 }
 
 body>footer {
+    padding-top: 1.5rem;
     padding-bottom: 4.5rem;
+}
+
+main {
+    padding: 1.5rem 0rem 1.5rem 0rem;
+    background-color: #eee;
+    color: #555;
 }
 
 .padding {
