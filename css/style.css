@@ -311,7 +311,7 @@ select,
 a {
     text-decoration: none;
     background-color: transparent;
-    color: #05f;
+    color: #333;
     cursor: pointer;
 }
 
@@ -371,7 +371,7 @@ body>.wrapper:last-child {
 .nav-link {
     display: block;
     padding: 0.5rem 0.75rem 0.5rem 0.75rem;
-    color: #05f;
+    color: #333;
 }
 
 .nav-link.active,
@@ -382,13 +382,13 @@ body>.wrapper:last-child {
 }
 
 .light-link {
-    color: #fff;
+    color: #eee;
 }
 
 .light-link.active,
 .light-link:hover,
 .light-link:active {
-    color: #bfbfbf;
+    color: #999;
 }
 
 .breadcrumb li::after {
@@ -418,14 +418,14 @@ body>.wrapper:last-child {
 }
 
 .primary {
-    background-color: #05f;
+    background-color: #333;
     color: #ffffff;
 }
 
 .primary-hover.active,
 .primary-hover:hover,
 .primary-hover:active {
-    background-color: #004de6;
+    background-color: #262626;
     color: #ffffff;
 }
 
@@ -442,15 +442,15 @@ body>.wrapper:last-child {
 }
 
 .light {
-    background-color: #fff;
-    color: #eee;
+    background-color: #eee;
+    color: #000000;
 }
 
 .light-hover.active,
 .light-hover:hover,
 .light-hover:active {
-    background-color: #f2f2f2;
-    color: #eee;
+    background-color: #999;
+    color: #000000;
 }
 
 .dark {
@@ -502,7 +502,7 @@ body>.wrapper:last-child {
 }
 
 .primary-text {
-    color: #05f;
+    color: #333;
 }
 
 .secondary-text {
@@ -510,7 +510,7 @@ body>.wrapper:last-child {
 }
 
 .light-text {
-    color: #fff;
+    color: #eee;
 }
 
 .dark-text {
@@ -1563,7 +1563,7 @@ main {
 }
 
 .border-primary {
-    border-color: #05f;
+    border-color: #333;
 }
 
 .border-secondary {
@@ -1801,13 +1801,13 @@ main {
 }
 
 ::-moz-selection {
-    background-color: #cde1ff;
-    color: #000000;
+    background-color: #000;
+    color: #ffffff;
     text-shadow: none;
 }
 
 ::selection {
-    background-color: #cde1ff;
-    color: #000000;
+    background-color: #000;
+    color: #ffffff;
     text-shadow: none;
 }

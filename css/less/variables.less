@@ -12,7 +12,7 @@
 // @link-color: @primary;
 
 // branding
-// @primary: #05f;
+@primary: #333;
 // @primary-text: contrast(@primary);
 // @primary-hover: darken(@primary, 5%);
 
@@ -20,9 +20,9 @@
 // @secondary-text: contrast(@secondary);
 // @secondary-hover: darken(@secondary, 5%);
 
-// @light: #fff;
-// @light-text: @font-color;
-// @light-hover: darken(@light, 5%);
+@light: @font-color;
+@light-text: contrast(@light);
+@light-hover: #999;
 
 // @dark: #252525;
 // @dark-text: contrast(@dark);
@@ -191,7 +191,7 @@
 
 // links
 // @light-link: @light;
-// @light-link-hover: darken(@light-link, 25%);
+@light-link-hover: #999;
 
 
 // Breadcrumb
@@ -240,5 +240,5 @@
 
 // Selection
 // ----------------------------------------------------------------------------/
-// @selection-background: #cde1ff;
+@selection-background: #000;
 // @selection-color: contrast(@selection-background);
