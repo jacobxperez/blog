@@ -4,7 +4,7 @@ My personal blog
 
 ## Post
 
-[The 80/20 Principle](https://jacobxperez.github.io/blog/post/the-80-20-principle/)
+[The 80/20 Principle](https://jacobxperez.github.io/blog/post/heuristic/the-80-20-principle/)
 
 ## LICENSE
 
