@@ -361,14 +361,6 @@ table {
     padding-right: 1.25rem;
 }
 
-body>.wrapper:first-child {
-    margin-top: 3rem;
-}
-
-body>.wrapper:last-child {
-    margin-bottom: 6rem;
-}
-
 .nav-link {
     display: block;
     padding: 0.5rem 0.75rem 0.5rem 0.75rem;
@@ -1485,22 +1477,6 @@ body>.wrapper:last-child {
     content: "\e0e5";
 }
 
-.grid {
-    display: grid;
-    column-gap: 1.25rem;
-    grid-template-columns: repeat(4, 1fr);
-}
-
-.grid header,
-.grid footer {
-    grid-column: 1 / -1;
-}
-
-.grid article,
-.grid section {
-    grid-column: span 3;
-}
-
 body>header,
 body>footer {
     color: #eee;
@@ -1521,10 +1497,35 @@ body>footer {
     padding-bottom: 4.5rem;
 }
 
+.fixed-top+.wrapper {
+    margin-top: 6rem;
+}
+
+.fixed-top .wrapper>ul {
+    margin-left: -0.75rem;
+    margin-right: -0.75rem;
+}
+
 main {
     padding: 1.5rem 0rem 1.5rem 0rem;
     background-color: #eee;
     color: #555;
+}
+
+.grid {
+    display: grid;
+    column-gap: 1.25rem;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.grid header,
+.grid footer {
+    grid-column: 1 / -1;
+}
+
+.grid article,
+.grid section {
+    grid-column: span 3;
 }
 
 .padding {
@@ -1650,15 +1651,6 @@ main {
     top: 0;
 }
 
-.fixed-top+.wrapper {
-    margin-top: 6rem;
-}
-
-.fixed-top .wrapper>ul {
-    margin-left: -0.75rem;
-    margin-right: -0.75rem;
-}
-
 .fixed-bottom {
     bottom: 0;
 }
@@ -1688,6 +1680,17 @@ main {
 }
 
 @media screen and (max-width: 42.5em) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .grid article,
+    .grid section,
+    .grid aside,
+    .grid nav {
+        grid-column: 1 / -1;
+    }
+
     .grid {
         grid-template-columns: 1fr;
     }
