@@ -3,16 +3,16 @@
 @background-color: #333;
 @font-color: #eee;
 @primary: #333;
-@light: @font-color;
-@light-text: contrast(@light);
-@light-hover: #999;
+@secondary: @font-color;
+@secondary-text: contrast(@secondary);
+@secondary-hover: #999;
 @font-scale: clamp(1rem, 1vw, 1.125rem);
-@light-link-hover: #999;
 @selection-background: #000;
 
 
 // Import custom modules or start writing them here
 // ----------------------------------------------------------------------------/
+@import "modules/grid.less";
 @import "modules/layout.less";
 
 

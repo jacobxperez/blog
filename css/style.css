@@ -3,7 +3,6 @@
  * Licensed under the Apache License, Version 2.0
  * http://www.apache.org/licenses/LICENSE-2.0
 ==============================================================================*/
-
 * {
     box-sizing: border-box;
     margin: 0;
@@ -361,6 +360,14 @@ table {
     padding-right: 1.25rem;
 }
 
+body>.wrapper:first-child {
+    margin-top: 3rem;
+}
+
+body>.wrapper:last-child {
+    margin-bottom: 6rem;
+}
+
 .nav-link {
     display: block;
     padding: 0.5rem 0.75rem 0.5rem 0.75rem;
@@ -374,14 +381,24 @@ table {
     text-decoration: none;
 }
 
-.light-link {
-    color: #eee;
+.alpha-link {
+    color: #ffffff;
 }
 
-.light-link.active,
-.light-link:hover,
-.light-link:active {
-    color: #999;
+.alpha-link.active,
+.alpha-link:hover,
+.alpha-link:active {
+    color: #bfbfbf;
+}
+
+.beta-link {
+    color: #000000;
+}
+
+.beta-link.active,
+.beta-link:hover,
+.beta-link:active {
+    color: #000000;
 }
 
 .breadcrumb li::after {
@@ -423,39 +440,39 @@ table {
 }
 
 .secondary {
-    background-color: #555;
-    color: #ffffff;
+    background-color: #eee;
+    color: #000000;
 }
 
 .secondary-hover.active,
 .secondary-hover:hover,
 .secondary-hover:active {
-    background-color: #484848;
-    color: #ffffff;
-}
-
-.light {
-    background-color: #eee;
-    color: #000000;
-}
-
-.light-hover.active,
-.light-hover:hover,
-.light-hover:active {
     background-color: #999;
     color: #000000;
 }
 
-.dark {
-    background-color: #252525;
+.tertiary {
+    background-color: #555;
     color: #ffffff;
 }
 
-.dark-hover.active,
-.dark-hover:hover,
-.dark-hover:active {
-    background-color: #181818;
+.tertiary-hover.active,
+.tertiary-hover:hover,
+.tertiary-hover:active {
+    background-color: #484848;
     color: #ffffff;
+}
+
+.primary-text {
+    color: #333;
+}
+
+.secondary-text {
+    color: #eee;
+}
+
+.tertiary-text {
+    color: #555;
 }
 
 .success {
@@ -492,22 +509,6 @@ table {
 .danger-hover:active {
     background-color: #b30000;
     color: #ffffff;
-}
-
-.primary-text {
-    color: #333;
-}
-
-.secondary-text {
-    color: #555;
-}
-
-.light-text {
-    color: #eee;
-}
-
-.dark-text {
-    color: #252525;
 }
 
 .success-text {
@@ -1477,41 +1478,6 @@ table {
     content: "\e0e5";
 }
 
-body>header,
-body>footer {
-    color: #eee;
-}
-
-body>header .link,
-body>footer .link {
-    color: #999;
-}
-
-body>header {
-    padding-top: 6rem;
-    padding-bottom: 1.5rem;
-}
-
-body>footer {
-    padding-top: 1.5rem;
-    padding-bottom: 4.5rem;
-}
-
-.fixed-top+.wrapper {
-    margin-top: 6rem;
-}
-
-.fixed-top .wrapper>ul {
-    margin-left: -0.75rem;
-    margin-right: -0.75rem;
-}
-
-main {
-    padding: 1.5rem 0rem 1.5rem 0rem;
-    background-color: #eee;
-    color: #555;
-}
-
 .grid {
     display: grid;
     column-gap: 1.25rem;
@@ -1526,6 +1492,32 @@ main {
 .grid article,
 .grid section {
     grid-column: span 3;
+}
+
+body>header {
+    padding-top: 6rem;
+    padding-bottom: 1.5rem;
+}
+
+body>footer {
+    padding-top: 1.5rem;
+    padding-bottom: 4.5rem;
+}
+
+body>header,
+body>footer {
+    color: #eee;
+}
+
+body>header .link,
+body>footer .link {
+    color: #999;
+}
+
+main {
+    padding: 1.5rem 0rem 1.5rem 0rem;
+    background-color: #eee;
+    color: #555;
 }
 
 .padding {
@@ -1569,11 +1561,11 @@ main {
 }
 
 .border-secondary {
-    border-color: #555;
+    border-color: #eee;
 }
 
-.border-dark {
-    border-color: #252525;
+.border-tertiary {
+    border-color: #555;
 }
 
 .border-success {
@@ -1655,6 +1647,15 @@ main {
     bottom: 0;
 }
 
+.fixed-top+.wrapper {
+    margin-top: 6rem;
+}
+
+.fixed-top .wrapper>ul {
+    margin-left: -0.75rem;
+    margin-right: -0.75rem;
+}
+
 .top {
     bottom: 100%;
 }
@@ -1681,18 +1682,7 @@ main {
 
 @media screen and (max-width: 42.5em) {
     .grid {
-        grid-template-columns: 1fr;
-    }
-
-    .grid article,
-    .grid section,
-    .grid aside,
-    .grid nav {
-        grid-column: 1 / -1;
-    }
-
-    .grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
     }
 
     .grid article,

@@ -1,5 +1,15 @@
 // Layout
 // ----------------------------------------------------------------------------/
+body > header {
+    .padding-top(@line-height * 4);
+    .padding-bottom(@line-height);
+}
+
+body > footer {
+    .padding-top(@line-height);
+    .padding-bottom(@line-height * 3);
+}
+
 body {
     > header,
     > footer {
@@ -11,78 +21,8 @@ body {
     }
 }
 
-body > header {
-    .padding-top(@line-height * 4);
-    .padding-bottom(@line-height);
-}
-
-body > footer {
-    .padding-top(@line-height);
-    .padding-bottom(@line-height * 3);
-}
-
-.fixed-top + .wrapper {
-    .margin-top(@line-height * 4);
-}
-
-.fixed-top .wrapper > ul {
-.margin-left(-@nav-link-padding-x);
-.margin-right(-@nav-link-padding-x);
-}
-
 main {
     .padding(@line-height, 0);
     background-color: @font-color;
     color: #555;
-}
-
-
-// Grid
-// ----------------------------------------------------------------------------/
-.grid {
-    display: grid;
-    .column-gap(@wrapper-gap);
-    grid-template-columns: repeat(4, 1fr);
-
-    header,
-    footer {
-        grid-column: 1 ~"/" -1;
-    }
-
-    article,
-    section {
-        grid-column: span 3;
-    }
-}
-
-
-// Small Screen Breakpoint
-// ----------------------------------------------------------------------------/
-.small-layout () {
-
-    .grid {
-        grid-template-columns: 1fr;
-
-        article,
-        section,
-        aside,
-        nav {
-            grid-column: 1 ~"/" -1;
-        }
-    }
-
-}
-
-
-// Medium Screen Breakpoint
-// ----------------------------------------------------------------------------/
-.medium-layout () {
-    // Add code
-}
-
-
-// Large Screen Breakpoint
-// ----------------------------------------------------------------------------/
-.large-layout () {
-    // Add code
 }
