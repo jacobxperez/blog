@@ -48,7 +48,7 @@ body {
     line-height: 1.5;
     text-align: left;
     color: #eee;
-    background-color: #333;
+    background-color: #363636;
 }
 
 h1,
@@ -311,7 +311,7 @@ select,
 a {
     text-decoration: none;
     background-color: transparent;
-    color: #333;
+    color: #222;
     cursor: pointer;
 }
 
@@ -371,7 +371,7 @@ body>.wrapper:last-child {
 .nav-link {
     display: block;
     padding: 0.5rem 0.75rem 0.5rem 0.75rem;
-    color: #333;
+    color: #222;
 }
 
 .nav-link.active,
@@ -428,14 +428,14 @@ body>.wrapper:last-child {
 }
 
 .primary {
-    background-color: #333;
+    background-color: #222;
     color: #ffffff;
 }
 
 .primary-hover.active,
 .primary-hover:hover,
 .primary-hover:active {
-    background-color: #262626;
+    background-color: #151515;
     color: #ffffff;
 }
 
@@ -464,7 +464,7 @@ body>.wrapper:last-child {
 }
 
 .primary-text {
-    color: #333;
+    color: #222;
 }
 
 .secondary-text {
@@ -1557,7 +1557,7 @@ main {
 }
 
 .border-primary {
-    border-color: #333;
+    border-color: #222;
 }
 
 .border-secondary {
