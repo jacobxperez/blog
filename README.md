@@ -8,7 +8,7 @@ My personal blog
 
 ## LICENSE
 
-Copyright (C) 2021 [Jacob Perez](https://github.com/jacobxperez)
+Copyright (C) 2022 [Jacob Perez](https://github.com/jacobxperez)
 
 ### Content
 
