@@ -47,8 +47,8 @@ body {
     font-weight: 400;
     line-height: 1.5;
     text-align: left;
-    color: #eee;
-    background-color: #363636;
+    color: #fff;
+    background-color: #121a35;
 }
 
 h1,
@@ -292,7 +292,7 @@ select,
     display: inline-block;
     padding: 0.5rem 0.75rem 0.5rem 0.75rem;
     background-color: transparent;
-    color: #eee;
+    color: #fff;
     cursor: pointer;
 }
 
@@ -311,7 +311,7 @@ select,
 a {
     text-decoration: none;
     background-color: transparent;
-    color: #222;
+    color: #0A0F1E;
     cursor: pointer;
 }
 
@@ -371,13 +371,13 @@ body>.wrapper:last-child {
 .nav-link {
     display: block;
     padding: 0.5rem 0.75rem 0.5rem 0.75rem;
-    color: #222;
+    color: #0A0F1E;
 }
 
 .nav-link.active,
 .nav-link:hover,
 .nav-link:active {
-    color: #eee;
+    color: #fff;
     text-decoration: none;
 }
 
@@ -388,17 +388,17 @@ body>.wrapper:last-child {
 .alpha-link.active,
 .alpha-link:hover,
 .alpha-link:active {
-    color: #bfbfbf;
+    color: #aab8e3;
 }
 
 .beta-link {
-    color: #000000;
+    color: #ffffff;
 }
 
 .beta-link.active,
 .beta-link:hover,
 .beta-link:active {
-    color: #000000;
+    color: #bfbfbf;
 }
 
 .breadcrumb li::after {
@@ -418,7 +418,7 @@ body>.wrapper:last-child {
     width: 100%;
     min-width: 10rem;
     background-color: transparent;
-    color: #eee;
+    color: #fff;
     z-index: 100;
 }
 
@@ -428,27 +428,27 @@ body>.wrapper:last-child {
 }
 
 .primary {
-    background-color: #222;
+    background-color: #0A0F1E;
     color: #ffffff;
 }
 
 .primary-hover.active,
 .primary-hover:hover,
 .primary-hover:active {
-    background-color: #151515;
+    background-color: #04050b;
     color: #ffffff;
 }
 
 .secondary {
-    background-color: #eee;
-    color: #000000;
+    background-color: #2a3f7e;
+    color: #ffffff;
 }
 
 .secondary-hover.active,
 .secondary-hover:hover,
 .secondary-hover:active {
-    background-color: #999;
-    color: #000000;
+    background-color: #24356b;
+    color: #ffffff;
 }
 
 .tertiary {
@@ -464,11 +464,11 @@ body>.wrapper:last-child {
 }
 
 .primary-text {
-    color: #222;
+    color: #0A0F1E;
 }
 
 .secondary-text {
-    color: #eee;
+    color: #2a3f7e;
 }
 
 .tertiary-text {
@@ -1504,20 +1504,15 @@ body>footer {
     padding-bottom: 4.5rem;
 }
 
-body>header,
-body>footer {
-    color: #eee;
-}
-
 body>header .link,
 body>footer .link {
-    color: #999;
+    color: #aab8e3;
 }
 
 main {
     padding: 1.5rem 0rem 1.5rem 0rem;
     background-color: #fff;
-    color: #666;
+    color: #555;
 }
 
 .padding {
@@ -1557,11 +1552,11 @@ main {
 }
 
 .border-primary {
-    border-color: #222;
+    border-color: #0A0F1E;
 }
 
 .border-secondary {
-    border-color: #eee;
+    border-color: #2a3f7e;
 }
 
 .border-tertiary {
@@ -1795,13 +1790,13 @@ main {
 }
 
 ::-moz-selection {
-    background-color: #000;
+    background-color: #2a3f7e;
     color: #ffffff;
     text-shadow: none;
 }
 
 ::selection {
-    background-color: #000;
+    background-color: #2a3f7e;
     color: #ffffff;
     text-shadow: none;
 }
