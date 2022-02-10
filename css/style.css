@@ -43,8 +43,7 @@ html {
 
 body {
     overflow: auto;
-    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue",
-        Helvetica, Arial, "Nimbus Sans L", "Liberation Sans", FreeSans, sans-serif;
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Nimbus Sans L", "Liberation Sans", FreeSans, sans-serif;
     font-weight: 400;
     line-height: 1.5;
     text-align: left;
@@ -149,14 +148,13 @@ q {
 }
 
 blockquote {
-    font-family: TimesNewRoman, "Times New Roman", Times, Baskerville, Georgia,
-        "Nimbus Roman No9 L", "Liberation Serif", FreeSerif, serif;
+    font-family: TimesNewRoman, "Times New Roman", Times, Baskerville, Georgia, "Nimbus Roman No9 L", "Liberation Serif", FreeSerif, serif;
     font-style: italic;
 }
 
 blockquote:before,
 blockquote:after {
-    content: "";
+    content: '';
     content: none;
 }
 
@@ -172,8 +170,7 @@ code,
 kbd,
 pre,
 samp {
-    font-family: "Courier New", Courier, "Lucida Sans Typewriter",
-        "Lucida Typewriter", "Nimbus Mono L", "Liberation Mono", FreeMono, monospace;
+    font-family: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", "Nimbus Mono L", "Liberation Mono", FreeMono, monospace;
 }
 
 pre {
@@ -234,18 +231,18 @@ th {
     padding: 0.5rem 0.75rem 0.5rem 0.75rem;
 }
 
-input[type="date"],
-input[type="datetime-local"],
-input[type="email"],
-input[type="month"],
-input[type="number"],
-input[type="password"],
-input[type="search"],
-input[type="tel"],
-input[type="text"],
-input[type="time"],
-input[type="url"],
-input[type="week"],
+input[type=date],
+input[type=datetime-local],
+input[type=email],
+input[type=month],
+input[type=number],
+input[type=password],
+input[type=search],
+input[type=tel],
+input[type=text],
+input[type=time],
+input[type=url],
+input[type=week],
 select,
 textarea {
     display: block;
@@ -254,19 +251,19 @@ textarea {
     border: 0.0625rem solid rgba(0, 0, 0, 0.3);
 }
 
-input[type="date"]:focus,
-input[type="datetime-local"]:focus,
-input[type="datetime"]:focus,
-input[type="email"]:focus,
-input[type="month"]:focus,
-input[type="number"]:focus,
-input[type="password"]:focus,
-input[type="search"]:focus,
-input[type="tel"]:focus,
-input[type="text"]:focus,
-input[type="time"]:focus,
-input[type="url"]:focus,
-input[type="week"]:focus,
+input[type=date]:focus,
+input[type=datetime-local]:focus,
+input[type=datetime]:focus,
+input[type=email]:focus,
+input[type=month]:focus,
+input[type=number]:focus,
+input[type=password]:focus,
+input[type=search]:focus,
+input[type=tel]:focus,
+input[type=text]:focus,
+input[type=time]:focus,
+input[type=url]:focus,
+input[type=week]:focus,
 select:focus,
 textarea:focus {
     border-color: rgba(0, 0, 0, 0.5);
@@ -287,7 +284,7 @@ select,
     text-transform: none;
 }
 
-:not([type="submit"]):invalid {
+:not([type=submit]):invalid {
     border-color: #c00;
 }
 
@@ -443,7 +440,7 @@ body>.wrapper:last-child {
 }
 
 .secondary {
-    background-color: #0a0f1e;
+    background-color: #0A0F1E;
     color: #ffffff;
 }
 
@@ -471,7 +468,7 @@ body>.wrapper:last-child {
 }
 
 .secondary-text {
-    color: #0a0f1e;
+    color: #0A0F1E;
 }
 
 .tertiary-text {
@@ -544,13 +541,9 @@ body>.wrapper:last-child {
 }
 
 @font-face {
-    font-family: "icons";
-    src: url("../fonts/icons/icons.eot");
-    src: url("../fonts/icons/icons.eot?#iefix") format("embedded-opentype"),
-        url("../fonts/icons/icons.woff2") format("woff2"),
-        url("../fonts/icons/icons.woff") format("woff"),
-        url("../fonts/icons/icons.ttf") format("truetype"),
-        url("../fonts/icons/icons.svg#icons") format("svg");
+    font-family: 'icons';
+    src: url('../fonts/icons/icons.eot');
+    src: url('../fonts/icons/icons.eot?#iefix') format('embedded-opentype'), url('../fonts/icons/icons.woff2') format('woff2'), url('../fonts/icons/icons.woff') format('woff'), url('../fonts/icons/icons.ttf') format('truetype'), url('../fonts/icons/icons.svg#icons') format('svg');
 }
 
 [class^="icon-"]:before {
@@ -1516,7 +1509,7 @@ body>footer .link {
     color: #aab8e3;
 }
 
-main {
+.content {
     padding: 1.5rem 0rem 1.5rem 0rem;
     background-color: #fff;
     color: #555;
@@ -1563,7 +1556,7 @@ main {
 }
 
 .border-secondary {
-    border-color: #0a0f1e;
+    border-color: #0A0F1E;
 }
 
 .border-tertiary {
@@ -1797,13 +1790,13 @@ main {
 }
 
 ::-moz-selection {
-    background-color: #cde1ff;
+    background-color: #d8dff2;
     color: #000000;
     text-shadow: none;
 }
 
 ::selection {
-    background-color: #cde1ff;
+    background-color: #d8dff2;
     color: #000000;
     text-shadow: none;
 }
