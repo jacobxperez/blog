@@ -1515,6 +1515,14 @@ body>footer .link {
     color: #555;
 }
 
+.reference {
+    margin-left: 1.25rem;
+}
+
+.reference p {
+    text-indent: -20px;
+}
+
 .padding {
     padding: 0.5rem 0.75rem 0.5rem 0.75rem;
 }
