@@ -1,6 +1,6 @@
 # [Jacob Perez](https://jacobxperez.github.io/blog/)
 
-I am a front-end web developer and designer; I build beautiful websites with HTML, CSS, and JavaScript.
+I am a front-end web developer and designer. I build beautiful websites with HTML, CSS, and JavaScript.
 
 ## Post
 
