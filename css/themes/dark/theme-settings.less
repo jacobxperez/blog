@@ -1,26 +1,37 @@
-// Move modified variables from var-reference.less here for quick access
+// Theme Settings
+// uncoment to return to default values
 // ============================================================================/
 
-// background color
-@background-color: #222;
+// body
+@background-color: #252525;
 
-// font
-@font-scale: clamp(1rem, 1vw, 1.125rem);
-@font-color: #999;
-@link-color: @primary;
+// typography
+@font-family: @font-sans;
+@font-size: 16px;
+@font-scale: clamp(1rem, 1vw, 1.25rem);
+@line-height: 24px;
+@font-color: #aaa;
 
-// branding
+// type scale
+@type-scale-small: 1.2;
+@type-scale-medium: 1.25;
+@type-scale-large: 1.3;
+
+// colors
 @primary: #05f;
 @primary-text: contrast(@primary);
 @primary-hover: darken(@primary, 5%);
 
-@secondary: #252525;
+@secondary: #222;
 @secondary-text: contrast(@secondary);
 @secondary-hover: darken(@secondary, 5%);
 
 @tertiary: #555;
 @tertiary-text: contrast(@tertiary);
 @tertiary-hover: darken(@tertiary, 5%);
+
+// link
+@link-color: @primary;
 
 // selection
 @selection-background: #cde1ff;
