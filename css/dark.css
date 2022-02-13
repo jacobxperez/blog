@@ -311,7 +311,7 @@ select,
 a {
     text-decoration: none;
     background-color: transparent;
-    color: #05f;
+    color: #626262;
     cursor: pointer;
 }
 
@@ -371,7 +371,7 @@ body>.wrapper:last-child {
 .nav-link {
     display: block;
     padding: 0.5rem 0.75rem 0.5rem 0.75rem;
-    color: #05f;
+    color: #626262;
 }
 
 .nav-link.active,
@@ -388,7 +388,7 @@ body>.wrapper:last-child {
 .alpha-link.active,
 .alpha-link:hover,
 .alpha-link:active {
-    color: #bfbfbf;
+    color: #d4d4d4;
 }
 
 .beta-link {
@@ -428,14 +428,14 @@ body>.wrapper:last-child {
 }
 
 .primary {
-    background-color: #05f;
+    background-color: #626262;
     color: #ffffff;
 }
 
 .primary-hover.active,
 .primary-hover:hover,
 .primary-hover:active {
-    background-color: #004de6;
+    background-color: #555555;
     color: #ffffff;
 }
 
@@ -464,7 +464,7 @@ body>.wrapper:last-child {
 }
 
 .primary-text {
-    color: #05f;
+    color: #626262;
 }
 
 .secondary-text {
@@ -1506,7 +1506,7 @@ body>footer {
 
 body>header .link,
 body>footer .link {
-    color: #bfbfbf;
+    color: #d4d4d4;
 }
 
 .content {
@@ -1560,7 +1560,7 @@ body>footer .link {
 }
 
 .border-primary {
-    border-color: #05f;
+    border-color: #626262;
 }
 
 .border-secondary {
@@ -1798,13 +1798,13 @@ body>footer .link {
 }
 
 ::-moz-selection {
-    background-color: #cde1ff;
+    background-color: #f3f3f3;
     color: #000000;
     text-shadow: none;
 }
 
 ::selection {
-    background-color: #cde1ff;
+    background-color: #f3f3f3;
     color: #000000;
     text-shadow: none;
 }
