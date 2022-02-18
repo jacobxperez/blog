@@ -29,7 +29,6 @@ object {
     height: auto;
     max-width: 100%;
     width: 100%;
-    vertical-align: middle;
 }
 
 summary {
@@ -531,7 +530,7 @@ body>.wrapper:last-child {
 .disabled:active {
     background-color: #e6e6e6;
     color: #999999;
-    decoration: none;
+    text-decoration: none;
 }
 
 .disabled:focus {
@@ -553,7 +552,6 @@ body>.wrapper:last-child {
     font-variant: normal;
     line-height: 0.625;
     text-transform: none;
-    speak: none;
 }
 
 .icon-address:before {
@@ -1510,7 +1508,7 @@ body>footer .link {
 .content {
     padding: 1.5rem 0rem 1.5rem 0rem;
     background-color: #ffffff;
-    color: #000000;
+    color: #555;
 }
 
 .reference {
@@ -1635,11 +1633,6 @@ body>footer .link {
     position: relative;
 }
 
-.absolute,
-.fixed {
-    z-index: 1000;
-}
-
 .absolute {
     position: absolute;
 }
@@ -1655,6 +1648,11 @@ body>footer .link {
 .fixed .wrapper>ul {
     margin-left: -0.75rem;
     margin-right: -0.75rem;
+}
+
+.fixed.top,
+.fixed.bottom {
+    z-index: 1000;
 }
 
 .top {
