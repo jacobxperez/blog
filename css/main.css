@@ -415,27 +415,25 @@ body>.wrapper:last-child {
 .drop-box {
     display: none;
     margin-bottom: 0;
-    width: 100%;
     min-width: 10rem;
     background-color: transparent;
     color: #fff;
     z-index: 100;
 }
 
-.tooltip:hover>.drop-box,
 .active+.drop-box {
     display: block;
 }
 
-.primary {
-    background-color: #2a3f7e;
+.tertiary {
+    background-color: #555;
     color: #ffffff;
 }
 
-.primary-hover.active,
-.primary-hover:hover,
-.primary-hover:active {
-    background-color: #24356b;
+.tertiary-hover.active,
+.tertiary-hover:hover,
+.tertiary-hover:active {
+    background-color: #484848;
     color: #ffffff;
 }
 
@@ -451,28 +449,28 @@ body>.wrapper:last-child {
     color: #ffffff;
 }
 
-.tertiary {
-    background-color: #555;
+.primary {
+    background-color: #2a3f7e;
     color: #ffffff;
 }
 
-.tertiary-hover.active,
-.tertiary-hover:hover,
-.tertiary-hover:active {
-    background-color: #484848;
+.primary-hover.active,
+.primary-hover:hover,
+.primary-hover:active {
+    background-color: #24356b;
     color: #ffffff;
 }
 
-.primary-text {
-    color: #2a3f7e;
+.tertiary-text {
+    color: #555;
 }
 
 .secondary-text {
     color: #0A0F1E;
 }
 
-.tertiary-text {
-    color: #555;
+.primary-text {
+    color: #2a3f7e;
 }
 
 .success {
@@ -1512,7 +1510,7 @@ body>footer .link {
 .content {
     padding: 1.5rem 0rem 1.5rem 0rem;
     background-color: #ffffff;
-    color: #555;
+    color: #000000;
 }
 
 .reference {
@@ -1585,22 +1583,34 @@ body>footer .link {
 
 .flex {
     display: flex;
+}
+
+.flex-wrap {
     flex-wrap: wrap;
 }
 
-.row-reverse {
-    flex-direction: row-reverse;
+.flex-end {
+    justify-content: flex-end;
 }
 
-.flex-column {
-    flex-direction: column;
+.flex-center {
+    justify-content: center;
 }
 
-.column-reverse {
-    flex-direction: column-reverse;
+.flex-space-between {
+    justify-content: space-between;
 }
 
-.flex-grow {
+.flex-space-around {
+    justify-content: space-around;
+}
+
+.flex-space-evenly {
+    justify-content: space-evenly;
+}
+
+.flex-grow,
+.flex-grow-children>* {
     flex-grow: 1;
 }
 
@@ -1621,9 +1631,13 @@ body>footer .link {
     hyphens: auto;
 }
 
-.tooltip,
 .relative {
     position: relative;
+}
+
+.absolute,
+.fixed {
+    z-index: 1000;
 }
 
 .absolute {
@@ -1634,11 +1648,11 @@ body>footer .link {
     position: fixed;
 }
 
-.fixed.top+.wrapper {
+.fixed+.wrapper {
     margin-top: 6rem;
 }
 
-.fixed.top .wrapper>ul {
+.fixed .wrapper>ul {
     margin-left: -0.75rem;
     margin-right: -0.75rem;
 }
@@ -1657,14 +1671,6 @@ body>footer .link {
 
 .right {
     right: 0;
-}
-
-.float-left {
-    float: left;
-}
-
-.float-right {
-    float: right;
 }
 
 @media screen and (max-width: 42.5em) {
