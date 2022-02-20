@@ -1670,7 +1670,8 @@ body>footer .link {
     margin-top: 6rem;
 }
 
-.wrapper>ul {
+.fixed .wrapper>ul,
+.sticky .wrapper>ul {
     margin-left: -0.75rem;
     margin-right: -0.75rem;
 }
