@@ -1,4 +1,5 @@
 // Grid
+// modify the grid to your project specifications
 // ----------------------------------------------------------------------------/
 .grid {
     display: grid;
@@ -21,8 +22,10 @@
 // ----------------------------------------------------------------------------/
 .small-grid () {
 
+    // Add code
+
     .grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(1, 1fr);
 
         article,
         section,
@@ -38,7 +41,15 @@
 // Medium Screen Breakpoint
 // ----------------------------------------------------------------------------/
 .medium-grid () {
+
     // Add code
+
+    .grid {
+        div,
+        li {
+            grid-column: span 2;
+        }
+    }
 }
 
 
