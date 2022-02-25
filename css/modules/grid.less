@@ -1,5 +1,4 @@
-// Grid
-// modify the grid to your project specifications
+// Grid: modify the grid to your project specifications
 // ----------------------------------------------------------------------------/
 .grid {
     display: grid;
@@ -22,15 +21,11 @@
 // ----------------------------------------------------------------------------/
 .small-grid () {
 
-    // Add code
-
     .grid {
         grid-template-columns: repeat(1, 1fr);
 
         article,
-        section,
-        aside,
-        nav {
+        section {
             grid-column: 1 ~"/" -1;
         }
     }
@@ -42,19 +37,20 @@
 // ----------------------------------------------------------------------------/
 .medium-grid () {
 
-    // Add code
-
     .grid {
         div,
         li {
             grid-column: span 2;
         }
     }
+
 }
 
 
 // Large Screen Breakpoint
 // ----------------------------------------------------------------------------/
 .large-grid () {
+
     // Add code
+
 }
