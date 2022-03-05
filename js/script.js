@@ -1,19 +1,18 @@
-/* Essentials <https://github.com/jacobxperez/essentials>
- * Copyright (C) 2021 Jacob Perez <jacobxperez@gmx.com>
+/* RAMs <https://github.com/jacobxperez/rams>
+ * Copyright (C) 2022 Jacob Perez <jacobxperez@gmx.com>
  * Licensed under the Apache License, Version 2.0
  * http://www.apache.org/licenses/LICENSE-2.0
 ------------------------------------------------------------------------------*/
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", () => {
 
-    // Toggle
-    (function() {
-        const getToggle = document.querySelectorAll(".js-toggle");
-        const getToggleReset = document.querySelectorAll(".js-toggle-reset");
+    // Dropdown Toggle
+    (() => {
+        const getDropDown = document.querySelectorAll('[data-dropdown]');
 
-        for (let i = 0; i < getToggle.length; i++) {
-            getToggle[i].addEventListener("click", function(e) {
+        // toggle class active
+        for (let i = 0; i < getDropDown.length; i++) {
+            getDropDown[i].addEventListener("click", function (e) {
 
-                // toggle class show
                 if (this.classList.contains("active") === false) {
 
                     this.classList.add("active");
@@ -22,32 +21,35 @@ document.addEventListener("DOMContentLoaded", function() {
 
                     this.classList.remove("active");
 
-                } // end if block
+                };
 
                 e.stopPropagation();
             });
-        } // end for loop
+        };
 
-        // Hide drop-box on window click
-        document.addEventListener("click", function(e) {
-            // check if target is not dropdown
-            if (e.target !== getToggleReset) {
-                for (let i = 0; i < getToggleReset.length; i++) {
-                    // removes class show from all dropdowns
-                    getToggleReset[i].classList.remove("active");
-                } // end for loop
-            }
+        // Close dropdown menu on document click
+        document.addEventListener("click", function (e) {
+            for (let i = 0; i < getDropDown.length; i++) {
+
+                if (e.target !== getDropDown[i].hasAttribute("menu")) {
+
+                    getDropDown[i].classList.remove("active").hasAttribute("menu");
+
+                };
+
+            };
         });
+
     })();
-    // end Toggle
+    // end Dropdown Toggle
 
 
     // Smooth Scroll
-    (function() {
+    (() => {
         const intLinks = document.querySelectorAll("a[href^='#']");
 
         for (let i = 0; i < intLinks.length; i++) {
-            intLinks[i].addEventListener("click", function(e) {
+            intLinks[i].addEventListener("click", function (e) {
 
                 e.preventDefault();
 
@@ -56,8 +58,8 @@ document.addEventListener("DOMContentLoaded", function() {
                 });
 
             });
-        } // end for loop
+        };
     })();
     // end Smooth Scroll
 
-}); // end Script
+});
