@@ -1,0 +1,41 @@
+// Navbar
+// ----------------------------------------------------------------------------/
+[data-navbar] {
+    .background-color(@navbar-background);
+    color: @navbar-link-color-hover;
+    width: 100%;
+    z-index: 1000;
+}
+
+[data-navbar="sub"] {
+    .background-color(@navbar-sub-background);
+}
+
+[data-navbar="top"] {
+    position: fixed;
+    top: 0;
+
+    [data-dropdown="box"] {
+        top: 100%;
+    }
+}
+
+[data-navbar="bottom"] {
+    position: fixed;
+    bottom: 0;
+
+    [data-dropdown="box"] {
+        bottom: 100%;
+    }
+}
+
+[data-nav="navbar"] {
+    color: @navbar-link-color;
+
+    &.active,
+    &:hover,
+    &:active {
+        color: @navbar-link-color-hover;
+        text-decoration: none;
+    }
+}

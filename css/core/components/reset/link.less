@@ -1,6 +1,7 @@
 // Link
 // ----------------------------------------------------------------------------/
-.link,
+[data-link],
+[data-button="link"],
 a {
     text-decoration: none;
     background-color: transparent;
@@ -9,6 +10,8 @@ a {
 
     &:hover,
     &:active {
+        background-color: transparent;
+        border-color: transparent;
         outline: 0;
         text-decoration: underline;
     }

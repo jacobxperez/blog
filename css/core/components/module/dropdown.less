@@ -1,38 +1,28 @@
 // Dropdown
 // ----------------------------------------------------------------------------/
-.dropdown {
-    display: none;
-    visibility: hidden;
-    margin-bottom: 0;
-    .min-width(@dropdown-width);
-    background-color: transparent;
-    color: @font-color;
-    z-index: 100;
-
-    &.top {
-        top: auto;
-        bottom: 100%;
-    }
-
-    &.bottom {
-        bottom: auto;
-        top: 100%;
-    }
-}
-
-.box {
-    .padding();
-    background-color: @box-background-color;
-}
-
 [data-dropdown="tooltip"] {
     position: relative;
     &:extend(abbr[title]);
+
+    [data-dropdown="box"] {
+        .padding();
+        background-color: @tooltip-box-background;
+        color: @tooltip-box-text-color;
+    }
 }
 
-[data-dropdown="tooltip"]:hover > .dropdown,
-.active > .dropdown,
-.active + .dropdown {
+[data-dropdown="box"] {
+    display: none;
+    visibility: hidden;
+    .min-width(@dropdown-box-width);
+    background-color: transparent;
+    color: @font-color;
+    z-index: 100;
+}
+
+[data-dropdown="tooltip"]:hover > [data-dropdown="box"],
+.active > [data-dropdown="box"],
+.active + [data-dropdown="box"] {
     display: block;
     visibility: visible;
 }

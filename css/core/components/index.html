@@ -12,11 +12,12 @@
 </head>
 
 <body>
-    <header id="components" class="wrapper">
+    <header id="components" data-container="fit">
         <h1>Components</h1>
 
-        <p class="flex flex-wrap"><span class="flex-grow">Learn more about RAMs and how to get started.</span> <a
-                href="https://github.com/jacobxperez/rams/blob/master/index.html" target="_blank" class="icon-pencil">
+        <p data-flex="wrap"><span data-flex-item="grow">Learn more about RAMs and how to get started.</span> <a
+                href="https://github.com/jacobxperez/rams/blob/master/css/core/components/index.html" target="_blank"
+                data-icon="pencil">
                 Edit
                 Page</a></p>
 
@@ -24,25 +25,26 @@
     </header>
 
     <!-- Navbar -->
-    <nav class="nav fixed top">
-        <ul class="flex">
-            <li><a class="nav-link tap" href="https://jacobxperez.github.io/rams/">RAMs</a></li>
+    <nav data-navbar="top">
+        <ul data-flex="">
+            <li><a data-nav="navbar" href="https://jacobxperez.github.io/rams/">RAMs</a></li>
 
-            <li class="flex-grow"></li>
+            <li data-flex-item="grow"></li>
 
-            <li class="sm-none"><a class="nav-link tap" href="#top">Read Me</a></li>
-            <li class="sm-none"><a class="nav-link tap" href="fonts/icons/index.html">Icons</a></li>
-            <li class="sm-none"><a class="icon-flow-branch nav-link tap" href="https://github.com/jacobxperez/rams">
+            <li data-display="small-none"><a data-nav="navbar" href="#top">Read Me</a></li>
+            <li data-display="small-none"><a data-nav="navbar" href="fonts/icons/index.html">Icons</a></li>
+            <li data-display="small-none"><a data-nav="navbar" data-icon="flow-branch" href="https://github.com/jacobxperez/rams">
                     Fork</a></li>
 
             <!-- Dropdown Menu: show on small screens -->
-            <li class="sm-display">
-                <a class="icon-menu nav-link tap" data-dropdown="menu"></a>
+            <li data-display="small">
+                <a data-nav="navbar" data-icon="menu" data-dropdown="menu"></a>
 
-                <ul class="dropdown secondary absolute left right">
-                    <li><a class="nav-link tap" href="#top">Read Me</a></li>
-                    <li><a class="nav-link tap" href="fonts/icons/index.html">Icons</a></li>
-                    <li><a class="icon-flow-branch nav-link tap" href="https://github.com/jacobxperez/rams"> Fork</a>
+                <ul data-position="absolute left right" data-dropdown="box" data-navbar="sub">
+                    <li><a data-nav="navbar" href="#top">Read Me</a></li>
+                    <li><a data-nav="navbar" href="fonts/icons/index.html">Icons</a></li>
+                    <li><a data-nav="navbar" data-icon="flow-branch" href="https://github.com/jacobxperez/rams">
+                            Fork</a>
                     </li>
                 </ul>
             </li>
@@ -51,24 +53,27 @@
     </nav>
     <!-- end Navbar -->
 
-    <main class="wrapper grid">
+    <main data-container="fit" data-grid="main">
         <!-- Secondary Nav -->
         <nav>
-            
+
         </nav>
         <!-- end Secondary Nav -->
 
         <!-- Content -->
         <article>
-            <p>Lorem ipsum dolor sit amet <span data-dropdown="tooltip">consectetur <span
-                        class="dropdown absolute left secondary box">Lorem ipsum dolor sit amet.</span></span>
+            <p><a href="" data-button="primary">button</a> <a href="" data-button="primary-outline">button</a></p>
+
+            <p>Lorem ipsum dolor sit amet
+                <span data-dropdown="tooltip">consectetur<span class="absolute left" data-dropdown="box">Lorem ipsum
+                        dolor sit amet.</span></span>
                 adipisicing elit. Velit, laborum.
             </p>
         </article>
         <!-- end Content -->
     </main>
 
-    <footer class="wrapper">
+    <footer data-container="fit">
         <hr>
 
         <p><small>&copy; 2022 <a href="https://github.com/jacobxperez/rams" target="_blank">RAMs</a> by <a
@@ -77,7 +82,7 @@
                     License
                     v2.0</a>.</small></p>
 
-        <script src="../../../js/script.min.js"></script>
+        <script src="../../../js/script.js"></script>
     </footer>
 </body>
 

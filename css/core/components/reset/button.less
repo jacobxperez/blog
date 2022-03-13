@@ -1,16 +1,17 @@
 // Button
 // ----------------------------------------------------------------------------/
-.button {
+[data-button] {
     display: inline-block;
     .padding(@button-padding-y; @button-padding-x);
+    .border(@button-border-width; @color: @button-border-color;);
     .border-radius(@button-border-radius);
-    background-color: transparent;
+    .background-color(transparent);
     text-align: center;
     cursor: pointer;
 
     &:hover,
     &:active {
-        background-color: @button-background-color-hover;
+        .background-color(@button-background-hover);
         outline: 0;
         text-decoration: none;
     }
