@@ -13,19 +13,19 @@ body > footer {
 body {
     > header,
     > footer {
-        .link {
-            color: @nav-link-color-hover;
+        [data-link] {
+            color: @navbar-link-color-hover;
         }
     }
 }
 
-.content {
+[data-section="content"] {
     .padding(@line-height, 0);
     background-color: @content-background-color;
     color: @content-font-color;
 }
 
-.reference {
+[data-list="reference"] {
     .margin-left();
 
     p {
