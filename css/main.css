@@ -368,7 +368,7 @@ body>[data-container]:last-child {
 
 [data-dropdown="tooltip"] [data-dropdown="box"] {
     padding: 0.5rem 0.75rem 0.5rem 0.75rem;
-    background-color: #2f2f2f;
+    background-color: #101931;
     color: #ffffff;
 }
 
@@ -427,14 +427,14 @@ body>[data-container]:last-child {
 }
 
 [data-navbar] {
-    background-color: #222;
-    color: #aaa;
+    background-color: #0A0F1E;
+    color: #aab8e3;
     width: 100%;
     z-index: 1000;
 }
 
 [data-navbar="sub"] {
-    background-color: #2f2f2f;
+    background-color: #101931;
 }
 
 [data-navbar="top"] {
@@ -462,7 +462,7 @@ body>[data-container]:last-child {
 [data-nav="navbar"].active,
 [data-nav="navbar"]:hover,
 [data-nav="navbar"]:active {
-    color: #aaa;
+    color: #aab8e3;
     text-decoration: none;
 }
 
@@ -646,7 +646,7 @@ body>footer {
 
 body>header [data-link],
 body>footer [data-link] {
-    color: #aaa;
+    color: #aab8e3;
 }
 
 [data-section="content"] {

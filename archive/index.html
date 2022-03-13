@@ -11,26 +11,26 @@
 </head>
 
 <body>
-    <nav class="nav fixed top secondary">
-        <ul class="flex">
-            <li><a class="nav-link tap" href="https://jacobxperez.github.io/blog/">Jacob Perez</a></li>
+    <nav data-navbar="top">
+        <ul data-flex="">
+            <li><a data-nav="navbar" href="https://jacobxperez.github.io/blog/">Jacob Perez</a></li>
 
-            <li class="flex-grow"></li>
+            <li data-flex-item="grow"></li>
 
-            <li class="sm-none"><a class="nav-link tap" href="https://jacobxperez.github.io/blog/about/">About
+            <li data-display="small-none"><a data-nav="navbar" href="https://jacobxperez.github.io/blog/about/">About
                     Me</a></li>
-            <li class="sm-none"><a class="nav-link tap"
+            <li data-display="small-none"><a data-nav="navbar"
                     href="https://jacobxperez.github.io/blog/archive/">Archive</a></li>
 
             <!-- Dropdown Menu: show on small screens -->
-            <li class="sm-display">
-                <a class="icon-menu nav-link tap" data-dropdown="menu"></a>
+            <li data-display="small">
+                <a data-nav="navbar" data-icon="menu" data-dropdown="menu"></a>
 
-                <nav class="dropdown secondary border-primary border-top absolute left right">
+                <nav data-navbar="sub" data-dropdown="box" data-position="absolute left right">
                     <ul>
-                        <li><a class="nav-link tap" href="https://jacobxperez.github.io/blog/about/">About Me</a>
+                        <li><a data-nav="navbar" href="https://jacobxperez.github.io/blog/about/">About Me</a>
                         </li>
-                        <li><a class="nav-link tap"
+                        <li><a data-nav="navbar"
                                 href="https://jacobxperez.github.io/blog/archive/">Archive</a></li>
                     </ul>
                 </nav>
@@ -40,15 +40,15 @@
     </nav>
 
     <header>
-        <div class="wrapper">
+        <div data-container="fit">
             <h1>Archive</h1>
         </div>
     </header>
 
-    <main class="content">
-        <div class="wrapper">
+    <main data-section="content">
+        <div data-container="fit">
             <p><strong>2021</strong></p>
-            <ul class="ul">
+            <ul data-list="ul">
                 <li><a href="https://jacobxperez.github.io/blog/post/heuristic/the-80-20-principle/">The 80/20
                         Principle</a></li>
             </ul>
@@ -56,18 +56,18 @@
     </main>
 
     <footer>
-        <div class="wrapper">
-            <small>&copy; 2022 <a class="link" href="https://jacobxperez.github.io/blog/" rel="author">Jacob
-                    Perez</a> content licensed under <a class="link"
+        <div data-container="fit">
+            <small>&copy; 2022 <a data-link="" href="https://jacobxperez.github.io/blog/" rel="author">Jacob
+                    Perez</a> content licensed under <a data-link=""
                     href="https://creativecommons.org/licenses/by-sa/4.0/" rel="license" target="_blank">CC
                     BY-SA 4.0</a>
             </small>
 
-            <ul class="small flex breadcrumb">
-                <li><a class="link" href="https://jacobxperez.github.io/blog/about/">About Me</a></li>
-                <li><a class="link" href="https://jacobxperez.github.io/blog/archive/">Archive</a></li>
-                <li><a class="link" href="https://github.com/jacobxperez" target="_blank">GitHub</a></li>
-                <li><a class="link" href="https://www.linkedin.com/in/jacobperez915/" target="_blank">Linkedin</a></li>
+            <ul data-flex="breadcrumb" data-text="small">
+                <li><a data-link="" href="https://jacobxperez.github.io/blog/about/">About Me</a></li>
+                <li><a data-link="" href="https://jacobxperez.github.io/blog/archive/">Archive</a></li>
+                <li><a data-link="" href="https://github.com/jacobxperez" target="_blank">GitHub</a></li>
+                <li><a data-link="" href="https://www.linkedin.com/in/jacobperez915/" target="_blank">Linkedin</a></li>
             </ul>
 
             <script src="../js/script.min.js"></script>

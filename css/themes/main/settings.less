@@ -32,7 +32,7 @@
 // ----------------------------------------------------------------------------/
 // @font-family: @font-sans;
 // @font-size: 16px;
-// @font-scale: clamp(1rem, 1vw, 1.25rem); // default false
+@font-scale: clamp(1rem, 1vw, 1.25rem); // default false
 // @line-height: 22px;
 
 // type scale
@@ -154,9 +154,9 @@
 // @nav-padding-x: @padding-x;
 
 // navbar
-// @navbar-background: #222;
+@navbar-background: @secondary;
 // @navbar-link-color: contrast(@navbar-background);
-// @navbar-link-color-hover: #aaa;
+@navbar-link-color-hover: lighten(@secondary, 70%);
 
 // breadcrumb
 // @breadcrumb-separator: "/";
