@@ -1637,7 +1637,7 @@ body>footer [data-link] {
 }
 
 [data-flex~="grow-children"]>*,
-[data-flex-item~="grow"] {
+[data-item~="grow"] {
     flex-grow: 1;
 }
 
