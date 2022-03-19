@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en" id="top">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="INDEX, FOLLOW">
+    <meta name="author" content="Jacob Perez">
+    <title>zero-class Architecture</title>
+    <link rel="stylesheet" href="../../../../css/main.css">
+</head>
+
+<body>
+    <nav data-navbar="top">
+        <ul data-flex="">
+            <li><a data-nav="navbar" href="https://jacobxperez.github.io/blog/">Jacob Perez</a>
+            </li>
+
+            <li data-item="grow"></li>
+
+            <li data-display="small-none"><a data-nav="navbar" href="https://jacobxperez.github.io/blog/about/">About
+                    Me</a></li>
+            <li data-display="small-none"><a data-nav="navbar"
+                    href="https://jacobxperez.github.io/blog/archive/">Archive</a></li>
+
+            <!-- Dropdown Menu: show on small screens -->
+            <li data-display="small">
+                <a data-nav="navbar" data-icon="menu" data-dropdown="menu"></a>
+
+                <nav data-navbar="sub" data-dropbox="menu" data-position="absolute left right">
+                    <ul>
+                        <li><a data-nav="navbar" href="https://jacobxperez.github.io/blog/about/">About
+                                Me</a></li>
+                        <li><a data-nav="navbar" href="https://jacobxperez.github.io/blog/archive/">Archive</a></li>
+                    </ul>
+                </nav>
+            </li>
+            <!-- end Dropdown Menu -->
+        </ul>
+    </nav>
+
+    <header>
+        <div data-container="fit">
+            <h1>zero-class Architecture
+            </h1>
+        </div>
+    </header>
+
+    <main data-section="content">
+        <div data-container="fit" data-grid="main">
+            <aside>
+
+            </aside>
+            <section>
+                <h2>Introduction</h2>
+
+                <p data-text="h5">OOCSS, BEM, and Atomic CSS all have the same problem, and none have taken the time to
+                    solve it. They
+                    all utilize class names for styling components. Here lies the problem, we need a new architecture
+                    free for styling components with the class selector. I name this zero-class Architecture.
+                </p>
+
+                <section>
+                    <h2>Architecture styles</h2>
+
+                    <p>
+                        Before I begin, let us first take an overview of the current architectural styles.
+                    </p>
+
+                    <h3>OOCSS (Object-Oriented CSS)</h3>
+
+                    <p>
+                        OOCSS gets its cues from object-oriented programming. It does so by separating structure and
+                        skin. The purpose of OOCSS is to create stylesheets that are flexible, modular, and
+                        interchangeable.
+                    </p>
+
+                    <h3>BEM (Block, Element, Modifier)</h3>
+
+                    <p>
+                        In BEM selectors are organized by block, a top-level abstraction of a component. Element, a
+                        component inside the block that performs a function and modifier, a variation of the block
+                        component.
+                    </p>
+
+                    <h3>Atomic CSS</h3>
+
+                    <p>
+                        Atomic CSS gave birth to utility-first frameworks such as Tailwind. They are filled with
+                        single-purpose classes such as flex, pt-4, text-center, and rotate-90, which is no different
+                        from writing inline styles. This type of architecture ends by polluting your HTML file with
+                        arbitrary classes that make it hard to read and follow.
+                    </p>
+
+                    <p>
+                        Atomic CSS cannot scale by itself to mitigate this problem Tailwind uses PostCSS plugins like
+                        autoprefixer and PurgeCSS. Additionally, it provides the @apply, which defeats the purpose of
+                        Atomic CSS.
+                    </p>
+
+                    <h3>SMACSS and ITCSS</h3>
+
+                    <p>
+                        This type of architecture does not define how to write CSS selectors rather they help to
+                        organize CSS rules in categories. They are both compatible with OOCSS, BEM, and Atomic CSS
+                        however they do not fix the problem of styling components with class names.
+                    </p>
+                </section>
+
+                <section>
+                    <h2>zero-class Architecture</h2>
+
+                    <p>
+                        I propose a new architecture that does not require class names for styling. We can instead use
+                        data attributes for styling components. With data attributes, the same OCSS example becomes:
+                    </p>
+
+                    <p>
+                        The BEM example becomes:
+                    </p>
+
+                    <p>
+                        Utility classes can be grouped as data attributes, eliminating the need to prefix selectors such
+                        as flex-*, flex-column, flex-wrap, flex-gap, etc.
+                    </p>
+
+                    <p>
+                        It is also possible to use JavaScript for styling certain utilities such as margins and
+                        paddings, completely removing them from the stylesheet.
+                    </p>
+                </section>
+
+                <section>
+                    <h2>Conclusion</h2>
+
+                    <p>
+                        When Marianne Brandt started her studies at the Bauhaus in 1923, she decided to burn all her
+                        previous works recognizing how traditional they had been. Styling with the class selector is our
+                        tradition. We must move away from styling with classes and start thinking about other ways of
+                        doing so. With data attributes, we can group similar selectors and it is easier to read. Nowhere
+                        does the spec prohibits the use of data attributes for styling. Lens camera manufacturers do not
+                        specify that a 50mm or an 85mm lens should be used only for portrait photography. All lenses can
+                        shoot portrait or landscape photography regardless of the focal length. These are only
+                        conventions people have and are no strict rules to follow. I can use an 85mm lens for landscapes
+                        or a fish eye lens for portraits as much as I can use data attributes for styling.
+                    </p>
+                </section>
+
+                <footer>
+                    <p>
+                        If you haven't noticed yet, this website is using data attributes for styling if you are
+                        interested in this methodology I have started a small framework to get you started. Visit RAMs,
+                        a zero-class framework.
+                    </p>
+                </footer>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div data-container="fit">
+            <small>&copy; 2022 <a data-link="" href="https://jacobxperez.github.io/blog/" rel="author">Jacob
+                    Perez</a> content licensed under <a data-link=""
+                    href="https://creativecommons.org/licenses/by-sa/4.0/" rel="license" target="_blank">CC
+                    BY-SA 4.0</a>
+            </small>
+
+            <ul data-flex="breadcrumb" data-text="small">
+                <li><a data-link="breadcrumb" href="https://jacobxperez.github.io/blog/about/">About Me</a></li>
+                <li><a data-link="breadcrumb" href="https://jacobxperez.github.io/blog/archive/">Archive</a></li>
+                <li><a data-link="breadcrumb" href="https://github.com/jacobxperez" target="_blank">GitHub</a></li>
+                <li><a data-link="breadcrumb" href="https://www.linkedin.com/in/jacobperez915/"
+                        target="_blank">Linkedin</a></li>
+            </ul>
+
+            <script src="../../../../js/script.min.js"></script>
+        </div>
+    </footer>
+</body>
+
+</html>
