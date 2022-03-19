@@ -74,28 +74,32 @@ h6 {
     font-weight: 400;
 }
 
+[data-text~="h1"],
 h1 {
     font-size: 2.625rem;
 }
 
+[data-text~="h2"],
 h2 {
     font-size: 2.1875rem;
 }
 
-[data-text~="large"],
+[data-text~="h3"],
 h3 {
     font-size: 1.8125rem;
 }
 
+[data-text~="h4"],
 h4 {
     font-size: 1.5rem;
 }
 
-[data-text~="medium"],
+[data-text~="h5"],
 h5 {
     font-size: 1.25rem;
 }
 
+[data-text~="h6"],
 h6 {
     font-size: 1rem;
 }
@@ -270,7 +274,7 @@ input[type=url]:focus,
 input[type=week]:focus,
 select:focus,
 textarea:focus {
-    background-color: #fff8eb;
+    background-color: #fff9ef;
     color: #000000;
     border-color: rgba(0, 0, 0, 0.5);
 }
@@ -294,6 +298,7 @@ select,
     border-color: #ff3d00;
 }
 
+button,
 [data-button] {
     display: inline-block;
     padding: 0.5rem 0.75rem 0.5rem 0.75rem;
@@ -303,13 +308,16 @@ select,
     cursor: pointer;
 }
 
+button:hover,
 [data-button]:hover,
+button:active,
 [data-button]:active {
     background-color: rgba(0, 0, 0, 0.1);
     outline: 0;
     text-decoration: none;
 }
 
+button:focus,
 [data-button]:focus {
     outline: thin dotted;
     outline-offset: -0.125rem;
@@ -386,7 +394,7 @@ body>[data-container]:last-child {
 
 [data-dropbox="tip"] {
     padding: 0.5rem 0.75rem 0.5rem 0.75rem;
-    background-color: #101931;
+    background-color: #0e1529;
     color: #ffffff;
     position: absolute;
     left: 0;
@@ -436,7 +444,7 @@ body>[data-container]:last-child {
 }
 
 [data-navbar="sub"] {
-    background-color: #101931;
+    background-color: #0e1529;
 }
 
 [data-navbar="top"] {
@@ -1710,24 +1718,28 @@ body>footer [data-link] {
 }
 
 @media screen and (min-width: 61.25em) {
+
+    [data-text~="h1"],
     h1 {
         font-size: 4rem;
     }
 
+    [data-text~="h2"],
     h2 {
         font-size: 3.0625rem;
     }
 
-    [data-text~="large"],
+    [data-text~="h3"],
     h3 {
         font-size: 2.3125rem;
     }
 
+    [data-text~="h4"],
     h4 {
         font-size: 1.75rem;
     }
 
-    [data-text~="medium"],
+    [data-text~="h5"],
     h5 {
         font-size: 1.3125rem;
     }
@@ -1740,24 +1752,28 @@ body>footer [data-link] {
 }
 
 @media screen and (min-width: 42.50390625em) and (max-width: 61.24609375em) {
+
+    [data-text~="h1"],
     h1 {
         font-size: 3.125rem;
     }
 
+    [data-text~="h2"],
     h2 {
         font-size: 2.5rem;
     }
 
-    [data-text~="large"],
+    [data-text~="h3"],
     h3 {
         font-size: 2rem;
     }
 
+    [data-text~="h4"],
     h4 {
         font-size: 1.5625rem;
     }
 
-    [data-text~="medium"],
+    [data-text~="h5"],
     h5 {
         font-size: 1.25rem;
     }
