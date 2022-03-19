@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="INDEX, FOLLOW">
     <meta name="author" content="Jacob Perez">
-    <title>zero-class Architecture</title>
+    <title>zero-class Architecture - Utilizing data attributes for styling components</title>
     <link rel="stylesheet" href="../../../../css/main.css">
 </head>
 
@@ -41,17 +41,24 @@
 
     <header>
         <div data-container="fit">
-            <h1>zero-class Architecture
-            </h1>
+            <h1>zero-class Architecture</h1>
+
+            <p>
+                Utilizing data attributes for styling components
+            </p>
         </div>
     </header>
 
     <main data-section="content">
         <div data-container="fit" data-grid="main">
             <aside>
-
+                <p>by <a href="https://jacobxperez.github.io/blog/about/">Jacob Perez</a>
+                    <br>
+                    publish: 00/00/2022
+                </p>
             </aside>
-            <section>
+
+            <article>
                 <h2>Introduction</h2>
 
                 <p data-text="h5">OOCSS, BEM, and Atomic CSS all have the same problem, and none have taken the time to
@@ -89,7 +96,8 @@
                         Atomic CSS gave birth to utility-first frameworks such as Tailwind. They are filled with
                         single-purpose classes such as flex, pt-4, text-center, and rotate-90, which is no different
                         from writing inline styles. This type of architecture ends by polluting your HTML file with
-                        arbitrary classes that make it hard to read and follow.
+                        arbitrary classes that make it hard to read and follow. zero-class Architecture can fix this
+                        unorganized string of classes more on that later.
                     </p>
 
                     <p>
@@ -111,8 +119,8 @@
                     <h2>zero-class Architecture</h2>
 
                     <p>
-                        I propose a new architecture that does not require class names for styling. We can instead use
-                        data attributes for styling components. With data attributes, the same OCSS example becomes:
+                        I propose a new architecture that does not require class names for styling components. We can
+                        instead use data attributes for styling. With data attributes, the same OCSS example becomes:
                     </p>
 
                     <p>
@@ -125,8 +133,8 @@
                     </p>
 
                     <p>
-                        It is also possible to use JavaScript for styling certain utilities such as margins and
-                        paddings, completely removing them from the stylesheet.
+                        Much more simple and aesthetically pleasing. It is also possible to use JavaScript for styling
+                        certain utilities such as margins and paddings, completely removing them from the stylesheet.
                     </p>
                 </section>
 
@@ -137,8 +145,12 @@
                         When Marianne Brandt started her studies at the Bauhaus in 1923, she decided to burn all her
                         previous works recognizing how traditional they had been. Styling with the class selector is our
                         tradition. We must move away from styling with classes and start thinking about other ways of
-                        doing so. With data attributes, we can group similar selectors and it is easier to read. Nowhere
-                        does the spec prohibits the use of data attributes for styling. Lens camera manufacturers do not
+                        doing so. We can group similar selectors with data attributes, which is easier to read. Nowhere
+                        does the spec prohibits the use of data attributes for styling.
+                    </p>
+
+                    <p>
+                        Lens camera manufacturers do not
                         specify that a 50mm or an 85mm lens should be used only for portrait photography. All lenses can
                         shoot portrait or landscape photography regardless of the focal length. These are only
                         conventions people have and are no strict rules to follow. I can use an 85mm lens for landscapes
@@ -148,12 +160,13 @@
 
                 <footer>
                     <p>
-                        If you haven't noticed yet, this website is using data attributes for styling if you are
-                        interested in this methodology I have started a small framework to get you started. Visit RAMs,
-                        a zero-class framework.
+                        If you haven't noticed yet, this website uses data attributes for styling, if you are interested
+                        in this methodology, I have started a small framework to get you started. Visit <a
+                            href="https://github.com/jacobxperez/rams" target="_blank">RAMs</a>, a
+                        zero-class framework.
                     </p>
                 </footer>
-            </section>
+            </article>
         </div>
     </main>
 
