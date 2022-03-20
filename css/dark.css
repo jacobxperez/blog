@@ -668,6 +668,11 @@ body>footer [data-link] {
     text-indent: -20px;
 }
 
+[data-box="code"] {
+    background-color: #252525;
+    color: #aaa;
+}
+
 @font-face {
     font-family: 'icons';
     src: url('../fonts/icons/icons.eot');
