@@ -71,7 +71,8 @@
                     <h2>Architecture styles</h2>
 
                     <p>
-                        Before I begin, let us first take an overview of the current architectural styles.
+                        Before I explain, let us first take an overview of the current
+                        architectural styles.
                     </p>
 
                     <h3>OOCSS (Object-Oriented CSS)</h3>
@@ -136,6 +137,10 @@
                         unorganized string of classes more on that later.
                     </p>
 
+                    <pre data-box="code">&#60;div class="flex flex-column flex-wrap flex-gap flex-grow-children"&#62;
+&#60;/div&#62;
+</pre>
+
                     <p>
                         Atomic CSS cannot scale by itself to mitigate this problem Tailwind uses PostCSS plugins like
                         autoprefixer and PurgeCSS. Additionally, it provides the @apply, which defeats the purpose of
@@ -155,8 +160,11 @@
                     <h2>zero-class Architecture</h2>
 
                     <p>
-                        I propose a new architecture that does not require class names for styling components. We can
-                        instead use data attributes for styling. With data attributes, the same OCSS example becomes:
+                        I propose a new architecture that does not require class names for styling. The class selector
+                        by itself cannot be styled or extended with custom names. Data attributes have an advantage over
+                        the class selector because the * in data-* can be replaced by any name. We can use custom data
+                        attributes to categorize our components give them base styles, and create variations with
+                        different values. With data attributes, the same OCSS example becomes:
                     </p>
 
                     <p>
