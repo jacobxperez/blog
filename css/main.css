@@ -657,7 +657,7 @@ body>footer [data-link] {
 [data-section="content"] {
     padding: 1.375rem 0rem 1.375rem 0rem;
     background-color: #ffffff;
-    color: #555;
+    color: #333;
 }
 
 [data-list="reference"] {
