@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="INDEX, FOLLOW">
     <meta name="author" content="Jacob Perez">
-    <title>zero-class Architecture - Utilizing data attributes for styling components</title>
+    <title>zero-class Architecture - Utilizing custom data attributes for styling components</title>
     <link rel="stylesheet" href="../../../../css/main.css">
 </head>
 
@@ -44,7 +44,7 @@
             <h1>zero-class Architecture</h1>
 
             <p data-text="h5">
-                Utilizing data attributes for styling components
+                Utilizing custom data attributes for styling components
             </p>
         </div>
     </header>
@@ -56,10 +56,45 @@
                     <br>
                     publish: 03/20/2022
                 </p>
+
+                <nav>
+                    <ul>
+                        <li data-display="small-none">
+                            <p><strong>Contents</strong></p>
+                        </li>
+                        <li data-display="small-none"><a href="#intro">Introduction</a></li>
+                        <li data-display="small-none"><a href="#styles">Architecture styles</a></li>
+                        <li data-display="small-none"><a href="#oocss">OOCSS</a></li>
+                        <li data-display="small-none"><a href="#bem">BEM</a></li>
+                        <li data-display="small-none"><a href="#atomic">Atomic CSS</a></li>
+                        <li data-display="small-none"><a href="#smacss">SMACSS and ITCSS</a></li>
+                        <li data-display="small-none"><a href="#zero">zero-class Architecture</a></li>
+                        <li data-display="small-none"><a href="#conclusion">Conclusion</a></li>
+
+                        <!-- Accordion Menu: show on small screens -->
+                        <li data-display="small" data-flex="nav column">
+                            <a data-nav="link" data-flex="" data-dropdown="accordion"><strong
+                                    data-item="grow">Contents</strong>
+                                <span data-icon="down-open"></span></a>
+
+                            <ul data-dropbox="accordion">
+                                <li><a data-nav="link" href="#intro">Introduction</a></li>
+                                <li><a data-nav="link" href="#styles">Architecture styles</a></li>
+                                <li><a data-nav="link" href="#oocss">OOCSS</a></li>
+                                <li><a data-nav="link" href="#bem">BEM</a></li>
+                                <li><a data-nav="link" href="#atomic">Atomic CSS</a></li>
+                                <li><a data-nav="link" href="#smacss">SMACSS and ITCSS</a></li>
+                                <li><a data-nav="link" href="#zero">zero-class Architecture</a></li>
+                                <li><a data-nav="link" href="#conclusion">Conclusion</a></li>
+                            </ul>
+                        </li>
+                        <!-- end Accordion Menu -->
+                    </ul>
+                </nav>
             </aside>
 
             <article>
-                <h2>Introduction</h2>
+                <h2 id="intro">Introduction</h2>
 
                 <p data-text="h5">
                     OOCSS, BEM, and Atomic CSS all have the same problem, they all utilize the class selector, and none
@@ -68,14 +103,14 @@
                 </p>
 
                 <section>
-                    <h2>Architecture styles</h2>
+                    <h2 id="styles">Architecture styles</h2>
 
                     <p>
-                        let us have a quick overview of the current architectural styles before I explain why the class
+                        lets have a quick overview of the current architectural styles before I explain why the class
                         selector may not be the best option for styling.
                     </p>
 
-                    <h3>OOCSS (Object-Oriented CSS)</h3>
+                    <h3 id="oocss">OOCSS (Object-Oriented CSS)</h3>
 
                     <p>
                         OOCSS gets its cues from object-oriented programming. It does so by separating structure and
@@ -102,7 +137,7 @@
 &#60;/div&#62;
 </pre>
 
-                    <h3>BEM (Block, Element, Modifier)</h3>
+                    <h3 id="bem">BEM (Block, Element, Modifier)</h3>
 
                     <p>
                         In BEM selectors are organized by block, a top-level abstraction of a component. Element, a
@@ -127,7 +162,7 @@
 &#60;/div&#62;
 </pre>
 
-                    <h3>Atomic CSS</h3>
+                    <h3 id="atomic">Atomic CSS</h3>
 
                     <p>
                         Atomic CSS gave birth to utility-first frameworks such as Tailwind. They are filled with
@@ -147,7 +182,7 @@
                         Atomic CSS.
                     </p>
 
-                    <h3>SMACSS and ITCSS</h3>
+                    <h3 id="smacss">SMACSS and ITCSS</h3>
 
                     <p>
                         This type of architecture does not define how to write CSS selectors rather they help to
@@ -157,7 +192,7 @@
                 </section>
 
                 <section>
-                    <h2>zero-class Architecture</h2>
+                    <h2 id="zero">zero-class Architecture</h2>
 
                     <p>
                         I propose a new architecture that does not require class names for styling. The class selector
@@ -188,7 +223,8 @@
 </pre>
 
                     <p>
-                        Notice that we can use the <code>data-box</code> attribute by itself without a value. The BEM example:
+                        Notice that we can use the <code>data-box</code> attribute by itself without a value. The BEM
+                        example:
                     </p>
 
                     <pre data-box="code">[data-block] &#123;
@@ -254,7 +290,7 @@
                 </section>
 
                 <section>
-                    <h2>Conclusion</h2>
+                    <h2 id="conclusion">Conclusion</h2>
 
                     <p>
                         When Marianne Brandt started her studies at the Bauhaus in 1923, she decided to burn all her
