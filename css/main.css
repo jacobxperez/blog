@@ -428,7 +428,7 @@ body>[data-container]:last-child {
 [data-nav="link"].active,
 [data-nav="link"]:hover,
 [data-nav="link"]:active {
-    color: #fff;
+    color: #333;
 }
 
 [data-flex~="nav"] {
@@ -1826,7 +1826,7 @@ body>footer [data-link] {
         display: none;
     }
 
-    [data-container] {
+    [data-container="fit"] {
         max-width: 100%;
         margin: 0;
         padding: 0;
