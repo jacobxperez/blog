@@ -43,9 +43,9 @@
         <div data-container="fit">
             <h1>zero-class Architecture</h1>
 
-            <p data-text="h5">
+            <h2 data-text="h5">
                 Utilizing custom data attributes for styling components
-            </p>
+            </h2>
         </div>
     </header>
 
@@ -55,6 +55,8 @@
                 <p>by <a href="https://jacobxperez.github.io/blog/about/">Jacob Perez</a>
                     <br>
                     publish: 03/20/2022
+                    <br>
+                    modified: 03/21/2022
                 </p>
 
                 <nav>
@@ -98,7 +100,7 @@
 
                 <p data-text="h5">
                     OOCSS, BEM, and Atomic CSS all have the same problem, they all utilize the class selector, and none
-                    have taken the time to solve it. Here lies the problem, we need a new architecture free for the
+                    have taken the time to solve it. Here lies the problem, we need a new architecture free from the
                     class selector. I name this zero-class Architecture.
                 </p>
 
@@ -106,8 +108,12 @@
                     <h2 id="styles">Architecture Styles</h2>
 
                     <p>
-                        lets have a quick overview of the current architectural styles before I explain why the class
-                        selector may not be the best option for styling.
+                        let's start with a quick overview of the current architectural styles before explaining why <a
+                            href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/data-*"
+                            target="_blank">custom
+                            data attributes</a> are the best option for styling components and <strong>not</strong> the
+                        class
+                        selector.
                     </p>
 
                     <h3 id="oocss">OOCSS (Object-Oriented CSS)</h3>
@@ -140,9 +146,8 @@
                     <h3 id="bem">BEM (Block, Element, Modifier)</h3>
 
                     <p>
-                        In BEM selectors are organized by block, a top-level abstraction of a component. Element, a
-                        component inside the block that performs a function and modifier, a variation of the block
-                        component.
+                        BEM organizes selectors by block, a top-level abstraction of a component. Element is a component
+                        that performs a function inside the block. The modifier is a variation of the block component.
                     </p>
 
                     <pre data-box="code">.block &#123;
@@ -166,10 +171,11 @@
 
                     <p>
                         Atomic CSS gave birth to utility-first frameworks such as Tailwind. They are filled with
-                        single-purpose classes such as flex, pt-4, text-center, and rotate-90, which is no different
+                        single-purpose classes such as <code>flex</code>, <code>pt-4</code>,
+                        <code>text-center</code>, and <code>rotate-90</code>, which is no different
                         from writing inline styles. This type of architecture ends by polluting your HTML file with
-                        arbitrary classes that make it hard to read and follow. zero-class Architecture can fix this
-                        unorganized string of classes more on that later.
+                        arbitrary classes that make it hard to read and follow. Custom data attributes can fix this
+                        unorganized string of classes, more on that later.
                     </p>
 
                     <pre data-box="code">&#60;div class="flex flex-column flex-wrap flex-gap flex-grow-children"&#62;
@@ -177,17 +183,17 @@
 </pre>
 
                     <p>
-                        Atomic CSS cannot scale by itself to mitigate this problem Tailwind uses PostCSS plugins like
-                        autoprefixer and PurgeCSS. Additionally, it provides the @apply, which defeats the purpose of
+                        Atomic CSS cannot scale by itself to mitigate this problem PostCSS plugins like autoprefixer and
+                        PurgeCSS are needed. Additionally, Tailwind provides the @apply, which defeats the purpose of
                         Atomic CSS.
                     </p>
 
                     <h3 id="smacss">SMACSS and ITCSS</h3>
 
                     <p>
-                        This type of architecture does not define how to write CSS selectors rather they help to
-                        organize CSS rules in categories. They are both compatible with OOCSS, BEM, and Atomic CSS
-                        however they do not fix the problem of styling components with class names.
+                        This type of architecture does not define how to write CSS selectors instead they help organize
+                        CSS sections. They are both compatible with OOCSS, BEM, and Atomic CSS however they do not fix
+                        the problem of styling components with class names.
                     </p>
                 </section>
 
@@ -196,13 +202,11 @@
 
                     <p>
                         I propose a new architecture that does not require class names for styling. The class selector
-                        by itself cannot be styled or extended with custom names. Data attributes have an advantage over
-                        the class selector because the * in <code>data-*</code> can be replaced by any name. We can use
-                        <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/data-*"
-                            target="_blank">custom data
-                            attributes</a> to categorize our components give them base styles, and create variations
-                        with
-                        different values. With data attributes, the same OCSS example becomes:
+                        by itself cannot be styled or extended with custom names, only with values. That gives data
+                        attributes an advantage over the class selector because the <code>*</code> in
+                        <code>data-*</code> can be replaced by any
+                        name. We can use this advantage to categorize our components give them base styles, and create
+                        variations with different values. With data attributes, the same OCSS example becomes:
                     </p>
 
                     <pre data-box="code">[data-box] &#123;
@@ -247,7 +251,7 @@
 </pre>
 
                     <p>
-                        Utility classes can be grouped as data attributes, eliminating the need to prefix selectors such
+                        Utility classes can be grouped as data attributes, eliminating the need to prefix classes such
                         as flex-*, flex-column, flex-wrap, flex-gap, etc.
                     </p>
 
@@ -272,7 +276,7 @@
 </pre>
 
                     <p>
-                        Much more simple and aesthetically pleasing. It is also possible to use JavaScript for styling
+                        Much more aesthetically pleasing and minimal. It is also possible to use JavaScript for styling
                         certain utilities such as margins and paddings, completely removing them from the stylesheet.
                     </p>
 
@@ -281,7 +285,10 @@
 </pre>
 
                     <p>
-                        There are some rules to follow before naming a custom data attribute.
+                        There are some rules to be aware of before naming a <a
+                            href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/data-*"
+                            target="_blank">custom
+                            data attribute</a>.
                     </p>
 
                     <ul data-list="ul">
@@ -296,18 +303,22 @@
 
                     <p>
                         When Marianne Brandt started her studies at the Bauhaus in 1923, she decided to burn all her
-                        previous works recognizing how traditional they had been. Styling with the class selector is our
+                        previous works recognizing how traditional they had been. Styling with class names is our
                         tradition. We must move away from styling with classes and start thinking about other ways of
-                        doing so. We can group similar selectors with data attributes, which is easier to read. Nowhere
-                        does the spec prohibits the use of data attributes for styling.
+                        doing so. Data attributes unlike classes give both context <code>[data-name]</code> and value
+                        <code>[data-name="value"]</code> that we can use for styling. Nowhere does the spec prohibits
+                        the
+                        use of data
+                        attributes for styling.
                     </p>
 
                     <p>
-                        Lens camera manufacturers do not
-                        specify that a 50mm or an 85mm lens should be used only for portrait photography. All lenses can
-                        shoot portrait or landscape photography regardless of the focal length. These are only
-                        conventions people have and are no strict rules to follow. I can use an 85mm lens for landscapes
-                        or a fish eye lens for portraits as much as I can use data attributes for styling.
+                        Lens camera manufacturers do not specify that a 50mm or an 85mm lens should be used only for
+                        portrait photography. All lenses can shoot portrait or landscape photography regardless of the
+                        focal
+                        length. These are only conventions people have and are no strict rules to follow. I can use an
+                        85mm lens for landscapes or a fish eye lens for portraits as much as I can use data attributes
+                        for styling.
                     </p>
                 </section>
 
@@ -315,9 +326,10 @@
 
                 <footer>
                     <p>
-                        If you haven't noticed yet, this website uses data attributes for styling, if you are interested
-                        in this methodology, I have started a small framework to get you started. Visit <a
-                            href="https://github.com/jacobxperez/rams" target="_blank">RAMs</a>, a
+                        If you haven't noticed by now, this website uses data attributes for styling. Not a single class
+                        ever defines a component. If you are interested in this methodology, I have started a small
+                        project to get you started. Visit <a href="https://github.com/jacobxperez/rams"
+                            target="_blank">RAMs</a>, a
                         zero-class framework.
                     </p>
                 </footer>
