@@ -108,8 +108,8 @@
                     <h2 id="styles">Architecture Styles</h2>
 
                     <p>
-                        let's start with a quick overview of the current architectural styles before explaining why <a
-                            href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/data-*"
+                        Allow me to start with a quick overview of the current architectural styles before explaining
+                        why <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/data-*"
                             target="_blank">custom
                             data attributes</a> are the best option for styling components and <strong>not</strong> the
                         class
@@ -170,10 +170,11 @@
                     <h3 id="atomic">Atomic CSS</h3>
 
                     <p>
-                        Atomic CSS gave birth to utility-first frameworks which create components using single-purpose
+                        Atomic CSS gave birth to utility-first frameworks that create components using single-purpose
                         classes. This type of architecture ends by polluting your HTML file with arbitrary classes such
-                        as flex, pt-4, text-center, and rotate-90, which is no different from writing inline styles.
-                        Utilities are not the problem they can be helpful however, utility-first can become a problem.
+                        as <code>flex</code>, <code>pt-4</code>, <code>text-center</code>, and <code>rotate-90</code>,
+                        which is no different from writing inline styles. Utilities are not the problem they can be
+                        helpful. However, utility-first can become a problem.
                     </p>
 
                     <pre data-box="code">&#60;div class="flex flex-column flex-wrap flex-gap flex-grow-children"&#62;
@@ -181,10 +182,10 @@
 </pre>
 
                     <p>
-                        Atomic CSS cannot scale by itself to mitigate this problem frameworks, use PostCSS plugins like
-                        autoprefixer and PurgeCSS. Additionally, developers may use the @apply, which defeats the
-                        purpose of Atomic CSS. Custom data attributes can fix an unorganized string of classes, more on
-                        that later.
+                        Atomic CSS cannot scale by itself, especially when making complex components or prefixing
+                        related classes. To mitigate this problem frameworks require PostCSS plugins like autoprefixer
+                        and PurgeCSS. Additionally, developers may use the @apply, which defeats the purpose of Atomic
+                        CSS.
                     </p>
 
                     <h3 id="smacss">SMACSS and ITCSS</h3>
@@ -228,8 +229,9 @@
 </pre>
 
                     <p>
-                        Notice that we can use the <code>data-box</code> attribute by itself without a value. The BEM
-                        example:
+                        Unlike the class selector, we can use the <code>data-box</code> attribute by itself without a
+                        value. The BEM
+                        example with data attributes:
                     </p>
 
                     <pre data-box="code">[data-block] &#123;
@@ -275,7 +277,7 @@
 </pre>
 
                     <p>
-                        Much more aesthetically pleasing and minimal. It is also possible to use JavaScript for styling
+                        Much more minimal and aesthetically pleasing. It is also possible to use JavaScript for styling
                         certain utilities such as margins and paddings, completely removing them from the stylesheet.
                     </p>
 
