@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="INDEX, FOLLOW">
     <meta name="author" content="Jacob Perez">
-    <title>zero-class Architecture - Utilizing custom data attributes for styling components</title>
+    <title>Zero-Class Architecture - Utilizing custom data attributes for styling components</title>
     <link rel="stylesheet" href="../../../../css/main.css">
 </head>
 
@@ -41,7 +41,7 @@
 
     <header>
         <div data-container="fit">
-            <h1>zero-class Architecture</h1>
+            <h1>Zero-Class Architecture</h1>
 
             <h2 data-text="h5">
                 Utilizing custom data attributes for styling components
@@ -56,7 +56,7 @@
                     <br>
                     publish: 03/20/2022
                     <br>
-                    revised: 03/22/2022
+                    revised: 03/23/2022
                 </p>
 
                 <nav>
@@ -70,7 +70,7 @@
                         <li data-display="small-none"><a href="#bem">BEM</a></li>
                         <li data-display="small-none"><a href="#atomic">Atomic CSS</a></li>
                         <li data-display="small-none"><a href="#smacss">SMACSS and ITCSS</a></li>
-                        <li data-display="small-none"><a href="#zero">zero-class Architecture</a></li>
+                        <li data-display="small-none"><a href="#zero">Zero-Class Architecture</a></li>
                         <li data-display="small-none"><a href="#conclusion">Conclusion</a></li>
 
                         <!-- Accordion Menu: show on small screens -->
@@ -86,7 +86,7 @@
                                 <li><a data-nav="link" href="#bem">BEM</a></li>
                                 <li><a data-nav="link" href="#atomic">Atomic CSS</a></li>
                                 <li><a data-nav="link" href="#smacss">SMACSS and ITCSS</a></li>
-                                <li><a data-nav="link" href="#zero">zero-class Architecture</a></li>
+                                <li><a data-nav="link" href="#zero">Zero-Class Architecture</a></li>
                                 <li><a data-nav="link" href="#conclusion">Conclusion</a></li>
                             </ul>
                         </li>
@@ -101,7 +101,7 @@
                 <p data-text="h5">
                     OOCSS, BEM, and Atomic CSS all have the same problem, they all utilize the class selector, and none
                     have taken the time to solve it. Here lies the problem, we need a new architecture free from the
-                    class selector. I name this zero-class Architecture.
+                    class selector. I name this Zero-Class Architecture.
                 </p>
 
                 <section>
@@ -183,22 +183,23 @@
 
                     <p>
                         Atomic CSS cannot scale by itself, especially when making complex components or prefixing
-                        related classes. To mitigate this problem frameworks require PostCSS plugins like autoprefixer
-                        and PurgeCSS. Additionally, developers may use the @apply, which defeats the purpose of Atomic
-                        CSS.
+                        related classes. To mitigate this problem PostCSS plugins such as autoprefixer and PurgeCSS are
+                        required. Without the help of these tools, Atomic CSS could not scale. Additionally, developers
+                        may use the @apply, which defeats the purpose of Atomic CSS. Using data attributes can fix an
+                        unorganized string of classes, more on that later.
                     </p>
 
                     <h3 id="smacss">SMACSS and ITCSS</h3>
 
                     <p>
-                        This type of architecture does not define how to write CSS selectors instead they help organize
-                        CSS sections. They are both compatible with OOCSS, BEM, and Atomic CSS however they do not fix
-                        the problem of styling components with class names.
+                        This type of architecture does not specify how to write CSS selectors. Instead, they help
+                        organize CSS in sections. They are both compatible with OOCSS, BEM, and Atomic CSS. However,
+                        they do not fix the class selector.
                     </p>
                 </section>
 
                 <section>
-                    <h2 id="zero">zero-class Architecture</h2>
+                    <h2 id="zero">Zero-Class Architecture</h2>
 
                     <p>
                         I propose a new architecture that does not require class names for styling. The class selector
@@ -300,23 +301,29 @@
                 </section>
 
                 <section>
+                    <h2 id="overview">Overview</h2>
+
+                    <p>
+                        Zero class does not mean that we should never use a class selector. Instead, we should move
+                        beyond the class and start thinking about other ways of styling. We can still use classes as
+                        secondary IDs and not as primary selectors. Zero-Class Architecture does not replace previous
+                        architecture styles it; enhances them with data attributes. Unlike classes, data attributes give
+                        both context <code>[data-box]</code> and value <code>[data-box="value"]</code> that we can use
+                        for styling. Furthermore,
+                        they are accessible by JavaScript providing both aesthetic and functionality.
+                    </p>
+                </section>
+
+                <section>
                     <h2 id="conclusion">Conclusion</h2>
 
                     <p>
-                        When Marianne Brandt started her studies at the Bauhaus in 1923, she decided to burn all her
+                        When Marianne Brandt started her studies at the Bauhaus in 1923, she famously burned all her
                         previous works recognizing how traditional they had been. Styling with class names is our
                         tradition. We must move away from styling with classes and start thinking about other ways of
-                        doing so. Data attributes unlike classes give both context <code>[data-name]</code> and value
-                        <code>[data-name="value"]</code> that we can use for styling. Nowhere does the spec prohibits
-                        the
-                        use of data
-                        attributes for styling.
-                    </p>
-
-                    <p>
-                        Lens camera manufacturers do not specify that a 50mm or an 85mm lens should be used only for
-                        portrait photography. All lenses can shoot portrait or landscape photography regardless of the
-                        focal
+                        doing so. Nowhere does the spec prohibits the use of data attributes for styling. Lens camera
+                        manufacturers do not specify that a 50mm or an 85mm lens should be used only for portrait
+                        photography. All lenses can shoot portrait or landscape photography regardless of the focal
                         length. These are only conventions people have and are no strict rules to follow. I can use an
                         85mm lens for landscapes or a fish eye lens for portraits as much as I can use data attributes
                         for styling.
@@ -331,7 +338,7 @@
                         ever defines a component. If you are interested in this methodology, I have started a small
                         project to get you started. Visit <a href="https://github.com/jacobxperez/rams"
                             target="_blank">RAMs</a>, a
-                        zero-class framework.
+                        Zero-Class framework.
                     </p>
                 </footer>
             </article>
