@@ -635,18 +635,18 @@ body>[data-container]:last-child {
     grid-column: span 3;
 }
 
-body>header {
+[data-section="header"] {
     padding-top: 5.5rem;
     padding-bottom: 1.375rem;
 }
 
-body>footer {
+[data-section="footer"] {
     padding-top: 1.375rem;
     padding-bottom: 4.125rem;
 }
 
-body>header [data-link],
-body>footer [data-link] {
+[data-section="header"] [data-link],
+[data-section="footer"] [data-link] {
     color: #b3b3b3;
 }
 

@@ -1,21 +1,19 @@
 // Layout
 // ----------------------------------------------------------------------------/
-body > header {
+[data-section="header"]  {
     .padding-top(@line-height * 4);
     .padding-bottom(@line-height);
 }
 
-body > footer {
+[data-section="footer"] {
     .padding-top(@line-height);
     .padding-bottom(@line-height * 3);
 }
 
-body {
-    > header,
-    > footer {
-        [data-link] {
-            color: @navbar-link-color-hover;
-        }
+[data-section="header"],
+[data-section="footer"] {
+    [data-link] {
+        color: @navbar-link-color-hover;
     }
 }
 
