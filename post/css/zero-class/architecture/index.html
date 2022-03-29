@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="INDEX, FOLLOW">
     <meta name="author" content="Jacob Perez">
-    <title>Zero-Class Architecture - Utilizing custom data attributes for styling components</title>
+    <title>Zero-Class Architecture - Using data attributes for styling components</title>
     <link rel="stylesheet" href="../../../../css/main.css">
 </head>
 
@@ -44,7 +44,7 @@
             <h1>Zero-Class Architecture</h1>
 
             <h2 data-text="h5">
-                Utilizing custom data attributes for styling components
+                Using data attributes for styling components
             </h2>
         </div>
     </header>
@@ -56,7 +56,7 @@
                     <br>
                     publish: 03/20/2022
                     <br>
-                    revised: 03/23/2022
+                    revised: 03/29/2022
                 </p>
 
                 <nav>
@@ -112,10 +112,10 @@
                     <p>
                         Allow me to start with a quick overview of the current architectural styles before explaining
                         why <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/data-*"
-                            target="_blank">custom
-                            data attributes</a> are the best option for styling components and <strong>not</strong> the
-                        class
-                        selector.
+                            target="_blank">data attributes</a> are the best option for styling components and
+                        <strong>not</strong> the <a
+                            href="https://developer.mozilla.org/en-US/docs/Web/CSS/Class_selectors"
+                            target="_blank">class selector</a>.
                     </p>
 
                     <h3 id="oocss">OOCSS (Object-Oriented CSS)</h3>
@@ -209,7 +209,7 @@
                         attributes an advantage over the class selector because the <code>*</code> in
                         <code>data-*</code> can be replaced by any
                         name. We can use this advantage to categorize our components give them base styles, and create
-                        variations with different values. With data attributes, the same OCSS example becomes:
+                        variations with different values. The same OCSS example with data attributes:
                     </p>
 
                     <pre data-box="code">[data-box] &#123;
@@ -256,7 +256,8 @@
 
                     <p>
                         Utility classes can be grouped as data attributes, eliminating the need to prefix classes such
-                        as flex-*, flex-column, flex-wrap, flex-gap, etc.
+                        as <code>flex-*</code>, <code>flex-column</code>, <code>flex-wrap</code>, <code>flex-gap</code>,
+                        etc.
                     </p>
 
                     <pre data-box="code">[data-flex] &#123;
