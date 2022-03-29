@@ -645,15 +645,14 @@ body>[data-container]:last-child {
     padding-bottom: 4.125rem;
 }
 
-[data-section="header"] [data-link],
-[data-section="footer"] [data-link] {
-    color: #b3b3b3;
-}
-
 [data-section="content"] {
     padding: 1.375rem 0rem 1.375rem 0rem;
     background-color: #323232;
     color: #aaa;
+}
+
+[data-section]:not([data-section="content"]) [data-link] {
+    color: #b3b3b3;
 }
 
 [data-list="reference"] {

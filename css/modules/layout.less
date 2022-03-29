@@ -1,6 +1,6 @@
 // Layout
 // ----------------------------------------------------------------------------/
-[data-section="header"]  {
+[data-section="header"] {
     .padding-top(@line-height * 4);
     .padding-bottom(@line-height);
 }
@@ -10,17 +10,16 @@
     .padding-bottom(@line-height * 3);
 }
 
-[data-section="header"],
-[data-section="footer"] {
-    [data-link] {
-        color: @navbar-link-color-hover;
-    }
-}
-
 [data-section="content"] {
     .padding(@line-height, 0);
     background-color: @content-background-color;
     color: @content-font-color;
+}
+
+[data-section]:not([data-section="content"]) {
+    [data-link] {
+        color: @navbar-link-color-hover;
+    }
 }
 
 [data-list="reference"] {
