@@ -57,7 +57,7 @@
                     <br>
                     publish: <time datetime="2022-03-20">2022/03/20</time>
                     <br>
-                    revised: <time datetime="2022-03-29">2022/03/29</time>
+                    revised: <time datetime="2022-04-01">2022/04/01</time>
                 </p>
 
                 <nav>
@@ -72,6 +72,7 @@
                         <li data-display="small-none"><a href="#atomic">Atomic CSS</a></li>
                         <li data-display="small-none"><a href="#smacss">SMACSS and ITCSS</a></li>
                         <li data-display="small-none"><a href="#zero">Zero-Class Architecture</a></li>
+                        <li data-display="small-none"><a href="#framework">Framework</a></li>
                         <li data-display="small-none"><a href="#overview">Overview</a></li>
                         <li data-display="small-none"><a href="#conclusion">Conclusion</a></li>
 
@@ -90,6 +91,7 @@
                                 <li><a data-nav="link" href="#atomic">Atomic CSS</a></li>
                                 <li><a data-nav="link" href="#smacss">SMACSS and ITCSS</a></li>
                                 <li><a data-nav="link" href="#zero">Zero-Class Architecture</a></li>
+                                <li><a data-nav="link" href="#framework">Framework</a></li>
                                 <li><a data-nav="link" href="#overview">Overview</a></li>
                                 <li><a data-nav="link" href="#conclusion">Conclusion</a></li>
                             </ul>
@@ -120,15 +122,16 @@
                             target="_blank">class selector</a>.
                     </p>
 
-                    <h3 id="oocss">OOCSS (Object-Oriented CSS)</h3>
+                    <section>
+                        <h3 id="oocss">OOCSS (Object-Oriented CSS)</h3>
 
-                    <p>
-                        OOCSS gets its cues from object-oriented programming. It does so by separating structure and
-                        skin. The purpose of OOCSS is to create stylesheets that are flexible, modular, and
-                        interchangeable.
-                    </p>
+                        <p>
+                            OOCSS gets its cues from object-oriented programming. It does so by separating structure and
+                            skin. The purpose of OOCSS is to create stylesheets that are flexible, modular, and
+                            interchangeable.
+                        </p>
 
-                    <pre data-box="code">.box &#123;
+                        <pre data-box="code">.box &#123;
  padding: 5px;
 &#125;
 .box-header &#123;
@@ -146,15 +149,19 @@
  &#60;div class="box-body"&#62;&#60;/div&#62;
 &#60;/div&#62;
 </pre>
+                    </section>
 
-                    <h3 id="bem">BEM (Block, Element, Modifier)</h3>
+                    <section>
+                        <h3 id="bem">BEM (Block, Element, Modifier)</h3>
 
-                    <p>
-                        BEM organizes selectors by block, a top-level abstraction of a component. Element is a component
-                        that performs a function inside the block. The modifier is a variation of the block component.
-                    </p>
+                        <p>
+                            BEM organizes selectors by block, a top-level abstraction of a component. Element is a
+                            component
+                            that performs a function inside the block. The modifier is a variation of the block
+                            component.
+                        </p>
 
-                    <pre data-box="code">.block &#123;
+                        <pre data-box="code">.block &#123;
  padding: 5px;
 &#125;
 .block__element &#123;
@@ -170,36 +177,47 @@
 &#60;div class="block block__element block--modifier"&#62;
 &#60;/div&#62;
 </pre>
+                    </section>
 
-                    <h3 id="atomic">Atomic CSS</h3>
+                    <section>
+                        <h3 id="atomic">Atomic CSS</h3>
 
-                    <p>
-                        Atomic CSS gave birth to utility-first frameworks that create components using single-purpose
-                        classes. This type of architecture ends by polluting your HTML file with arbitrary classes such
-                        as <code>flex</code>, <code>pt-4</code>, <code>text-center</code>, and <code>rotate-90</code>,
-                        which is no different from writing inline styles. Utilities are not the problem they can be
-                        helpful. However, utility-first can become a problem.
-                    </p>
+                        <p>
+                            Atomic CSS gave birth to utility-first frameworks that create components using
+                            single-purpose
+                            classes. This type of architecture ends by polluting your HTML file with arbitrary classes
+                            such
+                            as <code>flex</code>, <code>pt-4</code>, <code>text-center</code>, and
+                            <code>rotate-90</code>,
+                            which is no different from writing inline styles. Utilities are not the problem they can be
+                            helpful. However, utility-first can become a problem.
+                        </p>
 
-                    <pre data-box="code">&#60;div class="flex flex-column flex-wrap flex-gap flex-grow-children"&#62;
+                        <pre data-box="code">&#60;div class="flex flex-column flex-wrap flex-gap flex-grow-children"&#62;
 &#60;/div&#62;
 </pre>
 
-                    <p>
-                        Atomic CSS cannot scale by itself, especially when making complex components or prefixing
-                        related classes. To mitigate this problem PostCSS plugins such as autoprefixer and PurgeCSS are
-                        required. Without the help of these tools, Atomic CSS could not scale. Additionally, developers
-                        may use the @apply, which defeats the purpose of Atomic CSS. Using data attributes can fix an
-                        unorganized string of classes, more on that later.
-                    </p>
+                        <p>
+                            Atomic CSS cannot scale by itself, especially when making complex components or prefixing
+                            related classes. To mitigate this problem PostCSS plugins such as autoprefixer and PurgeCSS
+                            are
+                            required. Without the help of these tools, Atomic CSS could not scale. Additionally,
+                            developers
+                            may use the @apply, which defeats the purpose of Atomic CSS. Using data attributes can fix
+                            an
+                            unorganized string of classes, more on that later.
+                        </p>
+                    </section>
 
-                    <h3 id="smacss">SMACSS and ITCSS</h3>
+                    <section>
+                        <h3 id="smacss">SMACSS and ITCSS</h3>
 
-                    <p>
-                        This type of architecture does not specify how to write CSS selectors. Instead, they help
-                        organize CSS in sections. They are both compatible with OOCSS, BEM, and Atomic CSS. However,
-                        they do not fix the class selector.
-                    </p>
+                        <p>
+                            This type of architecture does not specify how to write CSS selectors. Instead, they help
+                            organize CSS in sections. They are both compatible with OOCSS, BEM, and Atomic CSS. However,
+                            they do not fix the class selector.
+                        </p>
+                    </section>
                 </section>
 
                 <section>
@@ -303,6 +321,19 @@
                         <li>The name must not contain any colon characters (:).</li>
                         <li>The name must not contain any capital letters.</li>
                     </ul>
+
+                    <section>
+                        <h3 id="framework">Framework</h3>
+
+                        <p>
+                            If you haven't noticed by now, this website uses data attributes for styling. Not a single
+                            class
+                            ever defines a component. If you are interested in this methodology, I have started a small
+                            project to get you started. Visit <a href="https://github.com/jacobxperez/rams"
+                                target="_blank">RAMs</a>, a
+                            Zero-Class framework.
+                        </p>
+                    </section>
                 </section>
 
                 <section>
@@ -334,18 +365,6 @@
                         for styling.
                     </p>
                 </section>
-
-                <hr>
-
-                <footer>
-                    <p>
-                        If you haven't noticed by now, this website uses data attributes for styling. Not a single class
-                        ever defines a component. If you are interested in this methodology, I have started a small
-                        project to get you started. Visit <a href="https://github.com/jacobxperez/rams"
-                            target="_blank">RAMs</a>, a
-                        Zero-Class framework.
-                    </p>
-                </footer>
             </article>
         </div>
     </main>
