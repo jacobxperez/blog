@@ -322,6 +322,12 @@ button:focus,
     outline-offset: -0.125rem;
 }
 
+[data-button="link"]:hover,
+[data-button="link"]:active {
+    background-color: transparent;
+    border-color: transparent;
+}
+
 a,
 [data-link],
 [data-button="link"] {
@@ -333,9 +339,9 @@ a,
 
 a:hover,
 [data-link]:hover,
-[data-button="link"]:hover,
 a:active,
 [data-link]:active,
+[data-button="link"]:hover,
 [data-button="link"]:active {
     outline: 0;
     text-decoration: underline;
@@ -348,10 +354,12 @@ a:focus,
     outline-offset: -0.125rem;
 }
 
-[data-button="link"]:hover,
-[data-button="link"]:active {
-    background-color: transparent;
-    border-color: transparent;
+body>[data-container]:first-child {
+    margin-top: 4.125rem;
+}
+
+body>[data-container]:last-child {
+    margin-bottom: 5.5rem;
 }
 
 [data-container] {
@@ -365,21 +373,9 @@ a:focus,
     max-width: 62.5rem;
 }
 
-body>[data-container]:first-child {
-    margin-top: 4.125rem;
-}
-
-body>[data-container]:last-child {
-    margin-bottom: 5.5rem;
-}
-
 [data-grid] {
     display: grid;
     column-gap: 1.25rem;
-}
-
-[data-dropdown="tooltip"] {
-    position: relative;
 }
 
 [data-dropbox] {
@@ -391,6 +387,17 @@ body>[data-container]:last-child {
     z-index: 100;
 }
 
+.active>[data-dropbox],
+.active+[data-dropbox],
+[data-dropdown="tooltip"]:hover>[data-dropbox="tip"] {
+    display: block;
+    visibility: visible;
+}
+
+[data-dropdown="tooltip"] {
+    position: relative;
+}
+
 [data-dropbox="tip"] {
     padding: 0.5rem 0.75rem 0.5rem 0.75rem;
     background-color: #2a2a2a;
@@ -399,11 +406,20 @@ body>[data-container]:last-child {
     left: 0;
 }
 
-[data-dropdown="tooltip"]:hover>[data-dropbox="tip"],
-.active>[data-dropbox],
-.active+[data-dropbox] {
-    display: block;
-    visibility: visible;
+[data-accordion] {
+    border: 0.0625rem solid rgba(0, 0, 0, 0.3);
+}
+
+[data-accordion]>li {
+    border-bottom: 0.0625rem solid rgba(0, 0, 0, 0.3);
+}
+
+[data-accordion]>li:last-child {
+    border: 0;
+}
+
+[data-dropbox="accordion"] {
+    padding: 0.5rem 0.75rem 0.5rem 0.75rem;
 }
 
 [data-box] {
@@ -412,8 +428,7 @@ body>[data-container]:last-child {
     border: 0.0625rem solid rgba(0, 0, 0, 0.3);
 }
 
-[data-nav],
-[data-item~="nav"] {
+[data-nav] {
     display: block;
     padding: 0.5rem 0.75rem 0.5rem 0.75rem;
 }
