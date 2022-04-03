@@ -7,12 +7,11 @@ button,
     .border(@button-border-width; @color: @button-border-color;);
     .border-radius(@button-border-radius);
     .background-color(transparent);
-    text-align: center;
     cursor: pointer;
 
     &:hover,
     &:active {
-        .background-color(@button-background-hover);
+        .background-color(@button-background-active);
         outline: 0;
         text-decoration: none;
     }
