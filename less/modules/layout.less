@@ -16,10 +16,8 @@
     color: @content-font-color;
 }
 
-[data-section]:not([data-section="content"]) {
-    [data-link] {
-        color: @navbar-link-color-active;
-    }
+:where([data-section="footer"], [data-section="header"]) a {
+    color: @navbar-link-color-active;
 }
 
 [data-list="reference"] {

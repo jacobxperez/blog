@@ -1,10 +1,7 @@
 // Disabled
 // ----------------------------------------------------------------------------/
-:disabled,
 [data-state="disabled"],
-[data-state="disabled"]:hover,
-[data-state="disabled"]:active,
-[data-state="disabled"]:focus {
+[data-state="disabled"]:is(:hover, :active, :focus) {
     border-color: @disabled;
     background-color: @disabled;
     color: @disabled-text;
@@ -12,4 +9,3 @@
     outline: 0;
     cursor: not-allowed;
 }
-

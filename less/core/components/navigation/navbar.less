@@ -1,20 +1,16 @@
 // Navbar
 // ----------------------------------------------------------------------------/
 [data-navbar] {
+    z-index: 1000;
     width: 100%;
     .background-color(@navbar-background);
     color: @navbar-link-color-active;
-    z-index: 1000;
-}
-
-[data-navbar="sub"] {
-    .background-color(@navbar-sub-background);
 }
 
 [data-navbar="top"] {
     position: fixed;
     top: 0;
-
+    
     [data-dropbox] {
         top: 100%;
     }
@@ -23,18 +19,20 @@
 [data-navbar="bottom"] {
     position: fixed;
     bottom: 0;
-
+    
     [data-dropbox] {
         bottom: 100%;
     }
 }
 
+[data-navbar="sub"] {
+    .background-color(@navbar-sub-background);
+}
+
 [data-nav="navbar"] {
     color: @navbar-link-color;
+}
 
-    &.active,
-    &:hover,
-    &:active {
-        color: @navbar-link-color-active;
-    }
+[data-nav="navbar"]:is(.active, :hover, :active) {
+    color: @navbar-link-color-active;
 }

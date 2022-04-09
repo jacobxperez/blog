@@ -13,6 +13,7 @@ h6 {
     & when (iscolor(@headings-font-color)) {
         color: @headings-font-color;
     }
+
     .font-family(@headings-font-family);
     font-weight: @headings-font-weight;
     &:extend([data-leading]);
@@ -63,8 +64,7 @@ dfn {
     font-style: italic;
 }
 
-abbr[title],
-dfn[title] {
+[title]:where(abbr, dfn) {
     text-decoration: underline;
     text-decoration: underline dotted;
     cursor: help;
@@ -97,14 +97,14 @@ sub {
 }
 
 hr {
-    box-sizing: content-box;
     display: block;
     .margin(@line-height; 0);
-    height: 1px;
+    .min-height(1px);
     .border-top(@hr-border-width; solid; @hr-border-color);
 }
 
 .medium-type-scale () {
+
     h1,
     [data-text~="h1"] {
         .font-size(@h1-font-size-medium);
@@ -132,6 +132,7 @@ hr {
 }
 
 .large-type-scale () {
+
     h1,
     [data-text~="h1"] {
         .font-size(@h1-font-size-large);

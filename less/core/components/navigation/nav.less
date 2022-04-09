@@ -5,13 +5,9 @@
     .padding(@nav-padding-y; @nav-padding-x);
 }
 
-[data-nav] {
-    &.active,
-    &:hover,
-    &:active {
-        color: @nav-link-color-active;
-        text-decoration: none;
-    }
+[data-nav]:where(.active, :hover, :active) {
+    color: @nav-link-color-active;
+    text-decoration: none;
 }
 
 [data-flex~="nav"] {
