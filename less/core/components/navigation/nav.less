@@ -1,14 +1,14 @@
 // Nav
 // ----------------------------------------------------------------------------/
 [data-nav] {
+    display: flex;
+}
+
+[data-link] {
     display: block;
-    .padding(@nav-padding-y; @nav-padding-x);
+    .padding(@link-padding-y; @link-padding-x);
 }
 
-[data-nav]:where(.active, :hover, :active) {
-    color: @nav-link-color-active;
-}
-
-[data-flex~="nav"] {
-    .border();
+[data-link]:where([data-state="active"], :hover, :active) {
+    color: @link-active;
 }

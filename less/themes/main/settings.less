@@ -132,7 +132,7 @@
 // @form-padding-x: @padding-x;
 // @form-border-width: @border-width;
 // @form-border-color: @border-color;
-// @form-border-color-active: rgba(0, 0, 0, 0.5);
+// @form-border-active: rgba(0, 0, 0, 0.5);
 // @form-border-radius: @border-radius; // default false
 
 
@@ -149,20 +149,22 @@
 
 // Navigation
 // ----------------------------------------------------------------------------/
-// @nav-padding-y: @padding-y;
-// @nav-padding-x: @padding-x;
-@nav-link-color-active: @content-font-color;
-
 // navbar
-// @navbar-background: #222;
-// @navbar-sub-background: lighten(@navbar-background, 3%);
 @navbar-background: @secondary;
+// @navbar-sub-background: lighten(@navbar-background, 3%);
 // @navbar-link-color: contrast(@navbar-background);
-@navbar-link-color-active: lighten(@secondary, 70%);
+@navbar-link-active: lighten(@secondary, 70%);
 
-// tabs
-// @tab-border-width: 2px;
-// @tab-border-color-active: @primary;
+// link (data-link)
+// @link-padding-y: @padding-y;
+// @link-padding-x: @padding-x;
+@link-active: @content-font-color;
+
+// line tabs
+// @line-link-color: #777;
+// @line-link-active: @font-color;
+// @line-border-width: 2px;
+// @line-border-active: @primary;
 
 // breadcrumb
 // @breadcrumb-separator: "/";
@@ -184,15 +186,15 @@
 
 // Call to Action Colors
 // ----------------------------------------------------------------------------/
-// @success: #00c853 ;
+// @success: #198038;
 // @success-text: contrast(@success);
 // @success-active: darken(@success, 5%);
 
-// @warning: #ffab00 ;
+// @warning: #ff832b;
 // @warning-text: contrast(@warning);
 // @warning-active: darken(@warning, 5%);
 
-// @danger: #ff3d00 ;
+// @danger: #da1e28 ;
 // @danger-text: contrast(@danger);
 // @danger-active: darken(@danger, 5%);
 
