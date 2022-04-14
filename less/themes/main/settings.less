@@ -3,22 +3,22 @@
 
 
 // ----------------------------------------------------------------------------/
-@content-background-color: contrast(@background-color);
-@content-font-color: #333;
+@inner-background-color: contrast(@background-color);
+@outer-font-color: #fff;
 // ----------------------------------------------------------------------------/
 
 
 // Main Colors
 // ----------------------------------------------------------------------------/
-@background-color: lighten(@secondary, 10%);
-@font-color: #fff;
+@background-color: @secondary;
+// @font-color: #333;
 // @link-color: @primary;
 
-@primary: lighten(@secondary, 25%);
+@primary: lighten(@navbar-background, 25%);
 // @primary-text: contrast(@primary);
 // @primary-active: darken(@primary, 5%);
 
-@secondary: #0A0F1E;
+@secondary: lighten(@navbar-background, 10%);
 // @secondary-text: contrast(@secondary);
 // @secondary-active: darken(@secondary, 5%);
 
@@ -150,15 +150,15 @@
 // Navigation
 // ----------------------------------------------------------------------------/
 // navbar
-@navbar-background: @secondary;
+@navbar-background: #0A0F1E;
 // @navbar-sub-background: lighten(@navbar-background, 3%);
 // @navbar-link-color: contrast(@navbar-background);
-@navbar-link-active: lighten(@secondary, 70%);
+@navbar-link-active: lighten(@navbar-background, 70%);
 
 // link (data-link)
 // @link-padding-y: @padding-y;
 // @link-padding-x: @padding-x;
-@link-active: @content-font-color;
+// @link-active: @font-color;
 
 // line tabs
 // @line-link-color: #777;
