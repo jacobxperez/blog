@@ -12,19 +12,15 @@
 // ----------------------------------------------------------------------------/
 @background-color: #252525;
 @font-color: #aaa;
-// @link-color: @primary;
+@link-color: #00ac25;
 
-@primary: #00ac25;
+// @primary: @link-color;
 // @primary-text: contrast(@primary);
 // @primary-active: darken(@primary, 5%);
 
-// @secondary: #039;
+// @secondary: @font-color;
 // @secondary-text: contrast(@secondary);
 // @secondary-active: darken(@secondary, 5%);
-
-// @tertiary: @font-color;
-// @tertiary-text: contrast(@tertiary);
-// @tertiary-active: darken(@tertiary, 5%);
 
 
 // Typography
@@ -36,8 +32,8 @@
 
 // type scale
 // @type-scale-small: 1.2;
-// @type-scale-medium: 1.25;
-// @type-scale-large: 1.3;
+// @type-scale-medium: 1.28;
+// @type-scale-large: 1.33;
 
 // headings
 // @headings-font-family: false;
@@ -68,14 +64,14 @@
 // Breakpoints
 // ----------------------------------------------------------------------------/
 // small screen
-// @screen-small-max-width: 680px;
+// @screen-small-max-width: unit((680px / 16px), em);
 
 // medium screen
-// @screen-medium-min-width: (@screen-small-max-width + 1 / @font-size);
-// @screen-medium-max-width: (@screen-large-min-width - 1 / @font-size);
+// @screen-medium-min-width: unit((681px / 16px), em);
+// @screen-medium-max-width: unit((979px / 16px), em);
 
 // large screens
-// @screen-large-min-width: 980px;
+// @screen-large-min-width: unit((980px / 16px), em);
 
 
 // Box Model
@@ -153,7 +149,7 @@
 // @navbar-background: #222;
 // @navbar-sub-background: lighten(@navbar-background, 3%);
 // @navbar-link-color: contrast(@navbar-background);
-// @navbar-link-active: darken(@navbar-link-color, 30%);
+// @navbar-link-active: lighten(@navbar-background, 70%);
 
 // link (data-link)
 // @link-padding-y: @padding-y;
