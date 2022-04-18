@@ -5,6 +5,36 @@
 ------------------------------------------------------------------------------*/
 document.addEventListener("DOMContentLoaded", () => {
 
+    // grab base url
+    var baseUrl = window.location.origin;
+
+
+    // Footer Template
+    (() => {
+        fetch(`${baseUrl}/templates/footer.html`).then(function (response) {
+                // when the template is loaded
+                return response.text();
+            })
+            .then(function (html) {
+                // initialize the dom parser
+                let parser = new DOMParser();
+                // grab the footer
+                let getFooter = document.querySelector('[data-section="footer"]');
+
+                // get the template and parseit
+                let doc = parser.parseFromString(html, 'text/html');
+                let template = doc.getElementById('footerTemplate');
+                let clone = template.content.cloneNode(true);
+
+                // clone template on footer
+                getFooter.appendChild(clone);
+            })
+            .catch(function (err) {
+                console.log('Error: faild to catch template', err);
+            })
+    })();
+
+
     // Dropdown
     (() => {
         const getToggle = document.querySelectorAll('[data-toggle]');
