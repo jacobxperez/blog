@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Footer Template
     (() => {
-        fetch(`${baseUrl}/templates/footer.html`).then(function (response) {
+        fetch(`${baseUrl}/blog/templates/footer.html`).then(function (response) {
                 // when the template is loaded
                 return response.text();
             })
