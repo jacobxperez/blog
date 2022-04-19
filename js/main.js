@@ -43,11 +43,6 @@ document.addEventListener("DOMContentLoaded", () => {
             .catch((err) => {
                 console.log('Error: faild to catch template', err);
             })
-            .finally(() => {
-                // start functions after nav load
-                dropDown();
-                smoothScroll();
-            });
     })();
 
 
@@ -79,6 +74,11 @@ document.addEventListener("DOMContentLoaded", () => {
             .catch((err) => {
                 console.log('Error: faild to catch template', err);
             })
+            .finally(() => {
+                // start functions after footer load
+                dropDown();
+                smoothScroll();
+            })
     })();
 
 
@@ -100,10 +100,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
                     this.removeAttribute('data-state');
 
-                };
+                }
 
                 e.stopPropagation();
-            });
+            })
         };
 
         // toggle class active on tooltip
@@ -118,10 +118,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
                     this.removeAttribute('data-state');
 
-                };
+                }
 
                 e.stopPropagation();
-            });
+            })
         };
 
         // Close dropdown on document click
@@ -131,7 +131,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                     getPop[i].removeAttribute('data-state');
 
-                };
+                }
             }
 
             for (let i = 0; i < getToolTip.length; i++) {
@@ -139,8 +139,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
                     getToolTip[i].removeAttribute('data-state');
 
-                };
-            };
+                }
+            }
         });
     };
     // end Dropdwon
@@ -157,11 +157,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 document.querySelector(this.getAttribute("href")).scrollIntoView({
                     behavior: "smooth"
-                });
+                })
 
-            });
-        };
-    }
+            })
+        }
+    };
     // end Smooth Scroll
 
 });
