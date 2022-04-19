@@ -15,6 +15,37 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
+    // Nav Template
+    (() => {
+        // set nav template url
+        const navUrl = baseUrl + '/templates/nav.html';
+
+        fetch(`${navUrl}`)
+            .then(function (response) {
+                // when the template is loaded
+                return response.text();
+            })
+            .then(function (html) {
+                // initialize the dom parser
+                let parser = new DOMParser();
+                // get the footer from index.html
+                let getFooter = document.querySelector('[data-navbar="top"]');
+
+                // get the template from templates folder and parseit
+                let doc = parser.parseFromString(html, 'text/html');
+                let template = doc.getElementById('navTemplate');
+                // clone template footer
+                let clone = template.content.cloneNode(true);
+
+                // append the template on index.html 
+                getFooter.appendChild(clone);
+            })
+            .catch(function (err) {
+                console.log('Error: faild to catch template', err);
+            })
+    })();
+
+
     // Footer Template
     (() => {
         // set footer template url
