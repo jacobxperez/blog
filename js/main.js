@@ -21,11 +21,11 @@ document.addEventListener("DOMContentLoaded", () => {
         const navUrl = baseUrl + '/templates/nav.html';
 
         fetch(`${navUrl}`)
-            .then(function (response) {
+            .then((response) => {
                 // when the template is loaded
                 return response.text();
             })
-            .then(function (html) {
+            .then((html) => {
                 // initialize the dom parser
                 let parser = new DOMParser();
                 // get the footer from index.html
@@ -40,9 +40,14 @@ document.addEventListener("DOMContentLoaded", () => {
                 // append the template on index.html 
                 getFooter.appendChild(clone);
             })
-            .catch(function (err) {
+            .catch((err) => {
                 console.log('Error: faild to catch template', err);
             })
+            .finally(() => {
+                // start functions after nav load
+                dropdown();
+                smoothScroll();
+            });
     })();
 
 
@@ -52,11 +57,11 @@ document.addEventListener("DOMContentLoaded", () => {
         const footerUrl = baseUrl + '/templates/footer.html';
 
         fetch(`${footerUrl}`)
-            .then(function (response) {
+            .then((response) => {
                 // when the template is loaded
                 return response.text();
             })
-            .then(function (html) {
+            .then((html) => {
                 // initialize the dom parser
                 let parser = new DOMParser();
                 // get the footer from index.html
@@ -71,14 +76,14 @@ document.addEventListener("DOMContentLoaded", () => {
                 // append the template on index.html 
                 getFooter.appendChild(clone);
             })
-            .catch(function (err) {
+            .catch((err) => {
                 console.log('Error: faild to catch template', err);
             })
     })();
 
 
-    // Dropdown
-    (() => {
+    // Dropdown function 
+    const dropdown = () => {
         const getToggle = document.querySelectorAll('[data-toggle]');
         const getPop = document.querySelectorAll('[data-toggle="pop"]');
         const getToolTip = document.querySelectorAll('[data-tooltip]');
@@ -137,12 +142,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 };
             };
         });
-    })();
-    // end Dropdown
+    };
+    // end Dropdwon
 
 
     // Smooth Scroll
-    (() => {
+    const smoothScroll = () => {
         const intLinks = document.querySelectorAll("a[href^='#']");
 
         for (let i = 0; i < intLinks.length; i++) {
@@ -156,7 +161,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             });
         };
-    })();
+    }
     // end Smooth Scroll
 
 });
