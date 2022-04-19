@@ -5,28 +5,30 @@
 ------------------------------------------------------------------------------*/
 document.addEventListener("DOMContentLoaded", () => {
 
-    // grab base url
+    // get base url
     var baseUrl = window.location.origin;
 
 
     // Footer Template
     (() => {
-        fetch(`${baseUrl}/blog/templates/footer.html`).then(function (response) {
+        fetch(`${baseUrl}/../templates/footer.html`)
+            .then(function (response) {
                 // when the template is loaded
                 return response.text();
             })
             .then(function (html) {
                 // initialize the dom parser
                 let parser = new DOMParser();
-                // grab the footer
+                // get the footer from index.html
                 let getFooter = document.querySelector('[data-section="footer"]');
 
-                // get the template and parseit
+                // get the template from templates folder and parseit
                 let doc = parser.parseFromString(html, 'text/html');
                 let template = doc.getElementById('footerTemplate');
+                // clone template footer
                 let clone = template.content.cloneNode(true);
 
-                // clone template on footer
+                // append the template on index.html 
                 getFooter.appendChild(clone);
             })
             .catch(function (err) {
