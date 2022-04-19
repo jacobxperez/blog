@@ -5,13 +5,22 @@
 ------------------------------------------------------------------------------*/
 document.addEventListener("DOMContentLoaded", () => {
 
-    // get base url
-    var baseUrl = window.location.origin;
+    // check to see if it is local host
+    if (location.hostname === "localhost" || location.hostname === "127.0.0.1") {
+        // set url to local host
+        var baseUrl = window.location.origin;
+    } else {
+        // set url to live
+        var baseUrl = window.location.origin + '/blog';
+    }
 
 
     // Footer Template
     (() => {
-        fetch(`${baseUrl}/blog/templates/footer.html`)
+        // set footer template url
+        const footerUrl = baseUrl + '/templates/footer.html';
+
+        fetch(`${footerUrl}`)
             .then(function (response) {
                 // when the template is loaded
                 return response.text();
