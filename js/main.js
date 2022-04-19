@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
             })
             .finally(() => {
                 // start functions after nav load
-                dropdown();
+                dropDown();
                 smoothScroll();
             });
     })();
@@ -83,7 +83,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     // Dropdown function 
-    const dropdown = () => {
+    const dropDown = () => {
         const getToggle = document.querySelectorAll('[data-toggle]');
         const getPop = document.querySelectorAll('[data-toggle="pop"]');
         const getToolTip = document.querySelectorAll('[data-tooltip]');
