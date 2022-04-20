@@ -63,7 +63,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // create nav template from class
     const NavTemplate = new Template();
-    NavTemplate.fetchTemplate('/templates/nav.html', 'navTemplate', '[data-navbar="top"]');
+    NavTemplate.fetchTemplate('/templates/nav.html', 'navTemplate', '[data-section="nav"]');
 
     // create footer template from class
     const FooterTemplate = new Template();
