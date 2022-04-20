@@ -26,17 +26,17 @@ document.addEventListener("DOMContentLoaded", () => {
             this._selectorIndex = selectorIndex;
         }
 
-        get templateURL() {
-            return this._templateURL;
-        }
+        // get templateURL() {
+        //     return this._templateURL;
+        // }
 
-        get templateId() {
-            return this._templateId;
-        }
+        // get templateId() {
+        //     return this._templateId;
+        // }
 
-        get selectorIndex() {
-            return this._selectorIndex;
-        }
+        // get selectorIndex() {
+        //     return this._selectorIndex;
+        // }
 
         fetchTemplate(_templateURL, _templateId, _selectorIndex) {
             fetch(`${_templateURL}`)
