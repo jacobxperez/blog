@@ -17,26 +17,26 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Template Class
     class Template {
-        constructor(templateURL, templateId, selectorIndex) {
-            // get template url
-            this._templateURL = templateURL;
-            // template id
+        constructor(templatePath, templateId, templateSelector) {
+            // get template path
+            this._templatePath = templatePath;
+            // template name id
             this._templateId = templateId;
-            // selector for setting the clone template on index.html
-            this._selectorIndex = selectorIndex;
+            // selector for setting the clone templateId on index.html
+            this._templateSelector = templateSelector;
         }
 
-        fetchTemplate(_templateURL, _templateId, _selectorIndex) {
-            fetch(baseURL + _templateURL)
+        fetchTemplate(_templatePath, _templateId, _templateSelector) {
+            fetch(baseURL + _templatePath)
                 .then((response) => {
                     // when the template is loaded
                     return response.text();
                 })
                 .then((html) => {
-                    // initialize the dom parser
+                    // initialize the DOM parser
                     let parser = new DOMParser();
-                    // get the footer from index.html
-                    let getSelector = document.querySelector(_selectorIndex);
+                    // where to paste template on index.html
+                    let getTemplateSelector = document.querySelector(_templateSelector);
 
                     // get the template from templates folder and parseit
                     let doc = parser.parseFromString(html, 'text/html');
@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     let clone = template.content.cloneNode(true);
 
                     // append the template on index.html 
-                    getSelector.appendChild(clone);
+                    getTemplateSelector.appendChild(clone);
                 })
                 .catch((err) => {
                     console.log('Error: faild to catch template', err);
