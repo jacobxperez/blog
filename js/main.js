@@ -48,11 +48,11 @@ document.addEventListener("DOMContentLoaded", () => {
                     // initialize the dom parser
                     let parser = new DOMParser();
                     // get the footer from index.html
-                    let getSelector = document.querySelector(_selectorIndex);
+                    let getSelector = document.querySelector(`${_selectorIndex}`);
 
                     // get the template from templates folder and parseit
                     let doc = parser.parseFromString(html, 'text/html');
-                    let template = doc.getElementById(_templateId);
+                    let template = doc.getElementById(`${_templateId}`);
                     // clone template footer
                     let clone = template.content.cloneNode(true);
 
