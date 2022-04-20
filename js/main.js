@@ -1,4 +1,4 @@
-/* RAMs <https://github.com/jacobxperez/rams>
+/* Jacob Perez <https://jacobxperez.github.io/blog/>
  * Copyright (C) 2022 Jacob Perez <jacobxperez@gmx.com>
  * Licensed under the Apache License, Version 2.0
  * http://www.apache.org/licenses/LICENSE-2.0
@@ -25,18 +25,6 @@ document.addEventListener("DOMContentLoaded", () => {
             // selector for setting the clone template on index.html
             this._selectorIndex = selectorIndex;
         }
-
-        // get templateURL() {
-        //     return this._templateURL;
-        // }
-
-        // get templateId() {
-        //     return this._templateId;
-        // }
-
-        // get selectorIndex() {
-        //     return this._selectorIndex;
-        // }
 
         fetchTemplate(_templateURL, _templateId, _selectorIndex) {
             fetch(baseURL + _templateURL)
