@@ -26,8 +26,8 @@ document.addEventListener("DOMContentLoaded", () => {
             this._templateSelector = templateSelector;
         }
 
-        fetchTemplate(_templatePath, _templateId, _templateSelector) {
-            fetch(baseURL + _templatePath)
+        fetchTemplate() {
+            fetch(baseURL + this._templatePath)
                 .then((response) => {
                     // when the template is loaded
                     return response.text();
@@ -36,11 +36,11 @@ document.addEventListener("DOMContentLoaded", () => {
                     // initialize the DOM parser
                     let parser = new DOMParser();
                     // where to paste template on index.html
-                    let getTemplateSelector = document.querySelector(_templateSelector);
+                    let getTemplateSelector = document.querySelector(this._templateSelector);
 
                     // get the template from templates folder and parseit
                     let doc = parser.parseFromString(html, 'text/html');
-                    let template = doc.getElementById(_templateId);
+                    let template = doc.getElementById(this._templateId);
                     // clone template footer
                     let clone = template.content.cloneNode(true);
 
@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 })
                 .finally(() => {
                     // if is footer template start functions
-                    if (_templateId === 'footerTemplate') {
+                    if (this._templateId === 'footerTemplate') {
                         dropDown();
                         smoothScroll();
                     }
@@ -62,12 +62,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     // create nav template from class
-    const NavTemplate = new Template();
-    NavTemplate.fetchTemplate('/templates/nav.html', 'navTemplate', '[data-section="nav"]');
+    const NavTemplate = new Template('/templates/nav.html', 'navTemplate', '[data-section="header"]');
+    NavTemplate.fetchTemplate();
 
     // create footer template from class
-    const FooterTemplate = new Template();
-    FooterTemplate.fetchTemplate('/templates/footer.html', 'footerTemplate', '[data-section="footer"]');
+    const FooterTemplate = new Template('/templates/footer.html', 'footerTemplate', '[data-section="footer"]');
+    FooterTemplate.fetchTemplate();
 
 
     // Dropdown function 
