@@ -96,6 +96,15 @@ const smoothScroll = () => {
 // end Smooth Scroll
 
 
+// Page data
+const Data = (title, subTitle) => {
+    return {
+        title: title,
+        subTitle: subTitle
+    }
+};
+
+
 // Template Class
 class Template {
     constructor(templatePath, templateId, templateSelector) {
