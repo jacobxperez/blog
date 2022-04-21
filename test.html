@@ -2,6 +2,7 @@
 <html lang="en" id="top">
 
 <head>
+    <script src="js/script.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="INDEX, FOLLOW">
@@ -10,7 +11,6 @@
     programming, art, and design courses along my formal academic journey.">
     <title>Jacob Perez</title>
     <link rel="stylesheet" href="css/main.css">
-    <script src="js/script.js"></script>
 </head>
 
 <body>
@@ -22,7 +22,7 @@
         NavTemplate.fetchTemplate();
 
         // fetch page content
-        const Content = new Template('/templates/content.html', 'homeContent', '[data-content="main"]');
+        const Content = new Template('/templates/content.html', 'homeContent', '[data-section="main"]');
         Content.fetchTemplate();
 
         // fetch footer
