@@ -15,61 +15,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-    // Template Class
-    class Template {
-        constructor(templatePath, templateId, templateSelector) {
-            // get template path
-            this._templatePath = templatePath;
-            // template name id
-            this._templateId = templateId;
-            // selector for setting the clone templateId on index.html
-            this._templateSelector = templateSelector;
-        }
-
-        fetchTemplate() {
-            fetch(baseURL + this._templatePath)
-                .then((response) => {
-                    // when the template is loaded
-                    return response.text();
-                })
-                .then((html) => {
-                    // initialize the DOM parser
-                    let parser = new DOMParser();
-                    // where to paste template on index.html
-                    let getTemplateSelector = document.querySelector(this._templateSelector);
-
-                    // get the template from templates folder and parseit
-                    let doc = parser.parseFromString(html, 'text/html');
-                    let template = doc.getElementById(this._templateId);
-                    // clone template footer
-                    let clone = template.content.cloneNode(true);
-
-                    // append the template on index.html 
-                    getTemplateSelector.appendChild(clone);
-                })
-                .catch((err) => {
-                    console.log('Error: faild to catch template', err);
-                })
-                .finally(() => {
-                    // if is footer template start functions
-                    if (this._templateId === 'footerTemplate') {
-                        dropDown();
-                        smoothScroll();
-                    }
-                })
-        }
-    };
-
-
-    // create nav template from class
-    const NavTemplate = new Template('/templates/nav.html', 'navTemplate', '[data-section="header"]');
-    NavTemplate.fetchTemplate();
-
-    // create footer template from class
-    const FooterTemplate = new Template('/templates/footer.html', 'footerTemplate', '[data-section="footer"]');
-    FooterTemplate.fetchTemplate();
-
-
     // Dropdown function 
     const dropDown = () => {
         const getToggle = document.querySelectorAll('[data-toggle]');
@@ -151,5 +96,60 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     };
     // end Smooth Scroll
+
+
+    // Template Class
+    class Template {
+        constructor(templatePath, templateId, templateSelector) {
+            // get template path
+            this._templatePath = templatePath;
+            // template name id
+            this._templateId = templateId;
+            // selector for setting the clone templateId on index.html
+            this._templateSelector = templateSelector;
+        }
+
+        fetchTemplate() {
+            fetch(baseURL + this._templatePath)
+                .then((response) => {
+                    // when the template is loaded
+                    return response.text();
+                })
+                .then((html) => {
+                    // initialize the DOM parser
+                    let parser = new DOMParser();
+                    // where to paste template on index.html
+                    let getTemplateSelector = document.querySelector(this._templateSelector);
+
+                    // get the template from templates folder and parseit
+                    let doc = parser.parseFromString(html, 'text/html');
+                    let template = doc.getElementById(this._templateId);
+                    // clone template footer
+                    let clone = template.content.cloneNode(true);
+
+                    // append the template on index.html 
+                    getTemplateSelector.appendChild(clone);
+                })
+                .catch((err) => {
+                    console.log('Error: faild to catch template', err);
+                })
+                .finally(() => {
+                    // if is footer template start functions
+                    if (this._templateId === 'footerTemplate') {
+                        dropDown();
+                        smoothScroll();
+                    }
+                })
+        }
+    };
+
+
+    // create nav template from class
+    const NavTemplate = new Template('/templates/nav.html', 'navTemplate', '[data-section="header"]');
+    NavTemplate.fetchTemplate();
+
+    // create footer template from class
+    const FooterTemplate = new Template('/templates/footer.html', 'footerTemplate', '[data-section="footer"]');
+    FooterTemplate.fetchTemplate();
 
 });
