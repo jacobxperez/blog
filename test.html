@@ -10,8 +10,7 @@
     programming, art, and design courses along my formal academic journey.">
     <title>Jacob Perez</title>
     <link rel="stylesheet" href="css/main.css">
-    <script src="js/alpha.js"></script>
-    <script defer src="js/omega.js"></script>
+    <script src="js/script.js"></script>
 </head>
 
 <body>
@@ -19,9 +18,15 @@
         // create page template
         MainTemplate.fetchTemplate();
 
+        // fetch nav
+        NavTemplate.fetchTemplate();
+
         // fetch page content
         const Content = new Template('/templates/content.html', 'homeContent', '[data-content="main"]');
         Content.fetchTemplate();
+
+        // fetch footer
+        FooterTemplate.fetchTemplate();
 
     </script>
 </body>
