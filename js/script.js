@@ -147,30 +147,40 @@ class Template {
     }
 };
 
-// create nav template
-const NavTemplate = new Template('/templates/nav.html', 'navTemplate', '[data-section="header"]');
-NavTemplate.fetchTemplate();
-
-// create footer template
-const FooterTemplate = new Template('/templates/footer.html', 'footerTemplate', '[data-section="footer"]');
-FooterTemplate.fetchTemplate();
-
 
 document.addEventListener("DOMContentLoaded", () => {
     // initialize parser
     const parser = new DOMParser();
     // generate header from string
-    const parseHeader = parser.parseFromString(`
-            <div data-container="fit">
-                <h1>${pageData.title}</h1>
-            </div>
-            `, 'text/html');
+
+    // check for subtitle
+    if (pageData.subTitle === null) {
+        var parseHeader = parser.parseFromString(`
+        <div data-container="fit">
+        <h1>${pageData.title}</h1>
+        </div>
+        `, 'text/html');
+    } else {
+        var parseHeader = parser.parseFromString(`
+        <div data-container="fit">
+        <h1>${pageData.title}</h1>
+        <h2 data-text="h5">${pageData.subTitle}</h2>
+        </div>
+        `, 'text/html');
+    }
 
     // get html from parsed string
     const getParsedHeader = parseHeader.querySelector('div');
-
     // get page header for appending parsed html
     const getHeader = document.querySelector('header');
     getHeader.appendChild(getParsedHeader);
 
+
+    // create nav template
+    const NavTemplate = new Template('/templates/nav.html', 'navTemplate', '[data-section="header"]');
+    NavTemplate.fetchTemplate();
+
+    // create footer template
+    const FooterTemplate = new Template('/templates/footer.html', 'footerTemplate', '[data-section="footer"]');
+    FooterTemplate.fetchTemplate();
 });
