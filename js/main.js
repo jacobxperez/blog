@@ -117,6 +117,14 @@ class Template {
         this._templateSelector = templateSelector;
     }
 
+    generateFromString(getParsedString, parseSelector, appendTo) {
+        // get html from parsed string
+        const getparseSelector = getParsedString.querySelector(parseSelector);
+        // get page header for appending parsed html
+        const getappendTo = document.querySelector(appendTo);
+        getappendTo.appendChild(getparseSelector);
+    }
+
     fetchTemplate() {
         fetch(baseURL + this._templatePath)
             .then((response) => {
@@ -171,11 +179,8 @@ document.addEventListener("DOMContentLoaded", () => {
             `, 'text/html');
         }
 
-        // get html from parsed string
-        const getParsedHeader = parseHeader.querySelector('div');
-        // get page header for appending parsed html
-        const getHeader = document.querySelector('header');
-        getHeader.appendChild(getParsedHeader);
+        const HeaderContent = new Template();
+        HeaderContent.generateFromString(parseHeader, 'div', 'header');
     })();
 
 
