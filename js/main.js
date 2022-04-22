@@ -152,17 +152,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Generate page header
     (function () {
-
         // check for subtitle
         if (Data.subTitle === null) {
-            // generate header from string
+            // generate from string
             var parseHeader = parser.parseFromString(`
             <div data-container="fit">
             <h1>${Data.title}</h1>
             </div>
             `, 'text/html');
         } else {
-            // generate header from string
+            // generate from string
             var parseHeader = parser.parseFromString(`
             <div data-container="fit">
             <h1>${Data.title}</h1>
