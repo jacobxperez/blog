@@ -12,6 +12,9 @@ if (location.hostname === "localhost" || location.hostname === "127.0.0.1") {
     var baseURL = window.location.origin + '/blog';
 }
 
+// initialize the DOM parser
+var parser = new DOMParser();
+
 // Page data
 var Data = {
     title: 'Jacob Perez',
@@ -120,19 +123,15 @@ class Template {
                 return response.text();
             })
             .then((html) => {
-                // initialize the DOM parser
-                let parser = new DOMParser();
                 // where to paste template on index.html
                 let getTemplateSelector = document.querySelector(this._templateSelector);
-
                 // get the template from templates folder and parseit
                 let doc = parser.parseFromString(html, 'text/html');
                 let template = doc.getElementById(this._templateId);
                 // clone template footer
-                let clone = template.content.cloneNode(true);
-
+                let cloneTemplate = template.content.cloneNode(true);
                 // append the template on index.html 
-                getTemplateSelector.appendChild(clone);
+                getTemplateSelector.appendChild(cloneTemplate);
             })
             .catch((err) => {
                 console.log('Error: faild to catch template', err);
@@ -148,33 +147,36 @@ class Template {
 };
 
 
+// Run code when document loads 
 document.addEventListener("DOMContentLoaded", () => {
 
-    // initialize parser
-    const parser = new DOMParser();
-    // generate header from string
+    // Generate page header
+    (function () {
 
-    // check for subtitle
-    if (Data.subTitle === null) {
-        var parseHeader = parser.parseFromString(`
-        <div data-container="fit">
-        <h1>${Data.title}</h1>
-        </div>
-        `, 'text/html');
-    } else {
-        var parseHeader = parser.parseFromString(`
-        <div data-container="fit">
-        <h1>${Data.title}</h1>
-        <h2 data-text="h5">${Data.subTitle}</h2>
-        </div>
-        `, 'text/html');
-    }
+        // check for subtitle
+        if (Data.subTitle === null) {
+            // generate header from string
+            var parseHeader = parser.parseFromString(`
+            <div data-container="fit">
+            <h1>${Data.title}</h1>
+            </div>
+            `, 'text/html');
+        } else {
+            // generate header from string
+            var parseHeader = parser.parseFromString(`
+            <div data-container="fit">
+            <h1>${Data.title}</h1>
+            <h2 data-text="h5">${Data.subTitle}</h2>
+            </div>
+            `, 'text/html');
+        }
 
-    // get html from parsed string
-    const getParsedHeader = parseHeader.querySelector('div');
-    // get page header for appending parsed html
-    const getHeader = document.querySelector('header');
-    getHeader.appendChild(getParsedHeader);
+        // get html from parsed string
+        const getParsedHeader = parseHeader.querySelector('div');
+        // get page header for appending parsed html
+        const getHeader = document.querySelector('header');
+        getHeader.appendChild(getParsedHeader);
+    })();
 
 
     // create nav template
