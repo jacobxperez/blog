@@ -23,7 +23,7 @@ if (location.hostname === "localhost" || location.hostname === "127.0.0.1") {
 }
 
 
-// Dropdown function 
+// Dropdown toggle function 
 const dropDown = () => {
     const getToggle = document.querySelectorAll('[data-toggle]');
     const getPop = document.querySelectorAll('[data-toggle="pop"]');
@@ -108,46 +108,46 @@ const smoothScroll = () => {
 
 // Template Class
 class Template {
-    constructor(templatePath, templateId, templateSelector) {
+    constructor(parseSource, parseSelector, appendTo) {
         // get template path
-        this._templatePath = templatePath;
+        this._parseSource = parseSource;
         // template name id
-        this._templateId = templateId;
-        // selector for setting the clone templateId on index.html
-        this._templateSelector = templateSelector;
+        this._parseSelector = parseSelector;
+        // selector for setting the clone parseSelector on index.html
+        this._appendTo = appendTo;
     }
 
-    generateFromString(getParsedString, parseSelector, appendTo) {
+    generateFromString() {
         // get html from parsed string
-        const getparseSelector = getParsedString.querySelector(parseSelector);
+        const getparseSelector = this._parseSource.querySelector(this._parseSelector);
         // get page header for appending parsed html
-        const getappendTo = document.querySelector(appendTo);
+        const getappendTo = document.querySelector(this._appendTo);
         getappendTo.appendChild(getparseSelector);
     }
 
     fetchTemplate() {
-        fetch(baseURL + this._templatePath)
+        fetch(baseURL + this._parseSource)
             .then((response) => {
                 // when the template is loaded
                 return response.text();
             })
             .then((html) => {
                 // get the template from template document location and parseit
-                let templateDoc = parser.parseFromString(html, 'text/html');
-                let template = templateDoc.getElementById(this._templateId);
+                const templateDoc = parser.parseFromString(html, 'text/html');
+                const template = templateDoc.getElementById(this._parseSelector);
                 // clone template information
-                let cloneTemplate = template.content.cloneNode(true);
+                const cloneTemplate = template.content.cloneNode(true);
                 // where to paste template on index.html
-                let getTemplateSelector = document.querySelector(this._templateSelector);
+                const getappendTo = document.querySelector(this._appendTo);
                 // append the template on index.html 
-                getTemplateSelector.appendChild(cloneTemplate);
+                getappendTo.appendChild(cloneTemplate);
             })
             .catch((err) => {
                 console.log('Error: faild to catch template', err);
             })
             .finally(() => {
                 // if is footer template start functions
-                if (this._templateId === 'footerTemplate') {
+                if (this._parseSelector === 'footerTemplate') {
                     dropDown();
                     smoothScroll();
                 }
@@ -179,8 +179,8 @@ document.addEventListener("DOMContentLoaded", () => {
             `, 'text/html');
         }
 
-        const HeaderContent = new Template();
-        HeaderContent.generateFromString(parseHeader, 'div', 'header');
+        const HeaderContent = new Template(parseHeader, 'div', 'header');
+        HeaderContent.generateFromString();
     })();
 
 
