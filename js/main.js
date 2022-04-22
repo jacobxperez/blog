@@ -146,7 +146,7 @@ class Template {
                 console.log('Error: faild to catch template', err);
             })
             .finally(() => {
-                // if is footer template start functions
+                // once the footer template is loaded start functions
                 if (this._parseSelector === 'footerTemplate') {
                     dropDown();
                     smoothScroll();
