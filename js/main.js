@@ -3,6 +3,16 @@
  * Licensed under the Apache License, Version 2.0
  * http://www.apache.org/licenses/LICENSE-2.0
 ------------------------------------------------------------------------------*/
+// initialize the DOM parser
+var parser = new DOMParser();
+
+// Page Data
+var Data = {
+    title: document.title,
+    subTitle: null,
+    author: document.querySelector('[name=author]').content,
+};
+
 // check to see if it is local host
 if (location.hostname === "localhost" || location.hostname === "127.0.0.1") {
     // set url to local host
@@ -11,16 +21,6 @@ if (location.hostname === "localhost" || location.hostname === "127.0.0.1") {
     // set url to live
     var baseURL = window.location.origin + '/blog';
 }
-
-// initialize the DOM parser
-var parser = new DOMParser();
-
-// Page data
-var Data = {
-    // page title
-    title: document.title,
-    subTitle: null,
-};
 
 
 // Dropdown function 
