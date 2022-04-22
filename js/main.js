@@ -17,7 +17,8 @@ var parser = new DOMParser();
 
 // Page data
 var Data = {
-    title: 'Jacob Perez',
+    // page title
+    title: document.title,
     subTitle: null,
 };
 
