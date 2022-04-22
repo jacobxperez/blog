@@ -124,13 +124,13 @@ class Template {
                 return response.text();
             })
             .then((html) => {
+                // get the template from template document location and parseit
+                let templateDoc = parser.parseFromString(html, 'text/html');
+                let template = templateDoc.getElementById(this._templateId);
+                // clone template information
+                let cloneTemplate = template.content.cloneNode(true);
                 // where to paste template on index.html
                 let getTemplateSelector = document.querySelector(this._templateSelector);
-                // get the template from templates folder and parseit
-                let doc = parser.parseFromString(html, 'text/html');
-                let template = doc.getElementById(this._templateId);
-                // clone template footer
-                let cloneTemplate = template.content.cloneNode(true);
                 // append the template on index.html 
                 getTemplateSelector.appendChild(cloneTemplate);
             })
