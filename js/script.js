@@ -12,6 +12,12 @@ if (location.hostname === "localhost" || location.hostname === "127.0.0.1") {
     var baseURL = window.location.origin + '/blog';
 }
 
+// Page data
+var pageData = {
+    title: 'Jacob Perez',
+    subTitle: null,
+};
+
 
 // Dropdown function 
 const dropDown = () => {
@@ -96,15 +102,6 @@ const smoothScroll = () => {
 // end Smooth Scroll
 
 
-// Page data
-const Data = (title, subTitle) => {
-    return {
-        title: title,
-        subTitle: subTitle
-    }
-};
-
-
 // Template Class
 class Template {
     constructor(templatePath, templateId, templateSelector) {
@@ -150,11 +147,30 @@ class Template {
     }
 };
 
-// create main template
-const MainTemplate = new Template('/templates/main.html', 'mainTemplate', 'body');
-
 // create nav template
 const NavTemplate = new Template('/templates/nav.html', 'navTemplate', '[data-section="header"]');
+NavTemplate.fetchTemplate();
 
 // create footer template
 const FooterTemplate = new Template('/templates/footer.html', 'footerTemplate', '[data-section="footer"]');
+FooterTemplate.fetchTemplate();
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    // initialize parser
+    const parser = new DOMParser();
+    // generate header from string
+    const parseHeader = parser.parseFromString(`
+            <div data-container="fit">
+                <h1>${pageData.title}</h1>
+            </div>
+            `, 'text/html');
+
+    // get html from parsed string
+    const getParsedHeader = parseHeader.querySelector('div');
+
+    // get page header for appending parsed html
+    const getHeader = document.querySelector('header');
+    getHeader.appendChild(getParsedHeader);
+
+});
