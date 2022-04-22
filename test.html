@@ -11,6 +11,11 @@
     <title>Jacob Perez</title>
     <link rel="stylesheet" href="css/main.css">
     <script src="js/main.js"></script>
+    <script>
+        Data.title = 'Hello World';
+        Data.subTitle = 'Hello World From Subtitle';
+
+    </script>
 </head>
 
 <body>
@@ -27,10 +32,6 @@
     </footer>
 
     <script>
-        // page data
-        pageData.title = 'Hello World';
-        pageData.subTitle = 'Hello World From Subtitle';
-
         // fetch page content
         const pageContent = new Template('/templates/content.html', 'homeContent', '[data-section="main"]');
         pageContent.fetchTemplate();

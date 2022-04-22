@@ -13,7 +13,7 @@ if (location.hostname === "localhost" || location.hostname === "127.0.0.1") {
 }
 
 // Page data
-var pageData = {
+var Data = {
     title: 'Jacob Perez',
     subTitle: null,
 };
@@ -155,17 +155,17 @@ document.addEventListener("DOMContentLoaded", () => {
     // generate header from string
 
     // check for subtitle
-    if (pageData.subTitle === null) {
+    if (Data.subTitle === null) {
         var parseHeader = parser.parseFromString(`
         <div data-container="fit">
-        <h1>${pageData.title}</h1>
+        <h1>${Data.title}</h1>
         </div>
         `, 'text/html');
     } else {
         var parseHeader = parser.parseFromString(`
         <div data-container="fit">
-        <h1>${pageData.title}</h1>
-        <h2 data-text="h5">${pageData.subTitle}</h2>
+        <h1>${Data.title}</h1>
+        <h2 data-text="h5">${Data.subTitle}</h2>
         </div>
         `, 'text/html');
     }
