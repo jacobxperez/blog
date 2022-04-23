@@ -3,6 +3,15 @@
  * Licensed under the Apache License, Version 2.0
  * http://www.apache.org/licenses/LICENSE-2.0
 ------------------------------------------------------------------------------*/
+// check to see if it is local host
+if (location.hostname === "localhost" || location.hostname === "127.0.0.1") {
+    // set url to local host
+    var baseURL = window.location.origin;
+} else {
+    // set url to live
+    var baseURL = window.location.origin + '/blog';
+}
+
 // initialize the DOM parser
 var parser = new DOMParser();
 // appends page content to selector
@@ -14,15 +23,6 @@ var Data = {
     subTitle: null,
     author: document.querySelector('[name=author]').content,
 };
-
-// check to see if it is local host
-if (location.hostname === "localhost" || location.hostname === "127.0.0.1") {
-    // set url to local host
-    var baseURL = window.location.origin;
-} else {
-    // set url to live
-    var baseURL = window.location.origin + '/blog';
-}
 
 
 // Dropdown toggle function 
@@ -137,6 +137,7 @@ class Template {
             })
     }
 };
+// end Template Class
 
 
 // Run code when document loads 
@@ -167,11 +168,11 @@ document.addEventListener("DOMContentLoaded", () => {
     })();
 
 
-    // create nav template
+    // fetch nav template
     const NavTemplate = new Template('/templates/nav.html', 'navTemplate', '[data-section="header"]');
     NavTemplate.fetchTemplate();
 
-    // create footer template
+    // fetch footer template
     const FooterTemplate = new Template('/templates/footer.html', 'footerTemplate', '[data-section="footer"]');
     FooterTemplate.fetchTemplate();
 
