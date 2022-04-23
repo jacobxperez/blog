@@ -12,9 +12,9 @@ if (location.hostname === "localhost" || location.hostname === "127.0.0.1") {
     var baseURL = window.location.origin + '/blog';
 }
 
-// initialize the DOM parser
+// initialize the DOM for parsing Templates
 var parser = new DOMParser();
-// appends page content to selector
+// appends parsed page content to selector
 var setContentTo = '[data-section="main"]';
 
 // Page Data
@@ -168,11 +168,12 @@ document.addEventListener("DOMContentLoaded", () => {
     })();
 
 
-    // fetch nav template
+    // fetch nav Template
     const NavTemplate = new Template('/templates/nav.html', 'navTemplate', '[data-section="header"]');
     NavTemplate.fetchTemplate();
 
-    // fetch footer template
+    // fetch footer Template
+    // always leave footer at the end for toggles to work
     const FooterTemplate = new Template('/templates/footer.html', 'footerTemplate', '[data-section="footer"]');
     FooterTemplate.fetchTemplate();
 
