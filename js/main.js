@@ -5,6 +5,8 @@
 ------------------------------------------------------------------------------*/
 // initialize the DOM parser
 var parser = new DOMParser();
+// appends page content to selector
+var setContentTo = '[data-section="main"]';
 
 // Page Data
 var Data = {
@@ -87,41 +89,23 @@ const dropDown = () => {
 // end Dropdwon
 
 
-// Smooth Scroll
-const smoothScroll = () => {
-    const intLinks = document.querySelectorAll("a[href^='#']");
-
-    for (let i = 0; i < intLinks.length; i++) {
-        intLinks[i].addEventListener("click", function (e) {
-
-            e.preventDefault();
-
-            document.querySelector(this.getAttribute("href")).scrollIntoView({
-                behavior: "smooth"
-            })
-
-        })
-    }
-};
-// end Smooth Scroll
-
-
 // Template Class
 class Template {
     constructor(parseSource, parseSelector, appendTo) {
-        // get template path
+        // get source or path
         this._parseSource = parseSource;
-        // template name id
+        // template selector name
         this._parseSelector = parseSelector;
-        // selector for setting the clone parseSelector on index.html
+        // selector for appending the clone parseSelector on index.html
         this._appendTo = appendTo;
     }
 
     generateFromString() {
         // get html from parsed string
         const getparseSelector = this._parseSource.querySelector(this._parseSelector);
-        // get page header for appending parsed html
+        // get page header for appending parsed html string
         const getappendTo = document.querySelector(this._appendTo);
+        // append string template on index.html 
         getappendTo.appendChild(getparseSelector);
     }
 
@@ -139,7 +123,7 @@ class Template {
                 const cloneTemplate = template.content.cloneNode(true);
                 // where to paste template on index.html
                 const getappendTo = document.querySelector(this._appendTo);
-                // append the template on index.html 
+                // append template on index.html 
                 getappendTo.appendChild(cloneTemplate);
             })
             .catch((err) => {
@@ -149,7 +133,6 @@ class Template {
                 // once the footer template is loaded start functions
                 if (this._parseSelector === 'footerTemplate') {
                     dropDown();
-                    smoothScroll();
                 }
             })
     }
@@ -166,21 +149,21 @@ document.addEventListener("DOMContentLoaded", () => {
             // generate from string
             var parseHeader = parser.parseFromString(`
             <div data-container="fit">
-            <h1>${Data.title}</h1>
+                <h1>${Data.title}</h1>
             </div>
             `, 'text/html');
         } else {
             // generate from string
             var parseHeader = parser.parseFromString(`
             <div data-container="fit">
-            <h1>${Data.title}</h1>
-            <h2 data-text="h5">${Data.subTitle}</h2>
+                <h1>${Data.title}</h1>
+                <h2 data-text="h5">${Data.subTitle}</h2>
             </div>
             `, 'text/html');
         }
 
-        const HeaderContent = new Template(parseHeader, 'div', 'header');
-        HeaderContent.generateFromString();
+        const HeaderTemplate = new Template(parseHeader, 'div', 'header');
+        HeaderTemplate.generateFromString();
     })();
 
 
