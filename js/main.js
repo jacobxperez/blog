@@ -168,7 +168,7 @@ document.addEventListener("DOMContentLoaded", () => {
     MainTemplate.generateFromString();
 
 
-    // diplay page content  from template element
+    // diplay page content from template element on page
     const pageContent = document.getElementById('content').content;
     const copyPageContent = document.importNode(pageContent, true);
     document.getElementById('layout').appendChild(copyPageContent);

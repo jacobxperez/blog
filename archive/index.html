@@ -8,8 +8,10 @@
     <meta name="author" content="Jacob Perez">
     <meta name="description" content="Post Archive">
     <title>Archive</title>
-    <link rel="preload" href="https://jacobxperez.github.io/blog/templates/nav.html" as="fetch" type="text/html" crossorigin>
-    <link rel="preload" href="https://jacobxperez.github.io/blog/templates/footer.html" as="fetch" type="text/html" crossorigin>
+    <link rel="preload" href="https://jacobxperez.github.io/blog/templates/nav.html" as="fetch" type="text/html"
+        crossorigin>
+    <link rel="preload" href="https://jacobxperez.github.io/blog/templates/footer.html" as="fetch" type="text/html"
+        crossorigin>
     <link rel="stylesheet" href="../css/main.css">
     <script src="../js/main.min.js"></script>
 </head>
@@ -20,44 +22,46 @@
     </header>
 
     <main id="main" data-section="main">
-        <div data-container="fit">
-            <ul data-grid="main">
-                <li>
-                    <p><strong>2022</strong></p>
 
-                    <ul data-list="ul">
-                        <li>
-                            <a href="https://jacobxperez.github.io/blog/post/css/zero-class/architecture/">
-                                Zero-Class Architecture
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-
-                <li>
-                    <p><strong>2021</strong></p>
-
-                    <ul data-list="ul">
-                        <li>
-                            <a href="https://jacobxperez.github.io/blog/post/heuristic/the-80-20-principle/">
-                                The 80/20 Principle
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="https://jacobxperez.github.io/blog/about/">
-                                About Me
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
     </main>
 
     <footer id="footer" data-section="footer">
 
     </footer>
+
+    <template id="content">
+        <ul data-grid="main">
+            <li>
+                <p><strong>2022</strong></p>
+
+                <ul data-list="ul">
+                    <li>
+                        <a href="https://jacobxperez.github.io/blog/post/css/zero-class/architecture/">
+                            Zero-Class Architecture
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+            <li>
+                <p><strong>2021</strong></p>
+
+                <ul data-list="ul">
+                    <li>
+                        <a href="https://jacobxperez.github.io/blog/post/heuristic/the-80-20-principle/">
+                            The 80/20 Principle
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="https://jacobxperez.github.io/blog/about/">
+                            About Me
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </template>
 </body>
 
 </html>
