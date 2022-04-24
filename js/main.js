@@ -160,12 +160,19 @@ document.addEventListener("DOMContentLoaded", () => {
     HeaderTemplate.generateFromString();
 
 
-    // // Generate main layout
-    // let parseMain = parser.parseFromString(`
-    //     <div id="content" data-container="fit" data-grid="main">
-    //     </div>`, 'text/html');
-    // let MainTemplate = new Template(parseMain, 'content', 'main');
-    // MainTemplate.generateFromString();
+    // Generate main layout
+    let parseMain = parser.parseFromString(`
+        <div id="layout" data-container="fit" data-grid="main">
+        </div>`, 'text/html');
+    let MainTemplate = new Template(parseMain, 'layout', 'main');
+    MainTemplate.generateFromString();
+
+
+    // diplay page content  from template element
+    const pageContent = document.getElementById('content').content;
+    const copyPageContent = document.importNode(pageContent, true);
+    document.getElementById('layout').appendChild(copyPageContent);
+
 
     // fetch nav Template
     let NavTemplate = new Template('/templates/nav.html', 'navTemplate', 'header');
