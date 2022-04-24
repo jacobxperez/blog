@@ -3,14 +3,8 @@
  * Licensed under the Apache License, Version 2.0
  * http://www.apache.org/licenses/LICENSE-2.0
 ------------------------------------------------------------------------------*/
-// check to see if it is local host
-if (location.hostname === "localhost" || location.hostname === "127.0.0.1") {
-    // set url to local host
-    var baseURL = window.location.origin;
-} else {
-    // set url to live
-    var baseURL = window.location.origin + '/blog';
-}
+// check if site is on local host
+location.hostname === "localhost" || location.hostname === "127.0.0.1" ? baseURL = window.location.origin : baseURL = window.location.origin + '/blog';
 
 // initialize the DOM for parsing Templates
 var parser = new DOMParser();
@@ -173,7 +167,7 @@ document.addEventListener("DOMContentLoaded", () => {
     NavTemplate.fetchTemplate();
 
     // fetch footer Template
-    // always leave footer at the end for toggles to work
+    // always leave footer at the end for toggles to work dropDown
     const FooterTemplate = new Template('/templates/footer.html', 'footerTemplate', '[data-section="footer"]');
     FooterTemplate.fetchTemplate();
 
