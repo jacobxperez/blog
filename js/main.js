@@ -138,7 +138,7 @@ class Template {
 // end Template Class
 
 
-// Run code when document loads 
+// Generate Template when DOC Loads
 document.addEventListener("DOMContentLoaded", () => {
 
     // check for subtitle
@@ -158,7 +158,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // Generate page layout
-    let mainLayout = `
+    let layout = `
     <article id="layout">
         <header id="header" data-section="header">
             ${headerContent}
@@ -176,8 +176,8 @@ document.addEventListener("DOMContentLoaded", () => {
     <article>
     `;
 
-    let MainLayout = new Template(mainLayout, 'layout', 'page');
-    MainLayout.generateFromString();
+    let PageLayout = new Template(layout, 'layout', 'page');
+    PageLayout.generateFromString();
 
 
     // generate page content from template element
