@@ -186,13 +186,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     // fetch nav Template
-    let NavTemplate = new Template('/templates/nav.html', 'navTemplate', 'header');
+    let NavTemplate = new Template('/templates/main.html', 'navTemplate', 'header');
     NavTemplate.fetchTemplate();
 
 
     // fetch footer Template
     // always leave footer at the end for toggles to work dropDown
-    let FooterTemplate = new Template('/templates/nav.html', 'footerTemplate', 'footerContent');
+    let FooterTemplate = new Template('/templates/main.html', 'footerTemplate', 'footerContent');
     FooterTemplate.fetchTemplate();
 
 });
