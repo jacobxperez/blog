@@ -8,7 +8,7 @@ location.hostname === "localhost" || location.hostname === "127.0.0.1" ? baseURL
 
 // initialize the DOM for parsing Templates
 var parser = new DOMParser();
-// appends parsed page content to selector
+// appends parsed content to selector
 var contentTarget = '[data-section="main"]';
 
 // Page Data
