@@ -9,7 +9,7 @@ location.hostname === "localhost" || location.hostname === "127.0.0.1" ? baseURL
 // initialize the DOM for parsing Templates
 var parser = new DOMParser();
 // appends parsed content to selector
-var contentTarget = '[data-section="main"]';
+var contentTarget = 'content';
 
 // Page Data
 var Data = {
@@ -96,9 +96,9 @@ class Template {
 
     generateFromString() {
         // get html from parsed string
-        const parseSelector_ = this._parseSource.querySelector(this._parseSelector);
+        const parseSelector_ = this._parseSource.getElementById(this._parseSelector);
         // get page header for appending parsed html string
-        const targetSelector_ = document.querySelector(this._targetSelector);
+        const targetSelector_ = document.getElementById(this._targetSelector);
         // append string template on index.html 
         targetSelector_.appendChild(parseSelector_);
     }
@@ -112,11 +112,11 @@ class Template {
             .then((html) => {
                 // get the template from template document location and parseit
                 const templateDoc = parser.parseFromString(html, 'text/html');
-                const template = templateDoc.querySelector(this._parseSelector);
+                const template = templateDoc.getElementById(this._parseSelector);
                 // clone template information
                 const cloneTemplate = template.content.cloneNode(true);
                 // where to paste template on index.html
-                const targetSelector_ = document.querySelector(this._targetSelector);
+                const targetSelector_ = document.getElementById(this._targetSelector);
                 // append template on index.html 
                 targetSelector_.appendChild(cloneTemplate);
             })
@@ -137,38 +137,44 @@ class Template {
 // Run code when document loads 
 document.addEventListener("DOMContentLoaded", () => {
 
-    // Generate page header
-    (function () {
-        // check for subtitle
-        if (Data.subTitle === null) {
-            // generate from string
-            var parseHeader = parser.parseFromString(`
-            <div data-container="fit">
+    // check for subtitle
+    if (Data.subTitle === null) {
+        // generate from string
+        var parseHeader = parser.parseFromString(`
+            <div id="headerContent" data-container="fit">
                 <h1>${Data.title}</h1>
             </div>
             `, 'text/html');
-        } else {
-            // generate from string
-            var parseHeader = parser.parseFromString(`
-            <div data-container="fit">
+    } else {
+        // generate from string
+        var parseHeader = parser.parseFromString(`
+            <div id="headerContent" data-container="fit">
                 <h1>${Data.title}</h1>
                 <h2 data-text="h5">${Data.subTitle}</h2>
             </div>
             `, 'text/html');
-        }
+    }
 
-        const HeaderTemplate = new Template(parseHeader, 'div', 'header');
-        HeaderTemplate.generateFromString();
-    })();
+    // Generate page header
+    let HeaderTemplate = new Template(parseHeader, 'headerContent', 'header');
+    HeaderTemplate.generateFromString();
 
+
+    // // Generate main layout
+    // let parseMain = parser.parseFromString(`
+    //     <div id="content" data-container="fit" data-grid="main">
+    //     </div>`, 'text/html');
+    // let MainTemplate = new Template(parseMain, 'content', 'main');
+    // MainTemplate.generateFromString();
 
     // fetch nav Template
-    const NavTemplate = new Template('/templates/nav.html', '#navTemplate', '[data-section="header"]');
+    let NavTemplate = new Template('/templates/nav.html', 'navTemplate', 'header');
     NavTemplate.fetchTemplate();
+
 
     // fetch footer Template
     // always leave footer at the end for toggles to work dropDown
-    const FooterTemplate = new Template('/templates/footer.html', '#footerTemplate', '[data-section="footer"]');
+    let FooterTemplate = new Template('/templates/footer.html', 'footerTemplate', 'footer');
     FooterTemplate.fetchTemplate();
 
 });
