@@ -143,15 +143,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // check for subtitle
     if (Data.subTitle === null) {
-        // generate from string
-        var parseHeader = `
+        var headerContent = `
             <div id="headerContent" data-container="fit">
                 <h1>${Data.title}</h1>
             </div>
             `;
     } else {
-        // generate from string
-        var parseHeader = `
+        var headerContent = `
             <div id="headerContent" data-container="fit">
                 <h1>${Data.title}</h1>
                 <h2 data-text="h5">${Data.subTitle}</h2>
@@ -159,21 +157,31 @@ document.addEventListener("DOMContentLoaded", () => {
             `;
     }
 
-    // Generate page header
-    let HeaderTemplate = new Template(parseHeader, 'headerContent', 'header');
-    HeaderTemplate.generateFromString();
+    // Generate page layout
+    let mainLayout = `
+    <article id="layout">
+        <header id="header" data-section="header">
+            ${headerContent}
+        </header>
 
+        <main id="main" data-section="main">
+            <div id="content" data-container="fit" data-grid="main">
+            </div>
+        </main>
 
-    // Generate main layout
-    let parseMain = `
-        <div id="layout" data-container="fit" data-grid="main">
-        </div>`;
-    let MainTemplate = new Template(parseMain, 'layout', 'main');
-    MainTemplate.generateFromString();
+        <footer id="footer" data-section="footer">
+            <div id="footerContent" data-container="fit">
+            </div>
+        </footer>
+    <article>
+    `;
+
+    let MainLayout = new Template(mainLayout, 'layout', 'page');
+    MainLayout.generateFromString();
 
 
     // generate page content from template element
-    let PageContent = new Template('content', 'layout');
+    let PageContent = new Template('template', 'content');
     PageContent.getTemplate();
 
 
@@ -184,7 +192,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // fetch footer Template
     // always leave footer at the end for toggles to work dropDown
-    let FooterTemplate = new Template('/templates/footer.html', 'footerTemplate', 'footer');
+    let FooterTemplate = new Template('/templates/footer.html', 'footerTemplate', 'footerContent');
     FooterTemplate.fetchTemplate();
 
 });
