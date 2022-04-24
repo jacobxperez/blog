@@ -92,6 +92,12 @@ class Template {
         this._targetSelector = targetSelector;
     }
 
+    getTemplate() {
+        const getTemplate_ = document.getElementById(this._parseSource).content;
+        const copyTemplate_ = document.importNode(getTemplate_, true);
+        document.getElementById(this._parseSelector).appendChild(copyTemplate_);
+    }
+
     generateFromString() {
         // get string and parse it
         const parseSource_ = parser.parseFromString(this._parseSource, 'text/html');
@@ -166,11 +172,9 @@ document.addEventListener("DOMContentLoaded", () => {
     MainTemplate.generateFromString();
 
 
-    // diplay page content from template element on page
-    const contentTarget = 'content';
-    const pageContent = document.getElementById(contentTarget).content;
-    const copyPageContent = document.importNode(pageContent, true);
-    document.getElementById('layout').appendChild(copyPageContent);
+    // generate page content from template element
+    let PageContent = new Template('content', 'layout');
+    PageContent.getTemplate();
 
 
     // fetch nav Template
