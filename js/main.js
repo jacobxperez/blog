@@ -8,8 +8,6 @@ location.hostname === "localhost" || location.hostname === "127.0.0.1" ? baseURL
 
 // initialize the DOM for parsing Templates
 var parser = new DOMParser();
-// appends parsed content to selector
-var contentTarget = 'content';
 
 // Page Data
 var Data = {
@@ -95,11 +93,12 @@ class Template {
     }
 
     generateFromString() {
-        // get html from parsed string
-        const parseSelector_ = this._parseSource.getElementById(this._parseSelector);
-        // get page header for appending parsed html string
+        // get string and parse it
+        const parseSource_ = parser.parseFromString(this._parseSource, 'text/html');
+        // get selector from parsed string
+        const parseSelector_ = parseSource_.getElementById(this._parseSelector);
+        // append to target selector on index.html 
         const targetSelector_ = document.getElementById(this._targetSelector);
-        // append string template on index.html 
         targetSelector_.appendChild(parseSelector_);
     }
 
@@ -115,9 +114,8 @@ class Template {
                 const template = templateDoc.getElementById(this._parseSelector);
                 // clone template information
                 const cloneTemplate = template.content.cloneNode(true);
-                // where to paste template on index.html
+                // append to target selector on index.html 
                 const targetSelector_ = document.getElementById(this._targetSelector);
-                // append template on index.html 
                 targetSelector_.appendChild(cloneTemplate);
             })
             .catch((err) => {
@@ -140,19 +138,19 @@ document.addEventListener("DOMContentLoaded", () => {
     // check for subtitle
     if (Data.subTitle === null) {
         // generate from string
-        var parseHeader = parser.parseFromString(`
+        var parseHeader = `
             <div id="headerContent" data-container="fit">
                 <h1>${Data.title}</h1>
             </div>
-            `, 'text/html');
+            `;
     } else {
         // generate from string
-        var parseHeader = parser.parseFromString(`
+        var parseHeader = `
             <div id="headerContent" data-container="fit">
                 <h1>${Data.title}</h1>
                 <h2 data-text="h5">${Data.subTitle}</h2>
             </div>
-            `, 'text/html');
+            `;
     }
 
     // Generate page header
@@ -161,15 +159,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     // Generate main layout
-    let parseMain = parser.parseFromString(`
+    let parseMain = `
         <div id="layout" data-container="fit" data-grid="main">
-        </div>`, 'text/html');
+        </div>`;
     let MainTemplate = new Template(parseMain, 'layout', 'main');
     MainTemplate.generateFromString();
 
 
     // diplay page content from template element on page
-    const pageContent = document.getElementById('content').content;
+    const contentTarget = 'content';
+    const pageContent = document.getElementById(contentTarget).content;
     const copyPageContent = document.importNode(pageContent, true);
     document.getElementById('layout').appendChild(copyPageContent);
 
