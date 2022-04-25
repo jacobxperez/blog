@@ -85,18 +85,18 @@ const dropDown = () => {
 class Template {
     getTemplate(parseSource, targetSelector) {
         const getTemplate_ = document.getElementById(parseSource).content;
-        const copyTemplate_ = document.importNode(getTemplate_, true);
-        document.getElementById(targetSelector).appendChild(copyTemplate_);
+        const importTemplate_ = document.importNode(getTemplate_, true);
+        document.getElementById(targetSelector).appendChild(importTemplate_);
     }
 
     getFromString(parseSource, parseSelector, targetSelector) {
         // get string and parse it
         const parseSource_ = parser.parseFromString(parseSource, 'text/html');
         // get selector from parsed string
-        const parseSelector_ = parseSource_.getElementById(parseSelector);
+        const getParseSelector_ = parseSource_.getElementById(parseSelector);
         // append to target selector on index.html 
-        const targetSelector_ = document.getElementById(targetSelector);
-        targetSelector_.appendChild(parseSelector_);
+        const getTargetSelector_ = document.getElementById(targetSelector);
+        getTargetSelector_.appendChild(getParseSelector_);
     }
 
     fetchTemplate(parseSource, parseSelector, targetSelector) {
@@ -106,14 +106,14 @@ class Template {
                 return response.text();
             })
             .then((html) => {
-                // get the template from template document location and parseit
-                const templateDoc_ = parser.parseFromString(html, 'text/html');
-                const template_ = templateDoc_.getElementById(parseSelector);
+                // get the template from fetch template and parseit
+                const parseSource_ = parser.parseFromString(html, 'text/html');
+                const getParseSelector_ = parseSource_.getElementById(parseSelector);
                 // clone template information
-                const cloneTemplate_ = template_.content.cloneNode(true);
+                const cloneParseSelector_ = getParseSelector_.content.cloneNode(true);
                 // append to target selector on index.html 
                 const targetSelector_ = document.getElementById(targetSelector);
-                targetSelector_.appendChild(cloneTemplate_);
+                targetSelector_.appendChild(cloneParseSelector_);
             })
             .catch((err) => {
                 console.log('Error: faild to catch template', err);
@@ -148,8 +148,10 @@ document.addEventListener("DOMContentLoaded", () => {
             `;
     }
 
+
     // Generate page layout
-    const layout = `
+    const PageLayout = new Template();
+    PageLayout.getFromString(`
     <article id="layout">
         <header id="header" data-section="header">
             ${headerContent}
@@ -165,10 +167,7 @@ document.addEventListener("DOMContentLoaded", () => {
             </div>
         </footer>
     <article>
-    `;
-
-    const PageLayout = new Template();
-    PageLayout.getFromString(layout, 'layout', 'page');
+    `, 'layout', 'page');
 
 
     // get page content from template element
