@@ -71,6 +71,8 @@ const Template = {
         const _importTemplate = document.importNode(_getTemplate, true);
         // append template to target ID
         document.getElementById(targetId).appendChild(_importTemplate);
+
+        return this;
     },
     getString(source, templateId, targetId) {
         // get string and parse it
@@ -80,6 +82,8 @@ const Template = {
         // append to target selector on index.html 
         const _getTargetId = document.getElementById(targetId);
         _getTargetId.appendChild(_getTemplateId);
+
+        return this;
     },
     fetchTemplate(source, templateId, targetId) {
         fetch(baseURL + source)
@@ -107,6 +111,8 @@ const Template = {
                     dropDown();
                 }
             })
+
+        return this;
     },
 };
 // end Template Object
@@ -129,8 +135,8 @@ document.addEventListener("DOMContentLoaded", () => {
             `;
     }
 
-    // Generate page layout
-    const layout = Template.getString(`
+    // Generate page content
+    const pageContent = Template.getString(`
     <article id="layout">
         <header id="header" data-section="header">
             ${headerContent}
@@ -146,16 +152,12 @@ document.addEventListener("DOMContentLoaded", () => {
             </div>
         </footer>
     <article>
-    `, 'layout', 'page');
+    `, 'layout', 'page')
+        .getTemplate('template', 'content');
 
-    // get page content from template element
-    const pageContent = Template.getTemplate('template', 'content');
-
-    // fetch navigation Template
-    const navigation = Template.fetchTemplate('/templates/main-min.html', 'navTemplate', 'header');
-
-    // fetch footer Template
+    // fetch navigation and footer
     // always leave footer at the end for toggles to work dropDown()
-    const footer = Template.fetchTemplate('/templates/main-min.html', 'footerTemplate', 'footerContent');
+    const elements = Template.fetchTemplate('/templates/main-min.html', 'navTemplate', 'header')
+        .fetchTemplate('/templates/main-min.html', 'footerTemplate', 'footerContent');
 
 });
