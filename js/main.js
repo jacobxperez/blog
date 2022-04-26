@@ -82,49 +82,47 @@ const dropDown = () => {
 
 
 // Template Class
-class Template {
-    getTemplate(parseSource, targetSelector) {
-        const getTemplate_ = document.getElementById(parseSource).content;
-        const importTemplate_ = document.importNode(getTemplate_, true);
-        document.getElementById(targetSelector).appendChild(importTemplate_);
-    }
-
-    getFromString(parseSource, parseSelector, targetSelector) {
+const Template = {
+    getTemplate(source, targetID) {
+        const _getTemplate = document.getElementById(source).content;
+        const _importTemplate = document.importNode(_getTemplate, true);
+        document.getElementById(targetID).appendChild(_importTemplate);
+    },
+    getString(source, parseID, targetID) {
         // get string and parse it
-        const parseSource_ = parser.parseFromString(parseSource, 'text/html');
+        const _source = parser.parseFromString(source, 'text/html');
         // get selector from parsed string
-        const getParseSelector_ = parseSource_.getElementById(parseSelector);
+        const _getParseID = _source.getElementById(parseID);
         // append to target selector on index.html 
-        const getTargetSelector_ = document.getElementById(targetSelector);
-        getTargetSelector_.appendChild(getParseSelector_);
-    }
-
-    fetchTemplate(parseSource, parseSelector, targetSelector) {
-        fetch(baseURL + parseSource)
+        const _getTargetID = document.getElementById(targetID);
+        _getTargetID.appendChild(_getParseID);
+    },
+    fetchTemplate(source, parseID, targetID) {
+        fetch(baseURL + source)
             .then((response) => {
                 // when the template is loaded
                 return response.text();
             })
             .then((html) => {
                 // get the template from fetch template and parseit
-                const parseSource_ = parser.parseFromString(html, 'text/html');
-                const getParseSelector_ = parseSource_.getElementById(parseSelector);
+                const _source = parser.parseFromString(html, 'text/html');
+                const _getParseID = _source.getElementById(parseID);
                 // clone template information
-                const cloneParseSelector_ = getParseSelector_.content.cloneNode(true);
+                const _cloneparseID = _getParseID.content.cloneNode(true);
                 // append to target selector on index.html 
-                const targetSelector_ = document.getElementById(targetSelector);
-                targetSelector_.appendChild(cloneParseSelector_);
+                const _targetID = document.getElementById(targetID);
+                _targetID.appendChild(_cloneparseID);
             })
             .catch((err) => {
                 console.log('Error: faild to catch template', err);
             })
             .finally(() => {
                 // once the footer template is loaded start functions
-                if (parseSelector === 'footerTemplate') {
+                if (parseID === 'footerTemplate') {
                     dropDown();
                 }
             })
-    }
+    },
 };
 // end Template Class
 
@@ -150,8 +148,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     // Generate page layout
-    const PageLayout = new Template();
-    PageLayout.getFromString(`
+    const layout = Template.getString(`
     <article id="layout">
         <header id="header" data-section="header">
             ${headerContent}
@@ -168,21 +165,22 @@ document.addEventListener("DOMContentLoaded", () => {
         </footer>
     <article>
     `, 'layout', 'page');
+    layout;
 
 
     // get page content from template element
-    const PageContent = new Template();
-    PageContent.getTemplate('template', 'content');
+    const pageContent = Template.getTemplate('template', 'content');
+    pageContent;
 
 
     // fetch nav Template
-    const NavTemplate = new Template();
-    NavTemplate.fetchTemplate('/templates/main.html', 'navTemplate', 'header');
+    const nav = Template.fetchTemplate('/templates/main.html', 'navTemplate', 'header');
+    nav;
 
 
     // fetch footer Template
     // always leave footer at the end for toggles to work dropDown
-    const FooterTemplate = new Template();
-    FooterTemplate.fetchTemplate('/templates/main.html', 'footerTemplate', 'footerContent');
+    const footer = Template.fetchTemplate('/templates/main.html', 'footerTemplate', 'footerContent');
+    footer;
 
 });
