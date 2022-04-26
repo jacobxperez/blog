@@ -83,21 +83,21 @@ const dropDown = () => {
 
 // Template Class
 const Template = {
-    getTemplate(source, targetID) {
+    getTemplate(source, targetId) {
         const _getTemplate = document.getElementById(source).content;
         const _importTemplate = document.importNode(_getTemplate, true);
-        document.getElementById(targetID).appendChild(_importTemplate);
+        document.getElementById(targetId).appendChild(_importTemplate);
     },
-    getString(source, parseID, targetID) {
+    getString(source, templateId, targetId) {
         // get string and parse it
         const _source = parser.parseFromString(source, 'text/html');
         // get selector from parsed string
-        const _getParseID = _source.getElementById(parseID);
+        const _getTemplateId = _source.getElementById(templateId);
         // append to target selector on index.html 
-        const _getTargetID = document.getElementById(targetID);
-        _getTargetID.appendChild(_getParseID);
+        const _getTargetId = document.getElementById(targetId);
+        _getTargetId.appendChild(_getTemplateId);
     },
-    fetchTemplate(source, parseID, targetID) {
+    fetchTemplate(source, templateId, targetId) {
         fetch(baseURL + source)
             .then((response) => {
                 // when the template is loaded
@@ -106,19 +106,19 @@ const Template = {
             .then((html) => {
                 // get the template from fetch template and parseit
                 const _source = parser.parseFromString(html, 'text/html');
-                const _getParseID = _source.getElementById(parseID);
+                const _getTemplateId = _source.getElementById(templateId);
                 // clone template information
-                const _cloneparseID = _getParseID.content.cloneNode(true);
+                const _cloneTemplate = _getTemplateId.content.cloneNode(true);
                 // append to target selector on index.html 
-                const _targetID = document.getElementById(targetID);
-                _targetID.appendChild(_cloneparseID);
+                const _targetId = document.getElementById(targetId);
+                _targetId.appendChild(_cloneTemplate);
             })
             .catch((err) => {
                 console.log('Error: faild to catch template', err);
             })
             .finally(() => {
                 // once the footer template is loaded start functions
-                if (parseID === 'footerTemplate') {
+                if (templateId === 'footerTemplate') {
                     dropDown();
                 }
             })
