@@ -70,9 +70,9 @@ const Template = {
 
         return this;
     },
-    fromString(source, templateId, targetId) {
+    fromString(source, templateId, targetId, mimeType = 'text/html') {
         // get string and parse it
-        const _source = parser.parseFromString(source, 'text/html');
+        const _source = parser.parseFromString(source, mimeType);
         // get selector from parsed string
         const _getTemplateId = _source.getElementById(templateId);
         // append to target selector on index.html 
@@ -81,7 +81,7 @@ const Template = {
 
         return this;
     },
-    fetchTemplate(source, templateId, targetId) {
+    fetchTemplate(source, templateId, targetId, mimeType = 'text/html') {
         fetch(baseURL + source)
             .then((response) => {
                 // when the template is loaded
@@ -89,7 +89,7 @@ const Template = {
             })
             .then((html) => {
                 // get the template and parseit
-                const _source = parser.parseFromString(html, 'text/html');
+                const _source = parser.parseFromString(html, mimeType);
                 const _getTemplateId = _source.getElementById(templateId);
                 // clone template from source 
                 const _cloneTemplate = _getTemplateId.content.cloneNode(true);
