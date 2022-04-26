@@ -16,18 +16,18 @@ var Data = {
     author: document.querySelector('[name=author]').content,
 };
 
-// toggle
-function toggle(trigger) {
-    trigger.hasAttribute('data-state', 'active') === false ?
-        trigger.setAttribute('data-state', 'active') :
-        trigger.removeAttribute('data-state');
-}
-
 // Dropdown toggle 
 const dropDown = () => {
     const getToggle = document.querySelectorAll('[data-toggle]');
     const getPop = document.querySelectorAll('[data-toggle="pop"]');
     const getToolTip = document.querySelectorAll('[data-tooltip]');
+
+    // toggle
+    function toggle(trigger) {
+        trigger.hasAttribute('data-state', 'active') === false ?
+            trigger.setAttribute('data-state', 'active') :
+            trigger.removeAttribute('data-state');
+    }
 
     // toggle class active
     for (let i = 0; i < getToggle.length; i++) {
