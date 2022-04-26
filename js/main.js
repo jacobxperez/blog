@@ -32,9 +32,7 @@ const dropDown = () => {
     // toggle class active
     for (let i = 0; i < getToggle.length; i++) {
         getToggle[i].addEventListener("click", function (e) {
-
             toggle(this);
-
             e.stopPropagation();
         })
     };
@@ -42,9 +40,7 @@ const dropDown = () => {
     // toggle class active on tooltip
     for (let i = 0; i < getToolTip.length; i++) {
         getToolTip[i].addEventListener("click", function (e) {
-
             toggle(this);
-
             e.stopPropagation();
         })
     };
@@ -53,17 +49,13 @@ const dropDown = () => {
     document.addEventListener("click", function (e) {
         for (let i = 0; i < getPop.length; i++) {
             if (e.target !== getPop[i]) {
-
                 getPop[i].removeAttribute('data-state');
-
             }
         }
 
         for (let i = 0; i < getToolTip.length; i++) {
             if (e.target !== getToolTip[i]) {
-
                 getToolTip[i].removeAttribute('data-state');
-
             }
         }
     });
