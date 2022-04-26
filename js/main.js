@@ -67,14 +67,14 @@ const Template = {
     getTemplate(source, targetId) {
         // template source
         const _getTemplate = document.getElementById(source).content;
-        // get template
+        // copy template
         const _importTemplate = document.importNode(_getTemplate, true);
         // append template to target ID
         document.getElementById(targetId).appendChild(_importTemplate);
 
         return this;
     },
-    getString(source, templateId, targetId) {
+    setString(source, templateId, targetId) {
         // get string and parse it
         const _source = parser.parseFromString(source, 'text/html');
         // get selector from parsed string
@@ -136,7 +136,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // Generate page content
-    const pageContent = Template.getString(`
+    const layout = Template.setString(`
     <article id="layout">
         <header id="header" data-section="header">
             ${headerContent}
@@ -152,12 +152,12 @@ document.addEventListener("DOMContentLoaded", () => {
             </div>
         </footer>
     <article>
-    `, 'layout', 'page')
-        .getTemplate('template', 'content');
+    `, 'layout', 'root')
+        .getTemplate('contentTemplate', 'content');
 
     // fetch navigation and footer
-    // always leave footer at the end for toggles to work dropDown()
     const elements = Template.fetchTemplate('/templates/main-min.html', 'navTemplate', 'header')
         .fetchTemplate('/templates/main-min.html', 'footerTemplate', 'footerContent');
+    // always leave footer at the end for toggles to work dropDown()
 
 });
