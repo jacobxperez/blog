@@ -16,8 +16,14 @@ var Data = {
     author: document.querySelector('[name=author]').content,
 };
 
+// toggle
+const toggle = (trigger) => {
+    trigger.hasAttribute('data-state', 'active') === false ?
+        trigger.setAttribute('data-state', 'active') :
+        trigger.removeAttribute('data-state');
+}
 
-// Dropdown toggle function 
+// Dropdown toggle 
 const dropDown = () => {
     const getToggle = document.querySelectorAll('[data-toggle]');
     const getPop = document.querySelectorAll('[data-toggle="pop"]');
@@ -27,9 +33,7 @@ const dropDown = () => {
     for (let i = 0; i < getToggle.length; i++) {
         getToggle[i].addEventListener("click", function (e) {
 
-            this.hasAttribute('data-state', 'active') === false ?
-                this.setAttribute('data-state', 'active') :
-                this.removeAttribute('data-state');
+            toggle(this);
 
             e.stopPropagation();
         })
@@ -39,9 +43,7 @@ const dropDown = () => {
     for (let i = 0; i < getToolTip.length; i++) {
         getToolTip[i].addEventListener("click", function (e) {
 
-            this.hasAttribute('data-state', 'active') === false ?
-                this.setAttribute('data-state', 'active') :
-                this.removeAttribute('data-state');
+            toggle(this);
 
             e.stopPropagation();
         })
@@ -67,7 +69,6 @@ const dropDown = () => {
     });
 };
 // end Dropdwon
-
 
 // Template Object
 const Template = {
@@ -114,7 +115,6 @@ const Template = {
 };
 // end Template Object
 
-
 document.addEventListener("DOMContentLoaded", () => {
 
     // check for subtitle
@@ -132,7 +132,6 @@ document.addEventListener("DOMContentLoaded", () => {
             </div>
             `;
     }
-
 
     // Generate page layout
     const layout = Template.getString(`
@@ -153,14 +152,11 @@ document.addEventListener("DOMContentLoaded", () => {
     <article>
     `, 'layout', 'page');
 
-
     // get page content from template element
     const pageContent = Template.getTemplate('template', 'content');
 
-
     // fetch nav Template
     const nav = Template.fetchTemplate('/templates/main.html', 'navTemplate', 'header');
-
 
     // fetch footer Template
     // always leave footer at the end for toggles to work dropDown
