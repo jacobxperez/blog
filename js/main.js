@@ -65,8 +65,11 @@ const dropDown = () => {
 // Template Object
 const Template = {
     getTemplate(source, targetId) {
+        // template source
         const _getTemplate = document.getElementById(source).content;
+        // get template
         const _importTemplate = document.importNode(_getTemplate, true);
+        // append template to target ID
         document.getElementById(targetId).appendChild(_importTemplate);
     },
     getString(source, templateId, targetId) {
@@ -85,20 +88,21 @@ const Template = {
                 return response.text();
             })
             .then((html) => {
-                // get the template from fetch template and parseit
+                // get the template and parseit
                 const _source = parser.parseFromString(html, 'text/html');
                 const _getTemplateId = _source.getElementById(templateId);
-                // clone template information
+                // clone template from source 
                 const _cloneTemplate = _getTemplateId.content.cloneNode(true);
                 // append to target selector on index.html 
                 const _targetId = document.getElementById(targetId);
                 _targetId.appendChild(_cloneTemplate);
             })
             .catch((err) => {
+                // error messege 
                 console.log('Error: faild to catch template', err);
             })
             .finally(() => {
-                // once the footer template is loaded start functions
+                // once the footer is loaded start functions
                 if (templateId === 'footerTemplate') {
                     dropDown();
                 }
