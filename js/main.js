@@ -152,22 +152,18 @@ document.addEventListener("DOMContentLoaded", () => {
         </footer>
     <article>
     `, 'layout', 'page');
-    layout;
 
 
     // get page content from template element
     const pageContent = Template.getTemplate('template', 'content');
-    pageContent;
 
 
     // fetch nav Template
     const nav = Template.fetchTemplate('/templates/main.html', 'navTemplate', 'header');
-    nav;
 
 
     // fetch footer Template
     // always leave footer at the end for toggles to work dropDown
     const footer = Template.fetchTemplate('/templates/main.html', 'footerTemplate', 'footerContent');
-    footer;
 
 });
