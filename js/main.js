@@ -27,15 +27,9 @@ const dropDown = () => {
     for (let i = 0; i < getToggle.length; i++) {
         getToggle[i].addEventListener("click", function (e) {
 
-            if (this.hasAttribute('data-state', 'active') === false) {
-
-                this.setAttribute('data-state', 'active');
-
-            } else if (this.hasAttribute('data-state', 'active') === true) {
-
+            this.hasAttribute('data-state', 'active') === false ?
+                this.setAttribute('data-state', 'active') :
                 this.removeAttribute('data-state');
-
-            }
 
             e.stopPropagation();
         })
@@ -45,15 +39,9 @@ const dropDown = () => {
     for (let i = 0; i < getToolTip.length; i++) {
         getToolTip[i].addEventListener("click", function (e) {
 
-            if (this.hasAttribute('data-state', 'active') === false) {
-
-                this.setAttribute('data-state', 'active');
-
-            } else if (this.hasAttribute('data-state', 'active') === true) {
-
+            this.hasAttribute('data-state', 'active') === false ?
+                this.setAttribute('data-state', 'active') :
                 this.removeAttribute('data-state');
-
-            }
 
             e.stopPropagation();
         })
@@ -81,7 +69,7 @@ const dropDown = () => {
 // end Dropdwon
 
 
-// Template Class
+// Template Object
 const Template = {
     getTemplate(source, targetId) {
         const _getTemplate = document.getElementById(source).content;
@@ -124,10 +112,9 @@ const Template = {
             })
     },
 };
-// end Template Class
+// end Template Object
 
 
-// Generate Template when DOC Loads
 document.addEventListener("DOMContentLoaded", () => {
 
     // check for subtitle
