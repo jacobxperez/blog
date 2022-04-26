@@ -3,10 +3,10 @@
  * Licensed under the Apache License, Version 2.0
  * http://www.apache.org/licenses/LICENSE-2.0
 ------------------------------------------------------------------------------*/
-// check if site is on local host
+// Check if site is on local host
 location.hostname === "localhost" || location.hostname === "127.0.0.1" ? baseURL = window.location.origin : baseURL = window.location.origin + '/blog';
 
-// initialize the DOM for parsing Templates
+// Initialize the DOM for parsing Templates
 var parser = new DOMParser();
 
 // Page Data
@@ -16,20 +16,18 @@ var Data = {
     author: document.querySelector('[name=author]').content,
 };
 
-// Dropdown toggle 
 const dropDown = () => {
     const getToggle = document.querySelectorAll('[data-toggle]');
     const getPop = document.querySelectorAll('[data-toggle="pop"]');
     const getToolTip = document.querySelectorAll('[data-tooltip]');
 
-    // toggle
     function toggle(trigger) {
         trigger.hasAttribute('data-state', 'active') === false ?
             trigger.setAttribute('data-state', 'active') :
             trigger.removeAttribute('data-state');
     }
 
-    // toggle class active
+    // toggle dropdwon
     for (let i = 0; i < getToggle.length; i++) {
         getToggle[i].addEventListener("click", function (e) {
             toggle(this);
@@ -37,7 +35,7 @@ const dropDown = () => {
         })
     };
 
-    // toggle class active on tooltip
+    // toggle tooltip
     for (let i = 0; i < getToolTip.length; i++) {
         getToolTip[i].addEventListener("click", function (e) {
             toggle(this);
@@ -45,7 +43,7 @@ const dropDown = () => {
         })
     };
 
-    // Close dropdown on document click
+    // Close dropdown and tooltips on document click
     document.addEventListener("click", function (e) {
         for (let i = 0; i < getPop.length; i++) {
             if (e.target !== getPop[i]) {
@@ -60,15 +58,13 @@ const dropDown = () => {
         }
     });
 };
-// end Dropdwon
 
-// Template Object
 const Template = {
     getTemplate(source, targetId) {
-        // template source
+        // get template source
         const _getTemplate = document.getElementById(source).content;
         // copy template
-        const _importTemplate = document.importNode(_getTemplate, true);
+        const _importTemplate = document.adoptNode(_getTemplate);
         // append template to target ID
         document.getElementById(targetId).appendChild(_importTemplate);
 
@@ -115,11 +111,10 @@ const Template = {
         return this;
     },
 };
-// end Template Object
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    // check for subtitle
+    // Check for subtitle
     if (Data.subTitle === null) {
         var headerContent = `
             <div id="headerContent" data-container="fit">
@@ -135,7 +130,7 @@ document.addEventListener("DOMContentLoaded", () => {
             `;
     }
 
-    // Generate page content
+    // Generate page layout
     const layout = Template.fromString(`
     <article id="layout">
         <header id="header" data-section="header">
@@ -158,6 +153,6 @@ document.addEventListener("DOMContentLoaded", () => {
     // fetch navigation and footer
     const elements = Template.fetchTemplate('/templates/main-min.html', 'navTemplate', 'header')
         .fetchTemplate('/templates/main-min.html', 'footerTemplate', 'footerContent');
-    // always leave footer at the end for toggles to work dropDown()
+    // always leave footer at the end for toggles to work
 
 });
