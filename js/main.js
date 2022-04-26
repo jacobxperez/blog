@@ -17,7 +17,7 @@ var Data = {
 };
 
 // toggle
-const toggle = (trigger) => {
+function toggle(trigger) {
     trigger.hasAttribute('data-state', 'active') === false ?
         trigger.setAttribute('data-state', 'active') :
         trigger.removeAttribute('data-state');
@@ -151,11 +151,11 @@ document.addEventListener("DOMContentLoaded", () => {
     // get page content from template element
     const pageContent = Template.getTemplate('template', 'content');
 
-    // fetch nav Template
-    const nav = Template.fetchTemplate('/templates/main-min.html', 'navTemplate', 'header');
+    // fetch navigation Template
+    const navigation = Template.fetchTemplate('/templates/main-min.html', 'navTemplate', 'header');
 
     // fetch footer Template
-    // always leave footer at the end for toggles to work dropDown
+    // always leave footer at the end for toggles to work dropDown()
     const footer = Template.fetchTemplate('/templates/main-min.html', 'footerTemplate', 'footerContent');
 
 });
