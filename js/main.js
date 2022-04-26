@@ -74,7 +74,7 @@ const Template = {
 
         return this;
     },
-    setString(source, templateId, targetId) {
+    fromString(source, templateId, targetId) {
         // get string and parse it
         const _source = parser.parseFromString(source, 'text/html');
         // get selector from parsed string
@@ -136,7 +136,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // Generate page content
-    const layout = Template.setString(`
+    const layout = Template.fromString(`
     <article id="layout">
         <header id="header" data-section="header">
             ${headerContent}
