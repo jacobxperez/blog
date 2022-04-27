@@ -13,7 +13,7 @@ var parser = new DOMParser();
 var Data = {
     title: document.title,
     subTitle: null,
-    author: document.querySelector('[name=author]').content,
+    // author: document.querySelector('[name=author]').content,
 };
 
 const dropDown = () => {
@@ -33,7 +33,7 @@ const dropDown = () => {
             toggle(this);
             e.stopPropagation();
         })
-    };
+    }
 
     // toggle tooltip
     for (let i = 0; i < getToolTip.length; i++) {
@@ -70,7 +70,7 @@ const Template = {
 
         return this;
     },
-    fromString(source, templateId, targetId, mimeType = 'text/html') {
+    getString(source, templateId, targetId, mimeType = 'text/html') {
         // get string and parse it
         const _source = parser.parseFromString(source, mimeType);
         // get selector from parsed string
@@ -131,7 +131,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // Generate page layout
-    const layout = Template.fromString(`
+    const layout = Template.getString(`
     <article id="layout">
         <header id="header" data-section="header">
             ${headerContent}
