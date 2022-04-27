@@ -43,19 +43,18 @@ const dropDown = () => {
         })
     };
 
+    function removeAtt(event, selector) {
+        for (let i = 0; i < selector.length; i++) {
+            if (event.target !== selector[i]) {
+                selector[i].removeAttribute('data-state');
+            }
+        }
+    }
+
     // Close dropdown and tooltips on document click
     document.addEventListener("click", function (e) {
-        for (let i = 0; i < getPop.length; i++) {
-            if (e.target !== getPop[i]) {
-                getPop[i].removeAttribute('data-state');
-            }
-        }
-
-        for (let i = 0; i < getToolTip.length; i++) {
-            if (e.target !== getToolTip[i]) {
-                getToolTip[i].removeAttribute('data-state');
-            }
-        }
+        removeAtt(e, getPop);
+        removeAtt(e, getToolTip);
     });
 };
 
