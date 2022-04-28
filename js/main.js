@@ -17,7 +17,7 @@ var Data = {
 var parser = new DOMParser();
 
 // toggles
-const dropDown = () => {
+function dropDown() {
     const getToggle = document.querySelectorAll('[data-toggle]');
     const getPop = document.querySelectorAll('[data-toggle="pop"]');
     const getToolTip = document.querySelectorAll('[data-tooltip]');
@@ -31,7 +31,7 @@ const dropDown = () => {
                     this.removeAttribute('data-state');
 
                 e.stopPropagation();
-            })
+            });
         }
     };
 
@@ -52,7 +52,7 @@ const dropDown = () => {
         removeAtt(e, getPop);
         removeAtt(e, getToolTip);
     });
-};
+}
 
 const Template = {
     getTemplate(source, targetId) {
