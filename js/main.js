@@ -6,9 +6,6 @@
 // Check if site is on local host
 location.hostname === "localhost" || location.hostname === "127.0.0.1" ? baseURL = window.location.origin : baseURL = window.location.origin + '/blog';
 
-// Initialize the DOM for parsing Templates
-var parser = new DOMParser();
-
 // Page Data
 var Data = {
     title: document.title,
@@ -16,6 +13,10 @@ var Data = {
     // author: document.querySelector('[name=author]').content,
 };
 
+// Initialize the DOM for parsing Templates
+var parser = new DOMParser();
+
+// toggles
 const dropDown = () => {
     const getToggle = document.querySelectorAll('[data-toggle]');
     const getPop = document.querySelectorAll('[data-toggle="pop"]');
