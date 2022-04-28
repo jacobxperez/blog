@@ -91,15 +91,15 @@ const Template = {
                 const _targetId = document.getElementById(targetId);
                 _targetId.appendChild(_cloneTemplate);
             })
-            .catch((err) => {
-                // error messege 
-                console.log('Error: faild to catch template', err);
-            })
             .finally(() => {
                 // once the footer is loaded start functions
                 if (templateId === 'footerTemplate') {
                     dropDown();
                 }
+            })
+            .catch((err) => {
+                // log error
+                console.log('catch error:', err);
             })
 
         return this;
@@ -108,7 +108,7 @@ const Template = {
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    // Check for subtitle
+    // Check for subtitle then added to layout
     if (Data.subTitle === null) {
         var headerContent = `
             <div id="headerContent" data-container="fit">
@@ -124,9 +124,12 @@ document.addEventListener("DOMContentLoaded", () => {
             `;
     }
 
-    // Generate page layout
+    // 1. generate page layout from string
+    // 2. move page content to layout
+    // 3. fetch navigation
+    // 4. fetch footer
     const layout = Template.getString(`
-    <article id="layout">
+    <div id="layout">
         <header id="header" data-section="header">
             ${headerContent}
         </header>
@@ -140,12 +143,10 @@ document.addEventListener("DOMContentLoaded", () => {
             <div id="footerContent" data-container="fit">
             </div>
         </footer>
-    <article>
+    </div>
     `, 'layout', 'root')
-        .getTemplate('contentTemplate', 'content');
-
-    // fetch navigation and footer
-    const elements = Template.fetchTemplate('/templates/main-min.html', 'navTemplate', 'header')
+        .getTemplate('contentTemplate', 'content')
+        .fetchTemplate('/templates/main-min.html', 'navTemplate', 'header')
         .fetchTemplate('/templates/main-min.html', 'footerTemplate', 'footerContent');
     // always leave footer at the end for toggles to work
 
