@@ -6,14 +6,14 @@
 // Check if site is on local host
 location.hostname === "localhost" || location.hostname === "127.0.0.1" ? baseURL = window.location.origin : baseURL = window.location.origin + '/blog';
 
-// Page Data
+// Document Data
 var Data = {
     title: document.title,
     subTitle: null,
     // author: document.querySelector('[name=author]').content,
 };
 
-// Initialize the DOM for parsing Templates
+// Initialize the DOM Parser
 var parser = new DOMParser();
 
 // toggles
@@ -68,11 +68,13 @@ const Template = {
     getString(source, templateId, targetId, mimeType = 'text/html') {
         // get string and parse it
         const _source = parser.parseFromString(source, mimeType);
-        // get selector from parsed string
+        // get template Id from parsed string
         const _getTemplateId = _source.getElementById(templateId);
+        // clone template from source 
+        const _cloneTemplate = _getTemplateId.content.cloneNode(true);
         // append to target selector on index.html 
-        const _getTargetId = document.getElementById(targetId);
-        _getTargetId.appendChild(_getTemplateId);
+        const _targetId = document.getElementById(targetId);
+        _targetId.appendChild(_cloneTemplate);
 
         return this;
     },
@@ -85,6 +87,7 @@ const Template = {
             .then((html) => {
                 // get the template and parseit
                 const _source = parser.parseFromString(html, mimeType);
+                // get template Id from parsed fetch
                 const _getTemplateId = _source.getElementById(templateId);
                 // clone template from source 
                 const _cloneTemplate = _getTemplateId.content.cloneNode(true);
@@ -130,7 +133,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // 3. fetch navigation
     // 4. fetch footer
     const layout = Template.getString(`
-    <div id="layout">
+    <template id="layout">
         <header id="header" data-section="header">
             ${headerContent}
         </header>
@@ -144,7 +147,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <div id="footerContent" data-container="fit">
             </div>
         </footer>
-    </div>
+    </template>
     `, 'layout', 'root')
         .getTemplate('contentTemplate', 'content')
         .fetchTemplate('/templates/main-min.html', 'navTemplate', 'header')
