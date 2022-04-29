@@ -71,6 +71,7 @@ const Template = {
     },
     getTemplate(templateId, targetId) {
         const _getTemplatePromise = new Promise((resolve, reject) => {
+            // check if template exist
             templateId === null ? reject() : resolve();
         });
         _getTemplatePromise
@@ -89,8 +90,18 @@ const Template = {
         return this;
     },
     getString(source, templateId, targetId, mimeType) {
-        // get the template string and parseit
-        this._parseSource(source, templateId, targetId, mimeType);
+        const _getStringPromise = new Promise((resolve, reject) => {
+            // check if source is string
+            source === 'string' ? reject() : resolve();
+        });
+        _getStringPromise
+            .then(() => {
+                // get the template string and parseit
+                this._parseSource(source, templateId, targetId, mimeType);
+            })
+            .catch((err) => {
+                console.log('catch error:', err);
+            })
 
         return this;
     },
