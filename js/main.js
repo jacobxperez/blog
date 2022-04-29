@@ -55,9 +55,9 @@ function dropDown() {
 }
 
 const Template = {
-    getTemplate(source, targetId) {
-        // get template source
-        const _getTemplate = document.getElementById(source).content;
+    getTemplate(templateId, targetId) {
+        // get template Id
+        const _getTemplate = document.getElementById(templateId).content;
         // copy template
         const _importTemplate = document.adoptNode(_getTemplate);
         // append template to target ID
@@ -65,7 +65,10 @@ const Template = {
 
         return this;
     },
-    parseSource(source, templateId, targetId, mimeType = 'text/html') {
+    parseSource(source, templateId, targetId, mimeType) {
+        if (mimeType === undefined) {
+            mimeType = 'text/html'
+        }
         // get string and parse it
         const _source = parser.parseFromString(source, mimeType);
         // get template Id from parsed string
@@ -76,12 +79,12 @@ const Template = {
         const _targetId = document.getElementById(targetId);
         _targetId.appendChild(_cloneTemplate);
     },
-    getString(source, templateId, targetId, mimeType = 'text/html') {
+    getString(source, templateId, targetId, mimeType) {
         this.parseSource(source, templateId, targetId, mimeType);
 
         return this;
     },
-    fetchTemplate(source, templateId, targetId, mimeType = 'text/html') {
+    fetchTemplate(source, templateId, targetId, mimeType) {
         fetch(baseURL + source)
             .then((response) => {
                 // when the template is loaded
