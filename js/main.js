@@ -39,9 +39,9 @@ function dropDown() {
     toggleAttr(getToolTip);
 
     // removes attribute
-    function removeAtt(event, selector) {
+    function removeAtt(selector, e) {
         for (let i = 0; i < selector.length; i++) {
-            if (event.target !== selector[i]) {
+            if (e.target !== selector[i]) {
                 selector[i].removeAttribute('data-state');
             }
         }
@@ -49,8 +49,8 @@ function dropDown() {
 
     // Close dropdown and tooltips on document click
     document.addEventListener("click", function (e) {
-        removeAtt(e, getPop);
-        removeAtt(e, getToolTip);
+        removeAtt(getPop, e);
+        removeAtt(getToolTip, e);
     });
 }
 
