@@ -70,12 +70,21 @@ const Template = {
         _targetId.appendChild(_cloneTemplate);
     },
     getTemplate(templateId, targetId) {
-        // get template Id
-        const _getTemplate = document.getElementById(templateId).content;
-        // copy template
-        const _importTemplate = document.adoptNode(_getTemplate);
-        // append template to target ID
-        document.getElementById(targetId).appendChild(_importTemplate);
+        const _getTemplatePromise = new Promise((resolve, reject) => {
+            templateId === null ? reject() : resolve();
+        });
+        _getTemplatePromise
+            .then(() => {
+                // get template Id
+                const _getTemplate = document.getElementById(templateId).content;
+                // copy template
+                const _importTemplate = document.adoptNode(_getTemplate);
+                // append template to target ID
+                document.getElementById(targetId).appendChild(_importTemplate);
+            })
+            .catch((err) => {
+                console.log('catch error:', err);
+            })
 
         return this;
     },
@@ -102,7 +111,6 @@ const Template = {
                 }
             })
             .catch((err) => {
-                // log error
                 console.log('catch error:', err);
             })
 
@@ -119,9 +127,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // 1. generate page layout from string
-    // 2. move page content to layout
-    // 3. fetch navigation
-    // 4. fetch footer
+    // 2. move aside content to layout
+    // 3. move page content to layout
+    // 4. fetch navigation
+    // 5. fetch footer
     const layout = Template.getString(`
     <template id="layoutTemplate">
         <header id="header" data-section="header">
@@ -142,6 +151,7 @@ document.addEventListener("DOMContentLoaded", () => {
         </footer>
     </template>
     `, 'layoutTemplate', 'root')
+        .getTemplate('asideTemplate', 'content')
         .getTemplate('contentTemplate', 'content')
         .fetchTemplate('/templates/main-min.html', 'navTemplate', 'header')
         .fetchTemplate('/templates/main-min.html', 'footerTemplate', 'footerContent');
