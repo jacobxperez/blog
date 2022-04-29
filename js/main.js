@@ -113,18 +113,9 @@ const Template = {
 document.addEventListener("DOMContentLoaded", () => {
     // Check for subtitle then added to layout
     if (Data.subTitle === null) {
-        var headerContent = `
-            <div id="headerContent" data-container="fit">
-                <h1>${Data.title}</h1>
-            </div>
-            `;
+        var subTitle = '';
     } else {
-        var headerContent = `
-            <div id="headerContent" data-container="fit">
-                <h1>${Data.title}</h1>
-                <h2 data-text="h5">${Data.subTitle}</h2>
-            </div>
-            `;
+        var subTitle = `<h2 data-text="h5">${Data.subTitle}</h2>`;
     }
 
     // 1. generate page layout from string
@@ -134,7 +125,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const layout = Template.getString(`
     <template id="layoutTemplate">
         <header id="header" data-section="header">
-            ${headerContent}
+            <div id="headerContent" data-container="fit">
+                <h1>${Data.title}</h1>
+                ${subTitle}
+            </div>
         </header>
 
         <main id="main" data-section="main">
