@@ -55,17 +55,7 @@ function dropDown() {
 }
 
 const Template = {
-    getTemplate(templateId, targetId) {
-        // get template Id
-        const _getTemplate = document.getElementById(templateId).content;
-        // copy template
-        const _importTemplate = document.adoptNode(_getTemplate);
-        // append template to target ID
-        document.getElementById(targetId).appendChild(_importTemplate);
-
-        return this;
-    },
-    parseSource(source, templateId, targetId, mimeType) {
+    _parseSource(source, templateId, targetId, mimeType) {
         if (mimeType === undefined) {
             mimeType = 'text/html'
         }
@@ -79,9 +69,19 @@ const Template = {
         const _targetId = document.getElementById(targetId);
         _targetId.appendChild(_cloneTemplate);
     },
+    getTemplate(templateId, targetId) {
+        // get template Id
+        const _getTemplate = document.getElementById(templateId).content;
+        // copy template
+        const _importTemplate = document.adoptNode(_getTemplate);
+        // append template to target ID
+        document.getElementById(targetId).appendChild(_importTemplate);
+
+        return this;
+    },
     getString(source, templateId, targetId, mimeType) {
         // get the template string and parseit
-        this.parseSource(source, templateId, targetId, mimeType);
+        this._parseSource(source, templateId, targetId, mimeType);
 
         return this;
     },
@@ -93,7 +93,7 @@ const Template = {
             })
             .then((html) => {
                 // get the template and parseit
-                this.parseSource(html, templateId, targetId, mimeType);
+                this._parseSource(html, templateId, targetId, mimeType);
             })
             .finally(() => {
                 // once the footer is loaded start functions
@@ -111,7 +111,6 @@ const Template = {
 };
 
 document.addEventListener("DOMContentLoaded", () => {
-
     // Check for subtitle then added to layout
     if (Data.subTitle === null) {
         var headerContent = `
@@ -153,5 +152,4 @@ document.addEventListener("DOMContentLoaded", () => {
         .fetchTemplate('/templates/main-min.html', 'navTemplate', 'header')
         .fetchTemplate('/templates/main-min.html', 'footerTemplate', 'footerContent');
     // always leave footer at the end for toggles to work
-
 });
