@@ -80,6 +80,7 @@ const Template = {
         _targetId.appendChild(_cloneTemplate);
     },
     getString(source, templateId, targetId, mimeType) {
+        // get the template string and parseit
         this.parseSource(source, templateId, targetId, mimeType);
 
         return this;
