@@ -69,13 +69,13 @@ const Template = {
         if (mimeType === undefined) {
             mimeType = 'text/html'
         }
-        // get string and parse it
+        // get source and parse it
         const _source = parser.parseFromString(source, mimeType);
-        // get template Id from parsed string
+        // get template Id 
         const _getTemplateId = _source.getElementById(templateId);
-        // clone template from source 
+        // clone template Id
         const _cloneTemplate = _getTemplateId.content.cloneNode(true);
-        // append to target selector on index.html 
+        // append template to target selector on index.html 
         const _targetId = document.getElementById(targetId);
         _targetId.appendChild(_cloneTemplate);
     },
