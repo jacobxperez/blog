@@ -133,11 +133,9 @@ const Template = {
 
 document.addEventListener("DOMContentLoaded", () => {
     // Check for subtitle then added to layout
-    if (Data.subTitle === null) {
-        var subTitle = '';
-    } else {
-        var subTitle = `<h2 data-text="h5">${Data.subTitle}</h2>`;
-    }
+    Data.subTitle === null ?
+        subTitle = '' :
+        subTitle = `<h2 data-text="h5">${Data.subTitle}</h2>`;
 
     // 1. generate page layout from string
     // 2. move secondary content to layout
