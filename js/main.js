@@ -55,19 +55,22 @@ function dropDown() {
 }
 
 const Template = {
+    _copyPasteTemplate(targetId, _getTemplateId) {
+        // clone template Id
+        const _cloneTemplate = _getTemplateId.content.cloneNode(true);
+        // append template to target selector
+        const _targetId = document.getElementById(targetId);
+        _targetId.appendChild(_cloneTemplate);
+    },
     _parseSource(source, templateId, targetId, mimeType) {
         if (mimeType === undefined) {
             mimeType = 'text/html'
         }
         // get source and parse it
         const _source = parser.parseFromString(source, mimeType);
-        // get template Id 
+        // get template and added to document
         const _getTemplateId = _source.getElementById(templateId);
-        // clone template Id
-        const _cloneTemplate = _getTemplateId.content.cloneNode(true);
-        // append template to target selector on index.html 
-        const _targetId = document.getElementById(targetId);
-        _targetId.appendChild(_cloneTemplate);
+        this._copyPasteTemplate(targetId, _getTemplateId);
     },
     getTemplate(templateId, targetId) {
         const _getTemplatePromise = new Promise((resolve, reject) => {
@@ -76,13 +79,9 @@ const Template = {
         });
         _getTemplatePromise
             .then(() => {
-                // get template Id
+                // get template and added to document
                 const _getTemplateId = document.getElementById(templateId);
-                // clone template Id
-                const _cloneTemplate = _getTemplateId.content.cloneNode(true);
-                // append template to target selector on index.html 
-                const _targetId = document.getElementById(targetId);
-                _targetId.appendChild(_cloneTemplate);
+                this._copyPasteTemplate(targetId, _getTemplateId);
                 // delete original template from document
                 _getTemplateId.remove();
             })
@@ -99,7 +98,7 @@ const Template = {
         });
         _getStringPromise
             .then(() => {
-                // get the template string and parseit
+                // get template string and parseit
                 this._parseSource(source, templateId, targetId, mimeType);
             })
             .catch((err) => {
@@ -115,7 +114,7 @@ const Template = {
                 return response.text();
             })
             .then((html) => {
-                // get the template and parseit
+                // get template and parseit
                 this._parseSource(html, templateId, targetId, mimeType);
             })
             .finally(() => {
