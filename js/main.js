@@ -75,7 +75,7 @@ const Template = {
     getTemplate(templateId, targetId) {
         const _getTemplatePromise = new Promise((resolve, reject) => {
             // check if template exist
-            templateId === null ? reject() : resolve();
+            templateId !== null ? resolve() : reject();
         });
         _getTemplatePromise
             .then(() => {
@@ -94,7 +94,7 @@ const Template = {
     getString(source, templateId, targetId, mimeType) {
         const _getStringPromise = new Promise((resolve, reject) => {
             // check if source is string
-            source === 'string' ? reject() : resolve();
+            typeof source === 'string' ? resolve() : reject(err = 'Error: Template source is not a String');
         });
         _getStringPromise
             .then(() => {
