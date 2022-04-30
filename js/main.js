@@ -141,7 +141,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // 1. generate page layout from string
-    // 2. move aside content to layout
+    // 2. move secondary content to layout
     // 3. move page content to layout
     // 4. fetch navigation
     // 5. fetch footer
