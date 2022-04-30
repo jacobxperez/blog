@@ -6,15 +6,15 @@
 // Check if site is on local host
 location.hostname === "localhost" || location.hostname === "127.0.0.1" ? baseURL = window.location.origin : baseURL = window.location.origin + '/blog';
 
+// Initialize the DOM Parser
+var parser = new DOMParser();
+
 // Document Data
 var Data = {
     title: document.title,
     subTitle: null,
     // author: document.querySelector('[name=author]').content,
 };
-
-// Initialize the DOM Parser
-var parser = new DOMParser();
 
 // toggles
 function dropDown() {
