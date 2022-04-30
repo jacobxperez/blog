@@ -17,7 +17,7 @@ var Data = {
 };
 
 // toggles
-function dropDown() {
+function toggle() {
     const getToggle = document.querySelectorAll('[data-toggle]');
     const getPop = document.querySelectorAll('[data-toggle="pop"]');
     const getToolTip = document.querySelectorAll('[data-tooltip]');
@@ -120,7 +120,7 @@ const Template = {
             .finally(() => {
                 // once the footer is loaded start functions
                 if (templateId === 'footerTemplate') {
-                    dropDown();
+                    toggle();
                 }
             })
             .catch((err) => {
