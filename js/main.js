@@ -77,9 +77,9 @@ const Template = {
         _getTemplatePromise
             .then(() => {
                 // get template Id
-                const _getTemplate = document.getElementById(templateId).content;
+                const _getTemplateId = document.getElementById(templateId).content;
                 // copy template
-                const _importTemplate = document.adoptNode(_getTemplate);
+                const _importTemplate = document.adoptNode(_getTemplateId);
                 // append template to target ID
                 document.getElementById(targetId).appendChild(_importTemplate);
             })
