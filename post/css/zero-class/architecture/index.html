@@ -24,55 +24,6 @@
 
 <body id="root">
     <template id="contentTemplate">
-        <aside>
-            <p>by <a href="https://jacobxperez.github.io/blog/about/">Jacob Perez</a>
-                <br>
-                publish: <time datetime="2022-03-20">2022/03/20</time>
-                <br>
-                revised: <time datetime="2022-04-22">2022/04/22</time>
-            </p>
-
-            <nav>
-                <ul>
-                    <li data-display="small-none">
-                        <p><strong>Contents</strong></p>
-                    </li>
-                    <li data-display="small-none"><a href="#intro">Introduction</a></li>
-                    <li data-display="small-none"><a href="#styles">Architecture Styles</a></li>
-                    <li data-display="small-none"><a href="#oocss">OOCSS</a></li>
-                    <li data-display="small-none"><a href="#bem">BEM</a></li>
-                    <li data-display="small-none"><a href="#atomic">Atomic CSS</a></li>
-                    <li data-display="small-none"><a href="#smacss">SMACSS and ITCSS</a></li>
-                    <li data-display="small-none"><a href="#zero">Zero-Class Architecture</a></li>
-                    <li data-display="small-none"><a href="#framework">Framework</a></li>
-                    <li data-display="small-none"><a href="#overview">Overview</a></li>
-                    <li data-display="small-none"><a href="#conclusion">Conclusion</a></li>
-
-                    <!-- Accordion Menu: show on small screens -->
-                    <li data-display="small" data-list="border">
-                        <a data-link data-flex data-toggle>
-                            <strong data-item="grow">Contents</strong>
-                            <span data-icon="down-open"></span>
-                        </a>
-
-                        <ul data-dropbox>
-                            <li><a data-link href="#intro">Introduction</a></li>
-                            <li><a data-link href="#styles">Architecture Styles</a></li>
-                            <li><a data-link href="#oocss">OOCSS</a></li>
-                            <li><a data-link href="#bem">BEM</a></li>
-                            <li><a data-link href="#atomic">Atomic CSS</a></li>
-                            <li><a data-link href="#smacss">SMACSS and ITCSS</a></li>
-                            <li><a data-link href="#zero">Zero-Class Architecture</a></li>
-                            <li><a data-link href="#framework">Framework</a></li>
-                            <li><a data-link href="#overview">Overview</a></li>
-                            <li><a data-link href="#conclusion">Conclusion</a></li>
-                        </ul>
-                    </li>
-                    <!-- end Accordion Menu -->
-                </ul>
-            </nav>
-        </aside>
-
         <article data-content="post">
             <h2 id="intro">Introduction</h2>
 
@@ -337,6 +288,57 @@ gap: 10px;
                 </p>
             </section>
         </article>
+    </template>
+
+    <template id="asideTemplate">
+        <aside>
+            <p>by <a href="https://jacobxperez.github.io/blog/about/">Jacob Perez</a>
+                <br>
+                publish: <time datetime="2022-03-20">2022/03/20</time>
+                <br>
+                revised: <time datetime="2022-04-22">2022/04/22</time>
+            </p>
+
+            <nav>
+                <ul>
+                    <li data-display="small-none">
+                        <p><strong>Contents</strong></p>
+                    </li>
+                    <li data-display="small-none"><a href="#intro">Introduction</a></li>
+                    <li data-display="small-none"><a href="#styles">Architecture Styles</a></li>
+                    <li data-display="small-none"><a href="#oocss">OOCSS</a></li>
+                    <li data-display="small-none"><a href="#bem">BEM</a></li>
+                    <li data-display="small-none"><a href="#atomic">Atomic CSS</a></li>
+                    <li data-display="small-none"><a href="#smacss">SMACSS and ITCSS</a></li>
+                    <li data-display="small-none"><a href="#zero">Zero-Class Architecture</a></li>
+                    <li data-display="small-none"><a href="#framework">Framework</a></li>
+                    <li data-display="small-none"><a href="#overview">Overview</a></li>
+                    <li data-display="small-none"><a href="#conclusion">Conclusion</a></li>
+
+                    <!-- Accordion Menu: show on small screens -->
+                    <li data-display="small" data-list="border">
+                        <a data-link data-flex data-toggle>
+                            <strong data-item="grow">Contents</strong>
+                            <span data-icon="down-open"></span>
+                        </a>
+
+                        <ul data-dropbox>
+                            <li><a data-link href="#intro">Introduction</a></li>
+                            <li><a data-link href="#styles">Architecture Styles</a></li>
+                            <li><a data-link href="#oocss">OOCSS</a></li>
+                            <li><a data-link href="#bem">BEM</a></li>
+                            <li><a data-link href="#atomic">Atomic CSS</a></li>
+                            <li><a data-link href="#smacss">SMACSS and ITCSS</a></li>
+                            <li><a data-link href="#zero">Zero-Class Architecture</a></li>
+                            <li><a data-link href="#framework">Framework</a></li>
+                            <li><a data-link href="#overview">Overview</a></li>
+                            <li><a data-link href="#conclusion">Conclusion</a></li>
+                        </ul>
+                    </li>
+                    <!-- end Accordion Menu -->
+                </ul>
+            </nav>
+        </aside>
     </template>
 </body>
 
