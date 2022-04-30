@@ -77,11 +77,14 @@ const Template = {
         _getTemplatePromise
             .then(() => {
                 // get template Id
-                const _getTemplateId = document.getElementById(templateId).content;
-                // copy template
-                const _importTemplate = document.adoptNode(_getTemplateId);
-                // append template to target ID
-                document.getElementById(targetId).appendChild(_importTemplate);
+                const _getTemplateId = document.getElementById(templateId);
+                // clone template Id
+                const _cloneTemplate = _getTemplateId.content.cloneNode(true);
+                // append template to target selector on index.html 
+                const _targetId = document.getElementById(targetId);
+                _targetId.appendChild(_cloneTemplate);
+                // delete original template from document
+                _getTemplateId.remove();
             })
             .catch((err) => {
                 console.log('catch error:', err);
