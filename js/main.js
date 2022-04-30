@@ -86,7 +86,7 @@ const Template = {
                 _getTemplateId.remove();
             })
             .catch((err) => {
-                console.log('catch error:', err);
+                console.error(err);
             })
 
         return this;
@@ -102,7 +102,7 @@ const Template = {
                 this._parseSource(source, templateId, targetId, mimeType);
             })
             .catch((err) => {
-                console.log('catch error:', err);
+                console.error(err);
             })
 
         return this;
@@ -124,7 +124,7 @@ const Template = {
                 }
             })
             .catch((err) => {
-                console.log('catch error:', err);
+                console.error(err);
             })
 
         return this;
