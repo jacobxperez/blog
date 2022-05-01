@@ -85,9 +85,7 @@ const Template = {
                 // delete original template from document
                 _getTemplateID.remove();
             })
-            .catch((err) => {
-                console.error(err);
-            })
+            .catch((err) => console.error(err))
 
         return this;
     },
@@ -97,35 +95,23 @@ const Template = {
             typeof source === 'string' ? resolve() : reject(err = 'Error: Template source is not a String');
         });
         _getStringPromise
-            .then(() => {
-                // get template string and parseit
-                this._parseSource(source, templateID, targetID, mimeType);
-            })
-            .catch((err) => {
-                console.error(err);
-            })
+            .then(() => this._parseSource(source, templateID, targetID, mimeType))
+            .catch((err) => console.error(err))
 
         return this;
     },
     fetchTemplate(source, templateID, targetID, mimeType) {
         fetch(baseURL + source)
-            .then((response) => {
-                // when the template is loaded
-                return response.text();
-            })
-            .then((html) => {
-                // get template and parseit
-                this._parseSource(html, templateID, targetID, mimeType);
-            })
+            // when the source is loaded
+            .then(response => response.text())
+            .then((html) => this._parseSource(html, templateID, targetID, mimeType))
             .finally(() => {
-                // once the footer is loaded start functions
+                // once the footer is added start functions
                 if (templateID === 'footerTemplate') {
                     toggle();
                 }
             })
-            .catch((err) => {
-                console.error(err);
-            })
+            .catch((err) => console.error(err))
 
         return this;
     },
