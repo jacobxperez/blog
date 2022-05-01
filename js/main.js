@@ -37,9 +37,9 @@ function toggle() {
     getToolTip.forEach(toggleAttr);
 
     // removes attribute
-    function removeAtt(selector, e) {
-        if (e.target !== selector) {
-            selector.removeAttribute('data-state');
+    function removeAtt(item, e) {
+        if (e.target !== item) {
+            item.removeAttribute('data-state');
         }
     };
 
