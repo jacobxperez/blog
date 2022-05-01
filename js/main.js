@@ -55,12 +55,16 @@ function toggle() {
 }
 
 const Template = {
-    _copyPasteTemplate(targetID, _getTemplateID) {
+    _copyPasteTemplate(templateID, targetID, _source) {
+        // get template and added to document
+        const _getTemplateID = _source.getElementById(templateID);
         // clone template ID
         const _cloneTemplate = _getTemplateID.content.cloneNode(true);
         // append template to target selector
         const _targetID = document.getElementById(targetID);
         _targetID.appendChild(_cloneTemplate);
+        // delete original template from document
+        _getTemplateID.remove();
     },
     _parseSource(source, templateID, targetID, mimeType) {
         if (mimeType === undefined) {
@@ -68,23 +72,15 @@ const Template = {
         }
         // get source and parse it
         const _source = parser.parseFromString(source, mimeType);
-        // get template and added to document
-        const _getTemplateID = _source.getElementById(templateID);
-        this._copyPasteTemplate(targetID, _getTemplateID);
+        this._copyPasteTemplate(templateID, targetID, _source);
     },
-    getTemplate(templateID, targetID) {
+    getTemplate(templateID, targetID, _source = document) {
         const _getTemplatePromise = new Promise((resolve, reject) => {
             // check if template exist
             templateID !== null ? resolve() : reject();
         });
         _getTemplatePromise
-            .then(() => {
-                // get template and added to document
-                const _getTemplateID = document.getElementById(templateID);
-                this._copyPasteTemplate(targetID, _getTemplateID);
-                // delete original template from document
-                _getTemplateID.remove();
-            })
+            .then(() => this._copyPasteTemplate(templateID, targetID, _source))
             .catch((err) => console.error(err))
 
         return this;
