@@ -5,7 +5,7 @@
 ------------------------------------------------------------------------------*/
 // Check if site is on local host
 location.hostname === "localhost" || location.hostname === "127.0.0.1" ?
-baseURL = window.location.origin : baseURL = window.location.origin + '/blog';
+    baseURL = window.location.origin : baseURL = window.location.origin + '/blog';
 
 // Initialize the DOM Parser
 var parser = new DOMParser();
@@ -82,7 +82,7 @@ const Template = {
         });
         _getTemplatePromise
             .then(() => this._copyPasteTemplate(templateID, targetID, _source))
-            .catch((err) => console.error(err))
+            .catch(err => console.error(err))
 
         return this;
     },
@@ -90,11 +90,11 @@ const Template = {
         const _getStringPromise = new Promise((resolve, reject) => {
             // check if source is string
             typeof source === 'string' ?
-            resolve() : reject(err = 'Error: Template source is not a String');
+                resolve() : reject(err = 'Error: Template source is not a String');
         });
         _getStringPromise
             .then(() => this._parseSource(source, templateID, targetID, mimeType))
-            .catch((err) => console.error(err))
+            .catch(err => console.error(err))
 
         return this;
     },
@@ -102,14 +102,14 @@ const Template = {
         fetch(baseURL + source)
             // when the source is loaded
             .then(response => response.text())
-            .then((html) => this._parseSource(html, templateID, targetID, mimeType))
+            .then(html => this._parseSource(html, templateID, targetID, mimeType))
             .finally(() => {
                 // once the footer is added start functions
                 if (templateID === 'footerTemplate') {
                     toggle();
                 }
             })
-            .catch((err) => console.error(err))
+            .catch(err => console.error(err))
 
         return this;
     },
