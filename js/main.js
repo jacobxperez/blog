@@ -20,38 +20,32 @@ var Data = {
 // toggles
 function toggle() {
     const getToggle = document.querySelectorAll('[data-toggle]');
-    const getPop = document.querySelectorAll('[data-toggle="pop"]');
+    const getTogglePop = document.querySelectorAll('[data-toggle="pop"]');
     const getToolTip = document.querySelectorAll('[data-tooltip]');
 
     // toggles attribute
-    function toggleAttr(selector) {
-        for (let i = 0; i < selector.length; i++) {
-            selector[i].addEventListener("click", function (e) {
-                this.hasAttribute('data-state', 'active') === false ?
-                    this.setAttribute('data-state', 'active') :
-                    this.removeAttribute('data-state');
+    function toggleAttr(item) {
+        item.addEventListener("click", function (e) {
+            this.hasAttribute('data-state', 'active') === false ?
+                this.setAttribute('data-state', 'active') :
+                this.removeAttribute('data-state');
+            e.stopPropagation();
+        });
+    }
 
-                e.stopPropagation();
-            });
-        }
-    };
-
-    toggleAttr(getToggle);
-    toggleAttr(getToolTip);
+    getToggle.forEach(toggleAttr);
+    getToolTip.forEach(toggleAttr);
 
     // removes attribute
     function removeAtt(selector, e) {
-        for (let i = 0; i < selector.length; i++) {
-            if (e.target !== selector[i]) {
-                selector[i].removeAttribute('data-state');
-            }
+        if (e.target !== selector) {
+            selector.removeAttribute('data-state');
         }
     };
 
-    // Close dropdown and tooltips on document click
     document.addEventListener("click", function (e) {
-        removeAtt(getPop, e);
-        removeAtt(getToolTip, e);
+        getTogglePop.forEach(removeAtt);
+        getToolTip.forEach(removeAtt);
     });
 }
 
