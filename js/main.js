@@ -4,7 +4,8 @@
  * http://www.apache.org/licenses/LICENSE-2.0
 ------------------------------------------------------------------------------*/
 // Check if site is on local host
-location.hostname === "localhost" || location.hostname === "127.0.0.1" ? baseURL = window.location.origin : baseURL = window.location.origin + '/blog';
+location.hostname === "localhost" || location.hostname === "127.0.0.1" ?
+baseURL = window.location.origin : baseURL = window.location.origin + '/blog';
 
 // Initialize the DOM Parser
 var parser = new DOMParser();
