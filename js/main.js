@@ -57,9 +57,9 @@ function toggle() {
 
 const Template = {
     _copyPasteTemplate(templateID, targetID, _source) {
-        // get template and added to document
+        // get template ID from source
         const _getTemplateID = _source.getElementById(templateID);
-        // clone template ID
+        // clone template ID from source 
         const _cloneTemplate = _getTemplateID.content.cloneNode(true);
         // append template to target selector
         const _targetID = document.getElementById(targetID);
