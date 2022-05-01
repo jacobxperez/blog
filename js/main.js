@@ -55,35 +55,35 @@ function toggle() {
 }
 
 const Template = {
-    _copyPasteTemplate(targetId, _getTemplateId) {
-        // clone template Id
-        const _cloneTemplate = _getTemplateId.content.cloneNode(true);
+    _copyPasteTemplate(targetID, _getTemplateID) {
+        // clone template ID
+        const _cloneTemplate = _getTemplateID.content.cloneNode(true);
         // append template to target selector
-        const _targetId = document.getElementById(targetId);
-        _targetId.appendChild(_cloneTemplate);
+        const _targetID = document.getElementById(targetID);
+        _targetID.appendChild(_cloneTemplate);
     },
-    _parseSource(source, templateId, targetId, mimeType) {
+    _parseSource(source, templateID, targetID, mimeType) {
         if (mimeType === undefined) {
             mimeType = 'text/html'
         }
         // get source and parse it
         const _source = parser.parseFromString(source, mimeType);
         // get template and added to document
-        const _getTemplateId = _source.getElementById(templateId);
-        this._copyPasteTemplate(targetId, _getTemplateId);
+        const _getTemplateID = _source.getElementById(templateID);
+        this._copyPasteTemplate(targetID, _getTemplateID);
     },
-    getTemplate(templateId, targetId) {
+    getTemplate(templateID, targetID) {
         const _getTemplatePromise = new Promise((resolve, reject) => {
             // check if template exist
-            templateId !== null ? resolve() : reject();
+            templateID !== null ? resolve() : reject();
         });
         _getTemplatePromise
             .then(() => {
                 // get template and added to document
-                const _getTemplateId = document.getElementById(templateId);
-                this._copyPasteTemplate(targetId, _getTemplateId);
+                const _getTemplateID = document.getElementById(templateID);
+                this._copyPasteTemplate(targetID, _getTemplateID);
                 // delete original template from document
-                _getTemplateId.remove();
+                _getTemplateID.remove();
             })
             .catch((err) => {
                 console.error(err);
@@ -91,7 +91,7 @@ const Template = {
 
         return this;
     },
-    getString(source, templateId, targetId, mimeType) {
+    getString(source, templateID, targetID, mimeType) {
         const _getStringPromise = new Promise((resolve, reject) => {
             // check if source is string
             typeof source === 'string' ? resolve() : reject(err = 'Error: Template source is not a String');
@@ -99,7 +99,7 @@ const Template = {
         _getStringPromise
             .then(() => {
                 // get template string and parseit
-                this._parseSource(source, templateId, targetId, mimeType);
+                this._parseSource(source, templateID, targetID, mimeType);
             })
             .catch((err) => {
                 console.error(err);
@@ -107,7 +107,7 @@ const Template = {
 
         return this;
     },
-    fetchTemplate(source, templateId, targetId, mimeType) {
+    fetchTemplate(source, templateID, targetID, mimeType) {
         fetch(baseURL + source)
             .then((response) => {
                 // when the template is loaded
@@ -115,11 +115,11 @@ const Template = {
             })
             .then((html) => {
                 // get template and parseit
-                this._parseSource(html, templateId, targetId, mimeType);
+                this._parseSource(html, templateID, targetID, mimeType);
             })
             .finally(() => {
                 // once the footer is loaded start functions
-                if (templateId === 'footerTemplate') {
+                if (templateID === 'footerTemplate') {
                     toggle();
                 }
             })
