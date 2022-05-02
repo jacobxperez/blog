@@ -70,23 +70,21 @@ const Template = {
         this._copyPasteTemplate(templateID, targetID, _source);
     },
     getTemplate(templateID, targetID, _source = document) {
-        const _getTemplatePromise = new Promise((resolve, reject) => {
-            // check if template exist
-            templateID !== null ? resolve() : reject();
-        });
-        _getTemplatePromise
+        new Promise((resolve, reject) => {
+                // check if template exist
+                templateID !== null ? resolve() : reject();
+            })
             .then(() => this._copyPasteTemplate(templateID, targetID, _source))
             .catch(err => console.error(err))
 
         return this;
     },
     getString(source, templateID, targetID, mimeType) {
-        const _getStringPromise = new Promise((resolve, reject) => {
-            // check if source is string
-            typeof source === 'string' ?
-                resolve() : reject(err = 'Error: Template source is not a String');
-        });
-        _getStringPromise
+        new Promise((resolve, reject) => {
+                // check if source is string
+                typeof source === 'string' ?
+                    resolve() : reject(err = 'Error: Template source is not a String');
+            })
             .then(() => this._parseSource(source, templateID, targetID, mimeType))
             .catch(err => console.error(err))
 
