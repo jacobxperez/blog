@@ -2,7 +2,7 @@
  * Copyright (C) 2022 Jacob Perez <jacobxperez@gmx.com>
  * Licensed under the Apache License, Version 2.0
  * http://www.apache.org/licenses/LICENSE-2.0
-------------------------------------------------------------------------------*/
+-----------------------------------------------------------------------------*/
 // Check if site is on local host
 location.hostname === "localhost" || location.hostname === "127.0.0.1" ?
     baseURL = window.location.origin : baseURL = window.location.origin + '/blog';
@@ -79,7 +79,7 @@ const Template = {
 
         return this;
     },
-    getString(source, templateID, targetID, mimeType) {
+    fromString(source, templateID, targetID, mimeType) {
         new Promise((resolve, reject) => {
                 // check if source is string
                 typeof source === 'string' ?
@@ -90,13 +90,13 @@ const Template = {
 
         return this;
     },
-    fetchTemplate(source, templateID, targetID, mimeType) {
+    fetchSource(source, templateID, targetID, mimeType) {
         fetch(baseURL + source)
             // when the source is loaded
             .then(response => response.text())
             .then(html => this._parseSource(html, templateID, targetID, mimeType))
             .finally(() => {
-                // once the footer is added start functions
+                // once the footer is added start toggles
                 if (templateID === 'footerTemplate') {
                     toggle();
                 }
@@ -118,7 +118,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // 3. move page content to layout
     // 4. fetch navigation
     // 5. fetch footer
-    const layout = Template.getString(`
+    const layout = Template.fromString(`
     <template id="layoutTemplate">
         <header id="header" data-section="header">
             <div id="headerContent" data-container="fit">
@@ -140,7 +140,7 @@ document.addEventListener("DOMContentLoaded", () => {
     `, 'layoutTemplate', 'root')
         .getTemplate('asideTemplate', 'content')
         .getTemplate('contentTemplate', 'content')
-        .fetchTemplate('/templates/main-min.html', 'navTemplate', 'header')
-        .fetchTemplate('/templates/main-min.html', 'footerTemplate', 'footerContent');
+        .fetchSource('/templates/main-min.html', 'navTemplate', 'header')
+        .fetchSource('/templates/main-min.html', 'footerTemplate', 'footerContent');
     // always leave footer at the end for toggles to work
 });
