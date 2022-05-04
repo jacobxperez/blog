@@ -11,7 +11,7 @@ location.hostname === "localhost" || location.hostname === "127.0.0.1" ?
 var parser = new DOMParser();
 
 // Document Data
-var Data = {
+var docData = {
     title: document.title,
     subTitle: null,
     // author: document.querySelector('[name=author]').content,
@@ -49,7 +49,7 @@ function toggle() {
     });
 }
 
-const Template = {
+const template = {
     _copyPasteTemplate(templateID, targetID, _source) {
         // get template ID from source
         const _getTemplateID = _source.getElementById(templateID);
@@ -109,20 +109,20 @@ const Template = {
 
 document.addEventListener("DOMContentLoaded", () => {
     // Check for subtitle then added to layout
-    Data.subTitle === null ?
+    docData.subTitle === null ?
         subTitle = '' :
-        subTitle = `<h2 data-text="h5">${Data.subTitle}</h2>`;
+        subTitle = `<h2 data-text="h5">${docData.subTitle}</h2>`;
 
     // 1. generate page layout from string
     // 2. move secondary content to layout
     // 3. move page content to layout
     // 4. fetch navigation
     // 5. fetch footer
-    const layout = Template.fromString(`
+    const layout = template.fromString(`
     <template id="layoutTemplate">
         <header id="header" data-section="header">
             <div id="headerContent" data-container="fit">
-                <h1>${Data.title}</h1>
+                <h1>${docData.title}</h1>
                 ${subTitle}
             </div>
         </header>
