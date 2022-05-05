@@ -30,7 +30,7 @@ function toggle() {
                 item.setAttribute('data-state', 'active') :
                 item.removeAttribute('data-state');
             e.stopPropagation();
-        });
+        })
     }
 
     getToggle.forEach(toggleAttr);
@@ -41,12 +41,12 @@ function toggle() {
         if (e.target !== item) {
             item.removeAttribute('data-state');
         }
-    };
+    }
 
     document.addEventListener("click", e => {
         getTogglePop.forEach(removeAtt);
         getToolTip.forEach(removeAtt);
-    });
+    })
 }
 
 const template = {
