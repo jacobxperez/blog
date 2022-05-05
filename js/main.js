@@ -25,10 +25,10 @@ function toggle() {
 
     // toggles attribute
     function toggleAttr(item) {
-        item.addEventListener("click", function (e) {
-            this.hasAttribute('data-state', 'active') === false ?
-                this.setAttribute('data-state', 'active') :
-                this.removeAttribute('data-state');
+        item.addEventListener("click", e => {
+            item.hasAttribute('data-state', 'active') === false ?
+                item.setAttribute('data-state', 'active') :
+                item.removeAttribute('data-state');
             e.stopPropagation();
         });
     }
@@ -43,7 +43,7 @@ function toggle() {
         }
     };
 
-    document.addEventListener("click", function (e) {
+    document.addEventListener("click", e => {
         getTogglePop.forEach(removeAtt);
         getToolTip.forEach(removeAtt);
     });
@@ -53,7 +53,7 @@ const template = {
     _copyPasteTemplate(templateID, targetID, _source) {
         // get template ID from source
         const _getTemplateID = _source.getElementById(templateID);
-        // clone template ID from source 
+        // clone template ID from source
         const _cloneTemplate = _getTemplateID.content.cloneNode(true);
         // append template to target selector
         const _targetID = document.getElementById(targetID);
