@@ -95,13 +95,13 @@ const template = {
             // when the source is loaded
             .then(response => response.text())
             .then(html => this._parseSource(html, templateID, targetID, mimeType))
+            .catch(err => console.error(err))
             .finally(() => {
                 // once the footer is added start toggles
                 if (templateID === 'footerTemplate') {
                     toggle();
                 }
             })
-            .catch(err => console.error(err))
 
         return this;
     },
