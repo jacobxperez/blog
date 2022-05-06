@@ -92,7 +92,7 @@ const template = {
     },
     fetchSource(source, templateID, targetID, mimeType) {
         fetch(baseURL + source)
-            // when the source is loaded
+            // when the source is loaded convert to text
             .then(response => response.text())
             .then(html => this._parseSource(html, templateID, targetID, mimeType))
             .catch(err => console.error(err))
