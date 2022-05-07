@@ -94,7 +94,7 @@ const template = {
         fetch(baseURL + source)
             // when the source is loaded convert to text
             .then(response => response.text())
-            .then(html => this._parseSource(html, templateID, targetID, mimeType))
+            .then(text => this._parseSource(text, templateID, targetID, mimeType))
             .catch(err => console.error(err))
             .finally(() => {
                 // once the footer is added start toggles
