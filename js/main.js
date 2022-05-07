@@ -118,7 +118,8 @@ document.addEventListener("DOMContentLoaded", () => {
     // 3. move page content to layout
     // 4. fetch navigation
     // 5. fetch footer
-    const layout = template.fromString(`
+    const layout = template
+        .fromString(`
     <template id="layoutTemplate">
         <header id="header" data-section="header">
             <div id="headerContent" data-container="fit">
