@@ -55,8 +55,9 @@ const template = {
         const _getTemplateID = _source.getElementById(templateID);
         // clone template ID from source
         const _cloneTemplate = _getTemplateID.content.cloneNode(true);
-        // append template to target selector
+        // get target ID from page
         const _targetID = document.getElementById(targetID);
+        // append template to target ID
         _targetID.appendChild(_cloneTemplate);
         // delete original template from document
         _getTemplateID.remove();
