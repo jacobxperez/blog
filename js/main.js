@@ -80,7 +80,7 @@ const template = {
         new Promise((resolve, reject) => {
                 // check if source is string
                 typeof source === 'string' ?
-                    resolve() : reject(err = 'Error: Template source is not a String');
+                    resolve() : reject(err = 'Error: Source is not a String');
             })
             .then(() => this._parseSource(source, templateID, targetID, mimeType))
             .catch(err => console.error(err))
