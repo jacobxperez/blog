@@ -7,9 +7,6 @@
 location.hostname === "localhost" || location.hostname === "127.0.0.1" ?
     baseURL = window.location.origin : baseURL = window.location.origin + '/blog';
 
-// Initialize the DOM Parser
-var parser = new DOMParser();
-
 // Document Data
 var docData = {
     title: document.title,
@@ -50,6 +47,7 @@ function toggle() {
 }
 
 const template = {
+    parser: new DOMParser(),
     _copyPasteTemplate(templateID, targetID, _source) {
         // get template ID from source
         const _getTemplateID = _source.getElementById(templateID);
@@ -65,7 +63,7 @@ const template = {
     _parseSource(source, templateID, targetID, mimeType) {
         if (mimeType === undefined) mimeType = 'text/html';
         // get source and parse it
-        const _source = parser.parseFromString(source, mimeType);
+        const _source = this.parser.parseFromString(source, mimeType);
         this._copyPasteTemplate(templateID, targetID, _source);
     },
     getTemplate(templateID, targetID, _source = document) {
@@ -139,5 +137,5 @@ document.addEventListener("DOMContentLoaded", () => {
         .getTemplate('contentTemplate', 'content')
         .fetchSource('/templates/main-min.html', 'navTemplate', 'header')
         .fetchSource('/templates/main-min.html', 'footerTemplate', 'footerContent');
-        // always leave footer at the end for toggles to work
+    // always leave footer at the end for toggles to work
 });
