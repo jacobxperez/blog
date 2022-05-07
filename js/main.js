@@ -62,9 +62,7 @@ const template = {
         _getTemplateID.remove();
     },
     _parseSource(source, templateID, targetID, mimeType) {
-        if (mimeType === undefined) {
-            mimeType = 'text/html'
-        }
+        if (mimeType === undefined) mimeType = 'text/html';
         // get source and parse it
         const _source = parser.parseFromString(source, mimeType);
         this._copyPasteTemplate(templateID, targetID, _source);
@@ -97,10 +95,8 @@ const template = {
             .then(text => this._parseSource(text, templateID, targetID, mimeType))
             .catch(err => console.error(err))
             .finally(() => {
-                // once the footer is added start toggles
-                if (templateID === 'footerTemplate') {
-                    toggle();
-                }
+                // once the footer is loaded start toggles
+                if (templateID === 'footerTemplate') toggle();
             })
 
         return this;
@@ -118,8 +114,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // 3. move page content to layout
     // 4. fetch navigation
     // 5. fetch footer
-    const layout = template
-        .fromString(`
+    const layout = template.fromString(`
     <template id="layoutTemplate">
         <header id="header" data-section="header">
             <div id="headerContent" data-container="fit">
@@ -138,7 +133,7 @@ document.addEventListener("DOMContentLoaded", () => {
             </div>
         </footer>
     </template>
-    `, 'layoutTemplate', 'root')
+        `, 'layoutTemplate', 'root')
         .getTemplate('asideTemplate', 'content')
         .getTemplate('contentTemplate', 'content')
         .fetchSource('/templates/main-min.html', 'navTemplate', 'header')
