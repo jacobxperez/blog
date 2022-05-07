@@ -138,5 +138,5 @@ document.addEventListener("DOMContentLoaded", () => {
         .getTemplate('contentTemplate', 'content')
         .fetchSource('/templates/main-min.html', 'navTemplate', 'header')
         .fetchSource('/templates/main-min.html', 'footerTemplate', 'footerContent');
-    // always leave footer at the end for toggles to work
+        // always leave footer at the end for toggles to work
 });
