@@ -17,7 +17,6 @@ var docData = {
 // toggles
 function toggle() {
     const getToggle = document.querySelectorAll('[data-toggle]');
-    const getTogglePop = document.querySelectorAll('[data-toggle="pop"]');
     const getToolTip = document.querySelectorAll('[data-tooltip]');
 
     // toggles attribute
@@ -35,13 +34,13 @@ function toggle() {
 
     // removes attribute
     function removeAtt(item, e) {
-        if (e.target !== item) {
+        if (e.target !== item && item.matches('[data-toggle="pop"]')) {
             item.removeAttribute('data-state');
         }
     }
 
     document.addEventListener("click", e => {
-        getTogglePop.forEach(removeAtt);
+        getToggle.forEach(removeAtt);
         getToolTip.forEach(removeAtt);
     })
 }
