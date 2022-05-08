@@ -32,16 +32,17 @@ function toggle() {
     getToggle.forEach(toggleAttr);
     getToolTip.forEach(toggleAttr);
 
-    // removes attribute
-    function removeAtt(item, e) {
-        if (e.target !== item && item.matches('[data-toggle="pop"]')) {
-            item.removeAttribute('data-state');
-        }
-    }
-
     document.addEventListener("click", e => {
-        getToggle.forEach(removeAtt);
-        getToolTip.forEach(removeAtt);
+        getToggle.forEach(item => {
+            if (e.target !== item && item.matches('[data-toggle="pop"]')) {
+                item.removeAttribute('data-state');
+            }
+        });
+        getToolTip.forEach(item => {
+            if (e.target !== item) {
+                item.removeAttribute('data-state');
+            }
+        });
     })
 }
 
