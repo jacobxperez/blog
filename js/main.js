@@ -22,7 +22,7 @@ function toggle() {
     // toggles attribute
     function toggleAttr(item) {
         item.addEventListener("click", e => {
-            item.hasAttribute('data-state', 'active') === false ?
+            !item.hasAttribute('data-state', 'active') ?
                 item.setAttribute('data-state', 'active') :
                 item.removeAttribute('data-state');
             e.stopPropagation();
@@ -66,8 +66,8 @@ const template = {
     },
     getTemplate(templateID, targetID, _source = document) {
         new Promise((resolve, reject) => {
-                // check if template exist
-                templateID !== null ? resolve() : reject();
+                // check if template exist if not reject
+                !templateID ? reject() : resolve();
             })
             .then(() => this._copyPasteTemplate(templateID, targetID, _source))
             .catch(err => console.error(err))
@@ -102,7 +102,7 @@ const template = {
 
 document.addEventListener("DOMContentLoaded", () => {
     // Check for subtitle then added to layout
-    docData.subTitle === null ?
+    !docData.subTitle ?
         subTitle = '' :
         subTitle = `<h2 data-text="h5">${docData.subTitle}</h2>`;
 
