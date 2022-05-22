@@ -6,17 +6,14 @@ q {
 }
 
 blockquote:where(:before, :after) {
-    content: '';
+    content: "";
     content: none;
 }
 
 blockquote {
-    .font-family(@blockquote-font-family);
+    font-family: @blockquote-font-family;
+    font-style: @blockquote-font-style;
     &:extend([data-leading]);
-
-    & when not (@blockquote-font-style = false) {
-        font-style: @blockquote-font-style;
-    }
 }
 
 :where(blockquote) small {

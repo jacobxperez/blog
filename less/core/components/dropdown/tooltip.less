@@ -10,10 +10,10 @@
         z-index: -10;
         bottom: 100%;
         left: 0;
-        .min-width(@tooltip-min-width);
-        .padding();
+        min-width: @tooltip-min-width;
+        padding: var(--space-y) var(--space-x);
         background-color: @tooltip-background;
-        color: @tooltip-text-color;
+        color: @tooltip-contrast;
         opacity: 0;
         transition: @tooltip-transition;
     }

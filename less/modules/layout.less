@@ -1,18 +1,20 @@
 // Layout
 // ----------------------------------------------------------------------------/
+@outer-font-color: #fff;
+
 [data-section="header"],
 [data-section="footer"] {
     color: @outer-font-color;
 }
 
 [data-section="header"] {
-    .padding-top(@line-height * 4);
-    .padding-bottom(@line-height);
+    padding-top: calc(var(--leading) * 4);
+    padding-bottom: var(--leading);
 }
 
 [data-section="footer"] {
-    .padding-top(@line-height);
-    .padding-bottom(@line-height * 3);
+    padding-top: var(--leading);
+    padding-bottom: calc(var(--leading) * 3);
 }
 
 :where([data-section="footer"], [data-section="header"]) a {
@@ -20,15 +22,15 @@
 }
 
 [data-section="main"] {
-    .padding(@line-height, 0);
-    background-color: @inner-background-color;
+    padding: var(--leading) 0;
+    background-color: #fff;
 }
 
 [data-list="reference"] {
-    .margin-left();
+    margin-left: var(--space-x);
 
     p {
-        text-indent: -@margin-x;
+        text-indent: calc(var(--space-x) - 1);
     }
 }
 
