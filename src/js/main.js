@@ -118,19 +118,19 @@ document.addEventListener("DOMContentLoaded", () => {
             `
     <template id="layoutTemplate">
         <header id="header" data-section="header">
-            <div id="headerContent" data-container="fit">
+            <div id="headerContent" data-wrapper="fit">
                 <h1>${docData.title}</h1>
                 ${subTitle}
             </div>
         </header>
 
         <main id="main" data-section="main">
-            <div id="content" data-container="fit" data-grid="main">
+            <div id="content" data-wrapper="fit" data-grid="main">
             </div>
         </main>
 
         <footer id="footer" data-section="footer">
-            <div id="footerContent" data-container="fit">
+            <div id="footerContent" data-wrapper="fit">
             </div>
         </footer>
     </template>

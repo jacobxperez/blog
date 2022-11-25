@@ -1,8 +1,11 @@
 // Variables
 // ============================================================================/
 :root {
-    --background: #172244;
-    --font-color: #333;
+    --bg-color: #1c1817;
+    --font-color: #f2e6d9;
+    --font-sans: HelveticaNeue-Light, "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Nimbus Sans L", sans-serif;
+    --font-serif: TimesNewRoman, "Times New Roman", Times, Baskerville, Georgia, "Nimbus Roman No9 L", serif;
+    --font-mono: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", "Nimbus Mono L", monospace;
     --font-size: 100%;
     --line-height: 1.5;
     --leading: 1.5rem;
@@ -13,22 +16,22 @@
     --h5: clamp(1rem, 3vw, 1.8rem);
     --h6: clamp(1rem, 3vw, 1.4rem);
     --sm: 75%;
-    --container-min: 20rem;
-    --container-max: 62.5rem;
     --gap: 1.25rem;
-    --space-y: 0.5rem;
-    --space-x: 0.75rem;
-    --border-width: 0.0625em;
-    --border-color: rgba(0, 0, 0, 0.3);
+    --space-y: .5rem;
+    --space-x: .75rem;
+    --border-width: .0625em;
+    --border-color: rgba(0, 0, 0, .3);
+    --wrapper-width: 62.5rem;
+    --dropbox-width: 10rem;
 }
 
 
 // Theme Colors
 // ----------------------------------------------------------------------------/
-@background-color: var(--background);
-@font-color: var(--font-color);
+@root-background-color: var(--bg-color);
+@root-font-color: var(--font-color);
 
-@primary: #2a3f7e;
+@primary: #a53232;
 @primary-contrast: contrast(@primary);
 @primary-active: darken(@primary, 5%);
 
@@ -39,8 +42,8 @@
 
 // Typography
 // ----------------------------------------------------------------------------/
-@base-font-size: var(--font-size);
-@base-font-family: @font-sans;
+@root-font-size: var(--font-size);
+@root-font-family: var(--font-sans);
 @link-color: @primary;
 
 // headings
@@ -67,26 +70,13 @@
 @hr-border-color: var(--border-color);
 
 
-// Container
+// Wrapper
 // ----------------------------------------------------------------------------/
-@container-margin-top: calc(var(--leading) * 3);
-@container-margin-bottom: calc(var(--leading) * 4);
-@container-min-width: var(--container-min);
-@container-max-width: var(--container-max);
-@container-gap: var(--gap);
-
-
-// Breakpoints
-// ----------------------------------------------------------------------------/
-// small screen
-@screen-small-max-width: unit((680px / 16px), em);
-
-// medium screen
-@screen-medium-min-width: unit((681px / 16px), em);
-@screen-medium-max-width: unit((979px / 16px), em);
-
-// large screens
-@screen-large-min-width: unit((980px / 16px), em);
+@wrapper-margin-top: calc(var(--leading) * 3);
+@wrapper-margin-bottom: calc(var(--leading) * 4);
+@wrapper-min-width: 20rem;
+@wrapper-max-width: var(--wrapper-width);
+@wrapper-gap: var(--gap);
 
 
 // Lists
@@ -102,12 +92,12 @@
 
 // Code
 // ----------------------------------------------------------------------------/
-@code-font-family: @font-mono;
+@code-font-family: var(--font-mono);
 
 
 // Blockquote
 // ----------------------------------------------------------------------------/
-@blockquote-font-family: @font-serif;
+@blockquote-font-family: var(--font-serif);
 @blockquote-font-style: italic;
 
 
@@ -135,7 +125,7 @@
 // Button
 // ----------------------------------------------------------------------------/
 @button-background: transparent;
-@button-background-active: rgba(0, 0, 0, 0.1);
+@button-background-active: rgba(0, 0, 0, .1);
 @button-padding-y: var(--space-y);
 @button-padding-x: var(--space-x);
 @button-border-width: var(--border-width);
@@ -146,19 +136,19 @@
 // Navigation
 // ----------------------------------------------------------------------------/
 // navbar
-@navbar-background: #0a0f1e;
+@navbar-background: #381f1f;
 @navbar-sub-background: lighten(@navbar-background, 3%);
 @navbar-link-color: contrast(@navbar-background);
-@navbar-link-active: lighten(@navbar-background, 70%);
+@navbar-link-active: lighten(@navbar-background, 60%);
 
 // data-link
 @link-padding-y: var(--space-y);
 @link-padding-x: var(--space-x);
-@link-active: @font-color;
+@link-active: @root-font-color;
 
 // line tabs
 @line-link-color: #777;
-@line-link-active: @font-color;
+@line-link-active: @root-font-color;
 @line-border-width: 0.125em;
 @line-border-color: var(--border-color);
 @line-border-active: @primary;
@@ -169,7 +159,7 @@
 
 // Dropdown
 // ----------------------------------------------------------------------------/
-@dropbox-min-width: 10rem;
+@dropbox-min-width: var(--dropbox-width);
 @dropbox-transition: opacity 0.2s ease-out;
 
 
@@ -207,13 +197,18 @@
 
 // Selection
 // ----------------------------------------------------------------------------/
-@selection: #d8e5ff;
+@selection: #e0a385;
 @selection-contrast: contrast(@selection);
 
 
-// Font Stack
+// Breakpoints
 // ----------------------------------------------------------------------------/
-@font-sans: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Nimbus Sans L", "Liberation Sans", FreeSans, sans-serif;
-@font-system: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-@font-serif: TimesNewRoman, "Times New Roman", Times, Baskerville, Georgia, "Nimbus Roman No9 L", "Liberation Serif", FreeSerif, serif;
-@font-mono: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", "Nimbus Mono L", "Liberation Mono", FreeMono, monospace;
+// small screen 680px
+@screen-small-max-width: 42.5em;
+
+// medium screen 681px - 979px
+@screen-medium-min-width: 42.5625em;
+@screen-medium-max-width: 61.1875em;
+
+// large screens 980px
+@screen-large-min-width: 61.25em;
