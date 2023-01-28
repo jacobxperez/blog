@@ -1,0 +1,20 @@
+// Nav
+// ----------------------------------------------------------------------------/
+[data-nav] {
+    display: flex;
+}
+
+[data-link] {
+    display: block;
+    padding: var(--space-y) var(--space-x);
+}
+
+[data-link]:where([data-state="active"], :hover, :active) {
+    color: $link-active;
+    text-decoration: none;
+}
+
+[data-link]:focus {
+    outline: thin dotted;
+    outline-offset: -0.125rem;
+}

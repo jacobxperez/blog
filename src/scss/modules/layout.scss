@@ -1,0 +1,35 @@
+// Layout
+// ----------------------------------------------------------------------------/
+[data-section="header"] {
+    padding-top: calc(var(--leading) * 4);
+    padding-bottom: var(--leading);
+}
+
+[data-section="footer"] {
+    padding-top: var(--leading);
+    padding-bottom: calc(var(--leading) * 3);
+}
+
+:where([data-section="footer"], [data-section="header"]) a {
+    color: #e9c5af;
+}
+
+[data-section="main"] {
+    padding: var(--leading) 0;
+    background-color: $root-font-color;
+    color: $root-background-color;
+}
+
+[data-list="reference"] {
+    margin-left: var(--space-x);
+
+    p {
+        text-indent: calc(var(--space-x) - 1);
+    }
+}
+
+[data-box="code"] {
+    background-color: $root-background-color;
+    color: $root-font-color;
+    ;
+}
