@@ -140,7 +140,7 @@ document.addEventListener("DOMContentLoaded", () => {
         )
         .getTemplate("asideTemplate", "content")
         .getTemplate("contentTemplate", "content")
-        .fetchSource("/templates/index.2857067d.html", "navTemplate", "header")
-        .fetchSource("/templates/index.2857067d.html", "footerTemplate", "footerContent");
+        .fetchSource("/templates/index.260bfb36.html", "navTemplate", "header")
+        .fetchSource("/templates/index.260bfb36.html", "footerTemplate", "footerContent");
     // always leave footer at the end for toggles to work
 });
