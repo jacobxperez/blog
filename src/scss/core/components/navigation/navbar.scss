@@ -29,10 +29,10 @@
     background-color: $navbar-sub-background;
 }
 
-[data-link="navbar"] {
+[data-anchor="navbar"] {
     color: $navbar-link-color;
 }
 
-[data-link="navbar"]:where([data-state="active"], :hover, :active) {
+[data-anchor="navbar"]:where([data-state="active"], :hover, :active) {
     color: $navbar-link-active;
 }

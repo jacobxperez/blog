@@ -30,15 +30,15 @@
 }
 
 [data-flex~="gap"] {
-    gap: $wrapper-gap;
+    gap: var(--wrapper-gap);
 }
 
 [data-flex~="row-gap"] {
-    row-gap: $wrapper-gap;
+    row-gap: var(--wrapper-gap);
 }
 
 [data-flex~="column-gap"] {
-    column-gap: $wrapper-gap;
+    column-gap: var(--wrapper-gap);
 }
 
 [data-flex~="end"] {

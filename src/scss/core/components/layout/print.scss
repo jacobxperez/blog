@@ -1,18 +1,15 @@
 // Print
 // ----------------------------------------------------------------------------/
 @media print {
+    :root {
+        --root-background-color: white;
+        --root-font-color: black;
+        --root-font-size: 100%;
+    }
+
     html,
     body {
         height: auto;
-    }
-
-    html {
-        font-size: 100%;
-    }
-
-    body {
-        background: white;
-        color: black;
     }
 
     nav {

@@ -1,20 +1,20 @@
 // Containers
 // ----------------------------------------------------------------------------/
 body > [data-wrapper]:first-child {
-    margin-top: $wrapper-margin-top;
+    margin-top: var(--wrapper-margin-top);
 }
 
 body > [data-wrapper]:last-child {
-    margin-bottom: $wrapper-margin-bottom;
+    margin-bottom: var(--wrapper-margin-bottom);
 }
 
 [data-wrapper] {
     margin: 0 auto;
-    padding-left: $wrapper-gap;
-    padding-right: $wrapper-gap;
-    min-width: $wrapper-min-width;
+    padding-left: var(--wrapper-gap);
+    padding-right: var(--wrapper-gap);
+    min-width: var(--wrapper-min-width);
 }
 
 [data-wrapper="fit"] {
-    max-width: $wrapper-max-width;
+    max-width: var(--wrapper-max-width);
 }

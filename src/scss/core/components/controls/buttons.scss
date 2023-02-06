@@ -5,62 +5,62 @@
 }
 
 [data-button~="tertiary"] {
-    background-color:  $tertiary;
-    color: $tertiary-contrast;
+    background-color:  var(--tertiary);
+    color: var(--tertiary-text);
 }
 
 [data-button~="tertiary"]:is([data-state="active"], :hover, :active) {
     border-color: var(--border-color);
-    background-color: $tertiary-active;
-    color: $tertiary-contrast;
+    background-color: var(--tertiary-active);
+    color: var(--tertiary-text);
 }
 
 [data-button="tertiary outline"] {
-    border-color:  $tertiary;
-    color: $tertiary;
+    border-color:  var(--tertiary);
+    color: var(--tertiary);
 }
 
 [data-button~="secondary"] {
-    background-color:  $secondary;
-    color: $secondary-contrast;
+    background-color:  var(--secondary);
+    color: var(--secondary-text);
 }
 
 [data-button~="secondary"]:is([data-state="active"], :hover, :active) {
     border-color: var(--border-color);
-    background-color: $secondary-active;
-    color: $secondary-contrast;
+    background-color: var(--secondary-active);
+    color: var(--secondary-text);
 }
 
 [data-button="secondary outline"] {
-    border-color: $secondary;
-    color: $secondary;
+    border-color: var(--secondary);
+    color: var(--secondary);
 }
 
 [data-button~="primary"] {
-    background-color: $primary;
-    color: $primary-contrast;
+    background-color: var(--primary);
+    color: var(--primary-text);
 }
 
 [data-button~="primary"]:is([data-state="active"], :hover, :active) {
     border-color: var(--border-color);
-    background-color: $primary-active;
-    color: $primary-contrast;
+    background-color: var(--primary-active);
+    color: var(--primary-text);
 }
 
 [data-button="primary outline"] {
-    border-color: $primary;
-    color: $primary;
+    border-color: var(--primary);
+    color: var(--primary);
 }
 
 [data-button~="success"] {
     background-color: $success;
-    color: $success-contrast;
+    color: $success-text;
 }
 
 [data-button~="success"]:is([data-state="active"], :hover, :active) {
     border-color: var(--border-color);
     background-color: $success-active;
-    color: $success-contrast;
+    color: $success-text;
 }
 
 [data-button="success outline"] {
@@ -70,13 +70,13 @@
 
 [data-button~="warning"] {
     background-color: $warning;
-    color: $warning-contrast;
+    color: $warning-text;
 }
 
 [data-button~="warning"]:is([data-state="active"], :hover, :active) {
     border-color: var(--border-color);
     background-color: $warning-active;
-    color: $warning-contrast;
+    color: $warning-text;
 }
 
 [data-button="warning outline"] {
@@ -86,13 +86,13 @@
 
 [data-button~="danger"] {
     background-color: $danger;
-    color: $danger-contrast;
+    color: $danger-text;
 }
 
 [data-button~="danger"]:is([data-state="active"], :hover, :active) {
     border-color: var(--border-color);
     background-color: $danger-active;
-    color: $danger-contrast;
+    color: $danger-text;
 }
 
 [data-button="danger outline"] {

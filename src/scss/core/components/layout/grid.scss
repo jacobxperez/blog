@@ -2,5 +2,5 @@
 // ----------------------------------------------------------------------------/
 [data-grid] {
     display: grid;
-    column-gap: $wrapper-gap;
+    column-gap: var(--wrapper-gap);
 }

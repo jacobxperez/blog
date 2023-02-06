@@ -15,13 +15,13 @@
 }
 
 html {
-    font-size: $root-font-size;
-    font-family: $root-font-family;
+    font-size: var(--root-font-size);
+    font-family: var(--root-font-family);
     font-weight: 400;
     line-height: var(--root-line-height);
     text-align: left;
-    color: $root-font-color;
-    background-color: $root-background-color;
+    color: var(--root-font-color);
+    background-color: var(--root-background-color);
     overflow-wrap: break-word;
     scroll-behavior: smooth;
 }

@@ -1,7 +1,7 @@
 // Selection
 // ----------------------------------------------------------------------------/
 ::selection {
-    background-color: $selection;
-    color: $selection-contrast;
+    background-color: var(--selection);
+    color: var(--selection-text);
     text-shadow: none;
 }

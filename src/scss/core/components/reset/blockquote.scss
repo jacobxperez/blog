@@ -5,13 +5,14 @@ q {
     quotes: none;
 }
 
-blockquote:where(:before, :after) {
+blockquote:before,
+blockquote:after {
     content: "";
     content: none;
 }
 
 blockquote {
-    font-family: $blockquote-font-family;
+    font-family: var(--blockquote-font-family);
     font-style: $blockquote-font-style;
     @extend [data-leading];
 }
@@ -20,6 +21,6 @@ blockquote {
     display: block;
 }
 
-:where(blockquote) small::before {
+:where(blockquote) small:before {
     content: "— ";
 }
