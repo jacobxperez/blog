@@ -1,52 +1,43 @@
 <!DOCTYPE html>
 <html lang="en" id="top">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="robots" content="INDEX, FOLLOW" />
+        <meta name="author" content="Jacob Perez" />
+        <meta name="description" content="Post Archive" />
+        <title>Archive</title>
+        <link rel="preload" href="../templates/index.html" as="fetch" type="text/html" crossorigin />
+        <link rel="stylesheet" href="../css/main.scss" />
+        <script src="../js/main.js"></script>
+        <link rel="icon" type="image/x-icon" href="../favicon.ico" />
+    </head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="robots" content="INDEX, FOLLOW">
-    <meta name="author" content="Jacob Perez">
-    <meta name="description" content="Post Archive">
-    <title>Archive</title>
-    <link rel="preload" href="../templates/index.html" as="fetch" type="text/html"
-        crossorigin>
-    <link rel="stylesheet" href="../scss/main.scss">
-    <script src="../js/main.js"></script>
-    <link rel="icon" type="image/x-icon" href="../favicon.ico">
-</head>
+    <body id="root">
+        <template id="contentTemplate">
+            <div>
+                <p><strong>2022</strong></p>
 
-<body id="root">
-    <template id="contentTemplate">
-        <div>
-            <p><strong>2022</strong></p>
+                <ul data-list="ul">
+                    <li>
+                        <a href="../post/css/zero-class/architecture/index.html"> Zero-Class Architecture </a>
+                    </li>
+                </ul>
+            </div>
 
-            <ul data-list="ul">
-                <li>
-                    <a href="../post/css/zero-class/architecture/index.html">
-                        Zero-Class Architecture
-                    </a>
-                </li>
-            </ul>
-        </div>
+            <div>
+                <p><strong>2021</strong></p>
 
-        <div>
-            <p><strong>2021</strong></p>
+                <ul data-list="ul">
+                    <li>
+                        <a href="../post/heuristic/the-80-20-principle/index.html"> The 80/20 Principle </a>
+                    </li>
 
-            <ul data-list="ul">
-                <li>
-                    <a href="../post/heuristic/the-80-20-principle/index.html">
-                        The 80/20 Principle
-                    </a>
-                </li>
-
-                <li>
-                    <a href="../about/index.html">
-                        About Me
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </template>
-</body>
-
+                    <li>
+                        <a href="../about/index.html"> About Me </a>
+                    </li>
+                </ul>
+            </div>
+        </template>
+    </body>
 </html>

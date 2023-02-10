@@ -7,7 +7,7 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>Components - RAMs</title>
-        <link rel="stylesheet" href="../../scss/main.scss" />
+        <link rel="stylesheet" href="../../css/main.scss" />
         <script src="../../js/main.js"></script>
     </head>
 
@@ -42,7 +42,7 @@
                 <li data-display="small">
                     <a data-anchor="navbar" data-icon="&#xe081;" data-toggle="pop"></a>
 
-                    <ul data-navbar="sub" data-dropbox="menu" data-position="absolute left right">
+                    <ul data-navbar="child" data-dropbox="menu" data-position="absolute left right">
                         <li><a data-anchor="navbar" href="../index.html">Read Me</a></li>
                         <li><a data-anchor="navbar" href="index.html">Components</a></li>
                         <li><a data-anchor="navbar" href="../icons/index.html">Icons</a></li>
@@ -61,63 +61,92 @@
 
             <!-- Content -->
             <article>
-                <h2>Layout</h2>
-
-                <section>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
-
-                    <h3>Container</h3>
-
-                    <p>Center page content with data-wrapper</p>
-
-                    <h3>Grid</h3>
-
-                    <p>Empower your layouts with CSS Grid using data-grid</p>
-
-                    <h3>Flex Box</h3>
-
-                    <p>Give flexibility to your layouts with data-flex</p>
-                </section>
-
-                <h2>Text</h2>
-
-                <section>
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
-
-                    <h3>Blockquote</h3>
-
-                    <blockquote>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor, ipsum.
-                        <small>Lorem ipsum</small>
-                    </blockquote>
-                </section>
-
-                <h2>List</h2>
-
-                <section>
-                    <p>Group related items in a list with data-list</p>
-                </section>
-
                 <h2>Buttons</h2>
 
                 <section>
                     <p>
-                        <button data-button>button</button>
-                        <button data-button="outline">button</button>
-                        <button data-button="primary">button</button>
-                        <button data-button="primary outline">button</button>
-                        <button data-button="link">button</button>
-                        <button data-button data-state="disabled">disabled</button>
+                        <button data-button>default</button>
+                        <button data-button="outline">outline</button>
+                        <button data-button="link">link</button>
                     </p>
 
                     <p>
+                        <button data-button="primary">button</button>
                         <button data-button="secondary">button</button>
-                        <button data-button="secondary outline">button</button>
+                        <button data-button="tertiary">button</button>
                     </p>
 
-                    <h3>Call to Action</h3>
+                    <p>
+                        <button data-button="primary outline">button</button>
+                        <button data-button="secondary outline">button</button>
+                        <button data-button="tertiary outline">button</button>
+                    </p>
 
-                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+                    <h3>Feedback</h3>
+
+                    <p>
+                        <button data-button="success">button</button>
+                        <button data-button="warning">button</button>
+                        <button data-button="danger">button</button>
+                    </p>
+
+                    <p>
+                        <button data-button="success outline">button</button>
+                        <button data-button="warning outline">button</button>
+                        <button data-button="danger outline">button</button>
+                    </p>
+
+                    <h4>Disabled</h4>
+
+                    <p>
+                        <button data-button data-state="disabled">disabled</button>
+                    </p>
+                </section>
+
+                <section>
+                    <h2>Navigation</h2>
+
+                    <nav>
+                        <ul data-nav>
+                            <li><a data-anchor data-state="active">Active</a></li>
+                            <li><a data-anchor>Link</a></li>
+                            <li><a data-anchor>Link</a></li>
+                            <li><a data-anchor>Link</a></li>
+                        </ul>
+                    </nav>
+
+                    <h3>Breadcrumb</h3>
+
+                    <nav>
+                        <ul data-nav="breadcrumb">
+                            <li><span>Active</span></li>
+                            <li><a>Link</a></li>
+                            <li><a>Link</a></li>
+                            <li><a>Link</a></li>
+                        </ul>
+                    </nav>
+
+                    <h3>Tabs</h3>
+
+                    <nav>
+                        <ul data-nav="line">
+                            <li><a data-anchor="line" data-state="active">Active</a></li>
+                            <li><a data-anchor="line">Tab</a></li>
+                            <li><a data-anchor="line">Tab</a></li>
+                            <li><a data-anchor="line">Tab</a></li>
+                        </ul>
+                    </nav>
+
+                    <h3>Navbar</h3>
+
+                    <nav data-navbar>
+                        <ul data-nav>
+                            <li><a data-anchor="navbar" data-state="active">Active</a></li>
+                            <li><a data-anchor="navbar">Link</a></li>
+                            <li><a data-anchor="navbar">Link</a></li>
+                            <li><a data-anchor="navbar">Link</a></li>
+                        </ul>
+                    </nav>
                 </section>
 
                 <section>
@@ -132,10 +161,6 @@
                         <span data-tooltip="Lorem ipsum dolor sit amet.">context</span>
                         on hover or on click with tooltip.
                     </p>
-
-                    <h3>Menu</h3>
-
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
 
                     <h3>Accordion</h3>
 
@@ -169,66 +194,6 @@
                             <div data-dropbox data-box>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi, aut.</div>
                         </li>
                     </ul>
-                </section>
-
-                <section>
-                    <h2>Navigation</h2>
-
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
-
-                    <nav>
-                        <ul data-nav>
-                            <li><a data-anchor data-state="active">Active</a></li>
-                            <li><a data-anchor>Link</a></li>
-                            <li><a data-anchor>Link</a></li>
-                            <li><a data-anchor>Link</a></li>
-                        </ul>
-                    </nav>
-
-                    <h3>Breadcrumb</h3>
-
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
-
-                    <nav>
-                        <ul data-nav="breadcrumb">
-                            <li><span>Active</span></li>
-                            <li><a>Link</a></li>
-                            <li><a>Link</a></li>
-                            <li><a>Link</a></li>
-                        </ul>
-                    </nav>
-
-                    <h3>Tabs</h3>
-
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-
-                    <nav>
-                        <ul data-nav="line">
-                            <li><a data-anchor="line" data-state="active">Active</a></li>
-                            <li><a data-anchor="line">Tab</a></li>
-                            <li><a data-anchor="line">Tab</a></li>
-                            <li><a data-anchor="line">Tab</a></li>
-                        </ul>
-                    </nav>
-
-                    <h3>Navbar</h3>
-
-                    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.</p>
-
-                    <nav data-navbar>
-                        <ul data-nav>
-                            <li><a data-anchor="navbar" data-state="active">Active</a></li>
-                            <li><a data-anchor="navbar">Link</a></li>
-                            <li><a data-anchor="navbar">Link</a></li>
-                            <li><a data-anchor="navbar">Link</a></li>
-                        </ul>
-                    </nav>
-                </section>
-
-                <section>
-                    <h2>Display</h2>
-
-                    <p>Hide and show content based on meadia queries brakepoints with data-display</p>
                 </section>
             </article>
             <!-- end Content -->
