@@ -4,9 +4,9 @@ I am a front-end web developer and designer. I build beautiful websites with HTM
 
 ## Post
 
-* [Zero-Class Architecture](https://jacobxperez.github.io/blog/post/css/zero-class/architecture/)
-* [The 80/20 Principle](https://jacobxperez.github.io/blog/post/heuristic/the-80-20-principle/)
-* [About Me](https://jacobxperez.github.io/blog/about/)
+-   [Class Less Architecture](https://jacobxperez.github.io/blog/post/css/class-less-architecture/)
+-   [The 80/20 Principle](https://jacobxperez.github.io/blog/post/heuristic/the-80-20-principle/)
+-   [About Me](https://jacobxperez.github.io/blog/about/)
 
 ## LICENSE
 
@@ -14,7 +14,7 @@ Copyright (C) 2023 [Jacob Perez](https://github.com/jacobxperez)
 
 ### Content
 
-Licensed under the [Attribution-ShareAlike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/) (CC BY-SA 4.0) 
+Licensed under the [Attribution-ShareAlike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/) (CC BY-SA 4.0)
 
 ### Code
 
