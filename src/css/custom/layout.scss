@@ -1,19 +1,23 @@
 // Layout
 // ----------------------------------------------------------------------------/
+/* uncss:ignore */
 [data-section="header"] {
     padding-top: calc(var(--leading) * 4);
     padding-bottom: var(--leading);
 }
 
+/* uncss:ignore */
 [data-section="footer"] {
     padding-top: var(--leading);
     padding-bottom: calc(var(--leading) * 3);
 }
 
+/* uncss:ignore */
 :where([data-section="footer"], [data-section="header"]) a {
     color: #e9c5af;
 }
 
+/* uncss:ignore */
 [data-section="main"] {
     padding: var(--leading) 0;
     background-color: var(--font-color);
