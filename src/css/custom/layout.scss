@@ -1,23 +1,19 @@
 // Layout
 // ----------------------------------------------------------------------------/
-/* uncss:ignore */
 [data-section="header"] {
     padding-top: calc(#{$leading} * 4);
     padding-bottom: #{$leading};
 }
 
-/* uncss:ignore */
 [data-section="footer"] {
     padding-top: #{$leading};
     padding-bottom: calc(#{$leading} * 3);
 }
 
-/* uncss:ignore */
 :where([data-section="footer"], [data-section="header"]) a {
     color: #e9c5af;
 }
 
-/* uncss:ignore */
 [data-section="main"] {
     padding: #{$leading} 0;
     background-color: var(--font-color);
@@ -25,14 +21,13 @@
 }
 
 [data-list="reference"] {
-    margin-left: var(--space-x);
-
-    p {
-        text-indent: calc(var(--space-x) - 1);
-    }
+    margin-left: $space-x;
 }
 
-/* uncss:ignore */
+:where([data-list="reference"]) p {
+    text-indent: calc(#{$space-x} - 1);
+}
+
 [data-box="code"] {
     background-color: var(--background-color);
     color: var(--font-color);
