@@ -2,14 +2,14 @@
 // ----------------------------------------------------------------------------/
 /* uncss:ignore */
 [data-section="header"] {
-    padding-top: calc(var(--leading) * 4);
-    padding-bottom: var(--leading);
+    padding-top: calc(#{$leading} * 4);
+    padding-bottom: #{$leading};
 }
 
 /* uncss:ignore */
 [data-section="footer"] {
-    padding-top: var(--leading);
-    padding-bottom: calc(var(--leading) * 3);
+    padding-top: #{$leading};
+    padding-bottom: calc(#{$leading} * 3);
 }
 
 /* uncss:ignore */
@@ -19,7 +19,7 @@
 
 /* uncss:ignore */
 [data-section="main"] {
-    padding: var(--leading) 0;
+    padding: #{$leading} 0;
     background-color: var(--font-color);
     color: var(--background-color);
 }
