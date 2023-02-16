@@ -1,7 +1,7 @@
 {
   "name": "rams",
   "version": "1.0.0",
-  "description": "Design System Framework with Class Less Architecture",
+  "description": "A Class Less CSS Design Framework",
   "source": [
     "src/index.html"
   ],
@@ -10,7 +10,7 @@
     "dev": "parcel src/index.html --no-source-maps",
     "watch": "parcel watch src/index.html --no-source-maps",
     "build": "parcel build src/index.html --no-source-maps",
-    "public": "parcel build src/index.html --no-source-maps --public-url /blog"
+    "public": "parcel build src/index.html --no-source-maps --public-url /"
   },
   "repository": {
     "type": "git",
@@ -22,7 +22,7 @@
     "front-end",
     "framework",
     "design system",
-    "class less architecture"
+    "class less Architecture"
   ],
   "author": "Jacob Perez",
   "license": "Apache-2.0",
@@ -37,6 +37,7 @@
     "parcel-optimizer-friendly-urls": "^0.2.0",
     "postcss": "^8.4.21",
     "postcss-contrast": "^0.0.4",
+    "postcss-custom-selectors": "^7.1.2",
     "postcss-variable-compress": "^2.0.1",
     "prettier": "2.8.4"
   }
