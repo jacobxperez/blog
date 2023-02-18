@@ -14,8 +14,8 @@
 
 [data-section="main"] {
     padding: #{$leading} 0;
-    background-color: var(--font-color);
-    color: var(--background-color);
+    background-color: $font-color;
+    color: $background;
 }
 
 [data-list="reference"] {
@@ -27,7 +27,7 @@
 }
 
 [data-box="code"] {
-    background-color: var(--background-color);
-    color: var(--font-color);
+    background-color: $background;
+    color: $font-color;
     ;
 }
