@@ -123,7 +123,7 @@ $disabled-text: hsl(0, 0%, 50%);
 
 /* Navbar */
 $navbar-background: hsl(0, 25%, 20%);
-$navbar-child-background: hsl(0, 25%, 25%);
+$navbar-dropbox-background: hsl(0, 0%, 20%);
 $navbar-anchor-text: hsl(0, 25%, 90%);
 $navbar-anchor-text-active: hsl(0, 25%, 70%);
 
@@ -144,13 +144,12 @@ $breadcrumb-separator: "/";
 
 /* Dropdown */
 $dropbox-min-width: 10rem;
-$dropbox-transition: opacity 0.2s ease-out;
+$dropbox-transition: all 0.2s ease-out;
 
-/* Tooltip */
-$tooltip-min-width: $dropbox-min-width;
-$tooltip-background: $navbar-child-background;
+/* tooltip */
+$tooltip-min-width: 26ch;
+$tooltip-background: $navbar-dropbox-background;
 $tooltip-text: hsl(0, 0%, 100%);
-$tooltip-transition: opacity 0.4s ease-out;
 
 /* Iconography */
 $icon-font-name: "icons";

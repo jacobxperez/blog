@@ -16,9 +16,8 @@ var docData = {
 }
 
 // toggles
-function toggle() {
+const toggle = () => {
     const getToggle = document.querySelectorAll("[data-toggle]")
-    const getToolTip = document.querySelectorAll("[data-tooltip]")
 
     // toggles attribute
     function toggleAttr(item) {
@@ -29,7 +28,6 @@ function toggle() {
     }
 
     getToggle.forEach(toggleAttr)
-    getToolTip.forEach(toggleAttr)
 
     function removeAtt(item, match, e) {
         if (e.target !== item && item.matches(match)) {
@@ -38,8 +36,8 @@ function toggle() {
     }
 
     document.addEventListener("click", (e) => {
+        getToggle.forEach((item) => removeAtt(item, '[data-toggle="tooltip"]', e))
         getToggle.forEach((item) => removeAtt(item, '[data-toggle="pop"]', e))
-        getToolTip.forEach((item) => removeAtt(item, "[data-tooltip]", e))
     })
 }
 
@@ -134,7 +132,7 @@ document.addEventListener("DOMContentLoaded", () => {
         )
         .getTemplate("asideTemplate", "content")
         .getTemplate("contentTemplate", "content")
-        .fetchSource("/templates/index.cc1daf21.html", "navTemplate", "header")
-        .fetchSource("/templates/index.cc1daf21.html", "footerTemplate", "footerContent")
+        .fetchSource("/templates/index.6d94050f.html", "navTemplate", "header")
+        .fetchSource("/templates/index.6d94050f.html", "footerTemplate", "footerContent")
     // always leave footer at the end for toggles to work
 })
