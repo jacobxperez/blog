@@ -1,11 +1,11 @@
 [data-section="header"] {
-    padding-top: calc(#{$leading} * 4);
-    padding-bottom: #{$leading};
+    padding-top: calc($leading * 4);
+    padding-bottom: $leading;
 }
 
 [data-section="footer"] {
-    padding-top: #{$leading};
-    padding-bottom: calc(#{$leading} * 3);
+    padding-top: $leading;
+    padding-bottom: calc($leading * 3);
 }
 
 :where([data-section="footer"], [data-section="header"]) a {
@@ -13,7 +13,7 @@
 }
 
 [data-section="main"] {
-    padding: #{$leading} 0;
+    padding: $leading 0;
     background-color: $font-color;
     color: $background;
 }
@@ -23,11 +23,11 @@
 }
 
 :where([data-list="reference"]) p {
-    text-indent: calc(#{$space-x} - 1);
+    text-indent: calc($space-x - 1);
 }
 
 [data-box="code"] {
     background-color: $background;
     color: $font-color;
-    ;
+    padding: $space-y $space-x;
 }
