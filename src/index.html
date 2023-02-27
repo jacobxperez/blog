@@ -12,11 +12,15 @@
         <title>Jacob Perez</title>
         <link rel="preload" href="templates/index.html" as="fetch" type="text/html" crossorigin />
         <link rel="stylesheet" href="css/main.css" />
-        <script src="js/main.js"></script>
+        <script type="module" src="js/main.js" defer></script>
         <link rel="icon" type="image/x-icon" href="favicon.ico" />
     </head>
 
     <body id="root">
+        <template id="headerTemplate">
+            <h1>Jacob Perez</h1>
+        </template>
+
         <template id="contentTemplate">
             <aside></aside>
 
@@ -25,8 +29,9 @@
                     <h2><a href="post/css/class-less-architecture/index.html">Class Less Architecture</a></h2>
 
                     <p>
-                        OOCSS, BEM, and Atomic CSS all have the same problem, they all utilize the class selector, and none have taken the time to
-                        solve it. Here lies the problem, we need a new architecture free from the class selector, a class less architecture...
+                        OOCSS, BEM, and Atomic CSS all have the same problem, they all utilize the class selector, and none have taken the
+                        time to solve it. Here lies the problem, we need a new architecture free from the class selector, a class less
+                        architecture...
                     </p>
 
                     <p><a href="post/css/class-less-architecture/index.html">[Read More]</a></p>
@@ -36,8 +41,9 @@
                     <h2><a href="post/heuristic/the-80-20-principle/index.html">The 80/20 Principle</a></h2>
 
                     <p>
-                        The majority of the effects come from the minority of the causes on average an 80 to 20 percent ratio. To optimize performance
-                        identify the top 20 percent and decrease or remove the remaining 80 percent. If no benefit comes from prioritizing...
+                        The majority of the effects come from the minority of the causes on average an 80 to 20 percent ratio. To optimize
+                        performance identify the top 20 percent and decrease or remove the remaining 80 percent. If no benefit comes from
+                        prioritizing...
                     </p>
 
                     <p><a href="post/heuristic/the-80-20-principle/index.html">[Read More]</a></p>
@@ -47,8 +53,8 @@
                     <h2><a href="about/index.html">About me</a></h2>
 
                     <p>
-                        I design and develop beautiful websites with HTML, CSS, and JavaScript. I have taken business, programming, art, and design
-                        courses along my formal academic journey. I combine my programming logic skills with design thinking...
+                        I design and develop beautiful websites with HTML, CSS, and JavaScript. I have taken business, programming, art, and
+                        design courses along my formal academic journey. I combine my programming logic skills with design thinking...
                     </p>
 
                     <p><a href="about/index.html">[Read More]</a></p>
