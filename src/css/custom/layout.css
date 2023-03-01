@@ -1,6 +1,6 @@
 [data-section="header"] {
     padding-top: calc($leading * 4);
-    padding-bottom: $leading;
+    padding-bottom: calc($leading * 2);
 }
 
 [data-section="footer"] {
