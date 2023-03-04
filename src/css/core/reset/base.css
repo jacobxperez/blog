@@ -14,14 +14,16 @@
 
 @custom-selector :--headings h1, h2, h3, h4, h5, h6;
 
-@custom-selector :--lists [data-list~="ol"], [data-list~="ul"], [data-list~="dl"];
+@custom-selector :--lists
+    [data-list~="ol"],
+    [data-list~="ul"],
+    [data-list~="dl"];
 
 html {
     @if $background-gradient == false {
         background: $background;
     } @else {
-        background: $background;
-        background-image: $background-gradient;
+        background: $background-gradient;
     }
     color: $font-color;
     font-size: $font-size;

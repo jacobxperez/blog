@@ -1,4 +1,4 @@
-import {toggle} from "./toggle"
+import {toggle} from './toggle'
 
 const template = {
     parser: new DOMParser(),
@@ -15,7 +15,7 @@ const template = {
         _getTemplateID.remove()
     },
     _parseSource(source, templateID, targetID, mimeType) {
-        if (mimeType === undefined) mimeType = "text/html"
+        if (mimeType === undefined) mimeType = 'text/html'
         // get source and parse it
         const _source = this.parser.parseFromString(source, mimeType)
         this._copyPasteTemplate(templateID, targetID, _source)
@@ -23,7 +23,7 @@ const template = {
     getTemplate(templateID, targetID, _source = document) {
         new Promise((resolve, reject) => {
             // check if template exist if not reject
-            !templateID ? reject() : resolve()
+            templateID ? resolve() : reject()
         })
             .then(() => this._copyPasteTemplate(templateID, targetID, _source))
             .catch((err) => console.error(err))
@@ -33,22 +33,28 @@ const template = {
     fromString(source, templateID, targetID, mimeType) {
         new Promise((resolve, reject) => {
             // check if source is string
-            typeof source === "string" ? resolve() : reject((err = "Error: Source is not a String"))
+            typeof source === 'string'
+                ? resolve()
+                : reject((err = 'Error: Source is not a String'))
         })
-            .then(() => this._parseSource(source, templateID, targetID, mimeType))
+            .then(() =>
+                this._parseSource(source, templateID, targetID, mimeType)
+            )
             .catch((err) => console.error(err))
 
         return this
     },
-    fetchSource(source, templateID, targetID, mimeType) {
+    fetchTemplate(source, templateID, targetID, mimeType) {
         fetch(source)
             // when the source is loaded convert to text
             .then((response) => response.text())
-            .then((text) => this._parseSource(text, templateID, targetID, mimeType))
+            .then((text) =>
+                this._parseSource(text, templateID, targetID, mimeType)
+            )
             .catch((err) => console.error(err))
             .finally(() => {
                 // once the footer is loaded start toggles
-                if (templateID === "footerTemplate") toggle()
+                if (templateID === 'footerTemplate') toggle()
             })
 
         return this

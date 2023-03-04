@@ -5,18 +5,14 @@
  * http://www.apache.org/licenses/LICENSE-2.0
 ------------------------------------------------------------------------------*/
 var templateURL
-location.hostname === "localhost" || location.hostname === "127.0.0.1"
-    ? (templateURL = window.location.origin + "/templates/index.2a86ff1c.html")
-    : (templateURL = window.location.origin + "/blog/templates/index.6e7a5d68.html")
+location.hostname === 'localhost' || location.hostname === '127.0.0.1'
+    ? (templateURL = window.location.origin + '/templates/index.2a86ff1c.html')
+    : (templateURL =
+          window.location.origin + '/blog/templates/index.6e7a5d68.html')
 
-import {toggle} from "./modules/toggle"
-import {template} from "./modules/template"
+import {toggle} from './modules/toggle'
+import {template} from './modules/template'
 
-// 1. generate page layout from string
-// 2. move secondary content to layout
-// 3. move page content to layout
-// 4. fetch navigation
-// 5. fetch footer
 const layout = template
     .fromString(
         `
@@ -35,12 +31,12 @@ const layout = template
         </footer>
     </template>
         `,
-        "layoutTemplate",
-        "root"
+        'layoutTemplate',
+        'root'
     )
-    .getTemplate("headerTemplate", "headerContent")
-    .getTemplate("asideTemplate", "content")
-    .getTemplate("contentTemplate", "content")
-    .fetchSource(templateURL, "navTemplate", "header")
-    .fetchSource(templateURL, "footerTemplate", "footerContent")
+    .getTemplate('headerTemplate', 'headerContent')
+    .getTemplate('asideTemplate', 'content')
+    .getTemplate('contentTemplate', 'content')
+    .fetchTemplate(templateURL, 'navTemplate', 'header')
+    .fetchTemplate(templateURL, 'footerTemplate', 'footerContent')
 // always leave footer at the end for toggles to work
