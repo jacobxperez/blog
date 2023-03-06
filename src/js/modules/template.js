@@ -26,7 +26,7 @@ const template = {
             templateID ? resolve() : reject()
         })
             .then(() => this._copyPasteTemplate(templateID, targetID, _source))
-            .catch((err) => console.error(err))
+            .catch((err) => console.error(err, 'Error: Template not found'))
 
         return this
     },
@@ -51,10 +51,10 @@ const template = {
             .then((text) =>
                 this._parseSource(text, templateID, targetID, mimeType)
             )
-            .catch((err) => console.error(err))
+            .catch((err) => console.error((err = 'Error: Template not found')))
             .finally(() => {
                 // once the footer is loaded start toggles
-                if (templateID === 'footerTemplate') toggle()
+                if (templateID === 'navTemplate') toggle()
             })
 
         return this

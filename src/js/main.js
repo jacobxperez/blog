@@ -37,6 +37,5 @@ const layout = template
     .getTemplate('headerTemplate', 'headerContent')
     .getTemplate('asideTemplate', 'content')
     .getTemplate('contentTemplate', 'content')
-    .fetchTemplate(templateURL, 'navTemplate', 'header')
     .fetchTemplate(templateURL, 'footerTemplate', 'footerContent')
-// always leave footer at the end for toggles to work
+    .fetchTemplate(templateURL, 'navTemplate', 'header')
