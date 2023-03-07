@@ -37,7 +37,7 @@ const layout = template
     .getTemplate('headerTemplate', 'headerContent')
     .getTemplate('asideTemplate', 'content')
     .getTemplate('contentTemplate', 'content')
-    .fetchTemplate('footerTemplate', 'footerContent', templateURL)
     .fetchTemplate('navTemplate', 'header', templateURL)
+    .fetchTemplate('footerTemplate', 'footerContent', templateURL)
 
 toggle()
