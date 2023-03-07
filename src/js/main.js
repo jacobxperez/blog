@@ -15,6 +15,8 @@ import {template} from './modules/template'
 
 const layout = template
     .fromString(
+        'layoutTemplate',
+        'root',
         `
     <template id="layoutTemplate">
         <header id="header" data-section="header">
@@ -30,12 +32,12 @@ const layout = template
             </div>
         </footer>
     </template>
-        `,
-        'layoutTemplate',
-        'root'
+        `
     )
     .getTemplate('headerTemplate', 'headerContent')
     .getTemplate('asideTemplate', 'content')
     .getTemplate('contentTemplate', 'content')
-    .fetchTemplate(templateURL, 'footerTemplate', 'footerContent')
-    .fetchTemplate(templateURL, 'navTemplate', 'header')
+    .fetchTemplate('footerTemplate', 'footerContent', templateURL)
+    .fetchTemplate('navTemplate', 'header', templateURL)
+
+toggle()

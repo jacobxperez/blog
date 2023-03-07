@@ -1,31 +1,37 @@
 const toggle = () => {
-    const getToggle = document.querySelectorAll('[data-toggle]')
+    document.addEventListener(
+        'click',
+        (e) => {
+            if (
+                e.target.matches('[data-toggle]') &&
+                !e.target.hasAttribute('data-state', 'active')
+            ) {
+                e.target.setAttribute('data-state', 'active')
+                e.stopPropagation()
+            } else if (
+                e.target.matches('[data-toggle]') &&
+                e.target.hasAttribute('data-state', 'active')
+            ) {
+                e.target.removeAttribute('data-state')
+                e.stopPropagation()
+            }
 
-    // toggles attribute
-    function toggleAttr(item) {
-        item.addEventListener('click', (e) => {
-            item.hasAttribute('data-state', 'active')
-                ? item.removeAttribute('data-state')
-                : item.setAttribute('data-state', 'active')
-            e.stopPropagation()
-        })
-    }
-
-    getToggle.forEach(toggleAttr)
-
-    // remove data-state active
-    function removeAtt(item, e) {
-        if (
-            (e.target !== item && item.matches('[data-toggle~="pop"]')) ||
-            item.matches('[data-toggle~="tooltip"]')
-        ) {
-            item.removeAttribute('data-state')
-        }
-    }
-
-    document.addEventListener('click', (e) => {
-        getToggle.forEach((item) => removeAtt(item, e))
-    })
+            if (
+                e.target.parentNode.matches('[data-toggle]') &&
+                !e.target.parentNode.hasAttribute('data-state', 'active')
+            ) {
+                e.target.parentNode.setAttribute('data-state', 'active')
+                e.stopPropagation()
+            } else if (
+                e.target.parentNode.matches('[data-toggle]') &&
+                e.target.parentNode.hasAttribute('data-state', 'active')
+            ) {
+                e.target.parentNode.removeAttribute('data-state')
+                e.stopPropagation()
+            }
+        },
+        true
+    )
 }
 
 export {toggle}
