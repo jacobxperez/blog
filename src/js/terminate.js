@@ -7,12 +7,6 @@
 import {toggle} from './modules/toggle'
 import {template} from './modules/template'
 
-var templateURL
-location.hostname === 'localhost' || location.hostname === '127.0.0.1'
-    ? (templateURL = window.location.origin + '/templates/index.2a86ff1c.html')
-    : (templateURL =
-          window.location.origin + '/blog/templates/index.6e7a5d68.html')
-
 var title = `<h1>${docData.title}</h1>`
 
 var subtitle
@@ -21,6 +15,12 @@ if (docData.subtitle === '') {
 } else {
     subtitle = `<h2 data-text="h5">${docData.subtitle}</h2>`
 }
+
+var templateURL
+location.hostname === 'localhost' || location.hostname === '127.0.0.1'
+    ? (templateURL = window.location.origin + '/templates/index.2a86ff1c.html')
+    : (templateURL =
+          window.location.origin + '/blog/templates/index.6e7a5d68.html')
 
 const defaultLayout = `
 <template id="layoutTemplate">
