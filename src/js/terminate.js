@@ -42,7 +42,7 @@ const defaultLayout = `
         </div>
     </footer>
 </template>
-    `
+`
 
 const layout = template
     .fromString('layoutTemplate', 'root', defaultLayout)
