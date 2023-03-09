@@ -7,4 +7,9 @@
 const docData = {
     title: document.title,
     subtitle: '',
+    // author: document.head.querySelector('[name="author"]').content,
+    // date: {
+    //     publish: '',
+    //     revised: '',
+    // },
 }

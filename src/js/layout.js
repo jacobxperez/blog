@@ -41,8 +41,7 @@ const defaultLayout = `
         <div id="footer" data-wrapper="fit">
         </div>
     </footer>
-</template>
-`
+</template>`
 
 const layout = template
     .fromString('layoutTemplate', 'root', defaultLayout)
