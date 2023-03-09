@@ -24,18 +24,21 @@ location.hostname === 'localhost' || location.hostname === '127.0.0.1'
 
 const defaultLayout = `
 <template id="layoutTemplate">
-    <header id="header" data-section="header">
-        <div id="headerContent" data-wrapper="fit">
+    <nav data-navbar="top">
+        <div id="nav"></div>
+    </nav>
+    <header data-section="header">
+        <div id="header" data-wrapper="fit">
             ${title}
             ${subtitle}
         </div>
     </header>
-    <main id="main" data-section="main">
+    <main data-section="main">
         <div id="content" data-wrapper="fit" data-grid="main">
         </div>
     </main>
-    <footer id="footer" data-section="footer">
-        <div id="footerContent" data-wrapper="fit">
+    <footer data-section="footer">
+        <div id="footer" data-wrapper="fit">
         </div>
     </footer>
 </template>
@@ -45,5 +48,5 @@ const layout = template
     .fromString('layoutTemplate', 'root', defaultLayout)
     .getTemplate('asideTemplate', 'content')
     .getTemplate('contentTemplate', 'content')
-    .fetchTemplate('navTemplate', 'header', templateURL)
-    .fetchTemplate('footerTemplate', 'footerContent', templateURL)
+    .fetchTemplate('navTemplate', 'nav', templateURL)
+    .fetchTemplate('footerTemplate', 'footer', templateURL)
