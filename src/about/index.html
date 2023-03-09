@@ -13,19 +13,19 @@
         <link rel="icon" type="image/x-icon" href="../favicon.ico" />
         <link rel="preload" href="../templates/index.html" as="fetch" type="text/html" crossorigin />
         <link rel="stylesheet" href="../css/main.css" />
-        <script type="module" src="../js/main.js" defer></script>
+        <script src="../js/initial.js"></script>
+        <script type="module" src="../js/end.js" defer></script>
+        <script>
+            docData.title = "About Me"
+        </script>
     </head>
 
     <body id="root">
-        <template id="headerTemplate">
-            <h1>About Me</h1>
-        </template>
-
         <template id="contentTemplate">
             <aside></aside>
 
             <article>
-                <p data-text="h6">
+                <p data-text="h5">
                     I design and develop beautiful websites with HTML, CSS, and JavaScript. I took business, programming, art, and design
                     courses during my formal academic journey. I can combine programming logic skills with design thinking methods to find
                     and develop innovative business solutions.

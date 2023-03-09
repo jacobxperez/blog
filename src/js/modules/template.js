@@ -1,3 +1,5 @@
+import {toggle} from './toggle'
+
 const template = {
     parser: new DOMParser(),
     _copyPasteTemplate(templateID, targetID, _source) {
@@ -51,6 +53,10 @@ const template = {
                 this._parseSource(templateID, targetID, source, mimeType)
             )
             .catch((err) => console.error((err = 'Error: Template not found')))
+            .finally(() => {
+                // loaded toggle after navigation
+                if (templateID === 'navTemplate') toggle()
+            })
 
         return this
     },
