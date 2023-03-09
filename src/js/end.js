@@ -13,6 +13,7 @@ location.hostname === 'localhost' || location.hostname === '127.0.0.1'
     : (templateURL =
           window.location.origin + '/blog/templates/index.6e7a5d68.html')
 
+var subtitle
 if (docData.subtitle === '') {
     subtitle = ''
 } else {
