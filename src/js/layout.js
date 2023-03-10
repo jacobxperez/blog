@@ -20,6 +20,19 @@ location.hostname === 'localhost' || location.hostname === '127.0.0.1'
     : (templateURL =
           window.location.origin + '/blog/templates/index.6e7a5d68.html')
 
+var contentLayout
+if (docData.page === 'default') {
+    contentLayout = `
+    <div id="content" data-wrapper="fit" data-grid="main">
+    </div>`
+} else if (docData.page === 'post') {
+    contentLayout = `
+    <div data-wrapper="fit" data-grid="main">
+        <aside id="sidebar"></aside>
+        <article id="content"></article>
+    </div>`
+}
+
 const layout = `
 <template id="layoutTemplate">
     <nav data-navbar="top">
@@ -32,8 +45,7 @@ const layout = `
         </div>
     </header>
     <main data-section="main">
-        <div id="content" data-wrapper="fit" data-grid="main">
-        </div>
+        ${contentLayout}
     </main>
     <footer data-section="footer">
         <div id="footer" data-wrapper="fit">
@@ -41,9 +53,8 @@ const layout = `
     </footer>
 </template>`
 
-const makeLayout = Template
-    .fromString('layoutTemplate', 'root', layout)
-    .getTemplate('asideTemplate', 'content')
+const makeLayout = Template.fromString('layoutTemplate', 'root', layout)
+    .getTemplate('asideTemplate', 'sidebar')
     .getTemplate('contentTemplate', 'content')
     .fetchTemplate('navTemplate', 'nav', templateURL)
     .fetchTemplate('footerTemplate', 'footer', templateURL)
