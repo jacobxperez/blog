@@ -1,6 +1,6 @@
 import {toggle} from './toggle'
 
-const template = {
+const Template = {
     parser: new DOMParser(),
     _copyPasteTemplate(templateID, targetID, _source) {
         // get template ID from source
@@ -62,4 +62,4 @@ const template = {
     },
 }
 
-export {template}
+export {Template}

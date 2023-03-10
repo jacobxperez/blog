@@ -5,16 +5,14 @@
  * http://www.apache.org/licenses/LICENSE-2.0
 ------------------------------------------------------------------------------*/
 import {toggle} from './modules/toggle'
-import {template} from './modules/template'
+import {Template} from './modules/template'
 
 var title = `<h1>${docData.title}</h1>`
 
 var subtitle
-if (docData.subtitle === '') {
-    subtitle = ''
-} else {
-    subtitle = `<h2 data-text="h5">${docData.subtitle}</h2>`
-}
+docData.subtitle === ''
+    ? (subtitle = '')
+    : (subtitle = `<h2 data-text="h5">${docData.subtitle}</h2>`)
 
 var templateURL
 location.hostname === 'localhost' || location.hostname === '127.0.0.1'
@@ -22,7 +20,7 @@ location.hostname === 'localhost' || location.hostname === '127.0.0.1'
     : (templateURL =
           window.location.origin + '/blog/templates/index.6e7a5d68.html')
 
-const defaultLayout = `
+const layout = `
 <template id="layoutTemplate">
     <nav data-navbar="top">
         <div id="nav"></div>
@@ -43,8 +41,8 @@ const defaultLayout = `
     </footer>
 </template>`
 
-const layout = template
-    .fromString('layoutTemplate', 'root', defaultLayout)
+const makeLayout = Template
+    .fromString('layoutTemplate', 'root', layout)
     .getTemplate('asideTemplate', 'content')
     .getTemplate('contentTemplate', 'content')
     .fetchTemplate('navTemplate', 'nav', templateURL)
