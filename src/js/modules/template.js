@@ -8,7 +8,7 @@ class Template {
         this.templateURL = templateURL
         this.parser = new DOMParser()
     }
-    _copyPasteTemplate(templateID, targetID, _source) {
+    #copyPasteTemplate(templateID, targetID, _source) {
         // get template ID from source
         const _getTemplateID = _source.getElementById(templateID)
         // clone template ID from source
@@ -20,19 +20,19 @@ class Template {
         // delete original template from document
         _getTemplateID.remove()
     }
-    _parseSource(templateID, targetID, source, mimeType) {
+    #parseSource(templateID, targetID, source, mimeType) {
         if (mimeType === undefined) mimeType = 'text/html'
         // get source and parse it
         const parseSource = this.parser.parseFromString(source, mimeType)
         // copy paste parse source from template to target
-        this._copyPasteTemplate(templateID, targetID, parseSource)
+        this.#copyPasteTemplate(templateID, targetID, parseSource)
     }
     getTemplate(templateID, targetID) {
         new Promise((resolve, reject) => {
             // check if template exist if not reject
             templateID ? resolve() : reject()
         })
-            .then(() => this._copyPasteTemplate(templateID, targetID, document))
+            .then(() => this.#copyPasteTemplate(templateID, targetID, document))
             .catch((err) => console.error(err, 'Error: Template not found'))
 
         return this
@@ -44,7 +44,7 @@ class Template {
                 ? resolve()
                 : reject((err = 'Error: Source is not a String'))
         })
-            .then(() => this._parseSource(templateID, targetID, source))
+            .then(() => this.#parseSource(templateID, targetID, source))
             .catch((err) => console.error(err))
 
         return this
@@ -54,7 +54,7 @@ class Template {
             // when the source is loaded convert to text
             .then((response) => response.text())
             .then((source) =>
-                this._parseSource(templateID, targetID, source, mimeType)
+                this.#parseSource(templateID, targetID, source, mimeType)
             )
             .catch((err) => console.error((err = 'Error: Template not found')))
             .finally(() => {
