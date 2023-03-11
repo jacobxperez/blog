@@ -1,11 +1,11 @@
 import {toggle} from './toggle'
 
 class Template {
-    constructor() {
-        this.title = ''
-        this.subtitle = ''
-        this.content = ''
-        this.templateURL = ''
+    constructor(title, subtitle, content, templateURL) {
+        this.title = title
+        this.subtitle = subtitle
+        this.content = content
+        this.templateURL = templateURL
         this.parser = new DOMParser()
     }
     _copyPasteTemplate(templateID, targetID, _source) {
