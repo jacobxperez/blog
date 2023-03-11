@@ -9,11 +9,11 @@ import {Template} from './modules/template'
 
 const Page = new Template()
 
-Page.title = `<h1>${docData.title}</h1>`
+Page.title = `<h1>${Meta.title}</h1>`
 
-docData.subtitle === ''
+Meta.subtitle === ''
     ? (Page.subtitle = '')
-    : (Page.subtitle = `<h2 data-text="h5">${docData.subtitle}</h2>`)
+    : (Page.subtitle = `<h2 data-text="h5">${Meta.subtitle}</h2>`)
 
 location.hostname === 'localhost' || location.hostname === '127.0.0.1'
     ? (Page.templateURL =
@@ -21,11 +21,11 @@ location.hostname === 'localhost' || location.hostname === '127.0.0.1'
     : (Page.templateURL =
           window.location.origin + '/blog/templates/index.6e7a5d68.html')
 
-if (docData.page === '') {
+if (Meta.layout === '') {
     Page.content = `
     <div id="content" data-wrapper="fit" data-grid="main">
     </div>`
-} else if (docData.page === 'post') {
+} else if (Meta.layout === 'post') {
     Page.content = `
     <div data-wrapper="fit" data-grid="main">
         <aside id="sidebar"></aside>

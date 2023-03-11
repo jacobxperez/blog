@@ -4,10 +4,10 @@
  * Licensed under the Apache License, Version 2.0
  * http://www.apache.org/licenses/LICENSE-2.0
 ------------------------------------------------------------------------------*/
-const docData = {
+const Meta = {
     title: document.title,
     subtitle: '',
-    page: '',
+    layout: '',
     // author: document.head.querySelector('[name="author"]').content,
     // date: {
     //     publish: '',
