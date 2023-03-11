@@ -5,9 +5,9 @@
  * http://www.apache.org/licenses/LICENSE-2.0
 ------------------------------------------------------------------------------*/
 const docData = {
-    page: 'default',
     title: document.title,
     subtitle: '',
+    page: '',
     // author: document.head.querySelector('[name="author"]').content,
     // date: {
     //     publish: '',
