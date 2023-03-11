@@ -33,6 +33,8 @@ if (docData.page === 'default') {
     </div>`
 }
 
+const Page = new Template()
+
 const layout = `
 <template id="layoutTemplate">
     <nav data-navbar="top">
@@ -53,7 +55,7 @@ const layout = `
     </footer>
 </template>`
 
-const makeLayout = Template.fromString('layoutTemplate', 'root', layout)
+Page.fromString('layoutTemplate', 'root', layout)
     .getTemplate('asideTemplate', 'sidebar')
     .getTemplate('contentTemplate', 'content')
     .fetchTemplate('navTemplate', 'nav', templateURL)

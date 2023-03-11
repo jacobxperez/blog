@@ -1,7 +1,11 @@
 import {toggle} from './toggle'
 
-const Template = {
-    parser: new DOMParser(),
+class Template {
+    constructor() {
+        // this.title = document.title
+        // this.subtitle = ''
+        this.parser = new DOMParser()
+    }
     _copyPasteTemplate(templateID, targetID, _source) {
         // get template ID from source
         const _getTemplateID = _source.getElementById(templateID)
@@ -13,13 +17,13 @@ const Template = {
         _targetID.appendChild(_cloneTemplate)
         // delete original template from document
         _getTemplateID.remove()
-    },
+    }
     _parseSource(templateID, targetID, source, mimeType) {
         if (mimeType === undefined) mimeType = 'text/html'
         // get source and parse it
         const _source = this.parser.parseFromString(source, mimeType)
         this._copyPasteTemplate(templateID, targetID, _source)
-    },
+    }
     getTemplate(templateID, targetID, source) {
         if (source === undefined) source = document
         new Promise((resolve, reject) => {
@@ -30,7 +34,7 @@ const Template = {
             .catch((err) => console.error(err, 'Error: Template not found'))
 
         return this
-    },
+    }
     fromString(templateID, targetID, source, mimeType) {
         new Promise((resolve, reject) => {
             // check if source is string
@@ -44,7 +48,7 @@ const Template = {
             .catch((err) => console.error(err))
 
         return this
-    },
+    }
     fetchTemplate(templateID, targetID, source, mimeType) {
         fetch(source)
             // when the source is loaded convert to text
@@ -59,7 +63,7 @@ const Template = {
             })
 
         return this
-    },
+    }
 }
 
 export {Template}
