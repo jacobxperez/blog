@@ -7,26 +7,26 @@
 import {toggle} from './modules/toggle'
 import {Template} from './modules/template'
 
-var title = `<h1>${docData.title}</h1>`
+let title = `<h1>${docData.title}</h1>`
 
-var subtitle
+let subtitle
 docData.subtitle === ''
     ? (subtitle = '')
     : (subtitle = `<h2 data-text="h5">${docData.subtitle}</h2>`)
 
-var templateURL
+let templateURL
 location.hostname === 'localhost' || location.hostname === '127.0.0.1'
     ? (templateURL = window.location.origin + '/templates/index.2a86ff1c.html')
     : (templateURL =
           window.location.origin + '/blog/templates/index.6e7a5d68.html')
 
-var contentLayout
+let content
 if (docData.page === 'default') {
-    contentLayout = `
+    content = `
     <div id="content" data-wrapper="fit" data-grid="main">
     </div>`
 } else if (docData.page === 'post') {
-    contentLayout = `
+    content = `
     <div data-wrapper="fit" data-grid="main">
         <aside id="sidebar"></aside>
         <article id="content"></article>
@@ -47,7 +47,7 @@ const layout = `
         </div>
     </header>
     <main data-section="main">
-        ${contentLayout}
+        ${content}
     </main>
     <footer data-section="footer">
         <div id="footer" data-wrapper="fit">
