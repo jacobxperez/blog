@@ -21,30 +21,28 @@ class Template {
     _parseSource(templateID, targetID, source, mimeType) {
         if (mimeType === undefined) mimeType = 'text/html'
         // get source and parse it
-        const _source = this.parser.parseFromString(source, mimeType)
-        this._copyPasteTemplate(templateID, targetID, _source)
+        const parseSource = this.parser.parseFromString(source, mimeType)
+        // copy paste parse source from template to target
+        this._copyPasteTemplate(templateID, targetID, parseSource)
     }
-    getTemplate(templateID, targetID, source) {
-        if (source === undefined) source = document
+    getTemplate(templateID, targetID) {
         new Promise((resolve, reject) => {
             // check if template exist if not reject
             templateID ? resolve() : reject()
         })
-            .then(() => this._copyPasteTemplate(templateID, targetID, source))
+            .then(() => this._copyPasteTemplate(templateID, targetID, document))
             .catch((err) => console.error(err, 'Error: Template not found'))
 
         return this
     }
-    fromString(templateID, targetID, source, mimeType) {
+    fromString(templateID, targetID, source) {
         new Promise((resolve, reject) => {
             // check if source is string
             typeof source === 'string'
                 ? resolve()
                 : reject((err = 'Error: Source is not a String'))
         })
-            .then(() =>
-                this._parseSource(templateID, targetID, source, mimeType)
-            )
+            .then(() => this._parseSource(templateID, targetID, source))
             .catch((err) => console.error(err))
 
         return this
