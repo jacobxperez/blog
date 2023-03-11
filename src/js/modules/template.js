@@ -20,8 +20,7 @@ class Template {
         // delete original template from document
         _getTemplateID.remove()
     }
-    #parseSource(templateID, targetID, source, mimeType) {
-        if (mimeType === undefined) mimeType = 'text/html'
+    #parseSource(templateID, targetID, source, mimeType = 'text/html') {
         // get source and parse it
         const parseSource = this.parser.parseFromString(source, mimeType)
         // copy paste parse source from template to target
