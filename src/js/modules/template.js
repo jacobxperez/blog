@@ -20,11 +20,11 @@ class Template {
         // delete original template from document
         _getTemplateID.remove()
     }
-    #parseSource(templateID, targetID, source, mimeType = 'text/html') {
-        // get source and parse it
-        const parseSource = this.parser.parseFromString(source, mimeType)
+    #parseTemplate(templateID, targetID, source, mimeType = 'text/html') {
+        // get template source and parse it
+        const parseTemplate = this.parser.parseFromString(source, mimeType)
         // copy paste parse source from template to target
-        this.#copyPasteTemplate(templateID, targetID, parseSource)
+        this.#copyPasteTemplate(templateID, targetID, parseTemplate)
     }
     getTemplate(templateID, targetID) {
         new Promise((resolve, reject) => {
@@ -43,7 +43,7 @@ class Template {
                 ? resolve()
                 : reject((err = 'Error: Source is not a String'))
         })
-            .then(() => this.#parseSource(templateID, targetID, source))
+            .then(() => this.#parseTemplate(templateID, targetID, source))
             .catch((err) => console.error(err))
 
         return this
@@ -53,7 +53,7 @@ class Template {
             // when the source is loaded convert to text
             .then((response) => response.text())
             .then((source) =>
-                this.#parseSource(templateID, targetID, source, mimeType)
+                this.#parseTemplate(templateID, targetID, source, mimeType)
             )
             .catch((err) => console.error((err = 'Error: Template not found')))
             .finally(() => {
