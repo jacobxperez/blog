@@ -1,16 +1,17 @@
 import {toggle} from './toggle'
 
 class Template {
-    constructor(title, subtitle, content, templateURL) {
+    constructor(title, subtitle, content, layout, templateURL) {
         this.title = title
         this.subtitle = subtitle
         this.content = content
+        this.layout = layout
         this.templateURL = templateURL
         this.parser = new DOMParser()
     }
-    #copyPasteTemplate(templateID, targetID, _source) {
+    #copyPasteTemplate(templateID, targetID, source) {
         // get template ID from source
-        const _getTemplateID = _source.getElementById(templateID)
+        const _getTemplateID = source.getElementById(templateID)
         // clone template ID from source
         const _cloneTemplate = _getTemplateID.content.cloneNode(true)
         // get target ID from page
@@ -22,9 +23,9 @@ class Template {
     }
     #parseTemplate(templateID, targetID, source, mimeType = 'text/html') {
         // get template source and parse it
-        const parseTemplate = this.parser.parseFromString(source, mimeType)
+        const _parseTemplate = this.parser.parseFromString(source, mimeType)
         // copy paste parse source from template to target
-        this.#copyPasteTemplate(templateID, targetID, parseTemplate)
+        this.#copyPasteTemplate(templateID, targetID, _parseTemplate)
     }
     getTemplate(templateID, targetID) {
         new Promise((resolve, reject) => {

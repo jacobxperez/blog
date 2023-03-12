@@ -33,7 +33,7 @@ if (Meta.layout === '') {
     </div>`
 }
 
-const layout = `
+Page.layout = `
 <template id="layoutTemplate">
     <nav data-navbar="top">
         <div id="nav"></div>
@@ -53,7 +53,7 @@ const layout = `
     </footer>
 </template>`
 
-Page.fromString('layoutTemplate', 'root', layout)
+Page.fromString('layoutTemplate', 'root', Page.layout)
     .getTemplate('asideTemplate', 'sidebar')
     .getTemplate('contentTemplate', 'content')
     .fetchTemplate('navTemplate', 'nav', Page.templateURL)
