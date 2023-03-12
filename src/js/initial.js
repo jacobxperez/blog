@@ -6,8 +6,8 @@
 ------------------------------------------------------------------------------*/
 const Meta = {
     title: document.title,
-    subtitle: '',
-    layout: '',
+    subtitle: null,
+    layout: null,
     // author: document.head.querySelector('[name="author"]').content,
     // date: {
     //     publish: '',
