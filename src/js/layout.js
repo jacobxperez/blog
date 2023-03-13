@@ -15,11 +15,11 @@ Meta.subtitle === null
     ? (Page.subtitle = '')
     : (Page.subtitle = `<h2 data-text="h5">${Meta.subtitle}</h2>`)
 
-location.hostname === 'localhost' || location.hostname === '127.0.0.1'
-    ? (Page.templateURL =
-          window.location.origin + '/templates/index.2a86ff1c.html')
-    : (Page.templateURL =
-          window.location.origin + '/blog/templates/index.6e7a5d68.html')
+Page.header = `
+    <div id="header" data-wrapper="fit">
+        ${Page.title}
+        ${Page.subtitle}
+    </div>`
 
 if (Meta.layout === null) {
     Page.content = `
@@ -33,25 +33,28 @@ if (Meta.layout === null) {
     </div>`
 }
 
+location.hostname === 'localhost' || location.hostname === '127.0.0.1'
+    ? (Page.templateURL =
+          window.location.origin + '/templates/index.2a86ff1c.html')
+    : (Page.templateURL =
+          window.location.origin + '/blog/templates/index.6e7a5d68.html')
+
 Page.layout = `
-<template id="layoutTemplate">
-    <nav data-navbar="top">
-        <div id="nav"></div>
-    </nav>
-    <header data-section="header">
-        <div id="header" data-wrapper="fit">
-            ${Page.title}
-            ${Page.subtitle}
-        </div>
-    </header>
-    <main data-section="main">
-        ${Page.content}
-    </main>
-    <footer data-section="footer">
-        <div id="footer" data-wrapper="fit">
-        </div>
-    </footer>
-</template>`
+    <template id="layoutTemplate">
+        <nav data-navbar="top">
+            <div id="nav"></div>
+        </nav>
+        <header data-section="header">
+            ${Page.header}
+        </header>
+        <main data-section="main">
+            ${Page.content}
+        </main>
+        <footer data-section="footer">
+            <div id="footer" data-wrapper="fit">
+            </div>
+        </footer>
+    </template>`
 
 Page.fromString('layoutTemplate', 'root', Page.layout)
     .getTemplate('asideTemplate', 'sidebar')
