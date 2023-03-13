@@ -7,12 +7,12 @@
 import {toggle} from './modules/toggle'
 import {Template} from './modules/template'
 
+const Page = new Template()
+
 let subtitle
 Meta.subtitle === null
     ? (subtitle = '')
     : (subtitle = `<h2 data-text="h5">${Meta.subtitle}</h2>`)
-
-const Page = new Template()
 
 // page header
 Page.header = `
@@ -22,9 +22,7 @@ Page.header = `
     </div>`
 
 // page navigation
-Page.nav = `
-    <div id="nav"></div>
-`
+Page.nav = `<div id="nav"></div>`
 
 // check for layout type
 if (Meta.layout === null) {
@@ -40,14 +38,11 @@ if (Meta.layout === null) {
 }
 
 // page footer
-Page.footer = `
-    <div id="footer" data-wrapper="fit">
-    </div>`
+Page.footer = `<div id="footer" data-wrapper="fit"></div>`
 
 // check and sets url for localhost or for public url
 location.hostname === 'localhost' || location.hostname === '127.0.0.1'
-    ? (Page.url =
-          window.location.origin + '/templates/index.2a86ff1c.html')
+    ? (Page.url = window.location.origin + '/templates/index.2a86ff1c.html')
     : (Page.url =
           window.location.origin + '/blog/templates/index.6e7a5d68.html')
 
