@@ -1,11 +1,13 @@
 import {toggle} from './toggle'
 
 class Template {
-    constructor(title, subtitle, header, content, layout, templateURL) {
+    constructor(title, subtitle, header, nav, content, footer, layout, templateURL) {
         this.title = title
         this.subtitle = subtitle
         this.header = header
+        this.nav = nav
         this.content = content
+        this.footer = footer
         this.layout = layout
         this.templateURL = templateURL
         this.parser = new DOMParser()

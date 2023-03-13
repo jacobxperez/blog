@@ -15,12 +15,19 @@ Meta.subtitle === null
     ? (Page.subtitle = '')
     : (Page.subtitle = `<h2 data-text="h5">${Meta.subtitle}</h2>`)
 
+// page header
 Page.header = `
     <div id="header" data-wrapper="fit">
         ${Page.title}
         ${Page.subtitle}
     </div>`
 
+// page navigation
+Page.nav = `
+    <div id="nav"></div>
+`
+
+// check for layout type
 if (Meta.layout === null) {
     Page.content = `
     <div id="content" data-wrapper="fit" data-grid="main">
@@ -33,16 +40,23 @@ if (Meta.layout === null) {
     </div>`
 }
 
+// page footer
+Page.footer = `
+    <div id="footer" data-wrapper="fit">
+    </div>`
+
+// check and sets url for localhost or for public url
 location.hostname === 'localhost' || location.hostname === '127.0.0.1'
     ? (Page.templateURL =
           window.location.origin + '/templates/index.2a86ff1c.html')
     : (Page.templateURL =
           window.location.origin + '/blog/templates/index.6e7a5d68.html')
 
+// create main layout
 Page.layout = `
     <template id="layoutTemplate">
         <nav data-navbar="top">
-            <div id="nav"></div>
+            ${Page.nav}
         </nav>
         <header data-section="header">
             ${Page.header}
@@ -51,11 +65,11 @@ Page.layout = `
             ${Page.content}
         </main>
         <footer data-section="footer">
-            <div id="footer" data-wrapper="fit">
-            </div>
+            ${Page.footer}
         </footer>
     </template>`
 
+// parse everything together
 Page.fromString('layoutTemplate', 'root', Page.layout)
     .getTemplate('asideTemplate', 'sidebar')
     .getTemplate('contentTemplate', 'content')
