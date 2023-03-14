@@ -42,7 +42,8 @@ Page.footer = `<div id="footer" data-wrapper="fit"></div>`
 
 // check and sets url for localhost or for public url
 location.hostname === 'localhost' || location.hostname === '127.0.0.1'
-    ? (Page.fetchURL = window.location.origin + '/templates/index.2a86ff1c.html')
+    ? (Page.fetchURL =
+          window.location.origin + '/templates/index.2a86ff1c.html')
     : (Page.fetchURL =
           window.location.origin + '/blog/templates/index.6e7a5d68.html')
 
@@ -67,5 +68,5 @@ Page.layout = `
 Page.fromString('layoutTemplate', 'root', Page.layout)
     .getTemplate('asideTemplate', 'sidebar')
     .getTemplate('contentTemplate', 'content')
-    .fetchTemplate('navTemplate', 'nav', Page.fetchURL)
+    .fetchTemplate('navTemplate', 'nav', Page.fetchURL, toggle)
     .fetchTemplate('footerTemplate', 'footer', Page.fetchURL)

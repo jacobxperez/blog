@@ -1,5 +1,3 @@
-import {toggle} from './toggle'
-
 class Template {
     constructor(header, nav, content, aside, footer, layout, fetchURL) {
         this.header = header
@@ -51,18 +49,13 @@ class Template {
 
         return this
     }
-    fetchTemplate(templateID, targetID, source) {
+    fetchTemplate(templateID, targetID, source, callback) {
         fetch(source)
             // when the source is loaded convert to text
             .then((response) => response.text())
-            .then((source) =>
-                this.#parseTemplate(templateID, targetID, source)
-            )
+            .then((source) => this.#parseTemplate(templateID, targetID, source))
+            .then(() => callback())
             .catch((err) => console.error((err = 'Error: Template not found')))
-            .finally(() => {
-                // loaded toggle after navigation
-                if (templateID === 'navTemplate') toggle()
-            })
 
         return this
     }
