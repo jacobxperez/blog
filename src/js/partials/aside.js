@@ -25,6 +25,7 @@ const aside = `
                 <li><a href="https://www.instagram.com/volovaanmix/" data-anchor>Instagram</a></li>
             </ul>
         </li>
-    </ul>`
+    </ul>
+    `
 
 export {aside}
