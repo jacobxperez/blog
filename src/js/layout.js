@@ -5,6 +5,7 @@
  * http://www.apache.org/licenses/LICENSE-2.0
 ------------------------------------------------------------------------------*/
 import {toggle} from './modules/toggle'
+import {aside} from './partials/aside'
 import {Template} from './modules/template'
 
 const Page = new Template()
@@ -32,6 +33,13 @@ if (Meta.layout === null) {
     Page.content = `
     <div data-wrapper="fit" data-grid="main">
         <aside id="sidebar"></aside>
+        <article id="content"></article>
+    </div>
+    `
+} else if (Meta.layout === 'default') {
+    Page.content = `
+    <div data-wrapper="fit" data-grid="main">
+        <aside id="sidebar">${aside}</aside>
         <article id="content"></article>
     </div>
     `
