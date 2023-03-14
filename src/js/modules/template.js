@@ -23,9 +23,9 @@ class Template {
         // delete original template from document
         _getTemplateID.remove()
     }
-    #parseTemplate(templateID, targetID, source, mimeType = 'text/html') {
+    #parseTemplate(templateID, targetID, source) {
         // get template source and parse it
-        const _parseTemplate = this.parser.parseFromString(source, mimeType)
+        const _parseTemplate = this.parser.parseFromString(source, 'text/html')
         // copy paste parse source from template to target
         this.#copyPasteTemplate(templateID, targetID, _parseTemplate)
     }
@@ -51,12 +51,12 @@ class Template {
 
         return this
     }
-    fetchTemplate(templateID, targetID, source, mimeType) {
+    fetchTemplate(templateID, targetID, source) {
         fetch(source)
             // when the source is loaded convert to text
             .then((response) => response.text())
             .then((source) =>
-                this.#parseTemplate(templateID, targetID, source, mimeType)
+                this.#parseTemplate(templateID, targetID, source)
             )
             .catch((err) => console.error((err = 'Error: Template not found')))
             .finally(() => {
