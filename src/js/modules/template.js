@@ -1,14 +1,14 @@
 import {toggle} from './toggle'
 
 class Template {
-    constructor(header, nav, content, aside, footer, layout, url) {
+    constructor(header, nav, content, aside, footer, layout, fetchURL) {
         this.header = header
         this.nav = nav
         this.content = content
         this.aside = aside
         this.footer = footer
         this.layout = layout
-        this.url = url
+        this.fetchURL = fetchURL
         this.parser = new DOMParser()
     }
     #copyPasteTemplate(templateID, targetID, source) {
