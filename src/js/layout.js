@@ -19,26 +19,23 @@ Page.header = `
     <div id="header" data-wrapper="fit">
         <h1>${Meta.title}</h1>
         ${subtitle}
-    </div>`
-
-// page navigation
-Page.nav = `<div id="nav"></div>`
+    </div> 
+    `
 
 // check for layout type
 if (Meta.layout === null) {
     Page.content = `
     <div id="content" data-wrapper="fit" data-grid="main">
-    </div>`
+    </div>
+    `
 } else if (Meta.layout === 'post') {
     Page.content = `
     <div data-wrapper="fit" data-grid="main">
         <aside id="sidebar"></aside>
         <article id="content"></article>
-    </div>`
+    </div>
+    `
 }
-
-// page footer
-Page.footer = `<div id="footer" data-wrapper="fit"></div>`
 
 // check and sets url for localhost or for public url
 location.hostname === 'localhost' || location.hostname === '127.0.0.1'
@@ -51,7 +48,7 @@ location.hostname === 'localhost' || location.hostname === '127.0.0.1'
 Page.layout = `
     <template id="layoutTemplate">
         <nav data-navbar="top">
-            ${Page.nav}
+            <div id="nav"></div>
         </nav>
         <header data-section="header">
             ${Page.header}
@@ -60,9 +57,11 @@ Page.layout = `
             ${Page.content}
         </main>
         <footer data-section="footer">
-            ${Page.footer}
+            <div id="footer" data-wrapper="fit">
+            </div>
         </footer>
-    </template>`
+    </template>
+    `
 
 // parse everything together
 Page.fromString('layoutTemplate', 'root', Page.layout)
