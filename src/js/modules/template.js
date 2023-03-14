@@ -52,6 +52,7 @@ class Template {
     fetchTemplate(templateID, targetID, source, callback) {
         fetch(source)
             // when the source is loaded convert to text
+            // optional: a callback function gets executed 
             .then((response) => response.text())
             .then((source) => this.#parseTemplate(templateID, targetID, source))
             .then(() => callback())
