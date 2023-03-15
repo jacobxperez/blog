@@ -5,12 +5,19 @@
  * http://www.apache.org/licenses/LICENSE-2.0
 ------------------------------------------------------------------------------*/
 const meta = {
-    title: document.title,
-    subtitle: null,
-    layout: null,
-    // author: document.head.querySelector('[name="author"]').content,
-    // date: {
-    //     publish: '',
-    //     revised: '',
-    // },
+    layout: false,
+    title: false,
+    subtitle: false,
+    author: false,
+    date: {
+        publish: false,
+        revised: false,
+    },
+    getTitle() {
+        return (this.title = document.title);
+    },
+    getAuthor() {
+        return (this.author =
+            document.head.querySelector('[name="author"]').content);
+    },
 };
