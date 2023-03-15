@@ -30,7 +30,9 @@ page.header = `
 // check for layout type
 if (meta.layout === false) {
     page.main = `
-    <div id="content" data-wrapper="fit" data-grid="main">
+    <div data-wrapper="fit" data-grid="main">
+        <aside id="sidebar">${aside}</aside>
+        <article id="content"></article>
     </div>`;
 } else if (meta.layout === 'post') {
     page.main = `
@@ -38,11 +40,9 @@ if (meta.layout === false) {
         <aside id="sidebar"></aside>
         <article id="content"></article>
     </div>`;
-} else if (meta.layout === 'default') {
+} else if (meta.layout === 'full') {
     page.main = `
-    <div data-wrapper="fit" data-grid="main">
-        <aside id="sidebar">${aside}</aside>
-        <article id="content"></article>
+    <div id="content" data-wrapper="fit" data-grid="main">
     </div>`;
 }
 
