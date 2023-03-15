@@ -10,20 +10,25 @@ import {Template} from './modules/template';
 
 const page = new Template();
 
+let title;
+meta.title === false
+    ? (title = `<h1>Jacob Perez</h1>`)
+    : (title = `<h1>${meta.title}</h1>`);
+
 let subtitle;
-meta.subtitle === null
+meta.subtitle === false
     ? (subtitle = '')
     : (subtitle = `<h2 data-text="h5">${meta.subtitle}</h2>`);
 
 // page header
 page.header = `
     <div id="header" data-wrapper="fit">
-        <h1>${meta.title}</h1>
+        ${title}
         ${subtitle}
     </div>`;
 
 // check for layout type
-if (meta.layout === null) {
+if (meta.layout === false) {
     page.content = `
     <div id="content" data-wrapper="fit" data-grid="main">
     </div>`;
