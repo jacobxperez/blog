@@ -29,28 +29,28 @@ page.header = `
 
 // check for layout type
 if (meta.layout === false) {
-    page.content = `
+    page.main = `
     <div id="content" data-wrapper="fit" data-grid="main">
     </div>`;
 } else if (meta.layout === 'post') {
-    page.content = `
+    page.main = `
     <div data-wrapper="fit" data-grid="main">
         <aside id="sidebar"></aside>
         <article id="content"></article>
     </div>`;
 } else if (meta.layout === 'default') {
-    page.content = `
+    page.main = `
     <div data-wrapper="fit" data-grid="main">
         <aside id="sidebar">${aside}</aside>
         <article id="content"></article>
     </div>`;
 }
 
-// check and sets url for localhost or for public url
+// check and sets template url for localhost or for public url
+let templateURL;
 location.hostname === 'localhost' || location.hostname === '127.0.0.1'
-    ? (page.fetchURL =
-          window.location.origin + '/templates/index.2a86ff1c.html')
-    : (page.fetchURL =
+    ? (templateURL = window.location.origin + '/templates/index.2a86ff1c.html')
+    : (templateURL =
           window.location.origin + '/blog/templates/index.6e7a5d68.html');
 
 // create main layout
@@ -63,7 +63,7 @@ page.layout = `
             ${page.header}
         </header>
         <main data-section="main">
-            ${page.content}
+            ${page.main}
         </main>
         <footer data-section="footer">
             <div id="footer" data-wrapper="fit">
@@ -75,5 +75,5 @@ page.layout = `
 page.fromString('layoutTemplate', 'root', page.layout)
     .getTemplate('asideTemplate', 'sidebar')
     .getTemplate('contentTemplate', 'content')
-    .fetchTemplate('navTemplate', 'nav', page.fetchURL, toggle)
-    .fetchTemplate('footerTemplate', 'footer', page.fetchURL);
+    .fetchTemplate('navTemplate', 'nav', templateURL, toggle)
+    .fetchTemplate('footerTemplate', 'footer', templateURL);

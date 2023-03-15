@@ -1,12 +1,13 @@
 class Template {
-    constructor(header, nav, content, aside, footer, layout, fetchURL) {
+    constructor(header, nav, main, article, section, aside, footer, layout) {
         this.header = header;
         this.nav = nav;
-        this.content = content;
+        this.main = main;
+        this.article = article;
+        this.section = section;
         this.aside = aside;
         this.footer = footer;
         this.layout = layout;
-        this.fetchURL = fetchURL;
         this.parser = new DOMParser();
     }
     #copyPasteTemplate(templateID, targetID, source) {
