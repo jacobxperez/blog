@@ -55,7 +55,11 @@ class Template {
             // optional: a callback function gets executed
             .then((response) => response.text())
             .then((source) => this.#parseTemplate(templateID, targetID, source))
-            .then(() => callback())
+            .then(() => {
+                if (typeof callback === 'function') {
+                    callback();
+                }
+            })
             .catch((err) => console.error((err = 'Error: Template not found')));
 
         return this;
