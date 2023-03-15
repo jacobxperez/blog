@@ -13,4 +13,4 @@ const Meta = {
     //     publish: '',
     //     revised: '',
     // },
-}
+};
