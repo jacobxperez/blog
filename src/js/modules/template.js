@@ -61,7 +61,7 @@ class Template {
                     callback();
                 }
             })
-            .catch((err) => console.error((err = 'Error: Template not found')));
+            .catch((err) => console.error(err = 'Error: Template not found'));
 
         return this;
     }
