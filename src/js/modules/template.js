@@ -10,6 +10,10 @@ class Template {
         this.layout = layout;
         this.parser = new DOMParser();
     }
+    #parseSource(source) {
+        // get source and parse it
+        return this.parser.parseFromString(source, 'text/html');
+    }
     #appendTemplate(templateID, targetID, source) {
         // get template ID from source
         const _getTemplateID = source.getElementById(templateID);
@@ -24,8 +28,8 @@ class Template {
     }
     #parseTemplate(templateID, targetID, source) {
         // get template source and parse it
-        const _parseTemplate = this.parser.parseFromString(source, 'text/html');
-        // copy paste parse source from template to target
+        const _parseTemplate = this.#parseSource(source);
+        // append source template to target ID
         this.#appendTemplate(templateID, targetID, _parseTemplate);
     }
     getTemplate(templateID, targetID, callback) {
@@ -73,7 +77,7 @@ class Template {
                     callback();
                 }
             })
-            .catch((err) => console.error((err = 'Error: Template not found')));
+            .catch(() => console.error('Error: Template not found'));
 
         return this;
     }
