@@ -10,7 +10,7 @@ class Template {
         this.layout = layout;
         this.parser = new DOMParser();
     }
-    #copyPasteTemplate(templateID, targetID, source) {
+    #getTemplate(templateID, targetID, source) {
         // get template ID from source
         const _getTemplateID = source.getElementById(templateID);
         // clone template ID from source
@@ -26,14 +26,14 @@ class Template {
         // get template source and parse it
         const _parseTemplate = this.parser.parseFromString(source, 'text/html');
         // copy paste parse source from template to target
-        this.#copyPasteTemplate(templateID, targetID, _parseTemplate);
+        this.#getTemplate(templateID, targetID, _parseTemplate);
     }
     getTemplate(templateID, targetID) {
         new Promise((resolve, reject) => {
             // check if template exist if not reject
             templateID ? resolve() : reject();
         })
-            .then(() => this.#copyPasteTemplate(templateID, targetID, document))
+            .then(() => this.#getTemplate(templateID, targetID, document))
             .catch((err) => console.error(err, 'Error: Template not found'));
 
         return this;
