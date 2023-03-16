@@ -14,7 +14,12 @@ class Template {
         // get source and parse it
         return this.parser.parseFromString(source, 'text/html');
     }
-    #appendTemplate(templateID, targetID, source) {
+    #appendString(source, targetID) {
+        const _parsedSource = this.#parseSource(source);
+        const _targetID = document.getElementById(targetID);
+        _targetID.appendChild(_parsedSource.body);
+    }
+    #appendTemplate(source, templateID, targetID) {
         // get template ID from source
         const _getTemplateID = source.getElementById(templateID);
         // clone template ID from source
@@ -26,18 +31,18 @@ class Template {
         // delete original template from document
         _getTemplateID.remove();
     }
-    #parseTemplate(templateID, targetID, source) {
+    #parseTemplate(source, templateID, targetID) {
         // get template source and parse it
-        const _parseTemplate = this.#parseSource(source);
+        const _parsedSource = this.#parseSource(source);
         // append source template to target ID
-        this.#appendTemplate(templateID, targetID, _parseTemplate);
+        this.#appendTemplate(_parsedSource, templateID, targetID);
     }
     getTemplate(templateID, targetID, callback) {
         new Promise((resolve, reject) => {
             // check if template exist if not reject
             templateID ? resolve() : reject();
         })
-            .then(() => this.#appendTemplate(templateID, targetID, document))
+            .then(() => this.#appendTemplate(document, templateID, targetID))
             .then(() => {
                 // optional: a callback function gets executed
                 if (typeof callback === 'function') {
@@ -48,14 +53,14 @@ class Template {
 
         return this;
     }
-    fromString(templateID, targetID, source, callback) {
+    fromString(source, targetID, callback) {
         new Promise((resolve, reject) => {
             // check if source is string
             typeof source === 'string'
                 ? resolve()
                 : reject((err = 'Error: Source is not a String'));
         })
-            .then(() => this.#parseTemplate(templateID, targetID, source))
+            .then(() => this.#appendString(source, targetID))
             .then(() => {
                 // optional: a callback function gets executed
                 if (typeof callback === 'function') {
@@ -66,11 +71,11 @@ class Template {
 
         return this;
     }
-    fetchTemplate(templateID, targetID, source, callback) {
+    fetchTemplate(source, targetID, callback) {
         fetch(source)
             // when the source is loaded convert to text
             .then((response) => response.text())
-            .then((source) => this.#parseTemplate(templateID, targetID, source))
+            .then((source) => this.#parseTemplate(source, targetID, targetID))
             .then(() => {
                 // optional: a callback function gets executed
                 if (typeof callback === 'function') {

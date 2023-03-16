@@ -31,13 +31,13 @@ page.header = `
 if (meta.layout === null) {
     page.main = `
     <div data-wrapper="fit" data-grid="main">
-        <aside id="sidebar">${aside}</aside>
+        <aside id="aside">${aside}</aside>
         <article id="content"></article>
     </div>`;
 } else if (meta.layout === 'post') {
     page.main = `
     <div data-wrapper="fit" data-grid="main">
-        <aside id="sidebar"></aside>
+        <aside id="aside"></aside>
         <article id="content"></article>
     </div>`;
 } else if (meta.layout === 'full') {
@@ -55,25 +55,23 @@ location.hostname === 'localhost' || location.hostname === '127.0.0.1'
 
 // create main layout
 page.layout = `
-    <template id="layoutTemplate">
-        <nav data-navbar="top">
-            <div id="nav"></div>
-        </nav>
-        <header data-section="header">
-            ${page.header}
-        </header>
-        <main data-section="main">
-            ${page.main}
-        </main>
-        <footer data-section="footer">
-            <div id="footer" data-wrapper="fit">
-            </div>
-        </footer>
-    </template>`;
+    <nav data-navbar="top">
+        <div id="nav"></div>
+    </nav>
+    <header data-section="header">
+        ${page.header}
+    </header>
+    <main data-section="main">
+        ${page.main}
+    </main>
+    <footer data-section="footer">
+        <div id="footer" data-wrapper="fit">
+        </div>
+    </footer>`;
 
 // parse everything together
-page.fromString('layoutTemplate', 'root', page.layout)
-    .getTemplate('asideTemplate', 'sidebar')
+page.fromString(page.layout, 'root')
+    .getTemplate('asideTemplate', 'aside')
     .getTemplate('contentTemplate', 'content')
-    .fetchTemplate('navTemplate', 'nav', templateURL, toggle)
-    .fetchTemplate('footerTemplate', 'footer', templateURL);
+    .fetchTemplate(templateURL, 'nav', toggle)
+    .fetchTemplate(templateURL, 'footer');
