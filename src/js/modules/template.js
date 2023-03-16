@@ -15,7 +15,7 @@ class Template {
         return this.parser.parseFromString(source, 'text/html');
     }
     #appendString(source, targetID) {
-        // parse source
+        // get parsed source
         const _parsedSource = this.#parseSource(source);
         // get target id
         const _targetID = document.getElementById(targetID);
@@ -23,7 +23,7 @@ class Template {
         _targetID.appendChild(_parsedSource.body);
     }
     #appendTemplate(source, templateID, targetID) {
-        // get template id from source
+        // get source from template id
         const _getTemplateID = source.getElementById(templateID);
         // clone template id from source
         const _cloneTemplate = _getTemplateID.content.cloneNode(true);
