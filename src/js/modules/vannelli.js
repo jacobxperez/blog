@@ -1,4 +1,4 @@
-class Template {
+class Vannelli {
     constructor(header, nav, main, article, section, aside, footer, layout) {
         this.header = header;
         this.nav = nav;
@@ -91,4 +91,4 @@ class Template {
     }
 }
 
-export {Template};
+export {Vannelli};

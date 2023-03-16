@@ -1,5 +1,3 @@
-import {Template} from '../modules/template';
-
 const aside = `
     <ul data-display="small-none">
         <li>
