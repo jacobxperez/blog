@@ -11,12 +11,12 @@ import {Template} from './modules/template';
 const page = new Template();
 
 let title;
-meta.title === false
+meta.title === null
     ? (title = `<h1>Jacob Perez</h1>`)
     : (title = `<h1>${meta.title}</h1>`);
 
 let subtitle;
-meta.subtitle === false
+meta.subtitle === null
     ? (subtitle = '')
     : (subtitle = `<h2 data-text="h5">${meta.subtitle}</h2>`);
 
@@ -28,7 +28,7 @@ page.header = `
     </div>`;
 
 // check for layout type
-if (meta.layout === false) {
+if (meta.layout === null) {
     page.main = `
     <div data-wrapper="fit" data-grid="main">
         <aside id="sidebar">${aside}</aside>
