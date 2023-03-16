@@ -28,17 +28,23 @@ class Template {
         // copy paste parse source from template to target
         this.#appendTemplate(templateID, targetID, _parseTemplate);
     }
-    getTemplate(templateID, targetID) {
+    getTemplate(templateID, targetID, callback) {
         new Promise((resolve, reject) => {
             // check if template exist if not reject
             templateID ? resolve() : reject();
         })
             .then(() => this.#appendTemplate(templateID, targetID, document))
+            .then(() => {
+                // optional: a callback function gets executed
+                if (typeof callback === 'function') {
+                    callback();
+                }
+            })
             .catch((err) => console.error(err, 'Error: Template not found'));
 
         return this;
     }
-    fromString(templateID, targetID, source) {
+    fromString(templateID, targetID, source, callback) {
         new Promise((resolve, reject) => {
             // check if source is string
             typeof source === 'string'
@@ -46,6 +52,12 @@ class Template {
                 : reject((err = 'Error: Source is not a String'));
         })
             .then(() => this.#parseTemplate(templateID, targetID, source))
+            .then(() => {
+                // optional: a callback function gets executed
+                if (typeof callback === 'function') {
+                    callback();
+                }
+            })
             .catch((err) => console.error(err));
 
         return this;
@@ -61,7 +73,7 @@ class Template {
                     callback();
                 }
             })
-            .catch((err) => console.error(err = 'Error: Template not found'));
+            .catch((err) => console.error((err = 'Error: Template not found')));
 
         return this;
     }
