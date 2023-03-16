@@ -31,13 +31,13 @@ page.header = `
 if (meta.layout === null) {
     page.main = `
     <div data-wrapper="fit" data-grid="main">
-        <aside id="sidebar">${aside}</aside>
+        <aside id="aside">${aside}</aside>
         <article id="content"></article>
     </div>`;
 } else if (meta.layout === 'post') {
     page.main = `
     <div data-wrapper="fit" data-grid="main">
-        <aside id="sidebar"></aside>
+        <aside id="aside"></aside>
         <article id="content"></article>
     </div>`;
 } else if (meta.layout === 'full') {
@@ -71,7 +71,7 @@ page.layout = `
 
 // parse everything together
 page.fromString(page.layout, 'root')
-    .getTemplate('asideTemplate', 'sidebar')
+    .getTemplate('asideTemplate', 'aside')
     .getTemplate('contentTemplate', 'content')
-    .fetchTemplate('navTemplate', 'nav', templateURL, toggle)
-    .fetchTemplate('footerTemplate', 'footer', templateURL);
+    .fetchTemplate(templateURL, 'nav', toggle)
+    .fetchTemplate(templateURL, 'footer');
