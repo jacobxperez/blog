@@ -5,13 +5,13 @@
  * http://www.apache.org/licenses/LICENSE-2.0
 ------------------------------------------------------------------------------*/
 const meta = {
-    layout: false,
-    title: false,
-    subtitle: false,
-    author: false,
+    layout: null,
+    title: null,
+    subtitle: null,
+    author: null,
     date: {
-        publish: false,
-        revised: false,
+        publish: null,
+        revised: null,
     },
     getTitle() {
         return (this.title = document.title);
