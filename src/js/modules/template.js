@@ -11,22 +11,25 @@ class Template {
         this.parser = new DOMParser();
     }
     #parseSource(source) {
-        // get source and parse it
+        // parse source
         return this.parser.parseFromString(source, 'text/html');
     }
     #appendString(source, targetID) {
+        // parse source
         const _parsedSource = this.#parseSource(source);
+        // get target id
         const _targetID = document.getElementById(targetID);
+        // append parsed source to target id
         _targetID.appendChild(_parsedSource.body);
     }
     #appendTemplate(source, templateID, targetID) {
-        // get template ID from source
+        // get template id from source
         const _getTemplateID = source.getElementById(templateID);
-        // clone template ID from source
+        // clone template id from source
         const _cloneTemplate = _getTemplateID.content.cloneNode(true);
-        // get target ID from page
+        // get target id from document
         const _targetID = document.getElementById(targetID);
-        // append template to target ID
+        // append template to target id
         _targetID.appendChild(_cloneTemplate);
         // delete original template from document
         _getTemplateID.remove();
@@ -34,7 +37,7 @@ class Template {
     #parseTemplate(source, templateID, targetID) {
         // get template source and parse it
         const _parsedSource = this.#parseSource(source);
-        // append source template to target ID
+        // append source template to target id
         this.#appendTemplate(_parsedSource, templateID, targetID);
     }
     getTemplate(templateID, targetID, callback) {
