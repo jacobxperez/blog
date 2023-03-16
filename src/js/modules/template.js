@@ -14,6 +14,11 @@ class Template {
         // get source and parse it
         return this.parser.parseFromString(source, 'text/html');
     }
+    #appendString(source, targetID) {
+        const _parsedSource = this.#parseSource(source);
+        const _targetID = document.getElementById(targetID);
+        _targetID.appendChild(_parsedSource.body);
+    }
     #appendTemplate(templateID, targetID, source) {
         // get template ID from source
         const _getTemplateID = source.getElementById(templateID);
@@ -28,9 +33,9 @@ class Template {
     }
     #parseTemplate(templateID, targetID, source) {
         // get template source and parse it
-        const _parseTemplate = this.#parseSource(source);
+        const _parsedSource = this.#parseSource(source);
         // append source template to target ID
-        this.#appendTemplate(templateID, targetID, _parseTemplate);
+        this.#appendTemplate(templateID, targetID, _parsedSource);
     }
     getTemplate(templateID, targetID, callback) {
         new Promise((resolve, reject) => {
@@ -48,14 +53,14 @@ class Template {
 
         return this;
     }
-    fromString(templateID, targetID, source, callback) {
+    fromString(source, targetID, callback) {
         new Promise((resolve, reject) => {
             // check if source is string
             typeof source === 'string'
                 ? resolve()
                 : reject((err = 'Error: Source is not a String'));
         })
-            .then(() => this.#parseTemplate(templateID, targetID, source))
+            .then(() => this.#appendString(source, targetID))
             .then(() => {
                 // optional: a callback function gets executed
                 if (typeof callback === 'function') {

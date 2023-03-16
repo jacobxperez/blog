@@ -55,24 +55,22 @@ location.hostname === 'localhost' || location.hostname === '127.0.0.1'
 
 // create main layout
 page.layout = `
-    <template id="layoutTemplate">
-        <nav data-navbar="top">
-            <div id="nav"></div>
-        </nav>
-        <header data-section="header">
-            ${page.header}
-        </header>
-        <main data-section="main">
-            ${page.main}
-        </main>
-        <footer data-section="footer">
-            <div id="footer" data-wrapper="fit">
-            </div>
-        </footer>
-    </template>`;
+    <nav data-navbar="top">
+        <div id="nav"></div>
+    </nav>
+    <header data-section="header">
+        ${page.header}
+    </header>
+    <main data-section="main">
+        ${page.main}
+    </main>
+    <footer data-section="footer">
+        <div id="footer" data-wrapper="fit">
+        </div>
+    </footer>`;
 
 // parse everything together
-page.fromString('layoutTemplate', 'root', page.layout)
+page.fromString(page.layout, 'root')
     .getTemplate('asideTemplate', 'sidebar')
     .getTemplate('contentTemplate', 'content')
     .fetchTemplate('navTemplate', 'nav', templateURL, toggle)
