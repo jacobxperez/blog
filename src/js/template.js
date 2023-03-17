@@ -4,9 +4,8 @@
  * Licensed under the Apache License, Version 2.0
  * http://www.apache.org/licenses/LICENSE-2.0
 -----------------------------------------------------------------------------*/
-import {dynamicSidebar} from './modules/dynamicSidebar.js';
+import {sidebar} from './modules/sidebar.js';
 import {toggle} from './modules/toggle';
-import {aside} from './partials/aside';
 import {Vannelli} from './modules/vannelli';
 
 const template = new Vannelli();
@@ -29,19 +28,12 @@ template.header = `
     </div>`;
 
 // check for layout type
-if (meta.layout === null) {
-    template.main = `
-    <div data-wrapper="fit" data-grid="main">
-        <aside id="aside">${aside}</aside>
-        <article id="content"></article>
-    </div>`;
-} else if (meta.layout === 'post') {
-    template.main = `
+template.main = `
     <div data-wrapper="fit" data-grid="main">
         <aside id="aside"></aside>
         <article id="content"></article>
     </div>`;
-} else if (meta.layout === 'full') {
+if (meta.layout === 'full') {
     template.main = `
     <div id="content" data-wrapper="fit" data-grid="main">
     </div>`;
@@ -73,7 +65,6 @@ template.layout = `
 // parse everything together
 template
     .fromString(template.layout, 'root')
-    .getTemplate('asideTemplate', 'aside')
-    .getTemplate('contentTemplate', 'content', dynamicSidebar)
+    .getTemplate('contentTemplate', 'content', sidebar)
     .fetchTemplate(templateURL, 'nav', toggle)
     .fetchTemplate(templateURL, 'footer');
