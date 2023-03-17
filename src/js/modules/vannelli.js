@@ -56,14 +56,14 @@ class Vannelli {
 
         return this;
     }
-    fromString(source, targetID, callback) {
+    fromString(string, targetID, callback) {
         new Promise((resolve, reject) => {
             // check if source is string
-            typeof source === 'string'
+            typeof string === 'string'
                 ? resolve()
                 : reject((err = 'Error: Source is not a String'));
         })
-            .then(() => this.#appendString(source, targetID))
+            .then(() => this.#appendString(string, targetID))
             .then(() => {
                 // optional: a callback function gets executed
                 if (typeof callback === 'function') {
@@ -87,7 +87,7 @@ class Vannelli {
                     callback();
                 }
             } catch (err) {
-                console.error(err);
+                console.error(err, 'Error: Template not found');
             }
         })();
 
