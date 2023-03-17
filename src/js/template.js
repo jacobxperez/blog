@@ -4,7 +4,7 @@
  * Licensed under the Apache License, Version 2.0
  * http://www.apache.org/licenses/LICENSE-2.0
 -----------------------------------------------------------------------------*/
-import {contents} from './modules/contents.js';
+import {dynamicSidebar} from './modules/dynamicSidebar.js';
 import {toggle} from './modules/toggle';
 import {aside} from './partials/aside';
 import {Vannelli} from './modules/vannelli';
@@ -74,6 +74,6 @@ template.layout = `
 template
     .fromString(template.layout, 'root')
     .getTemplate('asideTemplate', 'aside')
-    .getTemplate('contentTemplate', 'content', contents)
+    .getTemplate('contentTemplate', 'content', dynamicSidebar)
     .fetchTemplate(templateURL, 'nav', toggle)
     .fetchTemplate(templateURL, 'footer');
