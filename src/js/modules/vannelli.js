@@ -75,17 +75,21 @@ class Vannelli {
         return this;
     }
     fetchTemplate(source, targetID, callback) {
-        fetch(source)
-            // when the source is loaded convert to text
-            .then((response) => response.text())
-            .then((source) => this.#parseTemplate(source, targetID, targetID))
-            .then(() => {
+        (async () => {
+            try {
+                // fetch source
+                let response = await fetch(source);
+                // check if response is ok
+                let okay = await response.text();
+                this.#parseTemplate(okay, targetID, targetID);
                 // optional: a callback function gets executed
                 if (typeof callback === 'function') {
                     callback();
                 }
-            })
-            .catch(() => console.error('Error: Template not found'));
+            } catch (err) {
+                console.error(err);
+            }
+        })();
 
         return this;
     }
