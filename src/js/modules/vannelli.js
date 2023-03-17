@@ -74,11 +74,11 @@ class Vannelli {
 
         return this;
     }
-    fetchTemplate(source, targetID, callback) {
+    fetchTemplate(url, targetID, callback) {
         (async () => {
             try {
-                // fetch source
-                let response = await fetch(source);
+                // fetch url
+                let response = await fetch(url);
                 // check if response is ok
                 let okay = await response.text();
                 this.#parseTemplate(okay, targetID, targetID);
