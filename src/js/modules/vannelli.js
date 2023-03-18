@@ -15,12 +15,10 @@ class Vannelli {
         return this.parser.parseFromString(source, 'text/html');
     }
     #appendString(source, targetID) {
-        // get parsed source
-        const _parsedSource = this.#parseSource(source);
         // get target id
         const _targetID = document.getElementById(targetID);
-        // append parsed source to target id
-        _targetID.appendChild(_parsedSource.body);
+        // append source to target id
+        _targetID.insertAdjacentHTML('beforeend', source);
     }
     #appendTemplate(source, templateID, targetID) {
         // get source from template id
