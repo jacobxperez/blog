@@ -10,7 +10,7 @@ const meta = {
     subtitle: null,
     author: null,
     date: {
-        publish: null,
+        published: null,
         revised: null,
     },
     getTitle() {
