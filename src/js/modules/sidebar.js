@@ -34,6 +34,17 @@ const sidebar = () => {
     }
 
     if (meta.layout === 'post') {
+        const postMeta = `
+            <p>
+                by <a href="https://jacobxperez.github.io/blog/about/">Jacob Perez</a>
+                <br />
+                published: <time datetime="${meta.date.published}">${meta.date.published}</time>
+                <br />
+                revised: <time datetime="${meta.date.published}">${meta.date.revised}</time>
+            </p>`;
+
+        getAside.insertAdjacentHTML('beforeend', postMeta);
+
         const getHeadings = getContent.querySelectorAll(
             'h1, h2, h3, h4, h5, h6'
         );
