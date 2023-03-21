@@ -10,7 +10,7 @@ import {Vannelli} from './modules/vannelli';
 
 const template = new Vannelli();
 
-if (meta.title == '') {
+if (meta.title === '') {
     meta.title = `<h1>Jacob Perez</h1>`;
 } else {
     meta.title = `<h1>${meta.title}</h1>`;
