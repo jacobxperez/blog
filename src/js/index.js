@@ -15,19 +15,14 @@ const template = {
     footer: '',
     layout: '',
     fetchURL: '',
-    title: '',
-    subtitle: '',
-    author: '',
-    date: {
-        published: '',
-        revised: '',
-    },
-    getTitle() {
-        return (this.title = document.title);
-    },
-    getAuthor() {
-        return (this.author =
-            document.head.querySelector('[name="author"]').content);
+    meta: {
+        title: document.title,
+        subtitle: '',
+        author: document.head.querySelector('[name="author"]').content,
+        date: {
+            published: '',
+            revised: '',
+        },
     },
     _parseSource(source) {
         const parser = new DOMParser();

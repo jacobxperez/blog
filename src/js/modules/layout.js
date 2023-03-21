@@ -7,21 +7,21 @@
 import {sidebar} from './sidebar.js';
 import {toggle} from './toggle';
 
-if (template.title === '') {
-    template.title = `<h1>Jacob Perez</h1>`;
+if (template.meta.title === '') {
+    template.meta.title = `<h1>Jacob Perez</h1>`;
 } else {
-    template.title = `<h1>${template.title}</h1>`;
+    template.meta.title = `<h1>${template.meta.title}</h1>`;
 }
 
-if (template.subtitle !== '') {
-    template.subtitle = `<h2 data-text="h5">${template.subtitle}</h2>`;
+if (template.meta.subtitle !== '') {
+    template.meta.subtitle = `<h2 data-text="h5">${template.meta.subtitle}</h2>`;
 }
 
 // template header
 template.header = `
     <div id="header" data-wrapper="fit">
-        ${template.title}
-        ${template.subtitle}
+        ${template.meta.title}
+        ${template.meta.subtitle}
     </div>`;
 
 // check for layout type
@@ -38,7 +38,8 @@ if (template.type === 'full') {
 
 // check and set template url for localhost or for public url
 location.hostname === 'localhost' || location.hostname === '127.0.0.1'
-    ? (template.fetchURL = window.location.origin + '/templates/index.2a86ff1c.html')
+    ? (template.fetchURL =
+          window.location.origin + '/templates/index.2a86ff1c.html')
     : (template.fetchURL =
           window.location.origin + '/blog/templates/index.6e7a5d68.html');
 
