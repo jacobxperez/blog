@@ -2,7 +2,7 @@ const sidebar = () => {
     const getAside = document.getElementById('aside');
     const getContent = document.getElementById('content');
 
-    if (meta.layout === '') {
+    if (template.type === '') {
         const followLinks = `
         <ul data-display="small-none">
             <li>
@@ -33,20 +33,20 @@ const sidebar = () => {
         getAside.insertAdjacentHTML('beforeend', followLinks);
     }
 
-    if (meta.layout === 'post') {
+    if (template.type === 'post') {
         const postAuthor = `by <a href="https://jacobxperez.github.io/blog/about/">Jacob Perez</a>`;
-        if (meta.date.published !== '') {
-            meta.date.published = `<br /> published: <time datetime="${meta.date.published}">${meta.date.published}</time>`;
+        if (template.date.published !== '') {
+            template.date.published = `<br /> published: <time datetime="${template.date.published}">${template.date.published}</time>`;
         }
-        if (meta.date.revised !== '') {
-            meta.date.revised = `<br /> revised: <time datetime="${meta.date.revised}">${meta.date.revised}</time>`;
+        if (template.date.revised !== '') {
+            template.date.revised = `<br /> revised: <time datetime="${template.date.revised}">${template.date.revised}</time>`;
         }
 
         const postMeta = `
             <p>
                 ${postAuthor}
-                ${meta.date.published}
-                ${meta.date.revised}
+                ${template.date.published}
+                ${template.date.revised}
             </p>`;
 
         getAside.insertAdjacentHTML('beforeend', postMeta);
