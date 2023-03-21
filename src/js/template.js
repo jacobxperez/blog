@@ -10,21 +10,21 @@ import {Vannelli} from './modules/vannelli';
 
 const template = new Vannelli();
 
-let title;
-meta.title === null
-    ? (title = `<h1>Jacob Perez</h1>`)
-    : (title = `<h1>${meta.title}</h1>`);
+if (meta.title == '') {
+    meta.title = `<h1>Jacob Perez</h1>`;
+} else {
+    meta.title = `<h1>${meta.title}</h1>`;
+}
 
-let subtitle;
-meta.subtitle === null
-    ? (subtitle = '')
-    : (subtitle = `<h2 data-text="h5">${meta.subtitle}</h2>`);
+if (meta.subtitle !== '') {
+    meta.subtitle = `<h2 data-text="h5">${meta.subtitle}</h2>`;
+}
 
 // template header
 template.header = `
     <div id="header" data-wrapper="fit">
-        ${title}
-        ${subtitle}
+        ${meta.title}
+        ${meta.subtitle}
     </div>`;
 
 // check for layout type
