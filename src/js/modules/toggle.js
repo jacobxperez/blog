@@ -2,11 +2,11 @@ const toggle = () => {
     const getToggle = document.querySelectorAll('[data-toggle]');
 
     // toggles attribute
-    getToggle.forEach((i) => {
-        i.addEventListener('click', (e) => {
-            i.hasAttribute('data-state', 'active')
-                ? i.removeAttribute('data-state')
-                : i.setAttribute('data-state', 'active');
+    getToggle.forEach((toggle) => {
+        toggle.addEventListener('click', (e) => {
+            toggle.hasAttribute('data-state', 'active')
+                ? toggle.removeAttribute('data-state')
+                : toggle.setAttribute('data-state', 'active');
             e.stopPropagation();
         });
     });
