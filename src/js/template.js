@@ -1,6 +1,6 @@
 /* @license
- * <https://jacobxperez.github.io/blog/>
- * Copyright (C) 2023 Jacob Perez <jacobxperez@gmx.com>
+ * Jacob Perez <https://jacobxperez.github.io/blog/>
+ * Copyright (C) 2022 Jacob Perez <jacobxperez@gmx.com>
  * Licensed under the Apache License, Version 2.0
  * http://www.apache.org/licenses/LICENSE-2.0
 -----------------------------------------------------------------------------*/
@@ -39,7 +39,7 @@ if (meta.layout === 'full') {
     </div>`;
 }
 
-// check and sets template url for localhost or for public url
+// check and set template url for localhost or for public url
 let templateURL;
 location.hostname === 'localhost' || location.hostname === '127.0.0.1'
     ? (templateURL = window.location.origin + '/templates/index.2a86ff1c.html')
@@ -65,6 +65,6 @@ template.layout = `
 // parse everything together
 template
     .fromString(template.layout, 'root')
-    .getTemplate('contentTemplate', 'content', sidebar)
+    .getAndSetTemplate('contentTemplate', 'content', sidebar)
     .fetchTemplate(templateURL, 'nav', toggle)
     .fetchTemplate(templateURL, 'footer');

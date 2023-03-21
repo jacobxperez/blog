@@ -38,7 +38,7 @@ class Vannelli {
         // append source template to target id
         this.#appendTemplate(_parsedSource, templateID, targetID);
     }
-    getTemplate(templateID, targetID, callback) {
+    getAndSetTemplate(templateID, targetID, callback) {
         new Promise((resolve, reject) => {
             // check if template exist if not reject
             templateID ? resolve() : reject();
