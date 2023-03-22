@@ -61,7 +61,7 @@ template.layout = `
 
 // parse everything together
 template
-    .fromString(template.layout, 'root')
-    .getAndSetTemplate('contentTemplate', 'content', sidebar)
-    .fetchTemplate(template.fetchURL, 'nav', toggle)
-    .fetchTemplate(template.fetchURL, 'footer');
+    .fromString(template.layout, 'body')
+    .getAndSetTemplate('template', '#content', sidebar)
+    .fetchTemplate(template.fetchURL, '#nav', toggle)
+    .fetchTemplate(template.fetchURL, '#footer');

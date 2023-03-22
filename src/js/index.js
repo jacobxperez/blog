@@ -28,36 +28,38 @@ const template = {
         const parser = new DOMParser();
         return parser.parseFromString(source, 'text/html');
     },
-    _appendString(source, targetID) {
+    _appendString(source, targetSelector) {
         // get target id
-        const _targetID = document.getElementById(targetID);
+        const _targetSelector = document.querySelector(targetSelector);
         // append source to target id
-        _targetID.insertAdjacentHTML('beforeend', source);
+        _targetSelector.insertAdjacentHTML('beforeend', source);
     },
-    _appendTemplate(source, templateID, targetID) {
+    _appendTemplate(source, templateSelector, targetSelector) {
         // get source from template id
-        const _getTemplateID = source.getElementById(templateID);
+        const _getTemplateSelector = source.querySelector(templateSelector);
         // clone template id from source
-        const _cloneTemplate = _getTemplateID.content.cloneNode(true);
+        const _cloneTemplate = _getTemplateSelector.content.cloneNode(true);
         // get target id from document
-        const _targetID = document.getElementById(targetID);
+        const _targetSelector = document.querySelector(targetSelector);
         // append template to target id
-        _targetID.appendChild(_cloneTemplate);
+        _targetSelector.appendChild(_cloneTemplate);
         // delete original template from document
-        _getTemplateID.remove();
+        _getTemplateSelector.remove();
     },
-    _parseTemplate(source, templateID, targetID) {
+    _parseTemplate(source, templateSelector, targetSelector) {
         // get template source and parse it
         const _parsedSource = this._parseSource(source);
         // append source template to target id
-        this._appendTemplate(_parsedSource, templateID, targetID);
+        this._appendTemplate(_parsedSource, templateSelector, targetSelector);
     },
-    getAndSetTemplate(templateID, targetID, callback) {
+    getAndSetTemplate(templateSelector, targetSelector, callback) {
         new Promise((resolve, reject) => {
             // check if template exist if not reject
-            templateID ? resolve() : reject();
+            templateSelector ? resolve() : reject();
         })
-            .then(() => this._appendTemplate(document, templateID, targetID))
+            .then(() =>
+                this._appendTemplate(document, templateSelector, targetSelector)
+            )
             .then(() => {
                 // optional: a callback function gets executed
                 if (typeof callback === 'function') {
@@ -68,14 +70,14 @@ const template = {
 
         return this;
     },
-    fromString(string, targetID, callback) {
+    fromString(string, targetSelector, callback) {
         new Promise((resolve, reject) => {
             // check if source is string
             typeof string === 'string'
                 ? resolve()
                 : reject((err = 'Error: Source is not a String'));
         })
-            .then(() => this._appendString(string, targetID))
+            .then(() => this._appendString(string, targetSelector))
             .then(() => {
                 // optional: a callback function gets executed
                 if (typeof callback === 'function') {
@@ -86,14 +88,14 @@ const template = {
 
         return this;
     },
-    fetchTemplate(url, targetID, callback) {
+    fetchTemplate(url, targetSelector, callback) {
         (async () => {
             try {
                 // fetch url
                 let response = await fetch(url);
                 // check if response is ok
                 let okay = await response.text();
-                this._parseTemplate(okay, targetID, targetID);
+                this._parseTemplate(okay, targetSelector, targetSelector);
                 // optional: a callback function gets executed
                 if (typeof callback === 'function') {
                     callback();
