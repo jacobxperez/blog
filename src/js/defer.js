@@ -4,8 +4,8 @@
  * Licensed under the Apache License, Version 2.0
  * http://www.apache.org/licenses/LICENSE-2.0
 -----------------------------------------------------------------------------*/
-import {sidebar} from './sidebar.js';
-import {toggle} from './toggle';
+import {sidebar} from './modules/sidebar.js';
+import {toggle} from './modules/toggle';
 
 if (template.meta.title === '') {
     template.meta.title = `<h1>Jacob Perez</h1>`;
