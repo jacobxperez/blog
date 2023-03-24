@@ -13,12 +13,13 @@ const toggle = () => {
 
     document.addEventListener('click', (e) => {
         // remove active state
-        getToggle.forEach((i) => {
+        getToggle.forEach((toggle) => {
             if (
-                (e.target !== i && i.matches('[data-toggle~="pop"]')) ||
-                i.matches('[data-toggle~="tooltip"]')
+                (e.target !== toggle &&
+                    toggle.matches('[data-toggle~="pop"]')) ||
+                toggle.matches('[data-toggle~="tooltip"]')
             ) {
-                i.removeAttribute('data-state');
+                toggle.removeAttribute('data-state');
             }
         });
     });
