@@ -1,0 +1,48 @@
+{
+    "posts": {
+        "template": {
+            "url": "",
+            "title": "",
+            "subtitle": "",
+            "description": "",
+            "author": "Jacob Perez",
+            "date": {
+                "published": "",
+                "revised": ""
+            }
+        },
+        "03": {
+            "url": "",
+            "title": "Class Less Architecture",
+            "subtitle": "Using Data Attributes for Styling Components",
+            "description": "",
+            "author": "Jacob Perez",
+            "date": {
+                "published": "2022-03-20",
+                "revised": "2023-03-09"
+            }
+        },
+        "02": {
+            "url": "",
+            "title": "The 80/20 Principle",
+            "subtitle": "The Pareto Principle Simplified",
+            "description": "",
+            "author": "Jacob Perez",
+            "date": {
+                "published": "2021-01-19",
+                "revised": "2022-11-27"
+            }
+        },
+        "01": {
+            "url": "",
+            "title": "About Me",
+            "subtitle": "",
+            "description": "",
+            "author": "Jacob Perez",
+            "date": {
+                "published": "2021-01-19",
+                "revised": "2023-03-22"
+            }
+        }
+    }
+}
