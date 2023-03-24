@@ -22,18 +22,21 @@ template.header = `
     <div id="header" data-wrapper="fit">
         ${template.meta.title}
         ${template.meta.subtitle}
-    </div>`;
+    </div>
+    `;
 
 // check for layout type
 template.main = `
     <div data-wrapper="fit" data-grid="main">
         <aside id="aside"></aside>
         <article id="content"></article>
-    </div>`;
+    </div>
+    `;
 if (template.type === 'full') {
     template.main = `
     <div id="content" data-wrapper="fit" data-grid="main">
-    </div>`;
+    </div>
+    `;
 }
 
 // check and set template url for localhost or for public url
@@ -44,7 +47,7 @@ location.hostname === 'localhost' || location.hostname === '127.0.0.1'
           window.location.origin + '/blog/templates/index.6e7a5d68.html');
 
 // create main layout
-template.layout = `
+template.body = `
     <nav data-navbar="top">
         <div id="nav"></div>
     </nav>
@@ -57,11 +60,12 @@ template.layout = `
     <footer data-section="footer">
         <div id="footer" data-wrapper="fit">
         </div>
-    </footer>`;
+    </footer>
+    `;
 
 // parse everything together
 template
-    .fromString(template.layout, 'body')
+    .fromString(template.body, 'body')
     .getAndSetTemplate('template', '#content', sidebar)
     .fetchTemplate(template.fetchURL, '#nav', toggle)
     .fetchTemplate(template.fetchURL, '#footer');

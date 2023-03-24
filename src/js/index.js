@@ -6,6 +6,7 @@
 -----------------------------------------------------------------------------*/
 const template = {
     type: '',
+    body: '',
     header: '',
     nav: '',
     main: '',
@@ -13,16 +14,22 @@ const template = {
     section: '',
     aside: '',
     footer: '',
-    layout: '',
     fetchURL: '',
     meta: {
         title: document.title,
         subtitle: '',
-        author: document.head.querySelector('[name="author"]').content,
+        author: {
+            name: '',
+            url: '',
+        },
         date: {
             published: '',
             revised: '',
         },
+    },
+    getAuthorName() {
+        return (this.meta.author.name =
+            document.head.querySelector('[name="author"]').content);
     },
     _parseSource(source) {
         const parser = new DOMParser();

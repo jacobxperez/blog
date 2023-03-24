@@ -34,19 +34,20 @@ const sidebar = () => {
     }
 
     if (template.type === 'post') {
-        template.meta.author = `by <a href="https://jacobxperez.github.io/blog/about/">${template.meta.author}</a>`;
+        template.getAuthorName();
+        var authorName = `by <a href="https://jacobxperez.github.io/blog/about/">${template.meta.author.name}</a>`;
         if (template.meta.date.published !== '') {
-            template.meta.date.published = `<br /> published: <time datetime="${template.meta.date.published}">${template.meta.date.published}</time>`;
+            var published = `<br /> published: <time datetime="${template.meta.date.published}">${template.meta.date.published}</time>`;
         }
         if (template.meta.date.revised !== '') {
-            template.meta.date.revised = `<br /> revised: <time datetime="${template.meta.date.revised}">${template.meta.date.revised}</time>`;
+            var revised = `<br /> revised: <time datetime="${template.meta.date.revised}">${template.meta.date.revised}</time>`;
         }
 
         const postMeta = `
             <p>
-                ${template.meta.author}
-                ${template.meta.date.published}
-                ${template.meta.date.revised}
+                ${authorName}
+                ${published}
+                ${revised}
             </p>`;
 
         getAside.insertAdjacentHTML('beforeend', postMeta);
