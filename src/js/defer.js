@@ -33,7 +33,6 @@ if (template.type === 'fullPage') {
     `;
 }
 
-// check and set template url for localhost or for public url
 location.hostname === 'localhost' || location.hostname === '127.0.0.1'
     ? (template.fetchURL =
           window.location.origin + '/templates/index.2a86ff1c.html')
@@ -56,7 +55,6 @@ template.body = `
     </footer>
     `;
 
-// parse everything together
 template
     .fromString(template.body, 'body')
     .getAndSetTemplate('template', '#content', sidebar)
