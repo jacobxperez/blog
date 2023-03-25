@@ -4,6 +4,43 @@
  * Licensed under the Apache License, Version 2.0
  * http://www.apache.org/licenses/LICENSE-2.0
 -----------------------------------------------------------------------------*/
+const meta = {
+    title: document.title,
+    subtitle: '',
+    author: {
+        name: '',
+        url: '',
+    },
+    date: {
+        published: '',
+        revised: '',
+    },
+    set authorName(name) {
+        this.author.name = name;
+    },
+    get authorName() {
+        return this.author.name;
+    },
+    set authorUrl(url) {
+        this.author.url = url;
+    },
+    get authorUrl() {
+        return this.author.url;
+    },
+    set datePublished(date) {
+        this.date.published = date;
+    },
+    get datePublished() {
+        return this.date.published;
+    },
+    set dateRevised(date) {
+        this.date.revised = date;
+    },
+    get dateRevised() {
+        return this.date.revised;
+    },
+};
+
 const template = {
     type: '',
     body: '',
@@ -15,22 +52,6 @@ const template = {
     aside: '',
     footer: '',
     fetchURL: '',
-    meta: {
-        title: document.title,
-        subtitle: '',
-        author: {
-            name: '',
-            url: '',
-        },
-        date: {
-            published: '',
-            revised: '',
-        },
-    },
-    getAuthorName() {
-        return (this.meta.author.name =
-            document.head.querySelector('[name="author"]').content);
-    },
     _parseSource(source) {
         const parser = new DOMParser();
         return parser.parseFromString(source, 'text/html');

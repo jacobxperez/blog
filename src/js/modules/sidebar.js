@@ -34,13 +34,20 @@ const sidebar = () => {
     }
 
     if (template.type === 'post') {
-        template.getAuthorName();
-        var authorName = `by <a href="https://jacobxperez.github.io/blog/about/">${template.meta.author.name}</a>`;
-        if (template.meta.date.published !== '') {
-            var published = `<br /> published: <time datetime="${template.meta.date.published}">${template.meta.date.published}</time>`;
+        if (meta.authorName === '') {
+            meta.authorName = 'Jacob Perez';
         }
-        if (template.meta.date.revised !== '') {
-            var revised = `<br /> revised: <time datetime="${template.meta.date.revised}">${template.meta.date.revised}</time>`;
+        if (meta.authorUrl === '') {
+            meta.authorUrl = 'https://jacobxperez.github.io/blog/about/';
+        }
+
+        var authorName = `by <a href=${meta.authorUrl}>${meta.authorName}</a>`;
+
+        if (meta.datePublished !== '') {
+            var published = `<br /> published: <time datetime="${meta.datePublished}">${meta.datePublished}</time>`;
+        }
+        if (meta.dateRevised !== '') {
+            var revised = `<br /> revised: <time datetime="${meta.dateRevised}">${meta.dateRevised}</time>`;
         }
 
         const postMeta = `

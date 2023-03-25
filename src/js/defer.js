@@ -5,34 +5,28 @@
  * http://www.apache.org/licenses/LICENSE-2.0
 -----------------------------------------------------------------------------*/
 import {sidebar} from './modules/sidebar.js';
-import {toggle} from './modules/toggle';
+import {toggle} from './modules/toggle.js';
 
-if (template.meta.title === '') {
-    template.meta.title = `<h1>Jacob Perez</h1>`;
-} else {
-    template.meta.title = `<h1>${template.meta.title}</h1>`;
+meta.title = `<h1>${meta.title}</h1>`;
+
+if (meta.subtitle !== '') {
+    meta.subtitle = `<h2 data-text="h5">${meta.subtitle}</h2>`;
 }
 
-if (template.meta.subtitle !== '') {
-    template.meta.subtitle = `<h2 data-text="h5">${template.meta.subtitle}</h2>`;
-}
-
-// template header
 template.header = `
     <div id="header" data-wrapper="fit">
-        ${template.meta.title}
-        ${template.meta.subtitle}
+        ${meta.title}
+        ${meta.subtitle}
     </div>
     `;
 
-// check for layout type
 template.main = `
     <div data-wrapper="fit" data-grid="main">
         <aside id="aside"></aside>
         <article id="content"></article>
     </div>
     `;
-if (template.type === 'full') {
+if (template.type === 'fullPage') {
     template.main = `
     <div id="content" data-wrapper="fit" data-grid="main">
     </div>
@@ -46,7 +40,6 @@ location.hostname === 'localhost' || location.hostname === '127.0.0.1'
     : (template.fetchURL =
           window.location.origin + '/blog/templates/index.6e7a5d68.html');
 
-// create main layout
 template.body = `
     <nav data-navbar="top">
         <div id="nav"></div>
