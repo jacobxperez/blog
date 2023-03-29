@@ -22,15 +22,16 @@
             meta.title = "Class Less Architecture";
             meta.subtitle = "Using Data Attributes for Styling Components";
             meta.datePublished = "2022-03-20";
-            meta.dateRevised = "2023-03-09";
+            meta.dateRevised = "2023-03-28";
         </script>
     </head>
 
     <body>
         <template>
             <p data-text="h5">
-                OOCSS, BEM, and Atomic CSS all have the same problem, they all utilize the class selector, and none have taken the time to
-                solve it. Here lies the problem, we need a new architecture free from the class selector, a class less architecture.
+                There is a fundamental problem with CSS, and neither OOCSS, BEM, nor Atomic CSS are the solution. All of these architectural
+                styles heavily rely on the class selector, which can lead to issues with specificity, conflicts with other styles, and a
+                lack of scalability.
             </p>
 
             <section>
@@ -77,8 +78,8 @@ background-color: red;
                     <h3>BEM (Block, Element, Modifier)</h3>
 
                     <p>
-                        BEM organizes selectors by block, a top-level abstraction of a component. Element is a component that performs a
-                        function inside the block. The modifier is a variation of the block component.
+                        BEM aims to create modular and reusable stylesheets by breaking down components into blocks, elements, and
+                        modifiers. It also heavily utilizes the class selector to differentiate between these component
                     </p>
 
                     <pre data-box="code">
@@ -106,9 +107,9 @@ background-color: red;
 
                     <p>
                         Atomic CSS gave birth to utility-first frameworks that create components using single-purpose classes. This type of
-                        architecture ends by polluting your HTML file with arbitrary classes such as <code>flex</code>, <code>pt-4</code>,
-                        <code>text-center</code>, and <code>rotate-90</code>, which is no different from writing inline styles. Utilities
-                        are not the problem they can be helpful. However, utility-first can become a problem.
+                        architecture ends by polluting your HTML file with arbitrary classes which is no different from writing inline
+                        styles. Utilities are not the problem they can be helpful. However, it still relies on the class selector to apply
+                        these styles.
                     </p>
 
                     <pre data-box="code">
@@ -139,10 +140,11 @@ background-color: red;
                 <h2 id="class-less">Class Less Architecture</h2>
 
                 <p>
-                    The class selector by itself cannot be styled or extended with custom names, only with values. That gives data
-                    attributes an advantage over the class selector because the <code>*</code> in <code>data-*</code> can be replaced by any
-                    name. We can use this advantage to categorize our components give them base styles, and create variations with different
-                    values. The same OOCSS example with data attributes:
+                    To solve this problem, we need a new architecture that is free from the limitations of the class selector. This is where
+                    data attributes come in. The class selector by itself cannot be styled or extended with custom names, only with values.
+                    That gives data attributes an advantage over the class selector because the <code>*</code> in <code>data-*</code> can be
+                    replaced by any name. We can use this advantage to categorize our components give them base styles, and create
+                    variations with different values.
                 </p>
 
                 <pre data-box="code">
@@ -166,9 +168,11 @@ background-color: red;
 </pre
                 >
 
-                <p>Unlike the class selector, we can use the <code>data-box</code> attribute by itself without a value.</p>
-
-                <p>The BEM example with data attributes:</p>
+                <p>
+                    By using data attributes to style our components, we can create a more flexible and robust system that allows for easier
+                    customization and scalability. Unlike the class selector, we can use the <code>data-box</code> attribute by itself
+                    without a value. The BEM example with data attributes:
+                </p>
 
                 <pre data-box="code">
 [data-block] &#123;
