@@ -8,6 +8,7 @@
         border-radius: $button-border-radius;
     }
     cursor: pointer;
+    transition: all 0.3s ease-in-out 0s;
 
     &:is([data-state="active"], :hover, :active) {
         background-color: $button-background-active;

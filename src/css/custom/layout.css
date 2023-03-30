@@ -4,7 +4,8 @@
 }
 
 [data-section="footer"] {
-    padding-top: $leading;
+    position: relative;;
+    padding-top: calc($leading * 2);
     padding-bottom: calc($leading * 3);
 }
 
@@ -13,7 +14,7 @@
 }
 
 [data-section="main"] {
-    padding: $leading 0;
+    padding: $leading 0 calc($leading * 2) 0;
     background-color: $font-color;
     color: $background;
 }
