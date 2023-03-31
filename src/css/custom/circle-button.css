@@ -3,7 +3,6 @@
     top: -1.875rem;
     left: 50%;
     margin-left: -1.875rem;
-    display: block;
     width: 3.75rem;
     height: 3.75rem;
     border-radius: 100%;
@@ -14,13 +13,11 @@
     position: absolute;
     top: 1.5625rem;
     left: 1.3125rem;
-    display: inline-block;
     width: 0.875rem;
     height: 0.875rem;
     content: "";
     border-left: 0.25rem solid var(--font-color);
     border-top: 0.25rem solid var(--font-color);
-    backface-visibility: hidden;
     transform: rotate(45deg);
 }
 
