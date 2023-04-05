@@ -13,41 +13,42 @@ if (meta.subtitle !== '') {
     meta.subtitle = `<h2 data-text="h5">${meta.subtitle}</h2>`;
 }
 
-template.header = `
+let header = `
     <div id="header" data-wrapper="fit">
         ${meta.title}
         ${meta.subtitle}
     </div>
     `;
 
-template.main = `
+let main = `
     <div data-wrapper="fit" data-grid="main">
         <aside id="aside"></aside>
         <article id="content"></article>
     </div>
     `;
 if (template.type === 'fullPage') {
-    template.main = `
+    main = `
     <div id="content" data-wrapper="fit" data-grid="main">
     </div>
     `;
 }
 
+let fetchURL;
 location.hostname === 'localhost' || location.hostname === '127.0.0.1'
-    ? (template.fetchURL =
+    ? (fetchURL =
           window.location.origin + '/templates/index.2a86ff1c.html')
-    : (template.fetchURL =
+    : (fetchURL =
           window.location.origin + '/blog/templates/index.6e7a5d68.html');
 
-template.body = `
+let layout = `
     <nav data-navbar="top">
         <div id="nav"></div>
     </nav>
     <header data-section="header">
-        ${template.header}
+        ${header}
     </header>
     <main data-section="main">
-        ${template.main}
+        ${main}
     </main>
     <footer data-section="footer">
         <div id="footer" data-wrapper="fit">
@@ -56,7 +57,7 @@ template.body = `
     `;
 
 template
-    .fromString(template.body, 'body')
+    .fromString(layout, 'body')
     .getAndSetTemplate('template', '#content', sidebar)
-    .fetchTemplate(template.fetchURL, '#nav', toggle)
-    .fetchTemplate(template.fetchURL, '#footer');
+    .fetchTemplate(fetchURL, '#nav', toggle)
+    .fetchTemplate(fetchURL, '#footer');
