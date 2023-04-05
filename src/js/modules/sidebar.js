@@ -34,6 +34,32 @@ const sidebar = () => {
     }
 
     if (template.type === 'post') {
+        if (meta.authorName === '') {
+            meta.authorName = 'Jacob Perez';
+        }
+
+        if (meta.authorUrl === '') {
+            meta.authorUrl = 'https://jacobxperez.github.io/blog/about/';
+        }
+
+        let authorName = `by <a href=${meta.authorUrl}>${meta.authorName}</a>`;
+
+        if (meta.datePublished !== '') {
+            var published = `<br /> published: <time datetime="${meta.datePublished}">${meta.datePublished}</time>`;
+        }
+        if (meta.dateRevised !== '') {
+            var revised = `<br /> revised: <time datetime="${meta.dateRevised}">${meta.dateRevised}</time>`;
+        }
+
+        const postMeta = `
+            <p>
+                ${authorName}
+                ${published}
+                ${revised}
+            </p>`;
+
+        getAside.insertAdjacentHTML('beforeend', postMeta);
+
         // gets all the headings of the post
         const getHeadings = getContent.querySelectorAll(
             'h1, h2, h3, h4, h5, h6'
