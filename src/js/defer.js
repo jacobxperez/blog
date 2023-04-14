@@ -14,29 +14,28 @@ if (meta.subtitle !== '') {
 }
 
 let header = `
-    <div id="header" data-wrapper="fit">
+    <div id="header" data-container="fit">
         ${meta.title}
         ${meta.subtitle}
     </div>
     `;
 
 let main = `
-    <div data-wrapper="fit" data-grid="main">
+    <div data-container="fit" data-grid="main">
         <aside id="aside"></aside>
         <article id="content"></article>
     </div>
     `;
 if (template.type === 'fullPage') {
     main = `
-    <div id="content" data-wrapper="fit" data-grid="main">
+    <div id="content" data-container="fit" data-grid="main">
     </div>
     `;
 }
 
 let fetchURL;
 location.hostname === 'localhost' || location.hostname === '127.0.0.1'
-    ? (fetchURL =
-          window.location.origin + '/templates/index.2a86ff1c.html')
+    ? (fetchURL = window.location.origin + '/templates/index.2a86ff1c.html')
     : (fetchURL =
           window.location.origin + '/blog/templates/index.6e7a5d68.html');
 
@@ -51,7 +50,7 @@ let layout = `
         ${main}
     </main>
     <footer data-section="footer">
-        <div id="footer" data-wrapper="fit">
+        <div id="footer" data-container="fit">
         </div>
     </footer>
     `;
