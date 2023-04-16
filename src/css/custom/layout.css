@@ -1,17 +1,27 @@
 [data-section="header"] {
     padding-top: calc($leading * 4);
     padding-bottom: calc($leading * 2);
+    
+    :is(&) h1, h2 {
+        color: $font-color;
+    }
 }
 
 [data-section="footer"] {
-    position: relative;;
+    position: relative;
     padding-top: calc($leading * 2);
     padding-bottom: calc($leading * 3);
 }
 
 :where([data-section="footer"], [data-section="header"]) a {
     color: hsl(20, 60%, 80%);
+    text-decoration: underline solid 0.125rem hsl(0, 10%, 30%);
 }
+
+:where([data-section="footer"], [data-section="header"]) a:hover {
+    text-decoration: underline solid 0.125rem;
+}
+
 
 [data-section="main"] {
     padding: $leading 0 calc($leading * 2) 0;
