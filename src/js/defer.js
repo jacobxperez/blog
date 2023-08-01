@@ -4,8 +4,11 @@
  * Licensed under the Apache License, Version 2.0
  * http://www.apache.org/licenses/LICENSE-2.0
 -----------------------------------------------------------------------------*/
+import {rams} from './rams/rams.js';
 import {sidebar} from './modules/sidebar.js';
-import {toggle} from './modules/toggle.js';
+
+// start the toggles
+rams.toggle();
 
 meta.title = `<h1>${meta.title}</h1>`;
 
@@ -58,5 +61,5 @@ let layout = `
 template
     .fromString(layout, 'body')
     .getAndSetTemplate('template', '#content', sidebar)
-    .fetchTemplate(fetchURL, '#nav', toggle)
+    .fetchTemplate(fetchURL, '#nav')
     .fetchTemplate(fetchURL, '#footer');
