@@ -11,7 +11,7 @@ const sidebar = () => {
             <li><a href="https://github.com/jacobxperez">Github</a></li>
             <li><a href="https://www.linkedin.com/in/jacobperez915/">Linkedin</a></li>
             <li><a href="https://twitter.com/jacobperez915">Twitter</a></li>
-            <li><a href="https://www.instagram.com/volovaanmix/">Instagram</a></li>
+            <li><a href="https://www.instagram.com/volovaan/">Instagram</a></li>
         </ul>
     
         <ul data-display="small" data-box="border">
@@ -25,7 +25,7 @@ const sidebar = () => {
                     <li><a href="https://github.com/jacobxperez" data-anchor>Github</a></li>
                     <li><a href="https://www.linkedin.com/in/jacobperez915/" data-anchor>Linkedin</a></li>
                     <li><a href="https://twitter.com/jacobperez915" data-anchor>Twitter</a></li>
-                    <li><a href="https://www.instagram.com/volovaanmix/" data-anchor>Instagram</a></li>
+                    <li><a href="https://www.instagram.com/volovaan/" data-anchor>Instagram</a></li>
                 </ul>
             </li>
         </ul>`;
