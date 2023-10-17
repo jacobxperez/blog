@@ -10,10 +10,20 @@
             content="OOCSS, BEM, and Atomic CSS all have the same problem, they all utilize the class selector, and none have taken the time to solve it. Here lies the problem, we
             need a new architecture free from the class selector, a class less architecture."
         />
-        <meta name="image" property="og:image" content="https://ubiqum.com/assets/uploads/2019/06/learn-css-part-2.jpeg" />
+        <meta
+            name="image"
+            property="og:image"
+            content="https://ubiqum.com/assets/uploads/2019/06/learn-css-part-2.jpeg"
+        />
         <title>Class-Less Architecture: Using Data Attributes for Styling Components</title>
         <link rel="icon" href="../../../favicon.svg" />
-        <link rel="preload" href="../../../templates/index.html" as="fetch" type="text/html" crossorigin />
+        <link
+            rel="preload"
+            href="../../../templates/index.html"
+            as="fetch"
+            type="text/html"
+            crossorigin
+        />
         <link rel="stylesheet" href="../../../css/main.css" />
         <script src="../../../js/index.js"></script>
         <script type="module" src="../../../js/defer.js"></script>
@@ -22,34 +32,43 @@
             meta.title = "Class-Less Architecture";
             meta.subtitle = "Using Data Attributes for Styling Components";
             meta.datePublished = "2022-03-20";
-            meta.dateRevised = "2023-04-04";
+            meta.dateRevised = "2023-10-07";
         </script>
     </head>
 
     <body>
         <template>
             <p data-text="h5">
-                There is a fundamental problem with the CSS class selector that is why popular naming conventions such OOCSS, BEM, and
-                Atomic CSS have become the gold standard in many projects. However all of these styles still rely on the class selector,
-                which can lead to issues of specificity, conflicts with other styles, and a lack of readability.
+                There is a fundamental problem in CSS with the class selector, which is why popular
+                naming conventions such OOCSS, BEM, and Atomic CSS have become the gold standard in
+                many projects. However all of these styles still rely on the class selector, which
+                can still lead to issues of specificity, conflicts with other styles, and a lack of
+                readability.
             </p>
 
             <section>
                 <h2>Architecture Styles</h2>
 
                 <p>
-                    Allow me to start with a quick overview of the current architectural styles before explaining why
-                    <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/data-*">data attributes</a> are the best
-                    option for styling components and <strong>not</strong> the
-                    <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Class_selectors">class selector</a>.
+                    Allow me to start with a quick overview of the current architectural styles
+                    before explaining why
+                    <a
+                        href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/data-*"
+                        >data attributes</a
+                    >
+                    are the best option for styling components and <strong>not</strong> the
+                    <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Class_selectors"
+                        >class selector</a
+                    >.
                 </p>
 
                 <section>
                     <h3>OOCSS (Object-Oriented CSS)</h3>
 
                     <p>
-                        OOCSS gets its cues from object-oriented programming. It does so by separating structure and skin. The purpose of
-                        OOCSS is to create stylesheets that are flexible, modular, and interchangeable.
+                        OOCSS gets its cues from object-oriented programming. It does so by
+                        separating structure and skin. The purpose of OOCSS is to create stylesheets
+                        that are flexible, modular, and interchangeable.
                     </p>
 
                     <pre data-box="code">
@@ -78,8 +97,9 @@ background-color: red;
                     <h3>BEM (Block, Element, Modifier)</h3>
 
                     <p>
-                        BEM aims to create modular and reusable stylesheets by breaking down components into blocks, elements, and
-                        modifiers. It also heavily utilizes the class selector to differentiate between these component
+                        BEM aims to create modular and reusable stylesheets by breaking down
+                        components into blocks, elements, and modifiers. It also heavily utilizes
+                        the class selector to differentiate between these component
                     </p>
 
                     <pre data-box="code">
@@ -106,10 +126,11 @@ background-color: red;
                     <h3>Atomic CSS</h3>
 
                     <p>
-                        Atomic CSS gave birth to utility-first frameworks that create components using single-purpose classes. This type of
-                        architecture ends by polluting your HTML file with arbitrary classes which is no different from writing inline
-                        styles. Utilities are not the problem they can be helpful. However, it still relies on the class selector to apply
-                        these styles.
+                        Atomic CSS gave birth to utility-first frameworks that create components
+                        using single-purpose classes. This type of architecture ends by polluting
+                        your HTML file with arbitrary classes which is no different from writing
+                        inline styles. Utilities are not the problem they can be helpful. However,
+                        it still relies on the class selector to apply these styles.
                     </p>
 
                     <pre data-box="code">
@@ -119,10 +140,12 @@ background-color: red;
                     >
 
                     <p>
-                        Atomic CSS cannot scale by itself, especially when making complex components or prefixing related classes. To
-                        mitigate this problem PostCSS plugins such as autoprefixer and PurgeCSS are required. Without the help of these
-                        tools, Atomic CSS could not scale. Additionally, developers may use the @apply, which defeats the purpose of Atomic
-                        CSS. Using data attributes can fix an unorganized string of classes, more on that later.
+                        Atomic CSS cannot scale by itself, especially when making complex components
+                        or prefixing related classes. To mitigate this problem PostCSS plugins such
+                        as autoprefixer and PurgeCSS are required. Without the help of these tools,
+                        Atomic CSS could not scale. Additionally, developers may use the @apply,
+                        which defeats the purpose of Atomic CSS. Using data attributes can fix an
+                        unorganized string of classes, more on that later.
                     </p>
                 </section>
 
@@ -130,8 +153,9 @@ background-color: red;
                     <h3 id="smacss">SMACSS and ITCSS</h3>
 
                     <p>
-                        This type of architecture does not specify how to write CSS selectors. Instead, they help organize CSS in sections.
-                        They are both compatible with OOCSS, BEM, and Atomic CSS. However, they do not fix the class selector.
+                        This type of architecture does not specify how to write CSS selectors.
+                        Instead, they help organize CSS in sections. They are both compatible with
+                        OOCSS, BEM, and Atomic CSS. However, they do not fix the class selector.
                     </p>
                 </section>
             </section>
@@ -140,11 +164,13 @@ background-color: red;
                 <h2 id="class-less">Class-Less Architecture</h2>
 
                 <p>
-                    To solve this problem, we need a new architecture that is free from the limitations of the class selector. This is where
-                    data attributes come in. The class selector by itself cannot be styled or extended with custom names, only with values.
-                    That gives data attributes an advantage over the class selector because the <code>*</code> in <code>data-*</code> can be
-                    replaced by any name. We can use this advantage to categorize our components give them base styles, and create
-                    variations with different values.
+                    To solve this problem, we need a new architecture that is free from the
+                    limitations of the class selector. This is where data attributes come in. The
+                    class selector by itself cannot be styled or extended with custom names, only
+                    with values. That gives data attributes an advantage over the class selector
+                    because the <code>*</code> in <code>data-*</code> can be replaced by any name.
+                    We can use this advantage to categorize our components give them base styles,
+                    and create variations with different values.
                 </p>
 
                 <pre data-box="code">
@@ -169,8 +195,9 @@ background-color: red;
                 >
 
                 <p>
-                    By using data attributes to style our components, we can create a more flexible and robust system that allows for easier
-                    customization and scalability. Unlike the class selector, we can use the <code>data-box</code> attribute by itself
+                    By using data attributes to style our components, we can create a more flexible
+                    and robust system that allows for easier customization and scalability. Unlike
+                    the class selector, we can use the <code>data-box</code> attribute by itself
                     without a value. The BEM example with data attributes:
                 </p>
 
@@ -194,8 +221,10 @@ background-color: red;
                 >
 
                 <p>
-                    Utility classes can be grouped as data attributes, eliminating the need to prefix classes such as
-                    <code>flex-*</code>, <code>flex-column</code>, <code>flex-wrap</code>, <code>flex-gap</code>, etc.
+                    Utility classes can be grouped as data attributes, eliminating the need to
+                    prefix classes such as
+                    <code>flex-*</code>, <code>flex-column</code>, <code>flex-wrap</code>,
+                    <code>flex-gap</code>, etc.
                 </p>
 
                 <pre data-box="code">
@@ -221,8 +250,9 @@ gap: 10px;
                 >
 
                 <p>
-                    Much more minimal and aesthetically pleasing. It is also possible to use JavaScript for styling certain utilities such
-                    as margins and paddings, completely removing them from the stylesheet.
+                    Much more minimal and aesthetically pleasing. It is also possible to use
+                    JavaScript for styling certain utilities such as margins and paddings,
+                    completely removing them from the stylesheet.
                 </p>
 
                 <pre data-box="code">
@@ -233,7 +263,10 @@ gap: 10px;
 
                 <p>
                     There are some rules to be aware of before naming a
-                    <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/data-*">custom data attribute</a>.
+                    <a
+                        href="https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/data-*"
+                        >custom data attribute</a
+                    >.
                 </p>
 
                 <ul data-list="ul">
@@ -246,9 +279,12 @@ gap: 10px;
                     <h3>Framework</h3>
 
                     <p>
-                        If you haven't noticed by now, this website uses data attributes for styling. Not a single class ever defines a
-                        component. If you are interested in this methodology, I have started a small project to get you started. Visit
-                        <a href="https://github.com/jacobxperez/rams">Rams</a>, a class-less framework.
+                        If you haven't noticed by now, this website uses data attributes for
+                        styling. Not a single class ever defines a component. If you are interested
+                        in this methodology, I have started a small project to get you started.
+                        Visit
+                        <a href="https://github.com/jacobxperez/rams">Rams</a>, a class-less
+                        framework.
                     </p>
                 </section>
             </section>
@@ -257,11 +293,14 @@ gap: 10px;
                 <h2>Overview</h2>
 
                 <p>
-                    A class less architecture does not mean that we should never use a class selector. Instead, we should move beyond the
-                    class and start thinking about other ways of styling. We can still use classes as secondary IDs and not as primary
-                    selectors. Class Less Architecture does not replace previous architecture styles it; enhances them with data attributes.
-                    Unlike classes, data attributes give both context <code>[data-box]</code> and value <code>[data-box="value"]</code> that
-                    we can use for styling. Furthermore, they are accessible by JavaScript providing both aesthetic and functionality.
+                    A class less architecture does not mean that we should never use a class
+                    selector. Instead, we should move beyond the class and start thinking about
+                    other ways of styling. We can still use classes as secondary IDs and not as
+                    primary selectors. Class Less Architecture does not replace previous
+                    architecture styles it; enhances them with data attributes. Unlike classes, data
+                    attributes give both context <code>[data-box]</code> and value
+                    <code>[data-box="value"]</code> that we can use for styling. Furthermore, they
+                    are accessible by JavaScript providing both aesthetic and functionality.
                 </p>
             </section>
 
@@ -269,13 +308,16 @@ gap: 10px;
                 <h2>Conclusion</h2>
 
                 <p>
-                    When Marianne Brandt started her studies at the Bauhaus in 1923, she famously burned all her previous works recognizing
-                    how traditional they had been. Styling with class names is our tradition. We must move away from styling with classes
-                    and start thinking about other ways of doing so. Nowhere does the spec prohibits the use of data attributes for styling.
-                    Lens camera manufacturers do not specify that a 50mm or an 85mm lens should be used only for portrait photography. All
-                    lenses can shoot portrait or landscape photography regardless of the focal length. These are only conventions people
-                    have and are no strict rules to follow. I can use an 85mm lens for landscapes or a fish eye lens for portraits as much
-                    as I can use data attributes for styling.
+                    When Marianne Brandt started her studies at the Bauhaus in 1923, she famously
+                    burned all her previous works recognizing how traditional they had been. Styling
+                    with class names is our tradition. We must move away from styling with classes
+                    and start thinking about other ways of doing so. Nowhere does the spec prohibits
+                    the use of data attributes for styling. Lens camera manufacturers do not specify
+                    that a 50mm or an 85mm lens should be used only for portrait photography. All
+                    lenses can shoot portrait or landscape photography regardless of the focal
+                    length. These are only conventions people have and are no strict rules to
+                    follow. I can use an 85mm lens for landscapes or a fish eye lens for portraits
+                    as much as I can use data attributes for styling.
                 </p>
             </section>
         </template>
