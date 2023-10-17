@@ -7,23 +7,15 @@
     ],
     "scripts": {
         "docs": "parcel docs/index.html --no-source-maps",
-        "dev": "parcel --no-source-maps",
+        "dev": "parcel serve --no-source-maps",
         "watch": "parcel watch --no-source-maps",
         "build": "parcel build --no-source-maps --no-content-hash --public-url /blog",
-        "rams": "parcel build docs/index.html --no-content-hash --no-source-maps --public-url /rams"
+        "rams": "parcel build docs/index.html --no-content-hash --no-source-maps --public-url /rams --dist-dir ramsLive/"
     },
     "repository": {
         "type": "git",
         "url": "git+https://github.com/jacobxperez/rams.git"
     },
-    "keywords": [
-        "css",
-        "scss",
-        "front-end",
-        "framework",
-        "design system",
-        "class-less architecture"
-    ],
     "author": "Jacob Perez",
     "license": "Apache-2.0",
     "bugs": {
@@ -35,7 +27,7 @@
         "@parcel/optimizer-terser": "^2.9.3",
         "parcel": "^2.9.3",
         "parcel-optimizer-friendly-urls": "^0.2.0",
-        "postcss": "^8.4.27",
+        "postcss": "^8.4.31",
         "postcss-advanced-variables": "^3.0.1",
         "postcss-custom-selectors": "^7.1.4",
         "postcss-import": "^15.1.0",
