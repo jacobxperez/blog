@@ -24,6 +24,7 @@
 
 /* Components */
 @import "core/components/layout/container.css";
+@import "core/components/layout/grid.css";
 @import "core/components/dropdown/dropbox.css";
 @import "core/components/dropdown/menu.css";
 @import "core/components/dropdown/tooltip.css";
@@ -39,11 +40,15 @@
 @import "core/components/buttons/disabled.css";
 
 /* Custom Modules */
-@import "custom/grid.css";
-@import "custom/layout.css";
 @import "custom/circle-button.css";
+@import "custom/layout.css";
+
+/* -------------- */
 
 /* Fonts */
+@import "core/fonts/atkinson-hyperlegible.css";
+@import "core/fonts/xcharter.css";
+@import "core/fonts/fira-mono.css";
 @import "core/fonts/icons.css";
 
 /* Utilities */

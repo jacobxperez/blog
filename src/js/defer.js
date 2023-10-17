@@ -13,7 +13,7 @@ rams.toggle();
 meta.title = `<h1>${meta.title}</h1>`;
 
 if (meta.subtitle !== '') {
-    meta.subtitle = `<h2 data-text="h5">${meta.subtitle}</h2>`;
+    meta.subtitle = `<h2 data-text="h4">${meta.subtitle}</h2>`;
 }
 
 let header = `
@@ -25,8 +25,8 @@ let header = `
 
 let main = `
     <div data-container="fit" data-grid="main">
-        <aside id="aside"></aside>
-        <article id="content"></article>
+        <aside id="aside" data-column="large-3 medium-3 small-4"></aside>
+        <article id="content" data-column="large-9 medium-9 small-4"></article>
     </div>
     `;
 if (template.type === 'fullPage') {

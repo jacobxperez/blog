@@ -5,22 +5,12 @@
     margin-left: -1.875rem;
     width: 3.75rem;
     height: 3.75rem;
+    border: 0.25rem solid $body-font-color;
     border-radius: 100%;
-    box-shadow: 0em 0em 0.3125em rgba(0, 0, 0, 0.3);
+    text-align: center;
 }
 
 [data-button~="circle"]::before {
-    position: absolute;
-    top: 1.5625rem;
-    left: 1.3125rem;
-    width: 0.875rem;
-    height: 0.875rem;
-    content: "";
-    border-left: 0.25rem solid var(--font-color);
-    border-top: 0.25rem solid var(--font-color);
-    transform: rotate(45deg);
-}
-
-[data-button~="circle"]:active {
-    box-shadow: none;
+    content: "^";
+    font-size: 2rem;
 }

@@ -21,10 +21,11 @@ input[type="tel"],
 input[type="url"] {
     display: block;
     width: 100%;
-    padding: $form-padding-y $form-padding-x;
+    padding: $form-padding;
     border: $form-border-width solid $form-border-color;
     background-color: $form-background;
     color: $form-text;
+    font-family: $form-font-family;
     @if $form-border-radius != false {
         border-radius: $form-border-radius;
     }
@@ -49,6 +50,7 @@ select,
 [type="button"],
 [type="reset"],
 [type="submit"] {
+    font-family: $button-font-family;
     overflow: visible;
     text-transform: none;
 }

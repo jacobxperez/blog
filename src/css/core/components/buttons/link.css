@@ -2,7 +2,9 @@
     text-decoration: none;
     background-color: transparent;
     color: $link-color;
+    font-family: $body-font-family;
     text-decoration: $link-text-decoration;
+    text-underline-offset: $link-underline-offset;
 
     &:is([data-state="active"], :hover, :active) {
         background-color: transparent;

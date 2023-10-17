@@ -1,5 +1,4 @@
 # Custom Modules
 
--   Modify the grid to your project specifications.
--   Modify print styles to your project specifications.
--   Add custom modules here then link them on file [main.css](https://github.com/jacobxperez/rams/blob/master/src/css/main.css) for compiling.
+- Modify print styles to your project specifications.
+- Add custom modules here then link them on file [import.css](https://github.com/jacobxperez/rams/blob/master/src/css/custom/import.css) for compiling.
