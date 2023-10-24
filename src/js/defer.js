@@ -40,7 +40,7 @@ let fetchURL;
 location.hostname === 'localhost' || location.hostname === '127.0.0.1'
     ? (fetchURL = window.location.origin + '/templates/index.2a86ff1c.html')
     : (fetchURL =
-          window.location.origin + '/blog/templates/index.6e7a5d68.html');
+          window.location.origin + '/blog/templates/index.aea2e540.html');
 
 let layout = `
     <nav data-navbar="top">
