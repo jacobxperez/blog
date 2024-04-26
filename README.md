@@ -10,7 +10,7 @@ I am a front-end web developer and designer. I build beautiful websites with HTM
 
 ## LICENSE
 
-Copyright (C) 2023 [Jacob Perez](https://github.com/jacobxperez)
+Copyright (C) 2024 [Jacob Perez](https://github.com/jacobxperez)
 
 ### Content
 
