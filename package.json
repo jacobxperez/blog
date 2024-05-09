@@ -1,16 +1,16 @@
 {
-    "name": "rams",
+    "name": "jacob-perez",
     "version": "1.0.0",
-    "description": "A Class-Less CSS Design System Framework",
-    "source": [
-        "src/index.html"
-    ],
+    "description": "My personal blog",
+    "targets": {
+        "dev": {
+            "source": "./src/index.html",
+            "distDir": "./docs"
+        }
+    },
     "scripts": {
-        "docs": "parcel docs/index.html --no-source-maps",
-        "dev": "parcel serve --no-source-maps",
-        "watch": "parcel watch --no-source-maps",
-        "build": "parcel build --no-source-maps --no-content-hash --dist-dir docs/ --public-url /blog",
-        "rams": "parcel build docs/index.html --no-content-hash --no-source-maps --public-url /rams --dist-dir ramsLive/"
+        "dev": "parcel serve --target dev --no-source-maps",
+        "build": "parcel build --target dev --no-source-maps --no-content-hash --public-url /blog"
     },
     "repository": {
         "type": "git",
